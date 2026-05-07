@@ -1152,7 +1152,43 @@
   }
   .form-group select option { background: var(--navy-mid); }
 
-  /* ── FOOTER ── */
+  /* ── CONTACT CTA BUTTONS ── */
+  .contact-cta-btns {
+    display: flex; gap: 12px; flex-wrap: nowrap;
+    margin-bottom: 32px;
+  }
+  .cta-btn-call, .cta-btn-email, .cta-btn-zalo {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; padding: 16px 12px;
+    font-family: 'Rajdhani', sans-serif; font-size: 15px;
+    font-weight: 700; letter-spacing: 2px;
+    text-decoration: none; text-transform: uppercase;
+    transition: all 0.3s; white-space: nowrap;
+  }
+  .cta-btn-call {
+    background: var(--gold); color: var(--navy);
+    clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  }
+  .cta-btn-call:hover { background: var(--gold-light); }
+  .cta-btn-email {
+    background: rgba(255,255,255,0.05); color: var(--gold);
+    border: 1px solid rgba(201,162,39,0.35);
+  }
+  .cta-btn-email:hover { background: rgba(201,162,39,0.1); }
+  .cta-btn-zalo {
+    background: rgba(0,120,255,0.12); color: #60a5fa;
+    border: 1px solid rgba(0,120,255,0.3);
+  }
+  .cta-btn-zalo:hover { background: rgba(0,120,255,0.22); }
+
+  @media (max-width: 600px) {
+    .contact-cta-btns {
+      flex-wrap: wrap; gap: 10px;
+    }
+    .cta-btn-call { flex: 1 1 100%; }
+    .cta-btn-email { flex: 1 1 calc(50% - 5px); }
+    .cta-btn-zalo  { flex: 1 1 calc(50% - 5px); }
+  }
   footer {
     background: rgba(0,0,0,0.5);
     border-top: 1px solid rgba(201,162,39,0.15);
@@ -3031,10 +3067,10 @@
     </div>
     <div>
       <!-- Quick Connect -->
-      <div style="display:flex;gap:12px;flex-wrap:nowrap;margin-bottom:32px;min-width:0;">
-        <a href="tel:+84915460790" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 12px;background:var(--gold);color:var(--navy);font-family:Rajdhani,sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-decoration:none;text-transform:uppercase;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all 0.3s;white-space:nowrap;">📲 Call / Zalo</a>
-        <a href="mailto:contact@sonicei.com?subject=Project%20Inquiry%20%E2%80%94%20SONIC%20E%26I%20Solutions&body=Dear%20Mr.%20Son%2C%0A%0AI%20am%20interested%20in%20discussing%20a%20project.%0A%0ARegards%2C" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 12px;background:rgba(255,255,255,0.05);color:var(--gold);border:1px solid rgba(201,162,39,0.35);font-family:Rajdhani,sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:all 0.3s;white-space:nowrap;">✉️ Send Email</a>
-        <a href="https://zalo.me/0915460790" target="_blank" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 12px;background:rgba(0,120,255,0.12);color:#60a5fa;border:1px solid rgba(0,120,255,0.3);font-family:Rajdhani,sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:all 0.3s;white-space:nowrap;">💬 Zalo Chat</a>
+      <div class="contact-cta-btns">
+        <a href="tel:+84915460790" class="cta-btn-call">📲 Call / Zalo</a>
+        <a href="mailto:contact@sonicei.com?subject=Project%20Inquiry%20%E2%80%94%20SONIC%20E%26I%20Solutions&body=Dear%20Mr.%20Son%2C%0A%0AI%20am%20interested%20in%20discussing%20a%20project.%0A%0ARegards%2C" class="cta-btn-email">✉️ Send Email</a>
+        <a href="https://zalo.me/0915460790" target="_blank" class="cta-btn-zalo">💬 Zalo Chat</a>
       </div>
       <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(201,162,39,0.15); padding:clamp(20px,4vw,44px); box-sizing:border-box;">
         <div data-i18n="form_title" style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:3px; color:var(--gold); margin-bottom:32px;">SEND A MESSAGE</div>
