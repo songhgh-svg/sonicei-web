@@ -211,7 +211,7 @@
   /* Hero headline override */
   .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
-    line-height: 0.88;
+    line-height: 1;
     letter-spacing: 1px;
     opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
     text-shadow: 0 2px 24px rgba(0,0,0,0.95), 0 4px 48px rgba(0,0,0,0.8);
@@ -220,13 +220,15 @@
     font-size: clamp(72px, 9vw, 130px);
     display: block;
     color: #ffffff;
+    margin-bottom: 32px;
     text-shadow: 0 0 40px rgba(255,255,255,0.15), 0 2px 20px rgba(0,0,0,0.9);
   }
   .hero h1 .line-med {
-    font-size: clamp(42px, 5vw, 72px);
+    font-size: clamp(63px, 7.5vw, 108px);
     display: block;
     color: #c8d8f0;
     letter-spacing: 6px;
+    margin-bottom: 32px;
     text-shadow: 0 0 30px rgba(200,216,240,0.2), 0 2px 16px rgba(0,0,0,0.9);
   }
   .hero h1 .line-accent {
@@ -1251,10 +1253,10 @@
     .hero-stats-panel { display: none !important; }
     .hero-kpi-strip { display: flex !important; }
     /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
-    .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; }
-    .hero h1 .line-med    { font-size: clamp(36px, 10vw, 58px);  letter-spacing: 8px; }
+    .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; margin-bottom: 20px; }
+    .hero h1 .line-med    { font-size: clamp(54px, 15vw, 87px);  letter-spacing: 8px; margin-bottom: 20px; }
     .hero h1 .line-accent { font-size: clamp(30px,  9vw, 50px);  letter-spacing: 5px; }
-    .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 0.9; }
+    .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 1; }
     .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: center; }
     .proof-num            { font-size: 30px; }
     .proof-item           { text-align: center; }
