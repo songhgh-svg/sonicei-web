@@ -427,12 +427,13 @@
   .hero h1 .gold { color: var(--gold); }
   .hero-sub {
     margin-top: 24px;
-    font-size: 19px; font-weight: 500; line-height: 1.85;
+    font-size: 22px; font-weight: 500; line-height: 1.75;
     color: rgba(240,244,255,0.92);
     text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.85);
     max-width: 680px;
     border-left: 2px solid var(--gold);
     padding-left: 16px;
+    text-align: justify;
     opacity: 0; animation: fadeUp 0.8s 0.72s forwards;
   }
   .btn-gold {
@@ -462,6 +463,121 @@
   .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); }
   .stat-divider { width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin-left: auto; }
+
+  /* ══════════════════════════════════════════════
+     UNIFIED TYPOGRAPHY SYSTEM — single source of truth
+     Cấp 1: Section label  → Mono 11px / ls:4px
+     Cấp 2: Section title  → Bebas clamp(52,6.5vw,96px)
+     Cấp 3: Card / block h → Bebas 26px / ls:2px
+     Cấp 4: Sub-label      → Mono 10px / ls:3px
+     Cấp 5: Body text      → Rajdhani 16px
+     Cấp 6: Small meta     → Rajdhani 12px / ls:1.5px
+     Stat number (big)     → Bebas 48px
+     Stat number (small)   → Bebas 28px
+  ══════════════════════════════════════════════ */
+
+  /* ── Cấp 3: Card/block headings — tất cả section ── */
+  .card h3, .card h4,
+  .service-card h3,
+  .supply-card h3,
+  .vision-card h3,
+  .ai-feature h4,
+  .contact-block h3,
+  .market h3,
+  .hiw-title,
+  .cred-header-label + *,
+  .case-study-title {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 26px !important;
+    letter-spacing: 2px !important;
+    line-height: 1.1 !important;
+  }
+
+  /* ── Cấp 5: Body/description text — tất cả card ── */
+  .card p,
+  .service-card p,
+  .supply-card p,
+  .vision-card p,
+  .about-text p,
+  .section-sub,
+  .hero-sub,
+  .download-desc,
+  .hiw-step-desc,
+  .testimonial-text,
+  .case-study-desc,
+  .investor-point-desc {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+  }
+
+  /* ── Cấp 6: List items trong card ── */
+  .service-card ul li,
+  .supply-card ul li,
+  .card ul li {
+    font-size: 14px !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  /* ── Stat numbers (big panels) ── */
+  .proof-num,
+  .case-stat-num,
+  .stat-panel-num,
+  .ai-proof-num,
+  .market-stat-num {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 48px !important;
+    line-height: 1 !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* ── Stat numbers (small inline) ── */
+  .hero-kpi-num,
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+  }
+
+  /* ── Meta labels dưới stat ── */
+  .proof-label, .ai-proof-label,
+  .case-stat-label, .stat-panel-label,
+  .hero-kpi-label, .stat-label,
+  .market-stat-label {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+  }
+
+  /* ── Section sub-label (category tag) ── */
+  .section-label,
+  .hiw-label, .ai-proof-label,
+  .cred-header-label,
+  .market-label {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 11px !important;
+    letter-spacing: 4px !important;
+    text-transform: uppercase !important;
+  }
+
+  /* ── Button text ── */
+  .btn-gold, .btn-outline, .btn-gold-pulse,
+  .profile-dl-btn, .scan-btn {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* ── Nav links ── */
+  .nav-links a, .mobile-menu a {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+  }
+
 
   /* ── SECTION BASE ── */
   section { padding: 100px 60px 100px; max-width: 100%; }
@@ -779,23 +895,25 @@
     flex-wrap: wrap; gap: 0;
     background: rgba(0,0,0,0.45);
     border-top: 1px solid rgba(201,162,39,0.3);
-    padding: 32px 60px;
+    padding: 24px 60px;
     position: relative; z-index: 2;
   }
   .ai-proof-item {
     display: flex; align-items: center; gap: 10px;
-    padding: 0 40px;
+    padding: 0 32px;
+    white-space: nowrap;
   }
-  .ai-proof-icon { font-size: 20px; }
+  .ai-proof-icon { font-size: 18px; flex-shrink: 0; }
   .ai-proof-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--gold); line-height: 1;
+    font-size: 30px; color: var(--gold); line-height: 1;
     text-shadow: 0 0 20px rgba(201,162,39,0.4);
+    flex-shrink: 0;
   }
   .ai-proof-label {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
     color: rgba(240,244,255,0.75); font-weight: 600;
-    max-width: 140px; line-height: 1.4;
+    white-space: nowrap; line-height: 1.2;
   }
   .ai-proof-trusted {
     color: var(--gold-light); max-width: 240px;
@@ -1133,7 +1251,7 @@
     .proof-num            { font-size: 30px; }
     .proof-item           { text-align: center; }
     .hero-guarantee       { font-size: 12px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 28px; }
+    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 18px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .hero-kpi-strip       { justify-content: center; }
@@ -1163,15 +1281,30 @@
     .contact-item { padding: 14px; }
     .contact-item-value { font-size: 14px; word-break: break-all; }
 
-    /* ── Social Proof ── */
+    /* ── MOBILE UNIFIED TYPOGRAPHY ── */
+    /* Card headings — cùng cấp, cùng size */
+    .card h3, .card h4,
+    .service-card h3, .supply-card h3,
+    .vision-card h3, .ai-feature h4,
+    .case-study-title, .hiw-title { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    /* Body text */
+    .card p, .service-card p, .supply-card p,
+    .section-sub, .hero-sub,
+    .hiw-step-desc, .testimonial-text,
+    .case-study-desc { font-size: 15px !important; line-height: 1.75 !important; }
+    /* Stat numbers mobile */
+    .proof-num, .case-stat-num, .stat-panel-num,
+    .ai-proof-num { font-size: 26px !important; }
+    .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
+    .ai-proof-item { padding: 10px 0; width: 100%; white-space: nowrap; gap: 10px; }
+    .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
+    .ai-proof-label { white-space: nowrap; font-size: 12px !important; letter-spacing: 1px !important; }
+    .ai-proof-icon { font-size: 16px !important; }
+    /* Social Proof */
     .case-study { padding: 18px 14px; word-break: break-word; overflow-wrap: break-word; }
     .case-study-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .case-stat-num { font-size: 26px; }
-    .case-study-title { font-size: 16px; line-height: 1.3; }
     .case-study-client { font-size: 11px; }
-    .case-study-desc { font-size: 13px; }
     .testimonial { padding: 16px 14px; word-break: break-word; overflow-wrap: break-word; }
-    .testimonial-text { font-size: 13px; line-height: 1.6; }
     .testimonial-author { flex-direction: column; gap: 4px; }
     .testimonial-company { text-align: left; }
     .testimonials { gap: 12px; }
