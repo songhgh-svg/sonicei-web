@@ -1138,7 +1138,9 @@
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .hero-kpi-strip       { justify-content: center; }
     .hero-kpi-item        { text-align: center; }
-    .section-label        { justify-content: center; }
+    .ai-grid { padding: 0 !important; }
+    .ai-section { padding: 60px 16px 56px !important; }
+    .ai-phone { max-width: 100% !important; }
 
     /* ── Section title ── */
     .section-title { font-size: clamp(30px, 8vw, 56px); }
@@ -1147,7 +1149,8 @@
     .about-grid, .ai-grid, .contact-grid,
     .market-grid, .proof-grid,
     .academy-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-    .services-grid, .supply-grid { grid-template-columns: 1fr !important; }
+    .services-grid, .supply-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
+    .service-card { padding: 24px 18px !important; }
     .investor-points { grid-template-columns: 1fr 1fr; gap: 8px; }
     .form-row { grid-template-columns: 1fr !important; }
 
@@ -2103,9 +2106,9 @@
   <!-- SOCIAL PROOF BAR — below demo -->
   <div class="ai-proof-bar">
     <div class="ai-proof-item">
-      <span class="ai-proof-icon">⭐</span>
-      <span class="ai-proof-num">200+</span>
-      <span class="ai-proof-label" data-i18n="ai_proof1">Engineers Using AI-Punch™</span>
+      <span class="ai-proof-icon">🧪</span>
+      <span class="ai-proof-num" style="font-size:18px; letter-spacing:1px;">BETA</span>
+      <span class="ai-proof-label" data-i18n="ai_proof1">Early Access — Live Testing Phase</span>
     </div>
     <div class="ai-proof-divider"></div>
     <div class="ai-proof-item">
@@ -2120,16 +2123,10 @@
       <span class="ai-proof-label" data-i18n="ai_proof3">Report Generated Per Item</span>
     </div>
     <div class="ai-proof-divider"></div>
-    <div class="ai-proof-item ai-proof-clients">
-      <span class="ai-proof-icon">🏭</span>
-      <div class="ai-proof-client-wrap">
-        <div class="ai-proof-client-label" data-i18n="ai_proof4_label">Trusted by</div>
-        <div class="ai-proof-client-logos">
-          <span class="ai-client-badge">VARD</span>
-          <span class="ai-client-dot">·</span>
-          <span class="ai-client-badge">SEAONICS</span>
-        </div>
-      </div>
+    <div class="ai-proof-item">
+      <span class="ai-proof-icon">🔒</span>
+      <span class="ai-proof-num" style="font-size:14px; letter-spacing:0.5px;">LIMITED</span>
+      <span class="ai-proof-label">Beta Partners Only</span>
     </div>
   </div>
 
@@ -3073,7 +3070,7 @@
       hero_stat1: 'Years Experience', hero_stat2: 'Global Partners', hero_stat3: 'AI Powered QA/QC',
       hero_proof2: 'Punch Items Closed', hero_proof3: 'Defects at Handover',
       hero_kpi1: 'Rework Cost Saved', hero_kpi2: 'Faster Punch Closure', hero_kpi3: 'On-Time Handover', hero_kpi3_sub: '✓ Guaranteed',
-      ai_proof1: 'Engineers Using AI-Punch™', ai_proof2: 'Defect Detection Accuracy', ai_proof3: 'Report Generated Per Item', ai_proof4_label: 'Trusted by',
+      ai_proof1: 'Early Access — Live Testing Phase', ai_proof2: 'Defect Detection Accuracy', ai_proof3: 'Report Generated Per Item', ai_proof4_label: 'Trusted by',
       hiw1_title: 'Take Photo or Upload', hiw1_desc: 'Capture termination or component directly in field',
       hiw2_title: 'AI Analyzes Image', hiw2_desc: 'Google Gemini AI scans for defects in under 3 seconds',
       hiw3_title: 'Get Error Code', hiw3_desc: 'Exact defect type, location and severity returned instantly',
@@ -3178,7 +3175,7 @@
       hero_kpi1: 'Tiết Kiệm Chi Phí Làm Lại', hero_kpi2: 'Đóng Punch Nhanh Hơn',
       hero_kpi3: 'Bàn Giao Đúng Hạn', hero_kpi3_sub: '✓ Đã Cam Kết',
       // AI
-      ai_proof1: 'Kỹ Sư Đang Dùng AI-Punch™', ai_proof2: 'Độ Chính Xác Phát Hiện Lỗi',
+      ai_proof1: 'Truy Cập Sớm — Đang Thử Nghiệm Thực Tế', ai_proof2: 'Độ Chính Xác Phát Hiện Lỗi',
       ai_proof3: 'Báo Cáo Tạo Ra Mỗi Hạng Mục', ai_proof4_label: 'Được Tin Dùng Bởi',
       hiw1_title: 'Chụp Ảnh hoặc Tải Lên', hiw1_desc: 'Chụp đầu cáp hoặc thiết bị ngay tại hiện trường',
       hiw2_title: 'AI Phân Tích Ảnh', hiw2_desc: 'Google Gemini AI quét lỗi trong vòng dưới 3 giây',
