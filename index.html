@@ -488,9 +488,9 @@
   .cred-header-label + *,
   .case-study-title {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 26px !important;
+    font-size: 52px !important;
     letter-spacing: 2px !important;
-    line-height: 1.1 !important;
+    line-height: 1.05 !important;
   }
 
   /* ── Cấp 5: Body/description text — tất cả card ── */
@@ -507,15 +507,15 @@
   .case-study-desc,
   .investor-point-desc {
     font-family: 'Rajdhani', sans-serif !important;
-    font-size: 16px !important;
-    line-height: 1.85 !important;
+    font-size: 18px !important;
+    line-height: 1.8 !important;
   }
 
   /* ── Cấp 6: List items trong card ── */
   .service-card ul li,
   .supply-card ul li,
   .card ul li {
-    font-size: 14px !important;
+    font-size: 20px !important;
     letter-spacing: 0.3px !important;
   }
 
@@ -1286,12 +1286,20 @@
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3, .ai-feature h4,
-    .case-study-title, .hiw-title { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; }
+    /* Academy modules */
+    .module-title { font-size: 28px !important; }
+    .module-desc  { font-size: 16px !important; }
+    .module-num   { font-size: 32px !important; min-width: 36px !important; }
+    .academy-stat-num { font-size: 36px !important; }
+    .academy-stat-label { font-size: 11px !important; }
     /* Body text */
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 15px !important; line-height: 1.75 !important; }
+    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
+    /* List items */
+    .service-card ul li, .card ul li { font-size: 16px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num, .stat-panel-num,
     .ai-proof-num { font-size: 26px !important; }
@@ -1444,17 +1452,17 @@
   }
   .module-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: rgba(201,162,39,0.3);
-    line-height: 1; min-width: 40px;
+    font-size: 48px; color: rgba(201,162,39,0.3);
+    line-height: 1; min-width: 52px;
   }
   .module-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 1px;
-    color: var(--gold); margin-bottom: 4px;
+    font-size: 40px; letter-spacing: 1.5px;
+    color: var(--gold); margin-bottom: 6px;
   }
   .module-desc {
-    font-size: 13px; color: rgba(240,244,255,0.55);
-    line-height: 1.6;
+    font-size: 20px; color: rgba(240,244,255,0.65);
+    line-height: 1.65;
   }
   .academy-visual {
     position: relative;
@@ -1496,12 +1504,12 @@
   }
   .academy-stat-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px; color: var(--gold); line-height: 1;
+    font-size: 52px; color: var(--gold); line-height: 1;
   }
   .academy-stat-label {
-    font-size: 10px; letter-spacing: 2px;
+    font-size: 14px; letter-spacing: 2px;
     color: var(--gray); text-transform: uppercase;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
   /* ── ACADEMY PHOTOS ── */
@@ -1534,12 +1542,12 @@
   }
   .academy-photo-tag {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 10px; color: var(--gold);
-    letter-spacing: 3px; display: block; margin-bottom: 4px;
+    font-size: 12px; color: var(--gold);
+    letter-spacing: 3px; display: block; margin-bottom: 6px;
   }
   .academy-photo-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 1px;
+    font-size: 30px; letter-spacing: 1.5px;
     color: var(--white); line-height: 1.2;
   }
   @media (max-width: 900px) {
@@ -1814,7 +1822,7 @@
   .vision-card:nth-child(3) .vision-num { color: #00c896; }
   .vision-card-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px; letter-spacing: 2px;
+    font-size: 36px; letter-spacing: 2px;
     color: #fff; margin-bottom: 16px;
   }
   .vision-divider {
@@ -1824,24 +1832,24 @@
   .vision-card:nth-child(2) .vision-divider { background: var(--cyan, #00d4ff); }
   .vision-card:nth-child(3) .vision-divider { background: #00c896; }
   .vision-card p {
-    font-size: 14px; line-height: 1.75;
+    font-size: 18px; line-height: 1.75;
     color: rgba(255,255,255,0.68);
     font-family: 'Rajdhani', sans-serif; font-weight: 400;
   }
   .vision-values { list-style: none; padding: 0; margin: 0; }
   .vision-values li {
-    padding: 10px 0;
+    padding: 14px 0;
     border-bottom: 1px solid rgba(255,255,255,0.07);
     font-family: 'Rajdhani', sans-serif;
-    font-size: 14px; color: rgba(255,255,255,0.68);
-    line-height: 1.6;
+    font-size: 18px; color: rgba(255,255,255,0.75);
+    line-height: 1.65;
   }
   .vision-values li:last-child { border-bottom: none; }
   .vision-values strong {
     color: #00c896;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px; letter-spacing: 2px;
-    display: block; margin-bottom: 3px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 2px;
+    display: block; margin-bottom: 4px;
   }
   @media (max-width: 768px) {
     .vision-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -2677,10 +2685,10 @@
         </div>
         <div class="academy-screen-body">
           <div class="cert-badge">🎓 Certificate of Completion</div>
-          <p style="color:rgba(240,244,255,0.6); font-size:14px; line-height:1.8; margin-bottom:20px;">
+          <p style="color:rgba(240,244,255,0.6); font-size:18px; line-height:1.8; margin-bottom:20px;">
             Graduates of SONIC Academy are trained to meet the exact technical standards required on GE and Siemens energy projects — from offshore platforms to power plants.
           </p>
-          <div style="border-left:3px solid var(--gold); padding-left:18px; font-style:italic; color:var(--gold-light); font-size:15px; line-height:1.7; margin-bottom:28px;">
+          <div style="border-left:3px solid var(--gold); padding-left:18px; font-style:italic; color:var(--gold-light); font-size:18px; line-height:1.8; margin-bottom:28px;">
             "We don't just train technicians — we build engineers who pass every inspection."
           </div>
           <div class="academy-stat-row">
@@ -2782,7 +2790,7 @@
         </div>
         <div style="margin-top:28px; padding:20px; background:rgba(201,162,39,0.06); border:1px solid rgba(201,162,39,0.2);">
           <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:2px; color:var(--gold); margin-bottom:8px;">INTERESTED IN PARTNERSHIP?</div>
-          <p style="font-size:13px; color:rgba(240,244,255,0.6); margin-bottom:16px;">We are open to strategic investment, partnerships and licensing discussions for the AI-Punch™ platform.</p>
+          <p style="font-size:18px; font-weight:700; color:rgba(240,244,255,0.85); margin-bottom:16px;">We are open to strategic investment, partnerships and licensing discussions for the AI-Punch™ platform.</p>
           <a href="#contact" class="btn-gold" style="font-size:12px; padding:12px 28px;">Request Investor Deck</a>
         </div>
       </div>
