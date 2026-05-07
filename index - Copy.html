@@ -1119,26 +1119,18 @@
     .vision-section { padding: 56px 16px !important; }
 
     /* ── Hero ── */
-    .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: flex-start; }
-    .hero-content { max-width: 100% !important; width: 100%; text-align: center; }
+    .hero { padding: 160px 16px 56px !important; min-height: auto; }
+    .hero-content { max-width: 100% !important; width: 100%; }
     /* Stats panel: ẩn absolute panel, thay bằng inline strip dưới CTA */
     .hero-stats-panel { display: none !important; }
     .hero-kpi-strip { display: flex !important; }
-    /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
-    .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; }
-    .hero h1 .line-med    { font-size: clamp(36px, 10vw, 58px);  letter-spacing: 8px; }
-    .hero h1 .line-accent { font-size: clamp(30px,  9vw, 50px);  letter-spacing: 5px; }
-    .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 0.9; }
-    .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .proof-num            { font-size: 30px; }
-    .proof-item           { text-align: center; }
-    .hero-guarantee       { font-size: 12px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 28px; }
-    .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
-    .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
-    .hero-kpi-strip       { justify-content: center; }
-    .hero-kpi-item        { text-align: center; }
-    .section-label        { justify-content: center; }
+    .hero h1 .line-big    { font-size: clamp(48px, 12vw, 80px); }
+    .hero h1 .line-med    { font-size: clamp(24px,  7vw, 44px); }
+    .hero h1 .line-accent { font-size: clamp(22px, 6vw, 40px); }
+    .hero h1              { font-size: clamp(48px, 11vw, 76px); }
+    .hero-proof           { gap: 12px; flex-wrap: wrap; }
+    .proof-num            { font-size: 26px; }
+    .hero-guarantee       { font-size: 11px; letter-spacing: 1.5px; padding: 10px 14px; }
 
     /* ── Section title ── */
     .section-title { font-size: clamp(30px, 8vw, 56px); }
@@ -1204,10 +1196,7 @@
     .hero { padding: 150px 14px 48px !important; }
 
     .investor-points { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: clamp(58px, 16vw, 82px); }
-    .hero h1 .line-big    { font-size: clamp(58px, 16vw, 82px); letter-spacing: 1px; }
-    .hero h1 .line-med    { font-size: clamp(32px,  9vw, 50px); letter-spacing: 6px; }
-    .hero h1 .line-accent { font-size: clamp(28px,  8vw, 44px); letter-spacing: 4px; }
+    .hero h1 { font-size: clamp(40px, 12vw, 58px); }
     .proof-grid { grid-template-columns: 1fr; }
     .form-row   { grid-template-columns: 1fr !important; }
 
@@ -1769,7 +1758,10 @@
     <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
   <div class="nav-right">
-
+  <div class="lang-switcher">
+      <button id="btnEN" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button id="btnVI" class="lang-btn" onclick="setLang('vi')">VI</button>
+    </div>
     <a href="#contact" class="btn-gold" style="font-size:12px;padding:10px 24px;" data-i18n="nav_cta">Request Assessment</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -1789,6 +1781,10 @@
   <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
   <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
   <a href="#contact" class="btn-gold" onclick="closeMenu()">Request Assessment</a>
+  <div class="lang-switcher" style="margin-top:8px; justify-content:center;">
+    <button id="btnEN_mob" class="lang-btn active" onclick="setLang('en');closeMenu()">EN</button>
+    <button id="btnVI_mob" class="lang-btn" onclick="setLang('vi');closeMenu()">VI</button>
+  </div>
 </div>
 
 
@@ -1843,7 +1839,7 @@
     <!-- Guarantee badge -->
     <div class="hero-guarantee">
       <span class="g-icon">🛡</span>
-      <span data-i18n="hero_guarantee_badge">PERFORMANCE GUARANTEE — ZERO DEFECT<br>OR FEE REDUCTION APPLIED</span>
+      <span data-i18n="hero_guarantee_badge">PERFORMANCE GUARANTEE — ZERO DEFECT OR FEE REDUCTION APPLIED</span>
     </div>
 
     <!-- Main headline -->
@@ -3057,7 +3053,7 @@
       // HERO H1
       hero_h1_line1: 'ZERO DEFECT.', hero_h1_line2: 'ZERO REWORK.', hero_h1_line3: 'OR YOU DON\'T PAY.',
       hero_pain_bar: 'Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don\'t.',
-      hero_guarantee_badge: 'PERFORMANCE GUARANTEE — ZERO DEFECT<br>OR FEE REDUCTION APPLIED',
+      hero_guarantee_badge: 'PERFORMANCE GUARANTEE — ZERO DEFECT OR FEE REDUCTION APPLIED',
       // ABOUT
       about_title1: '25 YEARS ON THE', about_title2: 'GLOBAL FRONTLINES',
       about_p1: "SONIC E&I Solutions is a specialist firm delivering precision Electrical & Instrumentation services for the world's most demanding energy projects. Founded by a former Siemens Energy official and GE Owner's Engineer, we bring international standards directly to the field.",
@@ -3272,6 +3268,12 @@
       // FOOTER
       footer_tagline: '"Đối Tác Đáng Tin Cậy trong Lĩnh vực E&I."',
       footer_copy: '© 2026 SONIC E&I Solutions. Bảo lưu mọi quyền.',
+      // MOBILE BARS
+      mobile_pain_bar: 'Mỗi lỗi tốn $500–$5,000 · Mỗi ngày trễ tiêu tốn $50K+ · Hầu hết EPC chấp nhận điều này là "bình thường" — Chúng tôi thì không.',
+      ticker_item1: '✓ 1,247 hạng mục punch đã đóng — Dự án VARD OSV 2025',
+      ticker_item2: 'ĐANG THỰC HIỆN · VARD Offshore — Commissioning Hệ Thống, Q1 2026',
+      ticker_item3: 'HOÀN THÀNH · 0 lỗi trên 60,000+ điểm đấu nối — Seaonics Gangway 2026',
+      ticker_item4: 'AI-PUNCH™ QA/QC thời gian thực — Hỗ trợ bởi Google Gemini AI',
     }
   };
 
@@ -3296,10 +3298,11 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (t[key] !== undefined) {
+        // For option elements, update text but preserve value attribute
         if (el.tagName === 'OPTION' || el.tagName === 'BUTTON') {
           el.textContent = t[key];
         } else {
-          el.innerHTML = t[key];
+          el.textContent = t[key];
         }
       }
     });
@@ -3312,6 +3315,22 @@
 
     // Update lang attribute
     document.documentElement.lang = lang;
+    
+    // Update ticker bar items
+    const tickerItems = [
+      { label: 'LIVE', highlight: lang === 'vi' ? '✓ 1,247 hạng mục punch đã đóng' : '✓ 1,247 punch items closed', suffix: lang === 'vi' ? '— Dự án VARD OSV 2025' : '— VARD OSV Project 2025' },
+      { label: lang === 'vi' ? 'ĐANG THỰC HIỆN' : 'ACTIVE', highlight: 'VARD Offshore', suffix: lang === 'vi' ? '— Commissioning Hệ Thống, Q1 2026' : '— System Commissioning, Q1 2026' },
+      { label: lang === 'vi' ? 'HOÀN THÀNH' : 'COMPLETED', highlight: lang === 'vi' ? '0 lỗi' : '0 defects', suffix: lang === 'vi' ? 'trên 60,000+ điểm đấu nối — Seaonics Gangway 2026' : 'on 60,000+ termination points — Seaonics Gangway 2026' },
+      { label: lang === 'vi' ? 'CHỨNG NHẬN' : 'CERTIFIED', highlight: 'IEC 61084 · Siemens Spec · GE Standards', suffix: lang === 'vi' ? '— Tất cả dự án' : '— All Projects' },
+      { label: 'AI-PUNCH™', highlight: lang === 'vi' ? 'QA/QC thời gian thực' : 'Real-time QA/QC', suffix: lang === 'vi' ? '— Hỗ trợ bởi Google Gemini AI' : '— Powered by Google Gemini AI' },
+    ];
+    const tickerHtml = [...tickerItems, ...tickerItems].map(item =>
+      `<span class="ticker-item"><span class="ticker-dot">●</span> ${item.label} <span class="ticker-highlight">${item.highlight}</span> ${item.suffix}</span>`
+    ).join('');
+    ['tickerTrack','tickerTrackDesktop'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = tickerHtml;
+    });
   }
 
   // ── FORM HANDLER ──
