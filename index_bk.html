@@ -111,7 +111,7 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 6px 32px;
+    padding: 10px 40px;
     display: flex; justify-content: space-between; align-items: center;
     background: rgba(10,22,40,0.92);
     backdrop-filter: blur(12px);
@@ -119,7 +119,7 @@
   }
   .logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px; letter-spacing: 3px;
+    font-size: 22px; letter-spacing: 3px;
     color: var(--gold); line-height: 1;
   }
   .logo span { color: var(--white); }
@@ -136,14 +136,13 @@
     white-space: nowrap;
   }
   .profile-dl-btn:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-  .nav-links { display: flex; gap: 16px; align-items: center; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a {
     text-decoration: none;
     color: var(--gray);
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 1.5px; text-transform: uppercase;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
     transition: color 0.3s;
-    white-space: nowrap;
   }
   .nav-links a:hover { color: var(--gold); }
 
@@ -153,17 +152,16 @@
     top: 0; left: 0; right: 0;
     z-index: 99;
     /* JS sets transform: translateY(navH) dynamically */
-    transform: translateY(42px); /* nav height ~42px */
+    transform: translateY(53px); /* fallback for mobile before JS runs */
     width: 100%;
   }
 
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: flex-start;
-    flex-direction: row; gap: 40px;
+    display: flex; align-items: center;
     position: relative; overflow: hidden;
-    padding: 90px 60px 80px;
+    padding: 220px 60px 80px; /* nav(73) + pain(40) + ticker(32) + gap(75) */
   }
 
   /* Pain bar */
@@ -179,8 +177,6 @@
     font-size: 11.5px; letter-spacing: 2.5px; color: #ffe066;
     text-transform: uppercase;
     opacity: 1;
-    transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, border-width 0.3s ease;
-    overflow: hidden;
   }
   .hero-pain-bar .pain-dot {
     width: 6px; height: 6px; border-radius: 50%;
@@ -324,37 +320,33 @@
 
   /* Right side stats panel */
   .hero-stats-panel {
-    position: relative; right: auto; top: auto; z-index: 3;
-    transform: none;
+    position: absolute; right: 56px; top: 50%; z-index: 3;
+    transform: translateY(-50%);
     display: flex; flex-direction: column; gap: 0;
     opacity: 0; animation: fadeLeft 0.8s 1.2s forwards;
     background: rgba(10,22,40,0.72);
     border: 1px solid rgba(201,162,39,0.25);
     backdrop-filter: blur(10px);
-    padding: 36px 44px;
-    min-width: 280px;
-    margin-left: auto;
-    margin-top: 200px;
-    align-self: flex-start;
-    flex-shrink: 0;
+    padding: 44px 44px;
+    min-width: 300px;
   }
-  .stat-panel-item { text-align: right; padding: 18px 0; }
+  .stat-panel-item { text-align: right; padding: 28px 0; }
   .stat-panel-item + .stat-panel-item {
     border-top: 1px solid rgba(201,162,39,0.15);
   }
   .stat-panel-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px; color: var(--gold); line-height: 1;
+    font-size: 88px; color: var(--gold); line-height: 1;
     text-shadow: 0 0 30px rgba(201,162,39,0.4);
   }
   .stat-panel-label {
-    font-size: 13px; letter-spacing: 3px;
+    font-size: 18px; letter-spacing: 3px;
     text-transform: uppercase; color: var(--white);
-    font-weight: 700; margin-top: 4px;
+    font-weight: 700; margin-top: 5px;
   }
   .stat-panel-zero {
-    font-size: 14px; letter-spacing: 2px; color: #00e8aa;
-    text-transform: uppercase; margin-top: 3px;
+    font-size: 18px; letter-spacing: 2px; color: #00e8aa;
+    text-transform: uppercase; margin-top: 4px;
     font-family: 'Share Tech Mono', monospace;
     font-weight: 700;
   }
@@ -407,8 +399,8 @@
   /* Mobile pain bar — fixed below nav, mobile only */
   .mobile-pain-bar {
     display: none;
-    position: fixed; left: 0; right: 0; z-index: 96;
-    top: 68px; /* below nav(42) + ticker(26) */
+    position: fixed; left: 0; right: 0; z-index: 97;
+    top: 53px; /* below nav — JS overrides */
     background: rgba(8,18,34,0.98);
     border-top: 1px solid rgba(201,162,39,0.5);
     border-bottom: 1px solid rgba(201,162,39,0.5);
@@ -417,13 +409,11 @@
     font-size: 9px; letter-spacing: 1px; color: #ffe066;
     text-transform: uppercase; text-align: center;
     line-height: 1.55; width: 100%;
-    transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
   }
   .mobile-ticker-bar {
     display: none;
-    position: fixed; left: 0; right: 0; z-index: 97;
-    top: 42px; /* directly below nav */
+    position: fixed; left: 0; right: 0; z-index: 96;
+    top: 120px; /* below nav + pain bar (2-line) — JS overrides */
     background: rgba(201,162,39,0.08);
     border-bottom: 1px solid rgba(201,162,39,0.2);
     overflow: hidden; height: 26px; width: 100%;
@@ -1940,7 +1930,7 @@
   </div>
   <div class="nav-right">
 
-    <a href="#contact" class="btn-gold" style="font-size:11px;padding:8px 18px;white-space:nowrap;letter-spacing:1.5px;" data-i18n="nav_cta">Request Assessment</a>
+    <a href="#contact" class="btn-gold" style="font-size:12px;padding:10px 24px;" data-i18n="nav_cta">Request Assessment</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1964,6 +1954,9 @@
 
 
 <!-- MOBILE PAIN BAR + TICKER (static, below nav, mobile only) -->
+<div class="mobile-pain-bar">
+  Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don't.
+</div>
 <div class="mobile-ticker-bar">
   <div class="ticker-track">
     <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
@@ -1976,14 +1969,14 @@
     <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
   </div>
 </div>
-<div class="mobile-pain-bar" id="mobilePainBar" style="transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
-  Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don't.
-</div>
 
 <!-- FLOATING CTA -->
 <!-- SUB-NAV WRAP: sticks right below fixed nav -->
 <div class="sub-nav-wrap">
-  <!-- TICKER — luôn hiển thị ngay dưới nav -->
+  <div class="hero-pain-bar">
+    <span class="pain-dot"></span>
+    <span data-i18n="hero_pain_bar">Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don't.</span>
+  </div>
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack">
       <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
@@ -1998,42 +1991,7 @@
       <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
     </div>
   </div>
-  <!-- PAIN BAR — ẩn/hiện khi click -->
-  <div class="hero-pain-bar" id="painBar" style="cursor:pointer;position:relative;" onclick="togglePainBar()" title="Click to hide">
-    <span class="pain-dot"></span>
-    <span data-i18n="hero_pain_bar">Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don't.</span>
-    <span id="painBarToggle" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:1px;opacity:0.5;">▲ HIDE</span>
-  </div>
 </div>
-<script>
-(function(){
-  var bar = document.getElementById('painBar');
-  var toggle = document.getElementById('painBarToggle');
-  var visible = true;
-  window.togglePainBar = function() {
-    visible = !visible;
-    bar.style.height = visible ? '' : '0';
-    bar.style.overflow = visible ? '' : 'hidden';
-    bar.style.padding = visible ? '' : '0';
-    bar.style.borderTopWidth = visible ? '' : '0';
-    bar.style.borderBottomWidth = visible ? '' : '0';
-    if (toggle) toggle.textContent = visible ? '▲ HIDE' : '▼ SHOW';
-  };
-  // Auto-hide after 10 seconds
-  setTimeout(function() {
-    if (visible) togglePainBar();
-    // Also hide mobile pain bar
-    var mob = document.getElementById('mobilePainBar');
-    if (mob) {
-      mob.style.height = '0';
-      mob.style.padding = '0';
-      mob.style.opacity = '0';
-      mob.style.borderTopWidth = '0';
-      mob.style.borderBottomWidth = '0';
-    }
-  }, 10000);
-})();
-</script>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -3157,18 +3115,18 @@
     const isMobile = window.innerWidth <= 900;
 
     if (isMobile) {
-      // Position mobile fixed bars: ticker first below nav, pain bar below ticker
+      // Position mobile fixed bars right below nav
       var painH = 0, tickH = 0;
-      if (mobileTick) {
-        mobileTick.style.top = navH + 'px';
-        tickH = mobileTick.getBoundingClientRect().height;
-      }
       if (mobilePain) {
-        mobilePain.style.top = (navH + tickH) + 'px';
+        mobilePain.style.top = navH + 'px';
         painH = mobilePain.getBoundingClientRect().height;
       }
-      // Hero padding = nav + ticker + pain + gap
-      if (hero) hero.style.paddingTop = (navH + tickH + painH + 20) + 'px';
+      if (mobileTick) {
+        mobileTick.style.top = (navH + painH) + 'px';
+        tickH = mobileTick.getBoundingClientRect().height;
+      }
+      // Hero padding = nav + pain + ticker + gap
+      if (hero) hero.style.paddingTop = (navH + painH + tickH + 20) + 'px';
     } else {
       // Desktop: use fixed sub-nav below nav
       const subNavH = subNav ? subNav.getBoundingClientRect().height : 0;
