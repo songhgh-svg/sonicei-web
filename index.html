@@ -112,7 +112,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 6px 32px;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: flex-start;gap: 0px; align-items: center;
     background: rgba(10,22,40,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(201,162,39,0.2);
@@ -557,7 +557,7 @@
   .market-stat-label {
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 11px !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1px !important;
     text-transform: uppercase !important;
   }
 
@@ -577,7 +577,7 @@
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1px !important;
   }
 
   /* ── Nav links ── */
@@ -585,7 +585,7 @@
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 13px !important;
     font-weight: 700 !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1px !important;
   }
 
 
@@ -2512,20 +2512,20 @@
   <div class="logo">SONIC <span>E&I</span> SOLUTIONS</div>
   <div class="nav-links">
     <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
-    <a href="#ai">AI-Punch™</a>
-    <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
-    <a href="#proof" data-i18n="nav_results">Results</a>
+    <a href="#ai">AI Platform</a>
+    <a href="#gallery" data-i18n="nav_gallery">ENGINEERING EXPERIENCE</a>
+    <a href="#proof" data-i18n="nav_results">INDUSTRIES</a>
     <a href="#services" data-i18n="nav_services">Services</a>
     <a href="#supply" data-i18n="nav_supply">Supply</a>
     <a href="#academy" data-i18n="nav_academy">Academy</a>
     <a href="#investors" data-i18n="nav_investors">Investors</a>
-    <a href="#vision" data-i18n="nav_vision">Vision</a>
+<!--    <a href="#vision" data-i18n="nav_vision">Vision</a> -->
     <a href="#about" data-i18n="nav_about">About</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
   <div class="nav-right">
 
-    <a href="#contact" class="btn-gold" style="font-size:11px;padding:8px 18px;white-space:nowrap;letter-spacing:1.5px;" data-i18n="nav_cta">Request Assessment</a>
+    <a href="#contact" class="btn-gold" style="font-size:11px;padding:8px 18px;white-space:nowrap;letter-spacing:1.5px;" data-i18n="nav_cta">Request Consultation</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -2533,9 +2533,9 @@
 </nav>
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#ai" onclick="closeMenu()">AI-Punch™</a>
-  <a href="#gallery" onclick="closeMenu()" data-i18n="nav_gallery">Gallery</a>
-  <a href="#proof" onclick="closeMenu()" data-i18n="nav_results">Results</a>
+  <a href="#ai" onclick="closeMenu()">AI Platform</a>
+  <a href="#gallery" onclick="closeMenu()" data-i18n="nav_gallery">ENGINEERING EXPERIENCE</a>
+  <a href="#proof" onclick="closeMenu()" data-i18n="nav_results">INDUSTRIES</a>
   <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Services</a>
   <a href="#supply" onclick="closeMenu()" data-i18n="nav_supply">Supply</a>
   <a href="#academy" onclick="closeMenu()" data-i18n="nav_academy">Academy</a>
@@ -2543,7 +2543,7 @@
   <a href="#vision" onclick="closeMenu()" data-i18n="nav_vision">Vision</a>
   <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
   <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
-  <a href="#contact" class="btn-gold" onclick="closeMenu()">Request Assessment</a>
+  <a href="#contact" class="btn-gold" onclick="closeMenu()">Request Consultation</a>
 </div>
 
 
@@ -2551,14 +2551,15 @@
 <!-- MOBILE PAIN BAR + TICKER (static, below nav, mobile only) -->
 <div class="mobile-ticker-bar">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
   </div>
 </div>
 <div class="mobile-pain-bar" id="mobilePainBar" style="transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
@@ -2571,17 +2572,16 @@
   <!-- TICKER — luôn hiển thị ngay dưới nav -->
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — VARD OSV Project 2025</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
-      <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
-    </div>
+    <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+  </div>
   </div>
   <!-- PAIN BAR — ẩn/hiện khi click -->
   <div class="hero-pain-bar" id="painBar" style="cursor:pointer;position:relative;" onclick="togglePainBar()" title="Click to hide">
@@ -3196,13 +3196,13 @@
     <div class="testimonials" style="display:flex;flex-direction:column;gap:16px;justify-content:space-between;height:100%;">
       <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:var(--gold); margin-bottom:4px;">// WHAT PARTNERS SAY</div>
       <div class="testimonial" style="flex:1;">
-        <div class="testimonial-text">Son's team delivered to a standard I've only seen from top-tier European contractors. AI-Punch eliminated our punch-list backlog overnight.</div>
+        <div class="testimonial-text">Son's team delivered to a standard I've only seen from top-tier European contractors. The team eliminated our punch-list backlog overnight.</div>
         <div class="testimonial-author">
           <div>
             <div class="testimonial-name">Project Engineer</div>
             <div class="testimonial-role">// E&I Lead Supervisor</div>
           </div>
-          <div class="testimonial-company">VARD Offshore<br>Vung Tau, 2025</div>
+          <div class="testimonial-company">Power Plant<br>Phu my, 2018</div>
         </div>
       </div>
       <div class="testimonial" style="flex:1;">
@@ -4050,7 +4050,7 @@
       val3_name: 'INNOVATION', val3_desc: 'Pioneering AI-Punch™ technology to eliminate human error.',
       nav_results: 'Results', nav_investors: 'Investors', nav_gallery: 'Gallery',
       nav_academy: 'Academy', nav_contact: 'Contact',
-      nav_cta: 'Request Assessment',
+      nav_cta: 'Request Consultation',
       // HERO H1
       hero_h1_line1: 'ZERO DEFECT.', hero_h1_line2: 'ZERO REWORK.', hero_h1_line3: 'OR YOU DON\'T PAY.',
       hero_pain_bar: 'Every defect costs $500–$5,000 · Every delay day costs $50K+ · Most EPCs accept this as "normal" — We don\'t.',
@@ -4358,7 +4358,7 @@
       text-decoration:none;font-family:'Rajdhani',sans-serif;
       font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
       background:#c9a227;color:#0a1628;border-bottom:1px solid rgba(201,162,39,0.2);">
-      <span>📋</span><span data-i18n="hero_btn1">Request Assessment</span>
+      <span>📋</span><span data-i18n="hero_btn1">Request Consultation</span>
     </a>
     <a href="#ai" onclick="fctaToggle()" style="
       display:flex;align-items:center;gap:10px;padding:16px 18px;
