@@ -3928,7 +3928,7 @@
 </script>
 
 <!-- FLOATING CTA -->
-<div id="fcta" onmouseleave="fctaClose()" style="position:fixed;bottom:70px;right:0;top:auto;left:auto;z-index:9999;display:flex;flex-direction:row;align-items:flex-end;">
+<div id="fcta" onmouseleave="fctaClose()" style="position:fixed;bottom:32px;right:0;top:auto;left:auto;z-index:9999;display:flex;flex-direction:row;align-items:flex-end;">
   <!-- Tab -->
   <div id="fcta-tab" onclick="fctaToggle()" onmouseenter="fctaOpen()" style="
     width:26px;min-height:88px;background:#c9a227;cursor:pointer;
@@ -3990,7 +3990,7 @@
     var el = document.getElementById('fcta');
     if (!el) return;
     el.setAttribute('style',
-      'position:fixed!important;bottom:70px!important;right:0!important;' +
+      'position:fixed!important;bottom:32px!important;right:0!important;' +
       'top:auto!important;left:auto!important;z-index:9999!important;' +
       'display:flex!important;flex-direction:row!important;align-items:flex-end!important;'
     );
@@ -4046,180 +4046,5 @@
   }
 })();
 </script>
-<!-- ===== ZALO FLOATING CHAT + GA4 + FB PIXEL + UTM TRACKING ===== -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script>
-  // Google Analytics 4
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8XBEYWCNB7', { send_page_view: true });
-
-  // Facebook Pixel
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'PIXEL_ID');
-  fbq('track', 'PageView');
-</script>
-
-<div id="zalo-widget">
-  <button id="zalo-btn" aria-label="Open chat support">
-    <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
-      <path d="M20.66 11.33c0-4.84-3.92-8.76-8.76-8.76S3.14 6.49 3.14 11.33c0 2.73 1.26 5.16 3.23 6.74l-.58 2.13 2.22-.55c.97.26 1.98.4 3.03.4 4.84 0 8.76-3.92 8.76-8.76h.86z"/>
-    </svg>
-    <span class="zalo-text">Chat Now</span>
-    <span class="zalo-badge">●</span>
-  </button>
-
-  <div id="zalo-box" class="zalo-hidden">
-    <div class="zalo-header">
-      <span>Online Support</span>
-      <button id="zalo-close" aria-label="Close chat">&times;</button>
-    </div>
-    <div class="zalo-body">
-      <p>👋 Hi there! Need assistance with E&I services?</p>
-      <ul class="zalo-quick-actions">
-        <!-- ⚠️ REPLACE WITH YOUR ZALO NUMBER -->
-        <li><a href="https://zalo.me/0915460790" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
-        <li><a href="tel:+84915460790">📞 Quick Call</a></li>
-        <li><a href="mailto:contact@sonicei.com">✉️ Send Email</a></li>
-      </ul>
-      <small>⏰ Replies within 15 mins (business hours)</small>
-    </div>
-  </div>
-</div>
-
-<style>
-  #zalo-widget { position: fixed; bottom: 5px; right: 0px; z-index: 9999; font-family: system-ui, -apple-system, sans-serif; }
-  #zalo-btn { display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; border: none; border-radius: 50px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 20px rgba(0,104,255,.4); transition: all .3s ease; position: relative; }
-  #zalo-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,104,255,.6); }
-  .zalo-text { display: inline-block; }
-  .zalo-badge { position: absolute; top: -4px; right: -4px; background: #00E676; color: #fff; width: 12px; height: 12px; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.1)} }
-  #zalo-box { position: absolute; bottom: 70px; right: 0; width: 320px; max-width: 90vw; background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.15); overflow: hidden; transition: all .3s ease; opacity: 1; transform: translateY(0); }
-  .zalo-hidden { opacity: 0; transform: translateY(20px); pointer-events: none; visibility: hidden; }
-  .zalo-header { background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; }
-  #zalo-close { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; line-height: 1; padding: 0 4px; }
-  .zalo-body { padding: 16px 18px; color: #333; font-size: 14px; line-height: 1.5; }
-  .zalo-body p { margin: 0 0 12px; color: #555; }
-  .zalo-quick-actions { list-style: none; padding: 0; margin: 0 0 12px; }
-  .zalo-quick-actions li { margin: 8px 0; }
-  .zalo-quick-actions a { display: flex; align-items: center; gap: 8px; color: #0068FF; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; background: #F0F7FF; transition: background .2s; }
-  .zalo-quick-actions a:hover { background: #E0F0FF; }
-  .zalo-body small { display: block; color: #999; font-size: 12px; border-top: 1px solid #eee; padding-top: 10px; }
-  @media (max-width: 480px) { #zalo-widget { bottom: 5px; right: 0px; } #zalo-box { width: 280px; bottom: 65px; } .zalo-text { display: none; } #zalo-btn { padding: 12px; border-radius: 50%; } }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // ===== 1. GET DOM ELEMENTS FIRST =====
-  const btn = document.getElementById('zalo-btn');
-  const box = document.getElementById('zalo-box');
-  const closeBtn = document.getElementById('zalo-close');
-
-  // ===== 2. UTM TRACKING =====
-  const initUTM = () => {
-    const p = new URLSearchParams(location.search);
-    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
-      if (p.get(k) && !sessionStorage.getItem(k)) sessionStorage.setItem(k, decodeURIComponent(p.get(k)));
-    });
-    if (!sessionStorage.getItem('utm_initialized')) sessionStorage.setItem('utm_initialized','1');
-  }; 
-  initUTM();
-
-  const getUTM = () => ({
-    utm_source: sessionStorage.getItem('utm_source') || 'organic',
-    utm_medium: sessionStorage.getItem('utm_medium') || 'none',
-    utm_campaign: sessionStorage.getItem('utm_campaign') || 'none'
-  });
-
-  // ===== 3. EVENT TRACKING (GA4 + FB PIXEL) =====
-  const fireEvents = (action, label) => {
-    const u = getUTM();
-    if (typeof gtag !== 'undefined') gtag('event', 'zalo_' + action, { event_category: 'engagement', event_label: label, ...u });
-    if (typeof fbq !== 'undefined') fbq('trackCustom', 'ZaloWidget_' + action, { content_name: label, ...u });
-  };
-
-  // ===== 4. AUTO-HIDE TIMER (5 SECONDS) =====
-  let autoHideTimer = null;
-
-  const hideChatBox = () => {
-    box.classList.add('zalo-hidden');
-    if (autoHideTimer) {
-      clearTimeout(autoHideTimer);
-      autoHideTimer = null;
-    }
-  };
-
-  const showChatBox = () => {
-    box.classList.remove('zalo-hidden');
-    // Clear any existing timer
-    if (autoHideTimer) {
-      clearTimeout(autoHideTimer);
-    }
-    // Start new auto-hide timer
-    autoHideTimer = setTimeout(() => {
-      hideChatBox();
-    }, 5000);
-  };
-
-  // ===== 5. WIDGET INTERACTIONS =====
-  
-  // Main button click
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (box.classList.contains('zalo-hidden')) {
-      // Opening
-      showChatBox();
-      fireEvents('open', 'floating_button');
-    } else {
-      // Closing
-      hideChatBox();
-    }
-  });
-
-  // Close button (X)
-  closeBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    hideChatBox();
-  });
-
-  // Click outside to close
-  document.addEventListener('click', function(e) {
-    if (!box.contains(e.target) && !btn.contains(e.target)) {
-      hideChatBox();
-    }
-  });
-
-  // Prevent box clicks from bubbling
-  box.addEventListener('click', function(e) {
-    e.stopPropagation();
-  });
-
-  // Track quick action clicks
-  document.querySelectorAll('.zalo-quick-actions a').forEach(a => {
-    a.addEventListener('click', function() {
-      let act = 'unknown';
-      if (this.href.includes('zalo.me')) act = 'chat';
-      else if (this.href.startsWith('tel:')) act = 'call';
-      else if (this.href.startsWith('mailto:')) act = 'email';
-      fireEvents('click', act);
-    });
-  });
-
-  // Debug: Log if element not found
-  if (!btn || !box || !closeBtn) {
-    console.error('Zalo Widget: Missing DOM elements!', { btn, box, closeBtn });
-  }
-});
-</script>
-<!-- ===== END ZALO + TRACKING BLOCK ===== -->
 </body>
 </html>
