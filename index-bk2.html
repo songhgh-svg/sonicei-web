@@ -1386,7 +1386,6 @@
     .about-grid, .ai-grid, .contact-grid,
     .market-grid, .proof-grid,
     .academy-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-    .academy-bottom-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
     .services-grid, .supply-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
     .service-card { padding: 24px 18px !important; }
     .investor-points { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -1555,84 +1554,41 @@
     font-size: 240px; color: rgba(201,162,39,0.03);
     line-height: 1; pointer-events: none;
   }
-  /* Full-screen header block */
-  .academy-header-block {
-    position: relative; z-index: 2;
-    max-width: 760px;
-    margin-bottom: 60px;
-  }
-  /* 2×2 Module grid — full width */
-  .academy-modules-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    position: relative; z-index: 2;
-    border: 1px solid rgba(201,162,39,0.18);
-    margin-bottom: 80px;
-  }
-  .academy-module-card {
-    padding: 48px 52px;
-    border-right: 1px solid rgba(201,162,39,0.13);
-    border-bottom: 1px solid rgba(201,162,39,0.13);
-    background: rgba(255,255,255,0.018);
-    transition: background 0.3s, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .academy-module-card:nth-child(2n) { border-right: none; }
-  .academy-module-card:nth-child(3),
-  .academy-module-card:nth-child(4) { border-bottom: none; }
-  .academy-module-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .academy-module-card:hover { background: rgba(201,162,39,0.04); }
-  .academy-module-card:hover::after { opacity: 1; }
-  .module-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(64px, 7vw, 96px);
-    color: rgba(201,162,39,0.15);
-    line-height: 1;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-  }
-  .module-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(26px, 2.8vw, 40px);
-    letter-spacing: 1.5px;
-    color: var(--gold); margin-bottom: 14px;
-    line-height: 1.15;
-  }
-  .module-divider {
-    width: 36px; height: 2px;
-    background: var(--gold); opacity: 0.5;
-    margin-bottom: 18px;
-  }
-  .module-desc {
-    font-size: clamp(15px, 1.5vw, 18px);
-    color: rgba(240,244,255,0.62);
-    line-height: 1.75;
-  }
-  @media (max-width: 900px) {
-    .academy-modules-grid { grid-template-columns: 1fr; }
-    .academy-module-card { border-right: none; border-bottom: 1px solid rgba(201,162,39,0.13); padding: 36px 28px; }
-    .academy-module-card:last-child { border-bottom: none; }
-  }
-  @media (max-width: 480px) {
-    .academy-module-card { padding: 28px 20px; }
-  }
-
-  /* Keep legacy .academy-grid for the stats/visual block below modules */
-  .academy-bottom-grid {
+  .academy-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: center;
     position: relative; z-index: 2;
   }
-  @media (max-width: 900px) {
-    .academy-bottom-grid { grid-template-columns: 1fr; gap: 40px; }
+  .academy-modules {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-top: 40px;
+  }
+  .academy-module {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(201,162,39,0.12);
+    transition: all 0.3s;
+  }
+  .academy-module:hover {
+    border-color: rgba(201,162,39,0.4);
+    background: rgba(201,162,39,0.04);
+    transform: translateX(6px);
+  }
+  .module-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: rgba(201,162,39,0.3);
+    line-height: 1; min-width: 52px;
+  }
+  .module-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px; letter-spacing: 1.5px;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .module-desc {
+    font-size: 20px; color: rgba(240,244,255,0.65);
+    line-height: 1.65;
   }
   .academy-visual {
     position: relative;
@@ -1732,6 +1688,7 @@
   }
   @media (max-width: 900px) {
     .academy-photos { grid-template-columns: 1fr; }
+    .academy-grid { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 480px) {
     .academy-photos { gap: 12px; margin-top: 32px; }
@@ -2854,51 +2811,49 @@
 <div class="section-sep"></div>
 <!-- ACADEMY -->
 <section class="academy" id="academy">
-
-  <!-- Section Header — full width -->
-  <div class="academy-header-block fade-in">
-    <div class="section-label">// Professional Training</div>
-    <h2 class="section-title">SONIC <span class="gold">ACADEMY</span></h2>
-    <p class="section-sub">Professional E&amp;I training programs built on 25 years of field experience with Siemens Energy and GE Turbines. Bringing global standards to local engineers.</p>
-    <div class="divider"></div>
-  </div>
-
-  <!-- 4 Modules — full-screen 2×2 grid -->
-  <div class="academy-modules-grid fade-in">
-
-    <div class="academy-module-card">
-      <div class="module-num">01</div>
-      <div class="module-title" data-i18n="acad_mod1_title">E&amp;I FUNDAMENTALS &amp;<br>TECHNICAL DIAGRAMS</div>
-      <div class="module-divider"></div>
-      <div class="module-desc" data-i18n="acad_mod1_desc">Reading P&amp;IDs, single-line diagrams, loop drawings and instrument datasheets to international standards.</div>
-    </div>
-
-    <div class="academy-module-card">
-      <div class="module-num">02</div>
-      <div class="module-title" data-i18n="acad_mod2_title">WIRING &amp; TERMINATION<br>STANDARDS</div>
-      <div class="module-divider"></div>
-      <div class="module-desc" data-i18n="acad_mod2_desc">GE &amp; Siemens specification compliance — cable preparation, crimping, heat-shrink, labeling and torque marking.</div>
-    </div>
-
-    <div class="academy-module-card">
-      <div class="module-num">03</div>
-      <div class="module-title" data-i18n="acad_mod3_title">COMMISSIONING &amp;<br>LOOP CHECKING</div>
-      <div class="module-divider"></div>
-      <div class="module-desc" data-i18n="acad_mod3_desc">Systematic loop checking, instrument calibration and pre-startup safety review procedures.</div>
-    </div>
-
-    <div class="academy-module-card">
-      <div class="module-num">04</div>
-      <div class="module-title" data-i18n="acad_mod4_title">QA/QC &amp; SONIC<br>AI-PUNCH™ INTEGRATION</div>
-      <div class="module-divider"></div>
-      <div class="module-desc" data-i18n="acad_mod4_desc">Hands-on punch-list management using the SONIC AI-Punch™ platform for real-time QA/QC workflows.</div>
-    </div>
-
-  </div>
-
-  <!-- Stats + Visual — 2-col below -->
-  <div class="academy-bottom-grid fade-in">
+  <div class="academy-grid fade-in">
     <div>
+      <div class="section-header">
+        <div class="section-label">// Professional Training</div>
+        <h2 class="section-title">SONIC <span class="gold">ACADEMY</span></h2>
+        <p class="section-sub">Professional E&amp;I training programs built on 25 years of field experience with Siemens Energy and GE Turbines. Bringing global standards to local engineers.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="academy-modules">
+        <div class="academy-module" style="background:rgba(255,255,255,0.035);border:1px solid rgba(200,216,240,0.1);padding:24px 28px;margin-bottom:16px;">
+          <div class="module-num">01</div>
+          <div>
+            <div class="module-title">E&I Fundamentals & Technical Diagrams</div>
+            <div style="width:30px;height:1px;background:var(--gold);opacity:0.5;margin:10px 0;"></div>
+            <div class="module-desc">Reading P&IDs, single-line diagrams, loop drawings and instrument datasheets to international standards.</div>
+          </div>
+        </div>
+        <div class="academy-module" style="background:rgba(255,255,255,0.035);border:1px solid rgba(200,216,240,0.1);padding:24px 28px;margin-bottom:16px;">
+          <div class="module-num">02</div>
+          <div>
+            <div class="module-title">Wiring & Termination Standards</div>
+            <div style="width:30px;height:1px;background:var(--gold);opacity:0.5;margin:10px 0;"></div>
+            <div class="module-desc">GE & Siemens specification compliance — cable preparation, crimping, heat-shrink, labeling and torque marking.</div>
+          </div>
+        </div>
+        <div class="academy-module" style="background:rgba(255,255,255,0.035);border:1px solid rgba(200,216,240,0.1);padding:24px 28px;margin-bottom:16px;">
+          <div class="module-num">03</div>
+          <div>
+            <div class="module-title">Commissioning & Loop Checking</div>
+            <div style="width:30px;height:1px;background:var(--gold);opacity:0.5;margin:10px 0;"></div>
+            <div class="module-desc">Systematic loop checking, instrument calibration and pre-startup safety review procedures.</div>
+          </div>
+        </div>
+        <div class="academy-module" style="background:rgba(255,255,255,0.035);border:1px solid rgba(200,216,240,0.1);padding:24px 28px;margin-bottom:16px;">
+          <div class="module-num">04</div>
+          <div>
+            <div class="module-title">QA/QC & SONIC AI-Punch™ Integration</div>
+            <div style="width:30px;height:1px;background:var(--gold);opacity:0.5;margin:10px 0;"></div>
+            <div class="module-desc">Hands-on punch-list management using the SONIC AI-Punch™ platform for real-time QA/QC workflows.</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="academy-visual">
       <div class="academy-screen">
         <div class="academy-screen-header">
@@ -2949,7 +2904,7 @@
         </div>
       </div>
     </div>
-  </div><!-- end academy-bottom-grid -->
+  </div>
 
   <!-- Academy Photo Gallery -->
   <div class="academy-photos fade-in">
@@ -3531,15 +3486,6 @@
       svc_label: '// What We Do',
       svc_title1: 'ELITE', svc_title2: 'E&I', svc_title3: 'EXECUTION',
       svc_sub: "International standards. Precision results. Right First Time — we don't just finish projects; we deliver integrity.",
-      // ACADEMY MODULES
-      acad_mod1_title: 'E&amp;I FUNDAMENTALS &amp;<br>TECHNICAL DIAGRAMS',
-      acad_mod1_desc: 'Reading P&IDs, single-line diagrams, loop drawings and instrument datasheets to international standards.',
-      acad_mod2_title: 'WIRING &amp; TERMINATION<br>STANDARDS',
-      acad_mod2_desc: 'GE &amp; Siemens specification compliance — cable preparation, crimping, heat-shrink, labeling and torque marking.',
-      acad_mod3_title: 'COMMISSIONING &amp;<br>LOOP CHECKING',
-      acad_mod3_desc: 'Systematic loop checking, instrument calibration and pre-startup safety review procedures.',
-      acad_mod4_title: 'QA/QC &amp; SONIC<br>AI-PUNCH™ INTEGRATION',
-      acad_mod4_desc: 'Hands-on punch-list management using the SONIC AI-Punch™ platform for real-time QA/QC workflows.',
       // CONTACT
       contact_label: '// Get In Touch',
       contact_title1: 'YOUR TRUSTED', contact_title2: 'PARTNER',
@@ -3692,15 +3638,6 @@
       svc5_li3: 'Xác minh vòng lặp an toàn & thiết bị đo',
       svc5_li4: 'Lập hồ sơ PSSR chính thức đầy đủ',
       svc5_li5: 'Ký duyệt cấp phép khởi động',
-      // ACADEMY MODULES
-      acad_mod1_title: 'CƠ BẢN E&amp;I &amp;<br>ĐỌC BẢN VẼ KỸ THUẬT',
-      acad_mod1_desc: 'Đọc P&ID, sơ đồ đơn tuyến, sơ đồ vòng lặp và datasheet thiết bị theo tiêu chuẩn quốc tế.',
-      acad_mod2_title: 'TIÊU CHUẨN ĐẤU NỐI<br>&amp; KẾT DÂY',
-      acad_mod2_desc: 'Tuân thủ tiêu chuẩn GE &amp; Siemens — chuẩn bị cáp, bấm cos, heat-shrink, dán nhãn và đánh dấu moment siết.',
-      acad_mod3_title: 'COMMISSIONING &amp;<br>KIỂM TRA VÒNG LẶP',
-      acad_mod3_desc: 'Kiểm tra vòng lặp có hệ thống, hiệu chỉnh thiết bị đo và quy trình đánh giá an toàn trước khởi động.',
-      acad_mod4_title: 'QA/QC &amp; TÍCH HỢP<br>SONIC AI-PUNCH™',
-      acad_mod4_desc: 'Thực hành quản lý punch list bằng nền tảng SONIC AI-Punch™ cho quy trình QA/QC thời gian thực.',
       // CONTACT
       contact_label: '// Liên Hệ',
       contact_title1: 'ĐỐI TÁC', contact_title2: 'ĐÁNG TIN CẬY',
