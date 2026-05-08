@@ -1546,7 +1546,20 @@
     /* Academy modules */
     .module-title { font-size: 28px !important; }
     .module-desc  { font-size: 18px !important; }
-    .module-num   { font-size: 32px !important; min-width: 36px !important; }
+    .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
+    .academy-modules { gap: 0 !important; margin-top: 28px !important; }
+    .academy-module {
+      flex-direction: column !important;
+      padding: 24px 0 20px !important;
+      margin-bottom: 0 !important;
+      border: none !important;
+      border-bottom: 1px solid rgba(201,162,39,0.15) !important;
+      background: transparent !important;
+      transform: none !important;
+      gap: 0 !important;
+    }
+    .academy-module:last-child { border-bottom: none !important; }
+    .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
     .academy-stat-label { font-size: 11px !important; }
     /* Body text */
@@ -2767,7 +2780,7 @@
             <div class="case-stat-label">Defects</div>
           </div>
           <div class="case-stat" style="flex:1;text-align:center;padding:0 8px;display:flex;flex-direction:column;justify-content:flex-end;">
-            <div class="case-stat-num" style="font-size:24px;line-height:1.15;white-space:nowrap;">Siemens Energy</div>
+            <div class="case-stat-num case-stat-siemens" style="font-size:18px;line-height:1.25;white-space:normal;word-break:break-word;">Siemens Energy</div>
             <div class="case-stat-label">Spec Certified</div>
           </div>
         </div>
