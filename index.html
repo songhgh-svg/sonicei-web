@@ -2428,17 +2428,7 @@
       </div>
     </div>
 
-    <div class="why-sonic-image">
-      <img src="assets/images/founder-turbine.JPG" alt="Founder Industrial Experience">
-
-      <div class="image-overlay"></div>
-
-      <div class="experience-badge">
-        <h3>25+</h3>
-        <span>Years of Industrial Engineering Experience</span>
-      </div>
-    </div>
-
+    
   </div>
 </section>
 
@@ -4160,7 +4150,7 @@
 
 .why-sonic-container {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 80px;
   align-items: center;
 }
@@ -4317,8 +4307,13 @@
 @media (max-width: 992px) {
 
   .why-sonic-container {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  align-items: center;
+
+  max-width: 900px;
+  margin: 0 auto;
   }
 
   .why-title {
