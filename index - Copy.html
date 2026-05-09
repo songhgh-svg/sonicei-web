@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SONIC E&I Solutions</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
   :root {
     --navy: #0a1628;
@@ -1391,6 +1392,27 @@
     font-size: 24px; color: var(--gold);
     letter-spacing: 2px; margin-top: 4px;
   }
+.footer-links {
+    display: flex; gap: 24px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--gray); text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+  }
+  .footer-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .footer-links-dot {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: rgba(201,162,39,0.4); flex-shrink: 0;
+  }
+  @media (max-width: 900px) {
+    .footer-links { justify-content: center; gap: 16px; }
+    .footer-links-dot { display: none; }
+  }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -2503,6 +2525,197 @@
     .experience-badge { left: 16px; bottom: 16px; padding: 14px 18px; }
     .experience-badge h3 { font-size: 40px; }
   }
+
+  /* ══════════════════════════════════════════
+     VIDEO BOX — thumbnail + click-to-play
+  ══════════════════════════════════════════ */
+  .sonic-video-box {
+    background: #000;
+    border: 1px solid rgba(201,162,39,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Label bar ── */
+  .sonic-video-label {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(201,162,39,0.18);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2.5px;
+    color: var(--gold); text-transform: uppercase;
+    background: rgba(10,22,40,0.95);
+    position: relative; z-index: 2;
+  }
+  .sonic-video-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #ff4444; flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(255,68,68,0.7);
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  /* ── Thumbnail wrapper (16:9) ── */
+  .sonic-video-frame {
+    position: relative; width: 100%;
+    padding-bottom: 56.25%; height: 0;
+    background: #000; cursor: pointer;
+    overflow: hidden;
+  }
+
+  /* Background gradient "image" */
+  .sonic-video-thumb {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(26,74,138,0.55) 0%, transparent 65%),
+      radial-gradient(ellipse at 75% 30%, rgba(201,162,39,0.12) 0%, transparent 55%),
+      linear-gradient(135deg, #040d1a 0%, #0a1628 40%, #0d2040 70%, #071220 100%);
+    transition: filter 0.4s ease;
+  }
+  .sonic-video-frame:hover .sonic-video-thumb {
+    filter: brightness(1.15);
+  }
+
+  /* Animated grid lines */
+  .sonic-video-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(201,162,39,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,162,39,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: svgrid 8s linear infinite;
+  }
+  @keyframes svgrid {
+    from { background-position: 0 0; }
+    to   { background-position: 40px 40px; }
+  }
+
+  /* Scan line */
+  .sonic-video-scan {
+    position: absolute; left: 0; right: 0; height: 2px; pointer-events: none;
+    background: linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 30%, rgba(255,228,77,0.8) 50%, rgba(201,162,39,0.5) 70%, transparent 100%);
+    box-shadow: 0 0 12px rgba(201,162,39,0.4);
+    animation: svscan 3.5s ease-in-out infinite;
+    z-index: 3;
+  }
+  @keyframes svscan {
+    0%   { top: 0%; opacity: 0; }
+    5%   { opacity: 1; }
+    90%  { opacity: 0.7; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* Corner brackets */
+  .sonic-video-frame::before,
+  .sonic-video-frame::after {
+    content: ''; position: absolute; width: 18px; height: 18px; z-index: 4; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .sonic-video-frame::before {
+    top: 10px; left: 10px;
+    border-top: 2px solid rgba(201,162,39,0.7);
+    border-left: 2px solid rgba(201,162,39,0.7);
+  }
+  .sonic-video-frame::after {
+    bottom: 10px; right: 10px;
+    border-bottom: 2px solid rgba(201,162,39,0.7);
+    border-right: 2px solid rgba(201,162,39,0.7);
+  }
+
+  /* Center text block */
+  .sonic-video-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px; z-index: 5; pointer-events: none;
+    padding: 16px;
+  }
+
+  /* "SONIC AI PLATFORM" tagline */
+  .sonic-video-tagline-top {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 4px;
+    color: rgba(201,162,39,0.6);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .sonic-video-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 4.5vw, 38px);
+    letter-spacing: 4px;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 40px rgba(255,255,255,0.2), 0 2px 20px rgba(0,0,0,0.9);
+  }
+  .sonic-video-brand .sv-gold { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
+  .sonic-video-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(11px, 1.8vw, 14px);
+    letter-spacing: 2px;
+    color: rgba(200,216,240,0.75);
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+
+  /* Play button */
+  .sonic-play-btn {
+    pointer-events: all;
+    margin-top: 6px;
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.15);
+    border: 2px solid rgba(201,162,39,0.7);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 0 0 0 rgba(201,162,39,0.35);
+    animation: svpulse 2.4s ease-in-out infinite;
+  }
+  @keyframes svpulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.35); }
+    50%      { box-shadow: 0 0 0 12px rgba(201,162,39,0); }
+  }
+  .sonic-play-btn:hover {
+    background: rgba(201,162,39,0.3);
+    transform: scale(1.12);
+    animation: none;
+    box-shadow: 0 0 24px rgba(201,162,39,0.5);
+  }
+  .sonic-play-btn svg { margin-left: 4px; }
+
+  /* Iframe — hidden until clicked */
+  .sonic-video-frame video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: none;
+    display: none;
+    z-index: 10;
+  }
+  .sonic-video-frame.sv-playing video   { display: block; }
+  .sonic-video-frame.sv-playing .sonic-video-thumb,
+  .sonic-video-frame.sv-playing .sonic-video-grid,
+  .sonic-video-frame.sv-playing .sonic-video-scan,
+  .sonic-video-frame.sv-playing .sonic-video-center { display: none; }
+
+  /* Caption bar */
+  .sonic-video-caption {
+    padding: 7px 14px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1.5px;
+    color: rgba(136,153,187,0.7);
+    text-transform: uppercase; text-align: center;
+    border-top: 1px solid rgba(201,162,39,0.1);
+    background: rgba(10,22,40,0.95);
+    position: relative; z-index: 2;
+  }
+
+  /* Desktop: hiện trong purpose column, ẩn trong hero */
+  .sonic-video-hero-mobile { display: none; }
+  @media (max-width: 900px) {
+    .sonic-video-hero-mobile { display: block; margin-top: 24px; }
+    .sonic-video-purpose { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -2592,31 +2805,119 @@
 </div>
 <script>
 (function(){
-  var bar = document.getElementById('painBar');
+  var bar    = document.getElementById('painBar');
+  var mob    = document.getElementById('mobilePainBar');
   var toggle = document.getElementById('painBarToggle');
-  var visible = true;
-  window.togglePainBar = function() {
-    visible = !visible;
-    bar.style.height = visible ? '' : '0';
-    bar.style.overflow = visible ? '' : 'hidden';
-    bar.style.padding = visible ? '' : '0';
-    bar.style.borderTopWidth = visible ? '' : '0';
-    bar.style.borderBottomWidth = visible ? '' : '0';
-    if (toggle) toggle.textContent = visible ? '▲ HIDE' : '▼ SHOW';
-  };
-  // Auto-hide after 10 seconds
-  setTimeout(function() {
-    if (visible) togglePainBar();
-    // Also hide mobile pain bar
-    var mob = document.getElementById('mobilePainBar');
+
+  // Timing (ms)
+  var SHOW_DURATION = 10000;  // hiện 10 giây rồi ẩn
+  var HIDE_DURATION = 50000;  // ẩn 50 giây rồi hiện lại
+
+  var visible   = true;
+  var cycleTimer = null;
+  var hoverForced = false; // đang hover → giữ hiện
+
+  /* ── Helpers ── */
+  function showBar() {
+    visible = true;
+    // Desktop
+    bar.style.height        = '';
+    bar.style.padding       = '';
+    bar.style.opacity       = '';
+    bar.style.borderTopWidth    = '';
+    bar.style.borderBottomWidth = '';
+    if (toggle) toggle.textContent = '▲ HIDE';
+    // Mobile
     if (mob) {
-      mob.style.height = '0';
-      mob.style.padding = '0';
-      mob.style.opacity = '0';
-      mob.style.borderTopWidth = '0';
+      mob.style.height        = '';
+      mob.style.padding       = '';
+      mob.style.opacity       = '';
+      mob.style.borderTopWidth    = '';
+      mob.style.borderBottomWidth = '';
+    }
+    // Reposition video panel sticky top
+    setTimeout(function(){
+      if (window.alignSubNav) window.alignSubNav();
+    }, 320);
+  }
+
+  function hideBar() {
+    visible = false;
+    // Desktop
+    bar.style.height        = '0';
+    bar.style.padding       = '0';
+    bar.style.opacity       = '0';
+    bar.style.borderTopWidth    = '0';
+    bar.style.borderBottomWidth = '0';
+    if (toggle) toggle.textContent = '▼ SHOW';
+    // Mobile
+    if (mob) {
+      mob.style.height        = '0';
+      mob.style.padding       = '0';
+      mob.style.opacity       = '0';
+      mob.style.borderTopWidth    = '0';
       mob.style.borderBottomWidth = '0';
     }
-  }, 10000);
+    // Reposition video panel sticky top
+    setTimeout(function(){
+      if (window.alignSubNav) window.alignSubNav();
+    }, 320);
+  }
+
+  /* ── Cycle: hiện 10s → ẩn 50s → lặp ── */
+  function startCycle() {
+    clearTimeout(cycleTimer);
+    if (hoverForced) return; // hover đang giữ → không cycle
+
+    if (visible) {
+      // Đang hiện → đặt timer ẩn sau SHOW_DURATION
+      cycleTimer = setTimeout(function() {
+        if (!hoverForced) {
+          hideBar();
+          startCycle(); // bắt đầu đếm 50s để hiện lại
+        }
+      }, SHOW_DURATION);
+    } else {
+      // Đang ẩn → đặt timer hiện lại sau HIDE_DURATION
+      cycleTimer = setTimeout(function() {
+        showBar();
+        startCycle(); // bắt đầu đếm 10s để ẩn lại
+      }, HIDE_DURATION);
+    }
+  }
+
+  /* ── Hover: nav hoặc ticker bar → giữ hiện ── */
+  var hoverEls = [
+    document.querySelector('nav'),
+    document.querySelector('.sub-nav-wrap'),
+    document.querySelector('.ticker-bar'),
+    document.querySelector('.mobile-ticker-bar'),
+    bar,
+    mob
+  ].filter(Boolean);
+
+  hoverEls.forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      hoverForced = true;
+      clearTimeout(cycleTimer);
+      if (!visible) showBar();
+    });
+    el.addEventListener('mouseleave', function() {
+      hoverForced = false;
+      // Tiếp tục cycle từ trạng thái hiện tại
+      startCycle();
+    });
+  });
+
+  /* ── Click để toggle thủ công ── */
+  window.togglePainBar = function() {
+    clearTimeout(cycleTimer);
+    if (visible) { hideBar(); } else { showBar(); }
+    startCycle();
+  };
+
+  /* ── Bắt đầu cycle ngay khi load ── */
+  startCycle();
 })();
 </script>
 
@@ -2689,6 +2990,34 @@
         <div class="hero-kpi-label" data-i18n="hero_kpi3">On-Time Handover</div>
         <div class="hero-kpi-badge" data-i18n="hero_kpi3_sub">✓ Guaranteed</div>
       </div>
+    </div>
+
+    <!-- Video box — mobile only (desktop version ở trong Our Purpose) -->
+    <div class="sonic-video-box sonic-video-hero-mobile">
+      <div class="sonic-video-label">
+        <span class="sonic-video-dot"></span>
+        <span>WATCH: ZERO-DEFECT IN ACTION</span>
+      </div>
+      <div class="sonic-video-frame" id="svframe-mobile">
+        <div class="sonic-video-thumb"></div>
+        <div class="sonic-video-grid"></div>
+        <div class="sonic-video-scan"></div>
+        <div class="sonic-video-center">
+          <div class="sonic-video-tagline-top">// Industrial AI</div>
+          <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
+          <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
+          <button class="sonic-play-btn" onclick="svPlay('svframe-mobile')" aria-label="Play video">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
+            </svg>
+          </button>
+        </div>
+        <video id="svframe-mobile-video" playsinline controls
+          style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+          <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
     </div>
 
   </div>
@@ -2772,23 +3101,53 @@
       </div>
     </div>
 
-    <!-- RIGHT: Image -->
-    <div class="why-sonic-image fade-in">
-      <div class="why-scan-line"></div>
-      <img
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='480'%3E%3Crect fill='%230a1628' width='600' height='480'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='rgba(201,162,39,0.15)' font-size='80' font-family='sans-serif'%3ESONIC%3C/text%3E%3C/svg%3E"
-        alt="SONIC E&I — Real field operations"
-        style="width:100%;height:480px;object-fit:cover;display:block;"
-        onerror="this.style.background='linear-gradient(135deg,#0a1628 0%,#112040 100%)';this.style.minHeight='480px';"
-      />
-      <div class="image-overlay"></div>
-      <!-- Top-right corner bracket -->
-      <div style="position:absolute;top:12px;right:12px;width:20px;height:20px;border-top:2px solid rgba(201,162,39,0.7);border-right:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
-      <!-- Bottom-left corner bracket -->
-      <div style="position:absolute;bottom:12px;left:12px;width:20px;height:20px;border-bottom:2px solid rgba(201,162,39,0.7);border-left:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
-      <div class="experience-badge">
-        <h3>25+</h3>
-        <span>Years of Global<br>E&amp;I Excellence</span>
+    <!-- RIGHT: Image + Video (desktop) -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="why-sonic-image fade-in">
+        <div class="why-scan-line"></div>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='480'%3E%3Crect fill='%230a1628' width='600' height='480'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='rgba(201,162,39,0.15)' font-size='80' font-family='sans-serif'%3ESONIC%3C/text%3E%3C/svg%3E"
+          alt="SONIC E&I — Real field operations"
+          style="width:100%;height:480px;object-fit:cover;display:block;"
+          onerror="this.style.background='linear-gradient(135deg,#0a1628 0%,#112040 100%)';this.style.minHeight='480px';"
+        />
+        <div class="image-overlay"></div>
+        <!-- Top-right corner bracket -->
+        <div style="position:absolute;top:12px;right:12px;width:20px;height:20px;border-top:2px solid rgba(201,162,39,0.7);border-right:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
+        <!-- Bottom-left corner bracket -->
+        <div style="position:absolute;bottom:12px;left:12px;width:20px;height:20px;border-bottom:2px solid rgba(201,162,39,0.7);border-left:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
+        <div class="experience-badge">
+          <h3>25+</h3>
+          <span>Years of Global<br>E&amp;I Excellence</span>
+        </div>
+      </div>
+
+      <!-- Video box — desktop only (mobile version ở trong hero) -->
+      <div class="sonic-video-box sonic-video-purpose fade-in">
+        <div class="sonic-video-label">
+          <span class="sonic-video-dot"></span>
+          <span>WATCH: ZERO-DEFECT IN ACTION</span>
+        </div>
+        <div class="sonic-video-frame" id="svframe-desktop">
+          <div class="sonic-video-thumb"></div>
+          <div class="sonic-video-grid"></div>
+          <div class="sonic-video-scan"></div>
+          <div class="sonic-video-center">
+            <div class="sonic-video-tagline-top">// Industrial AI</div>
+            <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
+            <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
+            <button class="sonic-play-btn" onclick="svPlay('svframe-desktop')" aria-label="Play video">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
+              </svg>
+            </button>
+          </div>
+          <video id="svframe-desktop-video" playsinline controls
+            style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+            <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
       </div>
     </div>
 
@@ -3033,7 +3392,7 @@
     <div class="ai-proof-divider"></div>
     <div class="ai-proof-item">
       <span class="ai-proof-icon">🎯</span>
-      <span class="ai-proof-num">98.7%</span>
+      <span class="ai-proof-num">>90%</span>
       <span class="ai-proof-label" data-i18n="ai_proof2">Defect Detection Accuracy</span>
     </div>
     <div class="ai-proof-divider"></div>
@@ -3870,6 +4229,13 @@
 <footer>
   <div class="footer-logo">SONIC <span class="footer-ei">E&I</span> SOLUTIONS</div>
   <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="/terms-of-use.html">Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="#contact">Contact Information</a>
+  </div>
   <div class="footer-copy" data-i18n="footer_copy">© 2026 SONIC E&I Solutions. All rights reserved.</div>
 </footer>
 
@@ -4627,5 +4993,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <!-- ===== END ZALO + TRACKING BLOCK ===== -->
+
+<script>
+// Click-to-play: hiện video local, ẩn thumbnail
+function svPlay(frameId) {
+  var frame = document.getElementById(frameId);
+  if (!frame) return;
+  var video = document.getElementById(frameId + '-video');
+  if (video) {
+    video.style.display = 'block';
+    video.play();
+  }
+  frame.classList.add('sv-playing');
+}
+</script>
 </body>
 </html>
