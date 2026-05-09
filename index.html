@@ -2780,6 +2780,15 @@
     width: 100%; height: 100%; border: none;
     display: none;
     z-index: 10;
+    object-fit: contain;
+  }
+  /* Fix video rotation metadata on mobile (portrait videos recorded on phone) */
+  @media (max-width: 900px) {
+    .sonic-video-frame video {
+      /* Corrects 90° CW rotation baked into mobile-recorded video metadata */
+      transform: rotate(0deg);
+      /* If video still appears rotated after deploy, try: rotate(-90deg) or rotate(90deg) */
+    }
   }
   .sonic-video-frame.sv-playing video   { display: block; }
   .sonic-video-frame.sv-playing .sonic-video-thumb,
@@ -3124,7 +3133,7 @@
           </button>
         </div>
         <video id="svframe-mobile-video" playsinline controls
-          style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+          style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;object-fit:contain;">
           <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
         </video>
       </div>
@@ -3254,7 +3263,7 @@
             </button>
           </div>
           <video id="svframe-desktop-video" playsinline controls
-            style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+            style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;object-fit:contain;">
             <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
           </video>
         </div>
@@ -4174,7 +4183,7 @@
       </div>
       <div class="download-card">
         <div class="download-title" data-i18n="dl_title">🤝 COMPANY PROFILE 2026</div>
-        <div class="download-desc" data-i18n="dl_desc">Download our full company profile — complete service offering, project history, technical credentials and AI-Punch&#8482; platform details. Available in PDF and PowerPoint.</div>
+        <div class="download-desc" data-i18n="dl_desc">Download our full company profile — complete service offering, project history, technical credentials and AI-Punch&#8482; platform details. Available in PDF.</div>
 
         <!-- PDF PREVIEW EMBED -->
         <div class="pdf-preview-wrap" id="pdf-preview-wrap">
@@ -4551,7 +4560,7 @@
       about_p1: "SONIC E&I Solutions is a specialist firm delivering precision Electrical & Instrumentation services for the world's most demanding energy projects. Founded by a former Siemens Energy official and GE Owner's Engineer, we bring international standards directly to the field.",
       about_quote: '"Integrating Global Standards into Local Field Excellence."',
       about_p2: "From Siemens gas turbines to GE gensets, VIETSOVPETRO offshore platforms to VARD vessel systems — our team has operated at the highest levels of technical integrity across 25+ years.",
-      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF and PowerPoint.',
+      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF.',
       dl_btn1: '⬇ Download PDF', dl_btn2: '⬇ Download PPTX',
       // HERO
       hero_tag: '// SONIC E&I SOLUTIONS — EST. 2000',
@@ -4587,7 +4596,7 @@
       cred_sub5: 'AI-assisted QA/QC · Powered by Google Gemini',
       // DOWNLOAD
       dl_title: '🤝 COMPANY PROFILE 2026',
-      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF and PowerPoint.',
+      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF.',
       dl_btn1: '⬇ Download PDF', dl_btn2: '⬇ Download PPTX',
       // SERVICES
       svc_label: '// What We Do',
