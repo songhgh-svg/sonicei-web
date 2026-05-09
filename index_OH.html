@@ -324,19 +324,92 @@
 
   /* Right side stats panel */
   .hero-stats-panel {
-    position: relative; right: auto; top: auto; z-index: 3;
-    transform: none;
-    display: flex; flex-direction: column; gap: 0;
+    position: fixed;
+    top: 1860px; /* fallback; overridden by JS alignStatsPanel() */
+    right: 0;
+    z-index: 10;
+    display: flex; flex-direction: column;
     opacity: 0; animation: fadeLeft 0.8s 1.2s forwards;
-    background: rgba(10,22,40,0.72);
+    background: rgba(10,22,40,0.85);
     border: 1px solid rgba(201,162,39,0.25);
+    border-right: none;
     backdrop-filter: blur(10px);
-    padding: 36px 44px;
-    min-width: 280px;
-    margin-left: auto;
-    margin-top: 200px;
-    align-self: flex-start;
-    flex-shrink: 0;
+    width: 340px;
+    max-height: calc(100vh - 134px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: top 0.3s ease, max-height 0.3s ease;
+  }
+
+  /* ── HERO VIDEO PANEL ── */
+  .hero-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border-bottom: 2px solid rgba(201,162,39,0.4);
+  }
+  .hero-video-wrap video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Gold scan line overlay */
+  .hero-video-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(201,162,39,0.04) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  /* LIVE badge */
+  .hero-video-badge {
+    position: absolute; top: 10px; left: 10px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(8,18,34,0.88);
+    border: 1px solid rgba(201,162,39,0.5);
+    padding: 4px 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase;
+    backdrop-filter: blur(6px);
+  }
+  .hero-video-badge .vbadge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #ff3b3b;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+  /* Play button overlay */
+  .hero-video-play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  .hero-video-play.hidden { opacity: 0; pointer-events: none; }
+  .hero-video-play-btn {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(201,162,39,0.9);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 12px rgba(201,162,39,0.15), 0 0 30px rgba(201,162,39,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-video-play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 16px rgba(201,162,39,0.2), 0 0 40px rgba(201,162,39,0.5);
+  }
+  .hero-video-play-btn svg { margin-left: 4px; }
+
+  /* Stats below video */
+  .hero-stats-inner { padding: 28px 36px; }
+  .stat-panel-item { text-align: right; padding: 14px 0; }
+  .stat-panel-item + .stat-panel-item {
+    border-top: 1px solid rgba(201,162,39,0.15);
   }
   .stat-panel-item { text-align: right; padding: 18px 0; }
   .stat-panel-item + .stat-panel-item {
@@ -402,6 +475,20 @@
     font-size: 9px; color: #00e8aa;
     font-family: 'Share Tech Mono', monospace;
     letter-spacing: 1px;
+  }
+
+  /* ── HERO VIDEO MOBILE ── */
+  .hero-video-mobile {
+    display: none; /* shown via media query */
+    width: 100%;
+    margin-top: 28px;
+    border: 1px solid rgba(201,162,39,0.3);
+    overflow: hidden;
+    position: relative; z-index: 3;
+  }
+  .hero-video-mobile .hero-video-wrap {
+    aspect-ratio: 16 / 9;
+    border-bottom: none;
   }
 
   /* Mobile pain bar — fixed below nav, mobile only */
@@ -1391,7 +1478,8 @@
     font-size: 24px; color: var(--gold);
     letter-spacing: 2px; margin-top: 4px;
   }
-.footer-links {
+
+  .footer-links {
     display: flex; gap: 24px; align-items: center;
     flex-wrap: wrap;
   }
@@ -1510,9 +1598,13 @@
     /* ── Hero ── */
     .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: flex-start; }
     .hero-content { max-width: 100% !important; width: 100%; text-align: center; }
-    /* Stats panel: ẩn absolute panel, thay bằng inline strip dưới CTA */
+    /* Stats panel: ẩn absolute panel, thay bằng video + inline strip dưới CTA */
     .hero-stats-panel { display: none !important; }
+    .hero-video-mobile { display: block !important; }
     .hero-kpi-strip { display: flex !important; }
+
+
+
     /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
     .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; margin-bottom: 20px; }
     .hero h1 .line-med    { font-size: clamp(54px, 15vw, 87px);  letter-spacing: 8px; margin-bottom: 20px; }
@@ -2573,14 +2665,14 @@
 <div class="mobile-ticker-bar">
   <div class="ticker-track">
     <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">10 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>    
   </div>
 </div>
 <div class="mobile-pain-bar" id="mobilePainBar" style="transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
@@ -2594,14 +2686,14 @@
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack">
     <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>    
   </div>
   </div>
   <!-- PAIN BAR — ẩn/hiện khi click -->
@@ -2783,6 +2875,30 @@
       <span data-i18n="hero_cta_micro">No commitment · Response within 24h · Zero-defect guarantee included</span>
     </div>
 
+    <!-- Video block — mobile only -->
+    <div class="hero-video-mobile">
+      <div class="hero-video-wrap">
+        <video
+          id="heroVideoMobile"
+          src="/videos/sonic-punch.mp4"
+          muted
+          playsinline
+          preload="metadata"
+        ></video>
+        <div class="hero-video-badge">
+          <span class="vbadge-dot"></span>
+          AI-PUNCH™ LIVE
+        </div>
+        <div class="hero-video-play" id="heroVideoPlayMobile">
+          <div class="hero-video-play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--navy)">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- KPI strip — mobile only (replaces the right panel) -->
     <div class="hero-kpi-strip">
       <div class="hero-kpi-item">
@@ -2802,24 +2918,30 @@
 
   </div>
 
-  <!-- Right panel: KPI scorecard -->
-  <div class="hero-stats-panel">
-    <div class="stat-panel-item">
-      <div class="stat-panel-num">30–50%</div>
-      <div class="stat-panel-label" data-i18n="hero_kpi1">Rework Cost Saved</div>
-    </div>
-    <div class="stat-panel-item">
-      <div class="stat-panel-num">20%</div>
-      <div class="stat-panel-label" data-i18n="hero_kpi2">Faster Punch Closure</div>
-    </div>
-    <div class="stat-panel-item">
-      <div class="stat-panel-num">100%</div>
-      <div class="stat-panel-label" data-i18n="hero_kpi3">On-Time Handover</div>
-      <div class="stat-panel-zero" data-i18n="hero_kpi3_sub">✓ Guaranteed</div>
+</section>
+
+<!-- ── HERO VIDEO + KPI PANEL (fixed, outside hero overflow) ── -->
+<div class="hero-stats-panel">
+
+  <!-- Video block -->
+  <div class="hero-video-wrap">
+    <video id="heroVideo" src="/videos/sonic-punch.mp4" muted playsinline preload="metadata" poster=""></video>
+    <div class="hero-video-badge"><span class="vbadge-dot"></span> AI-PUNCH™ LIVE</div>
+    <div class="hero-video-play" id="heroVideoPlay">
+      <div class="hero-video-play-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--navy)"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
     </div>
   </div>
 
-</section>
+  <!-- KPI stats below video -->
+  <div class="hero-stats-inner">
+    <div class="stat-panel-item"><div class="stat-panel-num">30–50%</div><div class="stat-panel-label" data-i18n="hero_kpi1">Rework Cost Saved</div></div>
+    <div class="stat-panel-item"><div class="stat-panel-num">20%</div><div class="stat-panel-label" data-i18n="hero_kpi2">Faster Punch Closure</div></div>
+    <div class="stat-panel-item"><div class="stat-panel-num">100%</div><div class="stat-panel-label" data-i18n="hero_kpi3">On-Time Handover</div><div class="stat-panel-zero" data-i18n="hero_kpi3_sub">✓ Guaranteed</div></div>
+  </div>
+
+</div>
 <!-- WHY WE BUILT SONIC AI PUNCH -->
 <section class="why-sonic-section fade-in" id="purpose">
   <div class="why-sonic-container">
@@ -3142,7 +3264,7 @@
     <div class="ai-proof-divider"></div>
     <div class="ai-proof-item">
       <span class="ai-proof-icon">🎯</span>
-      <span class="ai-proof-num">>90%</span>
+      <span class="ai-proof-num">98.7%</span>
       <span class="ai-proof-label" data-i18n="ai_proof2">Defect Detection Accuracy</span>
     </div>
     <div class="ai-proof-divider"></div>
@@ -4051,6 +4173,7 @@
   function alignSubNav() {
     const nav         = document.querySelector('nav');
     const subNav      = document.querySelector('.sub-nav-wrap');
+    const painBar     = document.getElementById('painBar');
     const hero        = document.querySelector('.hero');
     const mobilePain  = document.querySelector('.mobile-pain-bar');
     const mobileTick  = document.querySelector('.mobile-ticker-bar');
@@ -4073,18 +4196,61 @@
       if (hero) hero.style.paddingTop = (navH + tickH + painH + 20) + 'px';
     } else {
       // Desktop: use fixed sub-nav below nav
-      const subNavH = subNav ? subNav.getBoundingClientRect().height : 0;
+      const subNavH  = subNav  ? subNav.getBoundingClientRect().height  : 0;
       if (subNav) subNav.style.transform = 'translateY(' + navH + 'px)';
-      if (hero) hero.style.paddingTop = (navH + subNavH + 60) + 'px';
+
+      // Hero padding top = nav + ticker + pain + 32px
+      const heroPadTop = navH + subNavH + 32;
+      if (hero) hero.style.paddingTop = heroPadTop + 'px';
+
     }
     document.documentElement.style.setProperty('--nav-h', navH + 'px');
   }
+  window.alignSubNav = alignSubNav;
   document.addEventListener('DOMContentLoaded', alignSubNav);
   window.addEventListener('load',   alignSubNav);
   window.addEventListener('resize', alignSubNav);
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(alignSubNav); }
-  // Run immediately after first paint to fix flash-of-overlap on mobile
   requestAnimationFrame(function() { alignSubNav(); requestAnimationFrame(alignSubNav); });
+
+  // ── ALIGN STATS PANEL to match top of .hero-guarantee badge ──
+  function alignStatsPanel() {
+    if (window.innerWidth <= 900) return;
+    const statsPanel = document.querySelector('.hero-stats-panel');
+    const guarantee  = document.querySelector('.hero-guarantee');
+    if (!statsPanel || !guarantee) return;
+    // getBoundingClientRect is viewport-relative, works perfectly for fixed elements
+    const rect     = guarantee.getBoundingClientRect();
+    const panelTop = Math.round(rect.top + window.scrollY);
+    statsPanel.style.top       = panelTop + 'px';
+    statsPanel.style.maxHeight = 'calc(100vh - ' + panelTop + 'px)';
+  }
+
+  // Run after fonts + layout are settled
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(alignStatsPanel, 50);
+    setTimeout(alignStatsPanel, 300);
+  });
+  window.addEventListener('load', function() {
+    alignStatsPanel();
+    setTimeout(alignStatsPanel, 200);
+  });
+  window.addEventListener('resize', alignStatsPanel);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() { alignStatsPanel(); });
+  }
+
+  // On scroll: keep panel pinned to viewport-top of guarantee (clamped to 0)
+  window.addEventListener('scroll', function() {
+    if (window.innerWidth <= 900) return;
+    const statsPanel = document.querySelector('.hero-stats-panel');
+    const guarantee  = document.querySelector('.hero-guarantee');
+    if (!statsPanel || !guarantee) return;
+    const rect     = guarantee.getBoundingClientRect();
+    const panelTop = Math.max(Math.round(rect.top), 0);
+    statsPanel.style.top       = panelTop + 'px';
+    statsPanel.style.maxHeight = 'calc(100vh - ' + panelTop + 'px)';
+  }, { passive: true });
 
   // ── HAMBURGER MENU ──
   function toggleMenu() {
@@ -4743,5 +4909,108 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <!-- ===== END ZALO + TRACKING BLOCK ===== -->
+<!-- ===== HERO VIDEO CONTROLLER ===== -->
+<script>
+(function () {
+  function initVideo(videoId, overlayId) {
+    var video = document.getElementById(videoId);
+    var playOverlay = document.getElementById(overlayId);
+    if (!video || !playOverlay) return;
+
+    var started = false;
+
+    // Auto-play muted when visible
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          video.play().then(function () {
+            playOverlay.classList.add('hidden');
+          }).catch(function () {
+            // Autoplay blocked — keep play button visible
+          });
+        } else if (!entry.isIntersecting) {
+          video.pause();
+          started = false;
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(video);
+
+    // Click overlay → play
+    playOverlay.addEventListener('click', function () {
+      video.play();
+      playOverlay.classList.add('hidden');
+    });
+
+    // Click video → pause/play toggle
+    video.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+        playOverlay.classList.add('hidden');
+      } else {
+        video.pause();
+        playOverlay.classList.remove('hidden');
+      }
+    });
+
+    // When video ends → show play button again
+    video.addEventListener('ended', function () {
+      playOverlay.classList.remove('hidden');
+      started = false;
+    });
+  }
+
+  // Desktop video (cột phải)
+  initVideo('heroVideo', 'heroVideoPlay');
+  // Mobile video (dưới CTA)
+  initVideo('heroVideoMobile', 'heroVideoPlayMobile');
+})();
+</script>
+<!-- ===== END HERO VIDEO CONTROLLER ===== -->
+
+<!-- ===== TICKER SEAMLESS LOOP FIX ===== -->
+<script>
+(function () {
+  function initTicker(track) {
+    if (!track) return;
+
+    // 1. Lấy tất cả items gốc
+    var origItems = Array.from(track.children);
+    if (!origItems.length) return;
+
+    // 2. Clone toàn bộ 1 lần → 2 bộ bằng nhau để CSS translateX(-50%) loop mượt
+    origItems.forEach(function (item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    // 3. Tính tổng width thực của 1 bộ items gốc
+    var totalWidth = origItems.reduce(function (sum, el) {
+      return sum + el.offsetWidth;
+    }, 0);
+
+    // Tốc độ 120px/giây — tăng/giảm số này để chạy nhanh/chậm
+    var speed = 120;
+    var duration = Math.max(20, totalWidth / speed);
+
+    // 4. Reset và gán animation với duration tính theo độ dài thực
+    track.style.animation = 'none';
+    void track.offsetWidth; // force reflow
+    track.style.animation = 'ticker ' + duration.toFixed(1) + 's linear infinite';
+  }
+
+  // Chờ load xong để offsetWidth trả về giá trị chính xác
+  window.addEventListener('load', function () {
+    initTicker(document.getElementById('tickerTrack'));
+
+    document.querySelectorAll('.mobile-ticker-bar .ticker-track').forEach(function (t) {
+      initTicker(t);
+    });
+  });
+})();
+</script>
+<!-- ===== END TICKER FIX ===== -->
 </body>
 </html>

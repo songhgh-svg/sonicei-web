@@ -1391,27 +1391,6 @@
     font-size: 24px; color: var(--gold);
     letter-spacing: 2px; margin-top: 4px;
   }
-.footer-links {
-    display: flex; gap: 24px; align-items: center;
-    flex-wrap: wrap;
-  }
-  .footer-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px; letter-spacing: 2px;
-    color: var(--gray); text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    border-bottom: 1px solid transparent;
-  }
-  .footer-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-  .footer-links-dot {
-    width: 3px; height: 3px; border-radius: 50%;
-    background: rgba(201,162,39,0.4); flex-shrink: 0;
-  }
-  @media (max-width: 900px) {
-    .footer-links { justify-content: center; gap: 16px; }
-    .footer-links-dot { display: none; }
-  }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -2613,119 +2592,31 @@
 </div>
 <script>
 (function(){
-  var bar    = document.getElementById('painBar');
-  var mob    = document.getElementById('mobilePainBar');
+  var bar = document.getElementById('painBar');
   var toggle = document.getElementById('painBarToggle');
-
-  // Timing (ms)
-  var SHOW_DURATION = 10000;  // hiện 10 giây rồi ẩn
-  var HIDE_DURATION = 50000;  // ẩn 50 giây rồi hiện lại
-
-  var visible   = true;
-  var cycleTimer = null;
-  var hoverForced = false; // đang hover → giữ hiện
-
-  /* ── Helpers ── */
-  function showBar() {
-    visible = true;
-    // Desktop
-    bar.style.height        = '';
-    bar.style.padding       = '';
-    bar.style.opacity       = '';
-    bar.style.borderTopWidth    = '';
-    bar.style.borderBottomWidth = '';
-    if (toggle) toggle.textContent = '▲ HIDE';
-    // Mobile
+  var visible = true;
+  window.togglePainBar = function() {
+    visible = !visible;
+    bar.style.height = visible ? '' : '0';
+    bar.style.overflow = visible ? '' : 'hidden';
+    bar.style.padding = visible ? '' : '0';
+    bar.style.borderTopWidth = visible ? '' : '0';
+    bar.style.borderBottomWidth = visible ? '' : '0';
+    if (toggle) toggle.textContent = visible ? '▲ HIDE' : '▼ SHOW';
+  };
+  // Auto-hide after 10 seconds
+  setTimeout(function() {
+    if (visible) togglePainBar();
+    // Also hide mobile pain bar
+    var mob = document.getElementById('mobilePainBar');
     if (mob) {
-      mob.style.height        = '';
-      mob.style.padding       = '';
-      mob.style.opacity       = '';
-      mob.style.borderTopWidth    = '';
-      mob.style.borderBottomWidth = '';
-    }
-    // Reposition video panel sticky top
-    setTimeout(function(){
-      if (window.alignSubNav) window.alignSubNav();
-    }, 320);
-  }
-
-  function hideBar() {
-    visible = false;
-    // Desktop
-    bar.style.height        = '0';
-    bar.style.padding       = '0';
-    bar.style.opacity       = '0';
-    bar.style.borderTopWidth    = '0';
-    bar.style.borderBottomWidth = '0';
-    if (toggle) toggle.textContent = '▼ SHOW';
-    // Mobile
-    if (mob) {
-      mob.style.height        = '0';
-      mob.style.padding       = '0';
-      mob.style.opacity       = '0';
-      mob.style.borderTopWidth    = '0';
+      mob.style.height = '0';
+      mob.style.padding = '0';
+      mob.style.opacity = '0';
+      mob.style.borderTopWidth = '0';
       mob.style.borderBottomWidth = '0';
     }
-    // Reposition video panel sticky top
-    setTimeout(function(){
-      if (window.alignSubNav) window.alignSubNav();
-    }, 320);
-  }
-
-  /* ── Cycle: hiện 10s → ẩn 50s → lặp ── */
-  function startCycle() {
-    clearTimeout(cycleTimer);
-    if (hoverForced) return; // hover đang giữ → không cycle
-
-    if (visible) {
-      // Đang hiện → đặt timer ẩn sau SHOW_DURATION
-      cycleTimer = setTimeout(function() {
-        if (!hoverForced) {
-          hideBar();
-          startCycle(); // bắt đầu đếm 50s để hiện lại
-        }
-      }, SHOW_DURATION);
-    } else {
-      // Đang ẩn → đặt timer hiện lại sau HIDE_DURATION
-      cycleTimer = setTimeout(function() {
-        showBar();
-        startCycle(); // bắt đầu đếm 10s để ẩn lại
-      }, HIDE_DURATION);
-    }
-  }
-
-  /* ── Hover: nav hoặc ticker bar → giữ hiện ── */
-  var hoverEls = [
-    document.querySelector('nav'),
-    document.querySelector('.sub-nav-wrap'),
-    document.querySelector('.ticker-bar'),
-    document.querySelector('.mobile-ticker-bar'),
-    bar,
-    mob
-  ].filter(Boolean);
-
-  hoverEls.forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      hoverForced = true;
-      clearTimeout(cycleTimer);
-      if (!visible) showBar();
-    });
-    el.addEventListener('mouseleave', function() {
-      hoverForced = false;
-      // Tiếp tục cycle từ trạng thái hiện tại
-      startCycle();
-    });
-  });
-
-  /* ── Click để toggle thủ công ── */
-  window.togglePainBar = function() {
-    clearTimeout(cycleTimer);
-    if (visible) { hideBar(); } else { showBar(); }
-    startCycle();
-  };
-
-  /* ── Bắt đầu cycle ngay khi load ── */
-  startCycle();
+  }, 10000);
 })();
 </script>
 
@@ -3142,7 +3033,7 @@
     <div class="ai-proof-divider"></div>
     <div class="ai-proof-item">
       <span class="ai-proof-icon">🎯</span>
-      <span class="ai-proof-num">>90%</span>
+      <span class="ai-proof-num">98.7%</span>
       <span class="ai-proof-label" data-i18n="ai_proof2">Defect Detection Accuracy</span>
     </div>
     <div class="ai-proof-divider"></div>
@@ -3979,13 +3870,6 @@
 <footer>
   <div class="footer-logo">SONIC <span class="footer-ei">E&I</span> SOLUTIONS</div>
   <div class="footer-motto">"Right the first time — Every time"</div>
-  <div class="footer-links">
-    <a href="/privacy-policy.html">Privacy Policy</a>
-    <span class="footer-links-dot"></span>
-    <a href="/terms-of-use.html">Terms of Use</a>
-    <span class="footer-links-dot"></span>
-    <a href="#contact">Contact Information</a>
-  </div>
   <div class="footer-copy" data-i18n="footer_copy">© 2026 SONIC E&I Solutions. All rights reserved.</div>
 </footer>
 
