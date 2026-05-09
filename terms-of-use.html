@@ -1,55 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — SONIC E&I Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-links">
+    <a href="index.html#ai">AI Platform</a>
+    <a href="index.html#gallery">Engineering Experience</a>
+    <a href="index.html#proof">Industries</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#supply">Supply</a>
+    <a href="index.html#academy">Academy</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
+    <a href="index.html#contact" class="btn-gold">Request Consultation</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#ai"       onclick="closeMenu()">AI Platform</a>
+  <a href="index.html#gallery"  onclick="closeMenu()">Engineering Experience</a>
+  <a href="index.html#proof"    onclick="closeMenu()">Industries</a>
+  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="index.html#supply"   onclick="closeMenu()">Supply</a>
+  <a href="index.html#academy"  onclick="closeMenu()">Academy</a>
+  <a href="index.html#about"    onclick="closeMenu()">About</a>
+  <a href="index.html#contact"  onclick="closeMenu()">Contact</a>
+  <a href="index.html#contact"  class="btn-gold" onclick="closeMenu()">Request Consultation</a>
+</div>
+
+<!-- CONTENT -->
 <section class="legal-page">
 
-<h1>Terms of Use</h1>
+  <h1>Terms <span class="gold">of Use</span></h1>
 
-<p>
-By accessing and using this website, you agree to the following terms and conditions.
-</p>
+  <p>
+    By accessing and using this website, you agree to the following terms and conditions.
+  </p>
 
-<h2>Website Content</h2>
+  <h2>Website Content</h2>
+  <p>
+    All content, visuals, text, graphics, and materials presented on this website
+    are provided for informational and business communication purposes only.
+  </p>
 
-<p>
-All content, visuals, text, graphics, and materials presented on this website
-are provided for informational and business communication purposes only.
-</p>
+  <h2>Intellectual Property</h2>
+  <p>
+    Unless otherwise stated, all website content, branding, and materials are the property
+    of SONIC E&amp;I SOLUTIONS and may not be copied, reproduced, or distributed without permission.
+  </p>
 
-<h2>Intellectual Property</h2>
+  <h2>Service Information</h2>
+  <p>
+    Descriptions related to industrial engineering services, AI technologies,
+    and operational concepts are presented in good faith and may evolve as projects,
+    research, and development activities progress.
+  </p>
 
-<p>
-Unless otherwise stated, all website content, branding, and materials are the property
-of SONIC E&I SOLUTIONS and may not be copied, reproduced, or distributed without permission.
-</p>
+  <h2>Limitation of Liability</h2>
+  <p>
+    SONIC E&amp;I SOLUTIONS shall not be held liable for any direct or indirect damages
+    resulting from the use of this website or reliance on its content.
+  </p>
 
-<h2>Service Information</h2>
+  <h2>External Resources</h2>
+  <p>
+    This website may contain links to third-party platforms or resources.
+    We are not responsible for the content or availability of external websites.
+  </p>
 
-<p>
-Descriptions related to industrial engineering services, AI technologies,
-and operational concepts are presented in good faith and may evolve as projects,
-research, and development activities progress.
-</p>
+  <h2>Changes to Terms</h2>
+  <p>
+    These Terms of Use may be updated or modified at any time without prior notice.
+  </p>
 
-<h2>Limitation of Liability</h2>
-
-<p>
-SONIC E&I SOLUTIONS shall not be held liable for any direct or indirect damages
-resulting from the use of this website or reliance on its content.
-</p>
-
-<h2>External Resources</h2>
-
-<p>
-This website may contain links to third-party platforms or resources.
-We are not responsible for the content or availability of external websites.
-</p>
-
-<h2>Changes to Terms</h2>
-
-<p>
-These Terms of Use may be updated or modified at any time without prior notice.
-</p>
-
-<p>
-Continued use of this website constitutes acceptance of these terms.
-</p>
+  <p>
+    Continued use of this website constitutes acceptance of these terms.
+    If you have any questions, please <a href="index.html#contact">contact us</a>.
+  </p>
 
 </section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SONIC <span class="footer-ei">E&amp;I</span> SOLUTIONS</div>
+  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="terms-of-use.html" class="active">Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="index.html#contact">Contact Information</a>
+  </div>
+  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // In-view brightness boost
+  (function(){
+    var els = document.querySelectorAll('nav, footer, .legal-page, h1, h2');
+    els.forEach(function(el){ el.classList.add('in-view-boost'); });
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      }, { threshold: 0.08 });
+      els.forEach(function(el){ obs.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

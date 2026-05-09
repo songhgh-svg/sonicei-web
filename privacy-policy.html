@@ -1,48 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SONIC E&I Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-links">
+    <a href="index.html#ai">AI Platform</a>
+    <a href="index.html#gallery">Engineering Experience</a>
+    <a href="index.html#proof">Industries</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#supply">Supply</a>
+    <a href="index.html#academy">Academy</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
+    <a href="index.html#contact" class="btn-gold">Request Consultation</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#ai"       onclick="closeMenu()">AI Platform</a>
+  <a href="index.html#gallery"  onclick="closeMenu()">Engineering Experience</a>
+  <a href="index.html#proof"    onclick="closeMenu()">Industries</a>
+  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="index.html#supply"   onclick="closeMenu()">Supply</a>
+  <a href="index.html#academy"  onclick="closeMenu()">Academy</a>
+  <a href="index.html#about"    onclick="closeMenu()">About</a>
+  <a href="index.html#contact"  onclick="closeMenu()">Contact</a>
+  <a href="index.html#contact"  class="btn-gold" onclick="closeMenu()">Request Consultation</a>
+</div>
+
+<!-- CONTENT -->
 <section class="legal-page">
 
-<h1>Privacy Policy</h1>
+  <h1>Privacy <span class="gold">Policy</span></h1>
 
-<p>
-SONIC E&I SOLUTIONS respects your privacy and is committed to protecting
-any information you provide through this website.
-</p>
+  <p>
+    SONIC E&amp;I SOLUTIONS respects your privacy and is committed to protecting
+    any information you provide through this website.
+  </p>
 
-<h2>Information Collection</h2>
+  <h2>Information Collection</h2>
+  <p>
+    We may collect basic contact information including your name, email address,
+    company name, and inquiry details when you submit forms or contact us through the website.
+  </p>
 
-<p>
-We may collect basic contact information including your name, email address,
-company name, and inquiry details when you submit forms or contact us through the website.
-</p>
+  <h2>Use of Information</h2>
+  <p>
+    Collected information is used solely for communication, service inquiries,
+    project discussions, and improving our industrial engineering and AI-related services.
+  </p>
 
-<h2>Use of Information</h2>
+  <h2>Data Protection</h2>
+  <p>
+    We do not sell, trade, or distribute your personal information to third parties.
+    Reasonable technical and organizational measures are implemented to help protect submitted information.
+  </p>
 
-<p>
-Collected information is used solely for communication, service inquiries,
-project discussions, and improving our industrial engineering and AI-related services.
-</p>
+  <h2>External Links</h2>
+  <p>
+    This website may contain links to external websites or third-party platforms.
+    SONIC E&amp;I SOLUTIONS is not responsible for the privacy practices or content of external sites.
+  </p>
 
-<h2>Data Protection</h2>
+  <h2>Policy Updates</h2>
+  <p>
+    This Privacy Policy may be updated periodically without prior notice.
+  </p>
 
-<p>
-We do not sell, trade, or distribute your personal information to third parties.
-Reasonable technical and organizational measures are implemented to help protect submitted information.
-</p>
-
-<h2>External Links</h2>
-
-<p>
-This website may contain links to external websites or third-party platforms.
-SONIC E&I SOLUTIONS is not responsible for the privacy practices or content of external sites.
-</p>
-
-<h2>Policy Updates</h2>
-
-<p>
-This Privacy Policy may be updated periodically without prior notice.
-</p>
-
-<p>
-For questions regarding this policy, please contact us through the Contact section of this website.
-</p>
+  <p>
+    For questions regarding this policy, please <a href="index.html#contact">contact us</a> through the Contact section of this website.
+  </p>
 
 </section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SONIC <span class="footer-ei">E&amp;I</span> SOLUTIONS</div>
+  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="privacy-policy.html" class="active">Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="index.html#contact">Contact Information</a>
+  </div>
+  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // In-view brightness boost
+  (function(){
+    var els = document.querySelectorAll('nav, footer, .legal-page, h1, h2');
+    els.forEach(function(el){ el.classList.add('in-view-boost'); });
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      }, { threshold: 0.08 });
+      els.forEach(function(el){ obs.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>
