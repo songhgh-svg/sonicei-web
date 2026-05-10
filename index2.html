@@ -1511,7 +1511,7 @@
           <div style="font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:2px; color:#ffe066; margin-bottom:4px;">FREE DOWNLOAD</div>
           <div style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:15px; color:var(--white);">AI-Punch™ Sample Report — see the output before you commit</div>
         </div>
-        <a href="#contact" target="_blank" rel="noopener"
+        <a href="/ai-punch-sample-report.pdf" target="_blank" rel="noopener"
            style="flex-shrink:0; display:inline-flex; align-items:center; gap:8px;
                   padding:10px 20px; background:var(--gold); color:var(--navy);
                   font-family:'Rajdhani',sans-serif; font-weight:700; font-size:12px;
@@ -1546,12 +1546,12 @@
           <div class="form-group">
             <label>What do you need? <span style="color:var(--gray);font-size:10px;letter-spacing:1px;">(pick the closest)</span></label>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px;" id="scope-grid">
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="QA/QC &amp; AI-Punch™ — punch list closure"> <span>🤖 AI-Punch™ QA/QC</span></label>
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="E&amp;I Installation &amp; Wiring"> <span>⚡ E&amp;I Installation</span></label>
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="System Commissioning &amp; Loop Check"> <span>⚙️ Commissioning</span></label>
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="Technical Supervision &amp; PSSR"> <span style="white-space:nowrap;">🛡️ Supervision / PSSR</span></label>
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="SONIC Academy Training"> <span>🎓 Academy Training</span></label>
-              <label class="scope-chip"><input type="checkbox" name="cf-scope" value="Not sure — need a consultation"> <span>💬 Not sure yet</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="QA/QC &amp; AI-Punch™ — punch list closure"> <span>🤖 AI-Punch™ QA/QC</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="E&amp;I Installation &amp; Wiring"> <span>⚡ E&amp;I Installation</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="System Commissioning &amp; Loop Check"> <span>⚙️ Commissioning</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="Technical Supervision &amp; PSSR"> <span>🛡️ Supervision / PSSR</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="SONIC Academy Training"> <span>🎓 Academy Training</span></label>
+              <label class="scope-chip"><input type="radio" name="cf-scope" value="Not sure — need a consultation"> <span>💬 Not sure yet</span></label>
             </div>
           </div>
 
@@ -1696,7 +1696,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a">
-          No. AI-Punch™ is a mobile-first inspection platform where technicians capture photo evidence per punch item on-site. The system auto-classifies defects by category and severity, assigns ownership, tracks closure status in real time, and generates a timestamped PDF close-out report automatically when all items are resolved. The result: punch list closure time drops ~20% because nothing falls through the gap between site and office. Download the <a href="#contact" style="color:var(--gold);">sample report (PDF)</a> to see actual output.
+          No. AI-Punch™ is a mobile-first inspection platform where technicians capture photo evidence per punch item on-site. The system auto-classifies defects by category and severity, assigns ownership, tracks closure status in real time, and generates a timestamped PDF close-out report automatically when all items are resolved. The result: punch list closure time drops ~20% because nothing falls through the gap between site and office. Download the <a href="/ai-punch-sample-report.pdf" style="color:var(--gold);">sample report (PDF)</a> to see actual output.
         </div>
       </div>
 
@@ -1786,7 +1786,7 @@
     user-select: none;
   }
   .scope-chip:hover { background: rgba(201,162,39,0.1); border-color: rgba(201,162,39,0.4); }
-  .scope-chip input[type="checkbox"] { accent-color: var(--gold); flex-shrink: 0; }
+  .scope-chip input[type="radio"] { accent-color: var(--gold); flex-shrink: 0; }
   .scope-chip:has(input:checked) {
     background: rgba(201,162,39,0.15);
     border-color: var(--gold);
@@ -1818,9 +1818,9 @@
     var form = document.querySelector('.contact-form');
     if (!form) return;
     form.addEventListener('submit', function() {
-      var checked = Array.from(form.querySelectorAll('input[name="cf-scope"]:checked'));
+      var checked = form.querySelector('input[name="cf-scope"]:checked');
       var msg = document.getElementById('cf-message');
-      if (msg && checked.length) msg.value = 'Scope interest: ' + checked.map(function(i){return i.value;}).join('; ');
+      if (msg && checked) msg.value = 'Scope interest: ' + checked.value;
       else if (msg) msg.value = 'Submitted via short form — no scope selected.';
     });
   });
