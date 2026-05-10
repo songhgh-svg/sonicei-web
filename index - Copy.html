@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SONIC E&I Solutions</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="emailjs-config.js"></script>
 <style>
   :root {
     --navy: #0a1628;
@@ -429,12 +432,14 @@
     overflow: hidden; height: 26px; width: 100%;
   }
   .mobile-ticker-bar .ticker-track {
-    animation: ticker 40s linear infinite;
-    white-space: nowrap;
-    height: 100%; display: flex; align-items: center;
+    display: flex; width: max-content; white-space: nowrap;
+    height: 100%; align-items: center;
+    animation: ticker 120s linear infinite;
+    will-change: transform;
   }
   .mobile-ticker-bar .ticker-item {
     padding: 0 24px; font-size: 9.5px; letter-spacing: 1.5px;
+    white-space: nowrap; flex-shrink: 0;
   }
   .hero h1 .gold { color: var(--gold); }
   .hero-sub {
@@ -1286,6 +1291,87 @@
   }
   .form-group select option { background: var(--navy-mid); }
 
+  /* ── SERVICE MULTI-SELECT DROPDOWN ── */
+  .svc-dropdown { position: relative; }
+
+  /* Trigger row — always visible */
+  .svc-trigger {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,162,39,0.2);
+    padding: 16px 20px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px; font-weight: 500;
+    color: var(--gray);
+    user-select: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .svc-trigger:hover,
+  .svc-dropdown.open .svc-trigger {
+    border-color: var(--gold);
+    background: rgba(201,162,39,0.05);
+    color: var(--white);
+  }
+  .svc-trigger-left { display: flex; align-items: center; gap: 10px; }
+  .svc-trigger-label { font-size: 18px; }
+  .svc-trigger-tags {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    font-size: 11px; font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .svc-tag {
+    background: rgba(201,162,39,0.18);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold-light);
+    padding: 2px 7px; border-radius: 1px;
+    white-space: nowrap;
+  }
+  .svc-arrow {
+    font-size: 11px; color: rgba(201,162,39,0.6);
+    transition: transform 0.25s;
+    flex-shrink: 0; margin-left: 8px;
+  }
+  .svc-dropdown.open .svc-arrow { transform: rotate(180deg); }
+
+  /* Panel — hidden by default */
+  .svc-panel {
+    position: absolute; top: 100%; left: 0; right: 0;
+    z-index: 50;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,162,39,0.25);
+    border-top: none;
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+  .svc-dropdown.open .svc-panel {
+    max-height: 400px;
+    padding: 8px;
+  }
+  .svc-box {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--gray); letter-spacing: 0.5px;
+    transition: background 0.15s, color 0.15s;
+    user-select: none; border-radius: 1px;
+  }
+  .svc-box:hover { background: rgba(201,162,39,0.06); color: var(--white); }
+  .svc-box input[type="checkbox"] { display: none; }
+  .svc-box.checked { color: var(--gold-light); }
+  .svc-box::before {
+    content: '○'; color: rgba(201,162,39,0.3);
+    font-size: 13px; flex-shrink: 0; width: 14px;
+  }
+  .svc-box.checked::before { content: '✓'; color: var(--gold); font-weight: 700; }
+  @media (max-width: 600px) {
+    .svc-panel { grid-template-columns: 1fr; }
+  }
+
   /* ── CONTACT CTA BUTTONS ── */
   .contact-cta-btns {
     display: flex; gap: 12px; flex-wrap: nowrap;
@@ -1872,10 +1958,12 @@
     height: 32px;
   }
   .ticker-track {
-    display: flex; gap: 0;
-    animation: ticker 40s linear infinite;
+    display: flex;
+    width: max-content;
     white-space: nowrap;
+    will-change: transform;
     height: 100%; align-items: center;
+    animation: ticker 120s linear infinite;
   }
   .ticker-track:hover { animation-play-state: paused; }
   .ticker-item {
@@ -1884,11 +1972,13 @@
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px; letter-spacing: 2px;
     color: rgba(201,162,39,0.9);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .ticker-dot { color: #00c896; font-size: 8px; }
   .ticker-highlight { color: #00c896; font-weight: 700; }
   @keyframes ticker {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
@@ -2524,6 +2614,197 @@
     .experience-badge { left: 16px; bottom: 16px; padding: 14px 18px; }
     .experience-badge h3 { font-size: 40px; }
   }
+
+  /* ══════════════════════════════════════════
+     VIDEO BOX — thumbnail + click-to-play
+  ══════════════════════════════════════════ */
+  .sonic-video-box {
+    background: #000;
+    border: 1px solid rgba(201,162,39,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Label bar ── */
+  .sonic-video-label {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(201,162,39,0.18);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2.5px;
+    color: var(--gold); text-transform: uppercase;
+    background: rgba(10,22,40,0.95);
+    position: relative; z-index: 2;
+  }
+  .sonic-video-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #ff4444; flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(255,68,68,0.7);
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  /* ── Thumbnail wrapper (16:9) ── */
+  .sonic-video-frame {
+    position: relative; width: 100%;
+    padding-bottom: 56.25%; height: 0;
+    background: #000; cursor: pointer;
+    overflow: hidden;
+  }
+
+  /* Background gradient "image" */
+  .sonic-video-thumb {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(26,74,138,0.55) 0%, transparent 65%),
+      radial-gradient(ellipse at 75% 30%, rgba(201,162,39,0.12) 0%, transparent 55%),
+      linear-gradient(135deg, #040d1a 0%, #0a1628 40%, #0d2040 70%, #071220 100%);
+    transition: filter 0.4s ease;
+  }
+  .sonic-video-frame:hover .sonic-video-thumb {
+    filter: brightness(1.15);
+  }
+
+  /* Animated grid lines */
+  .sonic-video-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(201,162,39,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,162,39,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: svgrid 8s linear infinite;
+  }
+  @keyframes svgrid {
+    from { background-position: 0 0; }
+    to   { background-position: 40px 40px; }
+  }
+
+  /* Scan line */
+  .sonic-video-scan {
+    position: absolute; left: 0; right: 0; height: 2px; pointer-events: none;
+    background: linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 30%, rgba(255,228,77,0.8) 50%, rgba(201,162,39,0.5) 70%, transparent 100%);
+    box-shadow: 0 0 12px rgba(201,162,39,0.4);
+    animation: svscan 3.5s ease-in-out infinite;
+    z-index: 3;
+  }
+  @keyframes svscan {
+    0%   { top: 0%; opacity: 0; }
+    5%   { opacity: 1; }
+    90%  { opacity: 0.7; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* Corner brackets */
+  .sonic-video-frame::before,
+  .sonic-video-frame::after {
+    content: ''; position: absolute; width: 18px; height: 18px; z-index: 4; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .sonic-video-frame::before {
+    top: 10px; left: 10px;
+    border-top: 2px solid rgba(201,162,39,0.7);
+    border-left: 2px solid rgba(201,162,39,0.7);
+  }
+  .sonic-video-frame::after {
+    bottom: 10px; right: 10px;
+    border-bottom: 2px solid rgba(201,162,39,0.7);
+    border-right: 2px solid rgba(201,162,39,0.7);
+  }
+
+  /* Center text block */
+  .sonic-video-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px; z-index: 5; pointer-events: none;
+    padding: 16px;
+  }
+
+  /* "SONIC AI PLATFORM" tagline */
+  .sonic-video-tagline-top {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 4px;
+    color: rgba(201,162,39,0.6);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .sonic-video-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 4.5vw, 38px);
+    letter-spacing: 4px;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 40px rgba(255,255,255,0.2), 0 2px 20px rgba(0,0,0,0.9);
+  }
+  .sonic-video-brand .sv-gold { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
+  .sonic-video-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(11px, 1.8vw, 14px);
+    letter-spacing: 2px;
+    color: rgba(200,216,240,0.75);
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+
+  /* Play button */
+  .sonic-play-btn {
+    pointer-events: all;
+    margin-top: 6px;
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.15);
+    border: 2px solid rgba(201,162,39,0.7);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 0 0 0 rgba(201,162,39,0.35);
+    animation: svpulse 2.4s ease-in-out infinite;
+  }
+  @keyframes svpulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.35); }
+    50%      { box-shadow: 0 0 0 12px rgba(201,162,39,0); }
+  }
+  .sonic-play-btn:hover {
+    background: rgba(201,162,39,0.3);
+    transform: scale(1.12);
+    animation: none;
+    box-shadow: 0 0 24px rgba(201,162,39,0.5);
+  }
+  .sonic-play-btn svg { margin-left: 4px; }
+
+  /* Iframe — hidden until clicked */
+  .sonic-video-frame video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: none;
+    display: none;
+    z-index: 10;
+  }
+  .sonic-video-frame.sv-playing video   { display: block; }
+  .sonic-video-frame.sv-playing .sonic-video-thumb,
+  .sonic-video-frame.sv-playing .sonic-video-grid,
+  .sonic-video-frame.sv-playing .sonic-video-scan,
+  .sonic-video-frame.sv-playing .sonic-video-center { display: none; }
+
+  /* Caption bar */
+  .sonic-video-caption {
+    padding: 7px 14px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1.5px;
+    color: rgba(136,153,187,0.7);
+    text-transform: uppercase; text-align: center;
+    border-top: 1px solid rgba(201,162,39,0.1);
+    background: rgba(10,22,40,0.95);
+    position: relative; z-index: 2;
+  }
+
+  /* Desktop: hiện trong purpose column, ẩn trong hero */
+  .sonic-video-hero-mobile { display: none; }
+  @media (max-width: 900px) {
+    .sonic-video-hero-mobile { display: block; margin-top: 24px; }
+    .sonic-video-purpose { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -2572,15 +2853,26 @@
 <!-- MOBILE PAIN BAR + TICKER (static, below nav, mobile only) -->
 <div class="mobile-ticker-bar">
   <div class="ticker-track">
+    <!-- Set 1 -->
     <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
     <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">10 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>    
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+    <!-- Set 2 — bản sao -->
+    <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
   </div>
 </div>
 <div class="mobile-pain-bar" id="mobilePainBar" style="transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
@@ -2593,16 +2885,27 @@
   <!-- TICKER — luôn hiển thị ngay dưới nav -->
   <div class="ticker-bar">
     <div class="ticker-track" id="tickerTrack">
-    <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul </span> — Maintenance & Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
-    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>    
-  </div>
+      <!-- Set 1 -->
+      <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+      <!-- Set 2 — bản sao để loop liền mạch -->
+      <span class="ticker-item"><span class="ticker-dot">●</span> CERTIFIED <span class="ticker-highlight">IEC 61084 · Siemens Spec · GE Standards</span> — All Projects</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Real-time QA/QC</span> — Powered by Google Gemini AI</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ 1,247 punch items closed</span> — Seaonics GW Project 2025</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+      <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+    </div>
   </div>
   <!-- PAIN BAR — ẩn/hiện khi click -->
   <div class="hero-pain-bar" id="painBar" style="cursor:pointer;position:relative;" onclick="togglePainBar()" title="Click to hide">
@@ -2800,6 +3103,34 @@
       </div>
     </div>
 
+    <!-- Video box — mobile only (desktop version ở trong Our Purpose) -->
+    <div class="sonic-video-box sonic-video-hero-mobile">
+      <div class="sonic-video-label">
+        <span class="sonic-video-dot"></span>
+        <span>WATCH: ZERO-DEFECT IN ACTION</span>
+      </div>
+      <div class="sonic-video-frame" id="svframe-mobile">
+        <div class="sonic-video-thumb"></div>
+        <div class="sonic-video-grid"></div>
+        <div class="sonic-video-scan"></div>
+        <div class="sonic-video-center">
+          <div class="sonic-video-tagline-top">// Industrial AI</div>
+          <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
+          <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
+          <button class="sonic-play-btn" onclick="svPlay('svframe-mobile')" aria-label="Play video">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
+            </svg>
+          </button>
+        </div>
+        <video id="svframe-mobile-video" playsinline controls
+          style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+          <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
+    </div>
+
   </div>
 
   <!-- Right panel: KPI scorecard -->
@@ -2881,23 +3212,53 @@
       </div>
     </div>
 
-    <!-- RIGHT: Image -->
-    <div class="why-sonic-image fade-in">
-      <div class="why-scan-line"></div>
-      <img
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='480'%3E%3Crect fill='%230a1628' width='600' height='480'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='rgba(201,162,39,0.15)' font-size='80' font-family='sans-serif'%3ESONIC%3C/text%3E%3C/svg%3E"
-        alt="SONIC E&I — Real field operations"
-        style="width:100%;height:480px;object-fit:cover;display:block;"
-        onerror="this.style.background='linear-gradient(135deg,#0a1628 0%,#112040 100%)';this.style.minHeight='480px';"
-      />
-      <div class="image-overlay"></div>
-      <!-- Top-right corner bracket -->
-      <div style="position:absolute;top:12px;right:12px;width:20px;height:20px;border-top:2px solid rgba(201,162,39,0.7);border-right:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
-      <!-- Bottom-left corner bracket -->
-      <div style="position:absolute;bottom:12px;left:12px;width:20px;height:20px;border-bottom:2px solid rgba(201,162,39,0.7);border-left:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
-      <div class="experience-badge">
-        <h3>25+</h3>
-        <span>Years of Global<br>E&amp;I Excellence</span>
+    <!-- RIGHT: Image + Video (desktop) -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="why-sonic-image fade-in">
+        <div class="why-scan-line"></div>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='480'%3E%3Crect fill='%230a1628' width='600' height='480'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='rgba(201,162,39,0.15)' font-size='80' font-family='sans-serif'%3ESONIC%3C/text%3E%3C/svg%3E"
+          alt="SONIC E&I — Real field operations"
+          style="width:100%;height:480px;object-fit:cover;display:block;"
+          onerror="this.style.background='linear-gradient(135deg,#0a1628 0%,#112040 100%)';this.style.minHeight='480px';"
+        />
+        <div class="image-overlay"></div>
+        <!-- Top-right corner bracket -->
+        <div style="position:absolute;top:12px;right:12px;width:20px;height:20px;border-top:2px solid rgba(201,162,39,0.7);border-right:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
+        <!-- Bottom-left corner bracket -->
+        <div style="position:absolute;bottom:12px;left:12px;width:20px;height:20px;border-bottom:2px solid rgba(201,162,39,0.7);border-left:2px solid rgba(201,162,39,0.7);z-index:3;pointer-events:none;"></div>
+        <div class="experience-badge">
+          <h3>25+</h3>
+          <span>Years of Global<br>E&amp;I Excellence</span>
+        </div>
+      </div>
+
+      <!-- Video box — desktop only (mobile version ở trong hero) -->
+      <div class="sonic-video-box sonic-video-purpose fade-in">
+        <div class="sonic-video-label">
+          <span class="sonic-video-dot"></span>
+          <span>WATCH: ZERO-DEFECT IN ACTION</span>
+        </div>
+        <div class="sonic-video-frame" id="svframe-desktop">
+          <div class="sonic-video-thumb"></div>
+          <div class="sonic-video-grid"></div>
+          <div class="sonic-video-scan"></div>
+          <div class="sonic-video-center">
+            <div class="sonic-video-tagline-top">// Industrial AI</div>
+            <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
+            <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
+            <button class="sonic-play-btn" onclick="svPlay('svframe-desktop')" aria-label="Play video">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
+              </svg>
+            </button>
+          </div>
+          <video id="svframe-desktop-video" playsinline controls
+            style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+            <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
       </div>
     </div>
 
@@ -3601,7 +3962,7 @@
             </div>
 
             <!-- Row 2: Phone -->
-            <a href="https://zalo.me/0915460790" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:8px 0 12px;border-bottom:1px solid rgba(201,162,39,0.1);margin-bottom:8px;transition:text-shadow 0.2s;" onmouseover="this.style.textShadow='0 0 14px rgba(201,162,39,0.6)'" onmouseout="this.style.textShadow='none'">
+            <a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:8px 0 12px;border-bottom:1px solid rgba(201,162,39,0.1);margin-bottom:8px;transition:text-shadow 0.2s;" onmouseover="this.style.textShadow='0 0 14px rgba(201,162,39,0.6)'" onmouseout="this.style.textShadow='none'">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
               <strong style="color:var(--gold);font-weight:800;font-size:clamp(18px,4.5vw,26px);letter-spacing:2px;white-space:nowrap;">+84 915 460 790</strong>
             </a>
@@ -3813,7 +4174,7 @@
       </div>
       <div class="download-card">
         <div class="download-title" data-i18n="dl_title">🤝 COMPANY PROFILE 2026</div>
-        <div class="download-desc" data-i18n="dl_desc">Download our full company profile — complete service offering, project history, technical credentials and AI-Punch&#8482; platform details. Available in PDF and PowerPoint.</div>
+        <div class="download-desc" data-i18n="dl_desc">Download our full company profile — complete service offering, project history, technical credentials and AI-Punch&#8482; platform details. Available in PDF.</div>
 
         <!-- PDF PREVIEW EMBED -->
         <div class="pdf-preview-wrap" id="pdf-preview-wrap">
@@ -3898,10 +4259,20 @@
         <div class="contact-item">
           <div class="contact-item-icon">📞</div>
           <div>
-            <div class="contact-item-label" data-i18n="contact_phone_label">Phone / Zalo</div>
+            <div class="contact-item-label">Call</div>
             <a href="tel:+84915460790" class="contact-item-value contact-link">
-              0915 460 790
-              <span class="contact-link-hint" data-i18n="contact_phone_hint">Tap to call / open Zalo</span>
+              +84 915 460 790
+              <span class="contact-link-hint">Tap to call</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div>
+            <div class="contact-item-label">Zalo</div>
+            <a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener" class="contact-item-value contact-link">
+              +84 915 460 790
+              <span class="contact-link-hint">Tap to open Zalo</span>
             </a>
           </div>
         </div>
@@ -3927,45 +4298,59 @@
     <div>
       <!-- Quick Connect -->
       <div class="contact-cta-btns">
-        <a href="tel:+84915460790" class="cta-btn-call">📲 Call / Zalo</a>
+        <a href="tel:+84915460790" class="cta-btn-call">📞 Call Now</a>
+        <a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener" class="cta-btn-zalo">💬 Zalo Chat</a>
         <a href="mailto:contact@sonicei.com?subject=Project%20Inquiry%20%E2%80%94%20SONIC%20E%26I%20Solutions&body=Dear%20Mr.%20Son%2C%0A%0AI%20am%20interested%20in%20discussing%20a%20project.%0A%0ARegards%2C" class="cta-btn-email">✉️ Send Email</a>
-        <a href="https://zalo.me/0915460790" target="_blank" class="cta-btn-zalo">💬 Zalo Chat</a>
       </div>
       <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(201,162,39,0.15); padding:clamp(20px,4vw,44px); box-sizing:border-box;">
         <div data-i18n="form_title" style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:3px; color:var(--gold); margin-bottom:32px;">SEND A MESSAGE</div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label data-i18n="form_name">Name</label>
-              <input type="text" data-i18n-placeholder="form_name_ph" placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label data-i18n="form_company">Company</label>
-              <input type="text" data-i18n-placeholder="form_company_ph" placeholder="Your company">
-            </div>
+
+          <!-- ① NAME + COMPANY (1 ô gộp) -->
+          <div class="form-group">
+            <label data-i18n="form_name">Name / Company</label>
+            <input type="text" id="cf-name" placeholder="Your name &amp; company" style="width:100%;">
+            <input type="hidden" id="cf-company" value="">
           </div>
+
+          <!-- ② EMAIL -->
           <div class="form-group">
             <label data-i18n="form_email">Email</label>
-            <input type="email" placeholder="your@email.com">
+            <input type="email" id="cf-email" placeholder="your@email.com">
           </div>
+
+          <!-- ③ SERVICE — multi-select checkbox boxes -->
           <div class="form-group">
-            <label data-i18n="form_service">Service</label>
-            <select>
-              <option value="" data-i18n="form_select">Select a service...</option>
-              <option data-i18n="svc_opt1">Installation & Wiring</option>
-              <option data-i18n="svc_opt2">System Commissioning</option>
-              <option data-i18n="svc_opt3">Technical Supervision</option>
-              <option data-i18n="svc_opt4">Industrial Supply</option>
-              <option data-i18n="svc_opt_qaqc">QA/QC & Punch List Management</option>
-              <option data-i18n="svc_opt_pssr">Pre-Startup Safety Review (PSSR)</option>
-              <option>SONIC AI-Punch™</option>
-              <option data-i18n="svc_opt5">SONIC Academy — Training Program</option>
-            </select>
+            <label data-i18n="form_service">Service <span style="color:var(--gray);font-size:10px;letter-spacing:1px;">(optional — choose one or more)</span></label>
+            <div class="svc-dropdown" id="svc-dropdown">
+              <!-- Trigger row -->
+              <div class="svc-trigger" id="svc-trigger">
+                <div class="svc-trigger-left">
+                  <span class="svc-trigger-label" id="svc-trigger-label" style="color:rgba(201,162,39,0.35); font-size:18px;">Select a service...</span>
+                  <div class="svc-trigger-tags" id="svc-trigger-tags"></div>
+                </div>
+                <span class="svc-arrow">▼</span>
+              </div>
+              <!-- Dropdown panel -->
+              <div class="svc-panel" id="svc-panel">
+                <label class="svc-box"><input type="checkbox" value="Installation & Wiring"><span data-i18n="svc_opt1">Installation &amp; Wiring</span></label>
+                <label class="svc-box"><input type="checkbox" value="System Commissioning"><span data-i18n="svc_opt2">System Commissioning</span></label>
+                <label class="svc-box"><input type="checkbox" value="Technical Supervision"><span data-i18n="svc_opt3">Technical Supervision</span></label>
+                <label class="svc-box"><input type="checkbox" value="Industrial Supply"><span data-i18n="svc_opt4">Industrial Supply</span></label>
+                <label class="svc-box"><input type="checkbox" value="QA/QC & Punch List Management"><span data-i18n="svc_opt_qaqc">QA/QC &amp; Punch List Management</span></label>
+                <label class="svc-box"><input type="checkbox" value="Pre-Startup Safety Review (PSSR)"><span data-i18n="svc_opt_pssr">Pre-Startup Safety Review (PSSR)</span></label>
+                <label class="svc-box"><input type="checkbox" value="SONIC AI-Punch™"><span>SONIC AI-Punch™</span></label>
+                <label class="svc-box"><input type="checkbox" value="SONIC Academy — Training Program"><span data-i18n="svc_opt5">SONIC Academy — Training Program</span></label>
+              </div>
+            </div>
           </div>
+
+          <!-- MESSAGE -->
           <div class="form-group">
             <label data-i18n="form_message">Message</label>
-            <textarea rows="4" data-i18n-placeholder="form_placeholder" placeholder="Tell us about your project..."></textarea>
+            <textarea rows="4" id="cf-message" data-i18n-placeholder="form_placeholder" placeholder="Tell us about your project..."></textarea>
           </div>
+
           <button type="submit" class="btn-gold" data-i18n="form_send" style="width:100%; text-align:center; font-size:14px; padding:16px;">
             SEND MESSAGE
           </button>
@@ -4212,7 +4597,7 @@
       cred_sub5: 'AI-assisted QA/QC · Powered by Google Gemini',
       // DOWNLOAD
       dl_title: '🤝 COMPANY PROFILE 2026',
-      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF and PowerPoint.',
+      dl_desc: 'Download our full company profile — complete service offering, project history, technical credentials and AI-Punch™ platform details. Available in PDF.',
       dl_btn1: '⬇ Download PDF', dl_btn2: '⬇ Download PPTX',
       // SERVICES
       svc_label: '// What We Do',
@@ -4431,21 +4816,171 @@
   }
 
   // ── FORM HANDLER ──
+  // ── SERVICE DROPDOWN ──
+  (function() {
+    var dropdown = document.getElementById('svc-dropdown');
+    var trigger  = document.getElementById('svc-trigger');
+    var panel    = document.getElementById('svc-panel');
+    var labelEl  = document.getElementById('svc-trigger-label');
+    var tagsEl   = document.getElementById('svc-trigger-tags');
+    if (!dropdown) return;
+
+    // Toggle open/close
+    function openDropdown()  { dropdown.classList.add('open'); }
+    function closeDropdown() { dropdown.classList.remove('open'); }
+    function toggleDropdown(){ dropdown.classList.toggle('open'); }
+
+    trigger.addEventListener('click', function(e) { e.stopPropagation(); toggleDropdown(); });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target)) closeDropdown();
+    });
+
+    // Update trigger label/tags after selection
+    function updateTrigger() {
+      var checked = panel.querySelectorAll('input[type="checkbox"]:checked');
+      if (checked.length === 0) {
+        labelEl.style.color = 'rgba(201,162,39,0.35)';
+        labelEl.textContent = 'Select a service...';
+        tagsEl.innerHTML = '';
+      } else {
+        labelEl.style.color = 'transparent';
+        labelEl.textContent = '';
+        tagsEl.innerHTML = Array.from(checked).map(function(cb) {
+          // Short label for tag
+          var short = cb.value
+            .replace('Installation & Wiring', 'Installation')
+            .replace('System Commissioning', 'Commissioning')
+            .replace('Technical Supervision', 'Supervision')
+            .replace('Industrial Supply', 'Supply')
+            .replace('QA/QC & Punch List Management', 'QA/QC')
+            .replace('Pre-Startup Safety Review (PSSR)', 'PSSR')
+            .replace('SONIC Academy — Training Program', 'Academy');
+          return '<span class="svc-tag">' + short + '</span>';
+        }).join('');
+      }
+    }
+
+    // Checkbox toggle inside panel
+    panel.querySelectorAll('.svc-box').forEach(function(box) {
+      box.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var cb = box.querySelector('input[type="checkbox"]');
+        cb.checked = !cb.checked;
+        box.classList.toggle('checked', cb.checked);
+        updateTrigger();
+      });
+    });
+
+    // Expose reset for form submit
+    window.svcDropdownReset = function() {
+      panel.querySelectorAll('.svc-box').forEach(function(b) {
+        b.classList.remove('checked');
+        b.querySelector('input').checked = false;
+      });
+      updateTrigger();
+      closeDropdown();
+    };
+  })();
+
+  // ── EMAILJS SEND ──
+  // Keys được load từ file riêng: emailjs-config.js (cùng thư mục với index.html)
+  // Chỉ cần sửa file đó, không cần đụng vào index.html
+
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const isVI = currentLang === 'vi';
-    btn.textContent = isVI
-      ? '✓ ĐÃ GỬI — CHÚNG TÔI SẼ LIÊN HỆ SỚM'
-      : '✓ MESSAGE SENT — WE WILL CONTACT YOU SHORTLY';
-    btn.style.background = '#00c896';
+    const form   = e.target;
+    const btn    = form.querySelector('button[type="submit"]');
+    const isVI   = currentLang === 'vi';
+    const inputs = form.querySelectorAll('input, textarea, select');
+
+    // Lấy dữ liệu form
+    const name    = (document.getElementById('cf-name')    || {}).value || '';
+    const company = (document.getElementById('cf-company') || {}).value || '';
+    const email   = (document.getElementById('cf-email')   || {}).value || '';
+    const message = (document.getElementById('cf-message') || {}).value || '';
+    // Multi-select services (optional)
+    const checkedBoxes = form.querySelectorAll('.svc-box input[type="checkbox"]:checked');
+    const services = checkedBoxes.length
+      ? Array.from(checkedBoxes).map(function(cb){ return cb.value; }).join(', ')
+      : '(Not specified)';
+
+    // Basic validation
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      alert(isVI ? 'Vui lòng điền đầy đủ: Tên, Email và Nội dung.' : 'Please fill in: Name, Email and Message.');
+      return;
+    }
+
+    // Loading state
+    btn.disabled = true;
+    btn.textContent = isVI ? '⏳ Đang gửi...' : '⏳ Sending...';
+    btn.style.background = '#888';
     btn.style.color = '#fff';
-    setTimeout(() => {
+
+    // Check EmailJS keys configured
+    if (!EMAILJS_SERVICE_ID || EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+      // Fallback: open mailto (works immediately without setup)
+      const subject = encodeURIComponent('[SONIC E&I] New inquiry from ' + name);
+      const body    = encodeURIComponent(
+        'Name: '    + name    + '\n' +
+        'Company: ' + company + '\n' +
+        'Email: '   + email   + '\n' +
+        'Service: ' + services + '\n\n' +
+        'Message:\n' + message
+      );
+      window.location.href = 'mailto:contact@sonicei.com?subject=' + subject + '&body=' + body;
+      btn.disabled = false;
       btn.textContent = isVI ? 'GỬI TIN NHẮN' : 'SEND MESSAGE';
       btn.style.background = '';
       btn.style.color = '';
-      e.target.reset();
-    }, 4000);
+      return;
+    }
+
+    // Send via EmailJS
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name:    name,
+      from_company: company,
+      from_email:   email,
+      service:      services,
+      message:      message,
+      to_email:     'contact@sonicei.com'
+    }, EMAILJS_PUBLIC_KEY)
+    .then(function() {
+      btn.disabled = false;
+      btn.textContent = isVI ? '✓ ĐÃ GỬI — CHÚNG TÔI SẼ LIÊN HỆ SỚM' : '✓ MESSAGE SENT — WE WILL CONTACT YOU SHORTLY';
+      btn.style.background = '#00c896';
+      btn.style.color = '#fff';
+      // GA4 event
+      if (typeof gtag !== 'undefined') gtag('event', 'form_submit', { event_category: 'contact', event_label: services });
+      // FB Pixel
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      setTimeout(function() {
+        btn.textContent = isVI ? 'GỬI TIN NHẮN' : 'SEND MESSAGE';
+        btn.style.background = '';
+        btn.style.color = '';
+        form.reset();
+        // Also uncheck svc boxes visually
+        if (typeof window.svcDropdownReset === 'function') window.svcDropdownReset();
+      }, 5000);
+    })
+    .catch(function(err) {
+      btn.disabled = false;
+      console.error('EmailJS error:', err);
+      // Fallback to mailto on error
+      const subject = encodeURIComponent('[SONIC E&I] New inquiry from ' + name);
+      const body    = encodeURIComponent(
+        'Name: '    + name    + '\n' +
+        'Company: ' + company + '\n' +
+        'Email: '   + email   + '\n' +
+        'Service: ' + services + '\n\n' +
+        'Message:\n' + message
+      );
+      window.location.href = 'mailto:contact@sonicei.com?subject=' + subject + '&body=' + body;
+      btn.textContent = isVI ? 'GỬI TIN NHẮN' : 'SEND MESSAGE';
+      btn.style.background = '';
+      btn.style.color = '';
+    });
   }
 </script>
 
@@ -4606,7 +5141,7 @@
       <p>👋 Hi there! Need assistance with E&I services?</p>
       <ul class="zalo-quick-actions">
         <!-- ⚠️ REPLACE WITH YOUR ZALO NUMBER -->
-        <li><a href="https://zalo.me/0915460790" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
+        <li><a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
         <li><a href="tel:+84915460790">📞 Quick Call</a></li>
         <li><a href="mailto:contact@sonicei.com">✉️ Send Email</a></li>
       </ul>
@@ -4743,5 +5278,53 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <!-- ===== END ZALO + TRACKING BLOCK ===== -->
+
+<script>
+// ── ZALO DEEP LINK ──
+// Thử mở app Zalo trực tiếp; nếu không có app thì fallback về web
+function openZalo(e) {
+  e.preventDefault();
+  var phone = '84915460790'; // 0915460790 → bỏ số 0, thêm mã quốc gia 84
+  var appLink = 'zalo://chat?phone=' + phone;
+  var webLink = 'https://zalo.me/84915460790';
+
+  // Tạo iframe ẩn để thử deep link (không gây navigate trang)
+  var iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  var appOpened = false;
+  var timer;
+
+  // Nếu sau 1.5s vẫn focus (app không bắt được) → mở web fallback
+  window.addEventListener('blur', function onBlur() {
+    appOpened = true;
+    clearTimeout(timer);
+    window.removeEventListener('blur', onBlur);
+  });
+
+  timer = setTimeout(function() {
+    if (!appOpened) {
+      window.open(webLink, '_blank');
+    }
+    document.body.removeChild(iframe);
+  }, 1500);
+
+  iframe.src = appLink;
+  return false;
+}
+
+// Click-to-play: hiện video local, ẩn thumbnail
+function svPlay(frameId) {
+  var frame = document.getElementById(frameId);
+  if (!frame) return;
+  var video = document.getElementById(frameId + '-video');
+  if (video) {
+    video.style.display = 'block';
+    video.play();
+  }
+  frame.classList.add('sv-playing');
+}
+</script>
 </body>
 </html>
