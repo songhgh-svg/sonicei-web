@@ -2792,3 +2792,386 @@
     .sonic-video-hero-mobile { display: block; margin-top: 24px; }
     .sonic-video-purpose { display: none; }
   }
+
+
+  /* ══════════════════════════════════════════
+     LEGAL PAGE — shared.css supplement
+  ══════════════════════════════════════════ */
+  .legal-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 140px 40px 100px;
+    color: rgba(240,244,255,0.85);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .legal-page h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .legal-page h1 .gold { color: var(--gold); }
+  .legal-meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+    opacity: 0.6;
+    margin-bottom: 48px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .legal-meta::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .legal-page h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 48px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201,162,39,0.15);
+  }
+  .legal-page p {
+    color: rgba(200,216,240,0.75);
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+  .legal-page a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,162,39,0.35);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .legal-page a:hover {
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+  }
+  .legal-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .legal-page ul li {
+    padding: 12px 16px 12px 20px;
+    border-left: 2px solid rgba(201,162,39,0.35);
+    background: rgba(255,255,255,0.025);
+    color: rgba(200,216,240,0.72);
+    font-size: 15px;
+    line-height: 1.7;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .legal-page ul li:hover {
+    border-left-color: var(--gold);
+    background: rgba(201,162,39,0.05);
+  }
+  .legal-page ul li strong {
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 600px) {
+    .legal-page { padding: 120px 20px 80px; font-size: 15px; }
+    .legal-page h1 { font-size: clamp(40px, 12vw, 60px); }
+  }
+
+
+  /* ══════════════════════════════════════════
+     COOKIE CONSENT BANNER
+  ══════════════════════════════════════════ */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: rgba(8, 16, 30, 0.97);
+    border-top: 1px solid rgba(201,162,39,0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 -4px 40px rgba(0,0,0,0.6), 0 -1px 0 rgba(201,162,39,0.1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  /* Gold accent line top */
+  #cookie-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
+    opacity: 0.7;
+  }
+  .cookie-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+  .cookie-text {
+    flex: 1;
+    min-width: 260px;
+  }
+  .cookie-text-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 5px;
+  }
+  .cookie-text p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(200,216,240,0.72);
+    margin: 0;
+  }
+  .cookie-text p a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,162,39,0.35);
+    transition: color 0.2s;
+  }
+  .cookie-text p a:hover { color: var(--gold-light); }
+  .cookie-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  /* Accept button — gold filled */
+  .cookie-btn-accept {
+    padding: 10px 28px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    border: none; cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+  /* Decline button — ghost */
+  .cookie-btn-decline {
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--gray);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1px solid rgba(136,153,187,0.25);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-decline:hover {
+    color: var(--white);
+    border-color: rgba(200,216,240,0.45);
+  }
+  /* Cookie preferences toggle link */
+  .cookie-btn-manage {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(136,153,187,0.5);
+    background: none; border: none; cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(136,153,187,0.3);
+    transition: color 0.2s;
+  }
+  .cookie-btn-manage:hover { color: var(--gray); }
+
+  /* ── Cookie Preferences Modal ── */
+  #cookie-modal {
+    display: none;
+    position: fixed; inset: 0;
+    z-index: 10000;
+    background: rgba(4, 10, 20, 0.85);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  #cookie-modal.open {
+    display: flex;
+  }
+  .cookie-modal-box {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-top: 2px solid var(--gold);
+    max-width: 520px;
+    width: 100%;
+    padding: 36px 32px 28px;
+    position: relative;
+  }
+  .cookie-modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .cookie-modal-title .gold { color: var(--gold); }
+  .cookie-modal-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; color: var(--gray);
+    margin-bottom: 28px; line-height: 1.6;
+  }
+  .cookie-toggle-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(200,216,240,0.07);
+  }
+  .cookie-toggle-row:last-of-type { border-bottom: none; }
+  .cookie-toggle-info { flex: 1; }
+  .cookie-toggle-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 3px;
+  }
+  .cookie-toggle-desc {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px; color: var(--gray);
+    line-height: 1.5;
+  }
+  /* Toggle switch */
+  .cookie-switch {
+    position: relative;
+    width: 42px; height: 24px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .cookie-switch input { opacity: 0; width: 0; height: 0; }
+  .cookie-switch-track {
+    position: absolute; inset: 0;
+    background: rgba(136,153,187,0.2);
+    border: 1px solid rgba(136,153,187,0.3);
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .cookie-switch-track::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 16px; height: 16px;
+    background: var(--gray);
+    transition: transform 0.25s, background 0.25s;
+  }
+  .cookie-switch input:checked + .cookie-switch-track {
+    background: rgba(201,162,39,0.25);
+    border-color: var(--gold);
+  }
+  .cookie-switch input:checked + .cookie-switch-track::after {
+    transform: translateX(18px);
+    background: var(--gold);
+  }
+  .cookie-switch input:disabled + .cookie-switch-track {
+    opacity: 0.5; cursor: not-allowed;
+  }
+  /* Required badge */
+  .cookie-required-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold); opacity: 0.7;
+    border: 1px solid rgba(201,162,39,0.3);
+    padding: 2px 7px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .cookie-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .cookie-modal-save {
+    padding: 11px 32px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    border: none; cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.2s;
+  }
+  .cookie-modal-save:hover { background: var(--gold-light); }
+  .cookie-modal-close-btn {
+    padding: 11px 20px;
+    background: transparent;
+    color: var(--gray);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1px solid rgba(136,153,187,0.2);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cookie-modal-close-btn:hover { color: var(--white); border-color: rgba(200,216,240,0.4); }
+
+  /* ── Re-open cookie settings (floating) ── */
+  #cookie-settings-btn {
+    position: fixed;
+    bottom: 20px; left: 20px;
+    z-index: 9000;
+    background: rgba(8,16,30,0.92);
+    border: 1px solid rgba(201,162,39,0.3);
+    color: var(--gray);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    cursor: pointer;
+    display: none;  /* shown after consent given */
+    transition: color 0.2s, border-color 0.2s;
+    backdrop-filter: blur(8px);
+  }
+  #cookie-settings-btn:hover {
+    color: var(--gold);
+    border-color: rgba(201,162,39,0.6);
+  }
+
+  @media (max-width: 700px) {
+    #cookie-banner { padding: 18px 20px; gap: 16px; }
+    .cookie-text p { font-size: 13px; }
+    .cookie-modal-box { padding: 28px 20px 22px; }
+  }

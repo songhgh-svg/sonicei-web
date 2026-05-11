@@ -1,0 +1,84 @@
+<!-- ════════════════════════════════════════
+     COOKIE CONSENT BANNER
+     Paste this block just before </body> on every page.
+     Requires: main.css (styles) + cookie-consent.js (logic)
+     ════════════════════════════════════════ -->
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <span class="cookie-icon">🍪</span>
+  <div class="cookie-text">
+    <div class="cookie-text-label">Cookie Notice</div>
+    <p>
+      We use <strong style="color:var(--white)">Google Analytics 4</strong> and
+      <strong style="color:var(--white)">Meta Pixel</strong> to analyse site performance
+      and support our marketing. By clicking <em>Accept All</em> you consent to these cookies.
+      You can adjust preferences at any time via
+      <a href="privacy-policy.html">Privacy Policy</a>.
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn-accept"  id="cookie-accept">Accept All</button>
+    <button class="cookie-btn-decline" id="cookie-decline">Essential Only</button>
+    <button class="cookie-btn-manage"  id="cookie-manage">Manage</button>
+  </div>
+</div>
+
+<!-- Cookie Preferences Modal -->
+<div id="cookie-modal" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="cookie-modal-box">
+    <div class="cookie-modal-title">Cookie <span class="gold">Preferences</span></div>
+    <div class="cookie-modal-sub">
+      Control which cookies are active. Essential cookies cannot be disabled —
+      they are required for the site to function.
+    </div>
+
+    <!-- Essential (always on) -->
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <div class="cookie-toggle-name">Essential</div>
+        <div class="cookie-toggle-desc">Navigation, forms, and basic site functionality. No personal data collected.</div>
+        <div class="cookie-required-badge">Always active</div>
+      </div>
+      <label class="cookie-switch">
+        <input type="checkbox" checked disabled>
+        <span class="cookie-switch-track"></span>
+      </label>
+    </div>
+
+    <!-- Analytics -->
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <div class="cookie-toggle-name">Analytics — Google Analytics 4</div>
+        <div class="cookie-toggle-desc">Helps us understand how visitors interact with the site (pages, sessions, traffic sources). Data processed by Google.</div>
+      </div>
+      <label class="cookie-switch">
+        <input type="checkbox" id="toggle-analytics">
+        <span class="cookie-switch-track"></span>
+      </label>
+    </div>
+
+    <!-- Marketing -->
+    <div class="cookie-toggle-row">
+      <div class="cookie-toggle-info">
+        <div class="cookie-toggle-name">Marketing — Meta Pixel</div>
+        <div class="cookie-toggle-desc">Measures ad effectiveness and enables retargeting on Meta platforms (Facebook, Instagram). Data processed by Meta.</div>
+      </div>
+      <label class="cookie-switch">
+        <input type="checkbox" id="toggle-marketing">
+        <span class="cookie-switch-track"></span>
+      </label>
+    </div>
+
+    <div class="cookie-modal-actions">
+      <button class="cookie-modal-save"      id="cookie-modal-save">Save Preferences</button>
+      <button class="cookie-modal-close-btn" id="cookie-modal-close">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Re-open cookie settings (shown after consent is given) -->
+<button id="cookie-settings-btn" title="Cookie settings">🍪 Cookies</button>
+
+<!-- Cookie Consent Logic -->
+<script src="cookie-consent.js"></script>
