@@ -1363,16 +1363,17 @@
 
   /* ── CONTACT CTA BUTTONS ── */
   .contact-cta-btns {
-    display: flex; gap: 12px; flex-wrap: nowrap;
-    margin-bottom: 32px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 32px; width: 100%; box-sizing: border-box;
   }
-  .cta-btn-call, .cta-btn-email, .cta-btn-zalo {
-    flex: 1; display: inline-flex; align-items: center; justify-content: center;
+  .cta-btn-call, .cta-btn-email, .cta-btn-zalo, .cta-btn-whatsapp {
+    flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center;
     gap: 8px; padding: 16px 12px;
     font-family: 'Rajdhani', sans-serif; font-size: 15px;
     font-weight: 700; letter-spacing: 2px;
     text-decoration: none; text-transform: uppercase;
     transition: all 0.3s; white-space: nowrap;
+    box-sizing: border-box; min-width: 120px;
   }
   .cta-btn-call {
     background: var(--gold); color: var(--navy);
@@ -1392,11 +1393,16 @@
 
   @media (max-width: 600px) {
     .contact-cta-btns {
-      flex-wrap: wrap; gap: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-    .cta-btn-call { flex: 1 1 100%; }
-    .cta-btn-email { flex: 1 1 calc(50% - 5px); }
-    .cta-btn-zalo  { flex: 1 1 calc(50% - 5px); }
+    /* Call Now & Send Email chiếm full row */
+    .cta-btn-call  { grid-column: 1 / -1; }
+    .cta-btn-email { grid-column: 1 / -1; }
+    /* Zalo + WhatsApp cạnh nhau, đều nhau, căn giữa */
+    .cta-btn-zalo      { grid-column: span 1; }
+    .cta-btn-whatsapp  { grid-column: span 1; min-width: unset !important; }
   }
 
   /* ── PDF PREVIEW ── */
