@@ -2706,11 +2706,73 @@
     display: none;
     z-index: 10;
   }
-  .sonic-video-frame.sv-playing video   { display: block; }
-  .sonic-video-frame.sv-playing .sonic-video-thumb,
-  .sonic-video-frame.sv-playing .sonic-video-grid,
-  .sonic-video-frame.sv-playing .sonic-video-scan,
-  .sonic-video-frame.sv-playing .sonic-video-center { display: none; }
+  /* ── VERIFIED FIELD RESULT CARD ── */
+  .vfr-card {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 680px;
+    background: rgba(17,32,64,0.75);
+    border: 1px solid rgba(201,162,39,0.35);
+    border-left: 3px solid var(--gold);
+    padding: 22px 28px 18px;
+    text-align: left;
+    position: relative;
+    backdrop-filter: blur(6px);
+  }
+  .vfr-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 10px; opacity: 0.8;
+  }
+  .vfr-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .vfr-year { color: var(--gold); }
+  .vfr-stats {
+    display: flex; align-items: flex-start;
+    gap: 0; margin-bottom: 18px;
+  }
+  .vfr-stat { flex: 1; }
+  .vfr-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; color: var(--gold); line-height: 1;
+    text-shadow: 0 0 20px rgba(201,162,39,0.4);
+  }
+  .vfr-unit {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gray);
+    margin-bottom: 4px;
+  }
+  .vfr-desc {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 12px; color: rgba(200,216,240,0.7);
+    line-height: 1.4;
+  }
+  .vfr-divider {
+    width: 1px; align-self: stretch;
+    background: linear-gradient(to bottom, transparent, rgba(201,162,39,0.3), transparent);
+    margin: 0 20px; flex-shrink: 0;
+  }
+  .vfr-footer {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px; letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(136,153,187,0.55);
+    border-top: 1px solid rgba(201,162,39,0.12);
+    padding-top: 12px;
+  }
+  @media (max-width: 600px) {
+    .vfr-card { padding: 18px 16px 14px; }
+    .vfr-num { font-size: 40px; }
+    .vfr-title { font-size: 14px; }
+    .vfr-divider { margin: 0 12px; }
+  }
+
 
   /* Caption bar */
   .sonic-video-caption {
