@@ -152,8 +152,8 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: flex-start;
-    flex-direction: row; gap: 40px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0;
     position: relative; overflow: hidden;
     padding: 90px 60px 80px;
   }
@@ -315,41 +315,7 @@
   .btn-cta-arrow { font-size: 18px; }
 
   /* Right side stats panel */
-  .hero-stats-panel {
-    position: relative; right: auto; top: auto; z-index: 3;
-    transform: none;
-    display: flex; flex-direction: column; gap: 0;
-    opacity: 0; animation: fadeLeft 0.8s 1.2s forwards;
-    background: rgba(10,22,40,0.72);
-    border: 1px solid rgba(201,162,39,0.25);
-    backdrop-filter: blur(10px);
-    padding: 36px 44px;
-    min-width: 280px;
-    margin-left: auto;
-    margin-top: 200px;
-    align-self: flex-start;
-    flex-shrink: 0;
-  }
-  .stat-panel-item { text-align: right; padding: 18px 0; }
-  .stat-panel-item + .stat-panel-item {
-    border-top: 1px solid rgba(201,162,39,0.15);
-  }
-  .stat-panel-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px; color: var(--gold); line-height: 1;
-    text-shadow: 0 0 30px rgba(201,162,39,0.4);
-  }
-  .stat-panel-label {
-    font-size: 13px; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--white);
-    font-weight: 700; margin-top: 4px;
-  }
-  .stat-panel-zero {
-    font-size: 14px; letter-spacing: 2px; color: #00e8aa;
-    text-transform: uppercase; margin-top: 3px;
-    font-family: 'Share Tech Mono', monospace;
-    font-weight: 700;
-  }
+
   .hero-bg {
     position: absolute; inset: 0;
     background:
@@ -363,38 +329,9 @@
       linear-gradient(90deg, rgba(201,162,39,1) 1px, transparent 1px);
     background-size: 60px 60px;
   }
-  .hero-content { position: relative; z-index: 2; max-width: 680px; min-width: 0; }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; width: 100%; text-align: center; align-items: center; }
 
-  /* KPI strip — mobile only replacement for stats panel */
-  .hero-kpi-strip {
-    display: none; /* shown only on mobile via media query */
-    flex-direction: row; flex-wrap: wrap;
-    gap: 0; margin-top: 28px;
-    border: 1px solid rgba(201,162,39,0.25);
-    background: rgba(10,22,40,0.85);
-    position: relative; z-index: 3;
-  }
-  .hero-kpi-item {
-    flex: 1; min-width: 100px;
-    padding: 14px 12px; text-align: center;
-    border-right: 1px solid rgba(201,162,39,0.15);
-  }
-  .hero-kpi-item:last-child { border-right: none; }
-  .hero-kpi-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px; color: var(--gold); line-height: 1;
-    text-shadow: 0 0 20px rgba(201,162,39,0.4);
-  }
-  .hero-kpi-label {
-    font-size: 9px; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--gray);
-    margin-top: 4px; line-height: 1.3;
-  }
-  .hero-kpi-badge {
-    font-size: 9px; color: #00e8aa;
-    font-family: 'Share Tech Mono', monospace;
-    letter-spacing: 1px;
-  }
+
 
   /* Mobile pain bar — fixed below nav, mobile only */
   .mobile-pain-bar {
@@ -528,7 +465,6 @@
   /* ── Stat numbers (big panels) ── */
   .proof-num,
   .case-stat-num,
-  .stat-panel-num,
   .market-stat-num {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 32px !important;
@@ -537,7 +473,6 @@
   }
 
   /* ── Stat numbers (small inline) ── */
-  .hero-kpi-num,
   .stat-num {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 28px !important;
@@ -546,8 +481,8 @@
 
   /* ── Meta labels dưới stat ── */
   .proof-label, .ai-proof-label,
-  .case-stat-label, .stat-panel-label,
-  .hero-kpi-label, .stat-label,
+  .case-stat-label,
+  .stat-label,
   .market-stat-label {
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 11px !important;
@@ -1589,11 +1524,8 @@
     .vision-section { padding: 56px 16px !important; }
 
     /* ── Hero ── */
-    .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: flex-start; }
+    .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: center; }
     .hero-content { max-width: 100% !important; width: 100%; text-align: center; }
-    /* Stats panel: ẩn absolute panel, thay bằng inline strip dưới CTA */
-    .hero-stats-panel { display: none !important; }
-    .hero-kpi-strip { display: flex !important; }
     /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
     .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; margin-bottom: 20px; }
     .hero h1 .line-med    { font-size: clamp(54px, 15vw, 87px);  letter-spacing: 8px; margin-bottom: 20px; }
@@ -1606,8 +1538,6 @@
     .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 18px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
-    .hero-kpi-strip       { justify-content: center; }
-    .hero-kpi-item        { text-align: center; }
     .ai-grid { padding: 0 !important; }
     .ai-section { padding: 60px 16px 56px !important; }
     .ai-phone { max-width: 100% !important; }
@@ -1672,7 +1602,7 @@
     /* List items */
     .service-card ul li, .card ul li { font-size: 16px !important; }
     /* Stat numbers mobile */
-    .proof-num, .case-stat-num, .stat-panel-num { font-size: 26px !important; }
+    .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
