@@ -1,0 +1,51 @@
+<!--
+  VISITOR STATS BAR — HTML Snippet
+  ════════════════════════════════════════════════════════════════
+  Paste bên trong .sub-nav-wrap (ngay trước hoặc sau .hero-pain-bar),
+  HOẶC ngay dưới </nav> nếu trang không có sub-nav-wrap.
+
+  Requires:
+    main.css       → styles
+    stats-bar.js   → GA4 Data API fetch + live counter
+  ════════════════════════════════════════════════════════════════
+-->
+<div id="stats-bar" role="status" aria-live="polite" aria-label="Site visitor statistics">
+
+  <!-- Online now -->
+  <div class="stats-item">
+    <span class="stats-dot live" title="Realtime"></span>
+    <span class="stats-label">Online</span>
+    <span class="stats-value live-val loading" id="stat-live">···</span>
+  </div>
+
+  <!-- Today -->
+  <div class="stats-item">
+    <span class="stats-dot"></span>
+    <span class="stats-label">Today</span>
+    <span class="stats-value loading" id="stat-today">···</span>
+  </div>
+
+  <!-- This week -->
+  <div class="stats-item">
+    <span class="stats-dot"></span>
+    <span class="stats-label">This week</span>
+    <span class="stats-value loading" id="stat-week">···</span>
+  </div>
+
+  <!-- This month -->
+  <div class="stats-item">
+    <span class="stats-dot"></span>
+    <span class="stats-label">This month</span>
+    <span class="stats-value loading" id="stat-month">···</span>
+  </div>
+
+  <!-- All time -->
+  <div class="stats-item">
+    <span class="stats-dot"></span>
+    <span class="stats-label">Total</span>
+    <span class="stats-value loading" id="stat-total">···</span>
+  </div>
+
+</div>
+
+<script src="stats-bar.js"></script>
