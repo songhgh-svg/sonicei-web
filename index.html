@@ -1403,6 +1403,14 @@
         <h2 class="section-title"><span data-i18n="about_title1">25 YEARS ON THE</span><br><span class="gold" data-i18n="about_title2">GLOBAL FRONTLINES</span></h2>
         <div class="divider"></div>
       </div>
+      <div class="founder-card">
+        <img src="assets/images/founder.webp" alt="Founder - SONIC E&I Solutions" class="founder-photo" loading="lazy">
+        <div class="founder-info">
+          <div class="founder-name">Hoang Ngoc Son</div>
+          <div class="founder-title">Founder &amp; Lead E&amp;I Engineer</div>
+          <div class="founder-exp">25+ Years · Siemens Energy · GE Power</div>
+        </div>
+      </div>
       <p data-i18n="about_p1">SONIC E&I Solutions is a specialist firm delivering precision Electrical &amp; Instrumentation services for the world's most demanding energy projects. Founded by a former Siemens Energy official and GE Owner's Engineer, we bring international standards directly to the field.</p>
       <div class="quote" data-i18n="about_quote">"Integrating Global Standards into Local Field Excellence."</div>
       <p data-i18n="about_p2">From Siemens gas turbines to GE gensets, VIETSOVPETRO offshore platforms to VARD vessel systems — our founder has operated at the highest levels of technical integrity across 25+ years of field experience.</p>
@@ -1921,6 +1929,56 @@
   @media (max-width:500px) {
     #scope-grid { grid-template-columns: 1fr; }
   }
+
+/* FOUNDER CARD */
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+.founder-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--gold, #d4af37);
+  flex-shrink: 0;
+}
+.founder-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.founder-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.founder-title {
+  font-size: 0.85rem;
+  color: var(--gold, #d4af37);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.founder-exp {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+@media (max-width: 480px) {
+  .founder-card { flex-direction: column; text-align: center; }
+  .founder-photo { width: 90px; height: 90px; }
+}
+
 </style>
 
 <script>
