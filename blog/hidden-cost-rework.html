@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Cost of Rework — SONIC E&I Blog</title>
+<meta name="description" content="A 1% rework rate on a $10M E&I contract sounds acceptable. We break down where that money actually goes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f1f3d;
+    --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1);
+    --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee;
+    --gray: #8a9ab5;
+    --line: rgba(138,154,181,0.15);
+    --text: #c8d4e8;
+    --red-dim: rgba(220, 80, 60, 0.08);
+    --red-border: rgba(220, 80, 60, 0.2);
+    --red: #e05040;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 8px 20px;
+    text-decoration: none;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  .article-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+  }
+
+  .art-label {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .art-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    padding: 5px 12px;
+  }
+  .art-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(138,154,181,0.4);
+  }
+  .art-date {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--gray);
+    margin-left: auto;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 28px;
+  }
+
+  .art-dek {
+    font-size: 17px;
+    color: var(--gray);
+    font-weight: 400;
+    line-height: 1.75;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .art-body h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin: 56px 0 20px;
+  }
+
+  .art-body p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+
+  .art-body strong { color: var(--white); font-weight: 500; }
+
+  .pullquote {
+    margin: 48px 0;
+    padding: 32px 36px;
+    border-left: 3px solid var(--gold);
+    background: var(--gold-dim);
+  }
+  .pullquote p {
+    font-size: 18px !important;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white) !important;
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  /* COST BREAKDOWN TABLE */
+  .cost-table {
+    margin: 48px 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .cost-table-head {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    background: rgba(201,162,39,0.08);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 20px;
+    gap: 16px;
+  }
+  .cost-table-head span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .cost-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    gap: 16px;
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row:hover { background: rgba(201,162,39,0.04); }
+  .cost-item {
+    font-size: 13px;
+    color: var(--text);
+  }
+  .cost-item strong { color: var(--white); font-weight: 500; display: block; margin-bottom: 2px; }
+  .cost-item span { color: var(--gray); font-size: 12px; }
+  .cost-visible {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+    text-align: right;
+    min-width: 80px;
+    white-space: nowrap;
+  }
+  .cost-hidden {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+    text-align: right;
+    min-width: 80px;
+    white-space: nowrap;
+  }
+  .cost-total {
+    background: rgba(201,162,39,0.06);
+    border-top: 1px solid var(--gold-border) !important;
+  }
+  .cost-total .cost-item strong { color: var(--gold); }
+  .cost-total .cost-visible {
+    font-size: 15px;
+    color: var(--gold);
+  }
+  .cost-total .cost-hidden {
+    font-size: 15px;
+    color: var(--red);
+  }
+
+  .legend {
+    display: flex; gap: 20px; align-items: center;
+    margin-top: -24px; margin-bottom: 48px;
+    padding: 0 20px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gray);
+  }
+  .legend-dot {
+    width: 8px; height: 8px; border-radius: 0;
+  }
+  .legend-dot.gold { background: var(--gold); }
+  .legend-dot.red { background: var(--red); }
+
+  .callout {
+    border: 1px solid var(--gold-border);
+    background: rgba(201,162,39,0.05);
+    padding: 28px 32px;
+    margin: 48px 0;
+  }
+  .callout-head {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .callout p {
+    font-size: 14px !important;
+    color: var(--text) !important;
+    margin: 0 !important;
+    line-height: 1.8;
+  }
+
+  .warning-box {
+    border: 1px solid var(--red-border);
+    background: var(--red-dim);
+    padding: 24px 28px;
+    margin: 40px 0;
+  }
+  .warning-head {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .warning-box p {
+    font-size: 13px !important;
+    color: var(--text) !important;
+    margin: 0 !important;
+    line-height: 1.8;
+  }
+
+  .art-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 56px 0;
+  }
+  .art-divider::before, .art-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--line);
+  }
+  .art-divider-dot {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 4px;
+  }
+
+  .art-cta {
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .art-cta-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+  .art-cta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .art-cta p {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 32px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 14px 32px;
+    text-decoration: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: opacity 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.88; }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-brand {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(138,154,181,0.4);
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .cost-table-head, .cost-row { grid-template-columns: 1fr auto; }
+    .cost-table-head span:last-child,
+    .cost-row .cost-hidden,
+    .cost-total .cost-hidden { display: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">← All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">Commissioning</span>
+    <span class="art-num">Article 02</span>
+    <span class="art-date">April 2026</span>
+  </div>
+
+  <h1>The Hidden Cost of Rework: A Field Engineer's View of the $100K Mistake</h1>
+
+  <p class="art-dek">A 1% rework rate on a $10M E&I contract sounds acceptable. It isn't. We break down where that money actually goes — and why most project managers never see the full number.</p>
+
+  <div class="art-body">
+
+    <p>When a project manager calculates rework cost, the number that lands in the report is usually labour hours multiplied by rate. It's a clean, defensible figure. It's also substantially wrong.</p>
+
+    <p>The real cost of a rework event is distributed across five or six budget lines, some of which are never categorised as rework at all. By the time a project closes and the post-mortem is written, the direct cost number looks manageable. The indirect costs have already been absorbed elsewhere — into contingency, into schedule float, into the next project's margin.</p>
+
+    <h2>The Anatomy of a Rework Event</h2>
+
+    <p>Take a concrete example: a cable termination defect discovered during pre-commissioning on an offshore platform. Category B — not safety-critical, but system-blocking. The termination needs to be redone on one feeder panel. Sounds simple.</p>
+
+    <div class="cost-table">
+      <div class="cost-table-head">
+        <span>Cost Component</span>
+        <span>Visible</span>
+        <span>Hidden</span>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Direct rework labour</strong>
+          <span>2 technicians × 8hrs at offshore rate</span>
+        </div>
+        <div class="cost-visible">$1,200</div>
+        <div class="cost-hidden">—</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Supervision time</strong>
+          <span>Commissioning engineer oversight + sign-off</span>
+        </div>
+        <div class="cost-visible">$800</div>
+        <div class="cost-hidden">—</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Downstream test re-runs</strong>
+          <span>Loop test, insulation resistance, functional check</span>
+        </div>
+        <div class="cost-visible">$600</div>
+        <div class="cost-hidden">—</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Schedule displacement</strong>
+          <span>2-day slip × 4 blocked technicians waiting on loop clearance</span>
+        </div>
+        <div class="cost-visible">—</div>
+        <div class="cost-hidden">$9,600</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Client PMC re-inspection</strong>
+          <span>Third-party inspector mobilisation for sign-off</span>
+        </div>
+        <div class="cost-visible">—</div>
+        <div class="cost-hidden">$4,200</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Documentation rework</strong>
+          <span>As-built updates, re-issue of ITP records, MDR revision</span>
+        </div>
+        <div class="cost-visible">—</div>
+        <div class="cost-hidden">$1,400</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-item">
+          <strong>Demurrage exposure</strong>
+          <span>Prorated platform day rate during delay (conservative estimate)</span>
+        </div>
+        <div class="cost-visible">—</div>
+        <div class="cost-hidden">$18,000</div>
+      </div>
+      <div class="cost-row cost-total">
+        <div class="cost-item">
+          <strong>Total — one termination defect</strong>
+        </div>
+        <div class="cost-visible">$2,600</div>
+        <div class="cost-hidden">$33,200</div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot gold"></span> Visible in rework report</div>
+      <div class="legend-item"><span class="legend-dot red"></span> Absorbed into other budget lines</div>
+    </div>
+
+    <p>One termination. Discovered late. On a modest offshore project. The visible cost is $2,600. The real cost is closer to $36,000 — and that's before factoring in the relationship damage with the client PMC, who now scrutinises every other status report twice.</p>
+
+    <h2>Why the Full Number Never Appears</h2>
+
+    <p>Project accounting systems are built around work packages, not failure events. When a technician sits idle for two days because a loop can't be cleared, that's booked as productive time in a different work package. When a PMC inspector is remobilised, that's often billed to a contingency line. When a schedule slip compresses the commissioning sequence and forces parallel work that creates additional errors, the causal link to the original defect is invisible by the time the invoice lands.</p>
+
+    <div class="pullquote">
+      <p>"The $2,600 rework report line item is the tip of the iceberg. The part that sinks you is always below the waterline."</p>
+    </div>
+
+    <p>This isn't a failure of project management sophistication. It's a structural property of how complex projects are budgeted and tracked. The costs are real; they're just distributed in ways that make them difficult to attribute correctly after the fact.</p>
+
+    <h2>The Multiplier at Handover</h2>
+
+    <p>Defects discovered early in commissioning cost one amount. The same defect discovered at handover costs significantly more — typically 2.4 to 3.8 times more, based on field experience across power plant and offshore projects in Southern Vietnam.</p>
+
+    <p>The reason is straightforward: at handover, everything is time-critical. The client's window is fixed. The platform schedule is fixed. Your ability to absorb delays without triggering penalties is near zero. A defect that would have cost three hours to fix in week four of commissioning now triggers a formal non-conformance, a client response window, a re-inspection cycle, and potentially a commercial dispute about which party bears the delay cost.</p>
+
+    <div class="warning-box">
+      <div class="warning-head">// The Handover Multiplier</div>
+      <p>A 1% rework rate on a $10M E&I contract = $100K in direct labour costs. Apply the 2.4× hidden cost multiplier: true rework exposure = <strong>$240,000+</strong> — before demurrage, penalties, or contract dispute costs. On a project with tight handover commitments, a single bad week can erase the entire project margin.</p>
+    </div>
+
+    <h2>What Changes When You Catch Defects Earlier</h2>
+
+    <p>The answer is not "hire better technicians" or "write better procedures." Both help, but neither addresses the core problem: <strong>defects are inevitable in complex E&I work, and the cost is determined almost entirely by when you find them.</strong></p>
+
+    <p>This is why the investment case for experienced QA supervision and structured inspection workflows is straightforward even at a premium day rate. If a senior E&I engineer with Siemens or GE spec experience catches a termination issue during loop testing rather than at pre-handover walkdown, the cost difference is roughly an order of magnitude.</p>
+
+    <p>It's also why we believe AI-assisted punch list management (the subject of our previous article) addresses a real economic problem rather than a documentation convenience. The value isn't better paperwork — it's earlier defect visibility, which directly compresses the cost multiplier.</p>
+
+    <div class="callout">
+      <div class="callout-head">// The Practical Implication</div>
+      <p>If your project has a $500K contingency budget and a tight handover schedule, the question isn't whether to invest in qualified QA supervision. The question is whether $500K of contingency adequately covers the tail risk of a rework cluster hitting in the final month. In most offshore projects we've reviewed: it doesn't.</p>
+    </div>
+
+    <h2>One Honest Number</h2>
+
+    <p>Our premium over a standard local subcontractor is typically 15–25% on direct rates. The break-even on that premium, based on the cost analysis above, is <strong>one avoided rework event per project</strong>. On a project with ten work packages and a compressed commissioning schedule, that's not a high bar.</p>
+
+    <p>We're not selling certainty — no engineer can. What we're offering is a substantially higher probability of catching defects at the point in the schedule where they cost the least. That's the honest value proposition, and we'd rather you evaluate it on those terms than on marketing language.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Run the Numbers for Your Project</h3>
+    <p>Tell us about your project scope and timeline. We'll give you an honest assessment of where the rework risk sits — and what it would take to move it.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

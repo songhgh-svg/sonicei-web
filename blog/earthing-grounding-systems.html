@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthing & Grounding Systems: Where Offshore E&I Projects Get It Wrong — SONIC E&I Blog</title>
+<meta name="description" content="Earthing failures are the most silent and expensive defects in offshore E&I. By the time symptoms appear, the damage is already done.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; } .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; } .data-cell { border-right: none; border-bottom: 1px solid var(--line); } .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+  <div class="art-label">
+    <span class="art-tag">Electrical Safety</span>
+    <span class="art-num">Article 11</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>Earthing & Grounding Systems: Where Offshore E&I Projects Get It Wrong</h1>
+  <p class="art-dek">Earthing failures are the most silent and expensive defects in offshore E&I. By the time symptoms appear — nuisance trips, instrument drift, unexplained equipment failures — the damage is already done and the root cause is buried under months of other work.</p>
+
+  <div class="art-body">
+
+    <p>Ask an experienced E&I commissioning engineer about the defects that haunt them, and earthing will come up within the first two minutes. Not because it's technically complex — the principles are well understood — but because it's the category of work that gets compressed, delegated downward, and insufficiently verified until something goes wrong.</p>
+
+    <p>On offshore platforms and power plant sites across Southern Vietnam, earthing system deficiencies are consistently among the top five findings during third-party pre-commissioning audits. The pattern repeats: the main earth grid is installed correctly, but the instrument earths, the cable screen terminations, and the potential equalisation between skids are treated as low-priority finishing work. They are not finishing work. They are the foundation.</p>
+
+    <h2>The Three Failure Modes Nobody Catches Early</h2>
+
+    <p>Earthing defects in E&I projects cluster into three distinct categories, each with its own discovery timeline and cost profile.</p>
+
+    <p><strong>Broken continuity in instrument earth conductors</strong> is the most common and the hardest to detect during installation. A conductor that appears correctly terminated can have a high-resistance joint that only reveals itself under fault conditions or when interference signals are present. Continuity testing during installation catches obvious breaks but misses marginal connections that pass the test and fail in service.</p>
+
+    <p><strong>Mixed earth references</strong> occur when instrument earths, power system earths, and structural steel are incorrectly bonded or share a common reference at the wrong point. This creates ground loops that inject noise into 4–20mA signal circuits and cause the kind of instrument drift that sends technicians chasing transmitter calibration for weeks before someone traces the actual cause.</p>
+
+    <div class="pullquote">
+      <p>"We spent eleven days recalibrating flow transmitters on a gas compression skid before someone finally checked the earth reference. One misconnected screen drain wire had been injecting 60Hz noise into the signal loop the entire time."</p>
+    </div>
+
+    <p><strong>Inadequate bonding between skids and structures</strong> is the third failure mode, and the one most likely to become a safety issue rather than merely a commissioning nuisance. On modular offshore platforms where skids are installed progressively, inter-skid bonding is often the last thing connected and the first thing that gets missed in the final inspection walkdown.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">68%</span>
+        <span class="data-label">of instrument signal faults traceable to earthing defects</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">3.2×</span>
+        <span class="data-label">longer fault diagnosis when root cause is earthing</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">Day 47</span>
+        <span class="data-label">average discovery point post-energisation</span>
+      </div>
+    </div>
+
+    <h2>Why Verification Gets Skipped</h2>
+
+    <p>The issue isn't that commissioning engineers don't know how to verify earthing systems. The issue is schedule pressure combined with a verification process that is genuinely time-consuming when done correctly. A proper earth continuity survey on a medium-sized offshore platform can take two experienced technicians three full days. When the schedule is already two weeks behind and the client is pushing for first energisation, those three days don't exist.</p>
+
+    <p>The result is a compressed verification — main earth grid checked, obvious connections confirmed, the rest assumed. This assumption costs significantly more than three days when it fails.</p>
+
+    <div class="callout">
+      <div class="callout-head">// Minimum Verification Requirements</div>
+      <p>Earth continuity resistance: ≤1Ω point-to-main earth bar for all instrument earth conductors. Cable screen termination audit: 100% physical inspection at both ends. Earth loop impedance measurement at each DB. Inter-skid bonding continuity: point-to-point, documented with as-built sketch. These are not optional accelerations — they are the minimum standard for a defensible sign-off.</p>
+    </div>
+
+    <h2>The Instrument Earth Conductor Problem</h2>
+
+    <p>The main power earth is typically well-engineered and well-documented because it falls under the scope of the electrical design team and gets inspected by the project's electrical authority. The instrument earth network — the parallel system that handles signal cable screens, field instrument housings, and junction box earth bars — is frequently treated as a subordinate task belonging to the instrumentation subcontractor.</p>
+
+    <p>This split responsibility creates gaps. The instrument earth system is rarely captured in the same level of detail in the engineering drawings, rarely inspected to the same standard, and rarely tested with the same rigour. Yet it is the earth system that directly affects the quality of measurement signals that every control system depends on.</p>
+
+    <p><strong>A practical rule:</strong> if your instrument earth conductor sizing, routing, and termination standards are not explicitly defined in the project's instrument installation specification — not in the electrical spec, but the instrument spec — you have a gap that will likely produce defects.</p>
+
+    <h2>What a Competent Earthing Audit Looks Like</h2>
+
+    <p>The earthing audit is not a box-ticking exercise. It requires an engineer who understands both the electrical system design intent and the instrumentation signal requirements — which is exactly why it tends to fall into the gap between disciplines on most project teams.</p>
+
+    <p>The audit should produce a point-to-point resistance record for every instrument earth conductor, a photographic record of every cable screen termination, and a confirmed as-built earth topology diagram that matches what was actually installed. That documentation then travels with the project into the operations phase, where it becomes the baseline for future fault diagnosis.</p>
+
+    <p>Projects that invest in this documentation rarely spend time chasing ghost faults during commissioning. Projects that skip it frequently do.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Get an Earthing System Review</h3>
+    <p>If your project is approaching energisation and the instrument earth network hasn't been formally audited, we can help before the first fault appears.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCADA Integration Failures: Five Root Causes Engineers Rarely Admit — SONIC E&I Blog</title>
+<meta name="description" content="Most SCADA integration failures are caused by bad assumptions made in week one. The five conversations that should happen before a single tag is configured.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; }
+    .data-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">DCS / Controls</span>
+    <span class="art-num">Article 09</span>
+    <span class="art-date">September 2025</span>
+  </div>
+
+  <h1>SCADA Integration Failures: Five Root Causes Engineers Rarely Admit</h1>
+
+  <p class="art-dek">Most SCADA integration failures aren't caused by bad software — they're caused by bad assumptions made in week one of the project. The five conversations that should happen before a single tag is configured.</p>
+
+  <div class="art-body">
+
+    <p>SCADA integration is the activity that exposes every gap in the project — gaps in documentation, in coordination between vendors, in the client's own understanding of what they want the system to do. By the time integration testing begins, it is too late to address most of them cheaply. The work of a successful SCADA integration happens months before the first OPC connection is tested.</p>
+
+    <p>Here are the five root causes we encounter repeatedly, and the conversations that prevent them.</p>
+
+    <h2>1. The Tag Database Was Never Agreed as the Single Source of Truth</h2>
+
+    <p>Every SCADA integration project has a tag database — the master list of all I/O points, addresses, engineering units, alarm limits, and descriptions. On projects that fail, this database exists in three or four versions simultaneously: the DCS vendor's version, the SCADA vendor's version, the client's version, and the commissioning contractor's version. They diverge gradually throughout the project and are reconciled — badly — during integration testing.</p>
+
+    <p>The conversation to have in week one: <strong>Who owns the tag database? What is the revision control process? Which revision is the binding reference for all vendors?</strong> The answer must be documented and signed by all parties. If no one will commit to owning it, that is itself important information about how the project will be managed.</p>
+
+    <h2>2. The Communication Protocol Was Assumed, Not Specified</h2>
+
+    <p>Modbus TCP, OPC-UA, IEC 61850, DNP3 — each protocol has specific implementation requirements, and two vendors using the same protocol will implement it differently. The assumption that a Modbus TCP connection between a DCS and a SCADA system will work because both support Modbus TCP is the assumption that causes three weeks of integration testing to become three months.</p>
+
+    <div class="pullquote">
+      <p>"Protocol compatibility means two devices can attempt to communicate. It does not mean they will communicate correctly. The difference lives in the implementation details that nobody documents until they fail."</p>
+    </div>
+
+    <p>The conversation: obtain the communication driver documentation from both vendors before any configuration work begins. Identify every parameter — polling rate, register map, data type mapping, timeout behaviour, error handling — and agree on values in writing. A protocol compatibility matrix, signed by both vendors, is not excessive for a critical integration. It is the minimum.</p>
+
+    <h2>3. The Client's Operational Requirements Were Never Translated into Technical Specifications</h2>
+
+    <p>The client knows they want to see all tank levels on one overview screen with alarms when any level exceeds 80%. The controls engineer knows how to configure an analogue input and an alarm limit. What is missing, on most projects, is the translation layer: a detailed functional specification that describes exactly what the screen should show, how the alarm should behave, what happens when the communication link fails, and what the operator is expected to do in response.</p>
+
+    <p>Without this specification, the controls engineer builds what they think the client means. The client sees something different from what they imagined. The gap between those two things is called a scope change, and it arrives during commissioning when schedule and budget are least able to absorb it.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">67%</span>
+        <span class="data-label">of SCADA scope changes on reviewed projects originated from undocumented operational requirements</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">4–6 wk</span>
+        <span class="data-label">average schedule impact of late functional specification changes</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">2×</span>
+        <span class="data-label">cost of specification rework vs. getting it right at the start</span>
+      </div>
+    </div>
+
+    <h2>4. Cybersecurity Requirements Were Treated as Someone Else's Problem</h2>
+
+    <p>ICS cybersecurity is not a theoretical concern on petrochemical and power projects in Vietnam. Network segmentation requirements, firewall rules between the SCADA network and the corporate network, remote access protocols, patch management for SCADA workstations — these are engineering decisions that affect system architecture. When they are left to the IT department to figure out after the SCADA system is already installed, the result is either a security configuration that breaks functionality or a functional system with no meaningful security boundary.</p>
+
+    <p>The conversation: engage IT security stakeholders at the design stage, before network architecture is decided. Agree on the demilitarised zone (DMZ) design, the allowed data flows, and the patching and antivirus policy for SCADA workstations. These decisions constrain the system design. Making them late costs significantly more than making them early.</p>
+
+    <h2>5. The Factory Acceptance Test Was Treated as a Formality</h2>
+
+    <p>The FAT is the last opportunity to find integration issues before equipment arrives on site, where defects cost five to ten times more to fix. On projects where SCADA integration consistently fails, the FAT is conducted with a subset of the actual I/O, using simulated signals, with the client represented by someone who cannot make technical decisions on the spot. Issues are noted in a punch list. The punch list is not resolved before shipment. The issues become site problems.</p>
+
+    <div class="callout">
+      <div class="callout-head">// SCADA FAT — Minimum Requirements for a Meaningful Test</div>
+      <p>Full I/O point count tested against agreed tag database → live communication link to actual DCS hardware, not simulation → client representative with authority to accept or reject findings present for full FAT duration → all alarm functions tested at limit → communication failure scenarios tested and documented → FAT punch list resolved and re-tested before shipment approval.</p>
+    </div>
+
+    <p>A meaningful FAT requires investment — in time, in travel for the client's representative, in the cost of maintaining the factory integration environment long enough to test properly. That investment returns itself many times over when the alternative is three weeks of site integration troubleshooting with a commissioning team standing by at day rates.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>SCADA Integration Review</h3>
+    <p>If your SCADA integration is already in trouble — or you want to prevent it from getting there — our controls team can review your integration architecture and identify the gaps before they become site problems.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

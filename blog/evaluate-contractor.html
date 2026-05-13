@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Evaluate an E&I Commissioning Contractor in Vietnam — SONIC E&I Blog</title>
+<meta name="description" content="The questions that actually separate capable E&I contractors from those who will create problems at handover. A framework for project managers and PMCs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628;
+    --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1);
+    --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee;
+    --gray: #8a9ab5;
+    --line: rgba(138,154,181,0.15);
+    --text: #c8d4e8;
+    --green-dim: rgba(40, 180, 100, 0.08);
+    --green-border: rgba(40, 180, 100, 0.2);
+    --green: #28b464;
+    --red-dim: rgba(220, 80, 60, 0.08);
+    --red-border: rgba(220, 80, 60, 0.2);
+    --red: #e05040;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 5.5vw, 64px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+
+  /* QUESTION CARDS */
+  .question-list { margin: 48px 0; display: flex; flex-direction: column; gap: 0; }
+  .q-item { border-bottom: 1px solid var(--line); padding: 32px 0; }
+  .q-item:first-child { border-top: 1px solid var(--line); }
+  .q-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; }
+  .q-index { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); min-width: 28px; }
+  .q-text { font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.5px; color: var(--white); line-height: 1.3; }
+  .q-why { font-size: 13px; color: var(--text); line-height: 1.8; margin-bottom: 14px; }
+  .q-signals { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .signal { padding: 12px 16px; font-size: 12px; line-height: 1.6; }
+  .signal-good { background: var(--green-dim); border: 1px solid var(--green-border); color: var(--text); }
+  .signal-bad { background: var(--red-dim); border: 1px solid var(--red-border); color: var(--text); }
+  .signal-label { font-family: 'Share Tech Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .signal-label.good { color: var(--green); }
+  .signal-label.bad { color: var(--red); }
+
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .q-signals { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">← All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">Procurement</span>
+    <span class="art-num">Article 05</span>
+    <span class="art-date">January 2026</span>
+  </div>
+
+  <h1>How to Evaluate an E&I Commissioning Contractor in Vietnam</h1>
+
+  <p class="art-dek">The questions that actually separate capable E&I contractors from those who will create problems at handover. A practical framework for project managers and PMCs — including the answers we'd give if you asked us.</p>
+
+  <div class="art-body">
+
+    <p>Most E&I contractor selection processes in Vietnam are built around three criteria: price, company size, and whether the contractor has a reference from a project of similar type. All three are useful. None of them reliably predict performance at handover.</p>
+
+    <p>Price competitiveness is table stakes — a contractor who can't price competitively doesn't make the shortlist. Company size correlates weakly with quality on projects below a certain scale. And references are almost universally positive, because nobody lists the clients who wouldn't return their calls.</p>
+
+    <p>The evaluation framework that actually works is built around the questions that expose how a contractor operates — not just what they've done.</p>
+
+    <div class="pullquote">
+      <p>"Ask a contractor how they handle a situation where they discover an undocumented deviation in the field that will cost two extra days. The answer tells you everything about their relationship with their clients."</p>
+    </div>
+
+    <h2>The Seven Questions That Matter</h2>
+
+    <div class="question-list">
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q01</span>
+          <span class="q-text">Walk me through your punch list closure process. How does an item get from logged to formally closed?</span>
+        </div>
+        <p class="q-why">This question reveals whether the contractor has a documented QA/QC workflow or relies on informal agreements. A contractor who can't describe this concisely — steps, evidence requirements, sign-off authority — hasn't systematised it.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Specific steps with defined evidence requirements. Photo documentation mentioned. Clear distinction between internal closure and client sign-off.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "We track it in a spreadsheet and the supervisor signs it off." No mention of evidence standards or client witness requirements.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q02</span>
+          <span class="q-text">Describe a project where you discovered a significant as-found deviation from the design documents. What did you do?</span>
+        </div>
+        <p class="q-why">Field deviations are inevitable on any project. The interesting part isn't whether they found one — it's how they handled the communication and documentation. A contractor who "just fixed it" without formally notifying the client has created a liability, not a solution.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Raised a formal deviation report, notified the client and PMC, documented the as-found condition with evidence, and got written approval for the resolution approach before proceeding.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "We sorted it out on site to keep things moving." Informal handling of deviations creates disputed ownership and undocumented as-built conditions.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q03</span>
+          <span class="q-text">What is your minimum documentation package for handover on a project of this type?</span>
+        </div>
+        <p class="q-why">A contractor with genuine project experience will name specific document types — ITPs, MDRs, loop test records, instrument calibration certificates, as-built drawings — and have opinions about which ones matter most for post-handover operations. Vague answers signal inexperience with formal handover processes.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Specific document list with understanding of what the client's operations team will use. Distinguishes between contractual deliverables and operational usefulness.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "We provide everything the contract requires." This is a non-answer — it tells you nothing about whether their standard is adequate for your project.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q04</span>
+          <span class="q-text">What is your mobilisation lead time for a project starting in [specific timeframe], and what could extend it?</span>
+        </div>
+        <p class="q-why">A contractor who gives a single number without qualifications either doesn't understand the variables or is telling you what you want to hear. Lead time depends on equipment certification status, visa requirements for any international staff, current project commitments, and logistics. Honest contractors acknowledge complexity.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Specific lead time with stated assumptions and risk factors. Mentions current workload and whether the team allocated is available or needs to be sourced.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "We can mobilise anytime." This is almost always false, and a contractor who says it is either over-committed or has no real allocated team for your project.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q05</span>
+          <span class="q-text">How do you handle a situation where your team identifies a safety concern that isn't in scope — for example, an existing installation that doesn't meet current standards?</span>
+        </div>
+        <p class="q-why">This tests safety culture and commercial integrity simultaneously. A contractor who ignores out-of-scope safety issues to protect the commercial relationship is a liability. A contractor who raises every minor observation as a formal safety stop is creating friction. The right answer involves professional judgment and transparent client communication.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Document and formally notify. If it's an immediate life-safety risk, stop work on the affected area and notify immediately. If it's a compliance gap, issue a formal observation and let the client decide on remediation within their obligation.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "We focus on our scope and leave other issues to the client." Ignoring observed safety issues is not a professional position for an E&I contractor in a safety-critical environment.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q06</span>
+          <span class="q-text">What is the most common cause of your projects running over schedule, and how do you handle that conversation with the client?</span>
+        </div>
+        <p class="q-why">This is a self-awareness and transparency question. Contractors who claim their projects never run late are lying. Contractors who always blame scope changes or the client haven't internalised their own contribution to delays. Contractors who can honestly name their own patterns — and explain how they communicate proactively — are the ones you want managing your project.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Honest acknowledgment of common causes (as-found deviations, late document receipt, scope creep). Description of early warning communication to clients rather than end-of-week surprise notifications.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "Our projects always deliver on time." Or, "it's usually the client's documentation." Neither is credible.
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-header">
+          <span class="q-index">Q07</span>
+          <span class="q-text">What specifically qualifies your lead engineer for this project type — not the company, the individual?</span>
+        </div>
+        <p class="q-why">In E&I commissioning, the company's track record is carried by individuals. Companies win contracts; engineers deliver projects. Insist on understanding the specific background of the person who will actually be on-site. Project-type-specific experience at the individual level matters far more than company-level credentials.</p>
+        <div class="q-signals">
+          <div class="signal signal-good">
+            <div class="signal-label good">Good answer</div>
+            Named individual with specific project references of the same type. Willingness to connect you directly with that engineer before contract award. CV available on request.
+          </div>
+          <div class="signal signal-bad">
+            <div class="signal-label bad">Watch out</div>
+            "Our engineers are all experienced." Or a company profile that lists credentials without naming individuals. You're hiring a person to be on-site, not a certificate.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>A Note on Asking Us These Questions</h2>
+
+    <p>We wrote this article because we believe the market for E&I commissioning in Vietnam would be better — for clients, for the industry, and ultimately for us — if evaluation standards were higher. We're also aware that publishing an evaluation framework and then not being willing to answer those questions ourselves would be a credibility problem.</p>
+
+    <div class="callout">
+      <div class="callout-head">// Our Answers to Q01–Q07</div>
+      <p>Q01: AI-Punch™ workflow — photo evidence required for closure, two-tier sign-off (internal supervisor + client witness). Q02: We have a formal Deviation Report process; examples available on request. Q03: ITP records, loop test certificates, instrument calibration certificates, as-built drawings, punch list close-out report with photo evidence. Q04: 3–5 business days for onshore Vũng Tàu/HCMC; offshore and international varies — we'll give you an honest timeline on the call. Q05: Document, notify, stop if immediate safety risk. Q06: Most common cause is as-found deviations versus design documentation — we raise these within 24 hours of identification. Q07: Our lead engineer has 25+ years of field experience including Siemens Energy and GE Power projects; full CV available before contract discussion.</p>
+    </div>
+
+    <p>If you're evaluating us alongside other contractors and want to work through these questions in a call, we're available. We'd rather lose a project to a competitor who genuinely answers these questions better than win one where we weren't the right fit.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. We specialise in zero-defect E&I commissioning for offshore, power, and industrial projects across Vietnam, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Ask Us the Hard Questions</h3>
+    <p>We welcome technical scrutiny. Book a 30-minute call with our lead engineer — bring your toughest evaluation questions.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

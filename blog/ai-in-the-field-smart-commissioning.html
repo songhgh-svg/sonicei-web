@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in the Field: What "Smart" Commissioning Actually Means in Practice — SONIC E&I Blog</title>
+<meta name="description" content="Every vendor now claims their system is AI-powered. Almost none of them can explain what that means on a live commissioning site. Here is what actually changes — and what doesn't.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628;
+    --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1);
+    --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee;
+    --gray: #8a9ab5;
+    --line: rgba(138,154,181,0.15);
+    --text: #c8d4e8;
+    --purple: #8b6fff;
+    --purple-dim: rgba(139,111,255,0.07);
+    --purple-border: rgba(139,111,255,0.25);
+    --red: #dc3c3c;
+    --red-dim: rgba(220,60,60,0.08);
+    --red-border: rgba(220,60,60,0.3);
+    --green: #2ecc71;
+    --green-dim: rgba(46,204,113,0.07);
+    --green-border: rgba(46,204,113,0.25);
+    --blue: #3a8fd4;
+    --blue-dim: rgba(58,143,212,0.07);
+    --blue-border: rgba(58,143,212,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; padding: 5px 12px; }
+  .art-tag.purple { color: var(--purple); background: var(--purple-dim); border: 1px solid var(--purple-border); }
+  .art-tag.blue { color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 6vw, 64px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-num.red { color: var(--red); }
+  .data-num.blue { color: var(--blue); }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+
+  /* SIGNAL vs NOISE */
+  .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .signal-col-head { padding: 12px 20px; font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+  .signal-col-head.red { color: var(--red); background: var(--red-dim); border-right: 1px solid var(--line); }
+  .signal-col-head.green { color: var(--green); background: var(--green-dim); }
+  .signal-item { padding: 14px 20px; font-size: 13px; font-family: 'Rajdhani', sans-serif; letter-spacing: 0.3px; color: var(--text); border-bottom: 1px solid var(--line); line-height: 1.6; }
+  .signal-item:last-child { border-bottom: none; }
+  .signal-item.left { border-right: 1px solid var(--line); background: rgba(220,60,60,0.02); }
+  .signal-item.right { background: rgba(46,204,113,0.02); }
+
+  /* USE CASE BLOCKS */
+  .usecase-list { margin: 48px 0; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); }
+  .usecase-item { display: grid; grid-template-columns: 48px 1fr; border-bottom: 1px solid var(--line); }
+  .usecase-item:last-child { border-bottom: none; }
+  .usecase-num { display: flex; align-items: flex-start; justify-content: center; padding: 20px 0; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--purple); letter-spacing: 1px; border-right: 1px solid var(--line); padding-top: 22px; }
+  .usecase-body { padding: 18px 22px; }
+  .usecase-title { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+  .usecase-desc { font-size: 13px; color: var(--text); line-height: 1.75; font-family: 'Be Vietnam Pro', sans-serif; }
+  .usecase-verdict { display: inline-block; margin-top: 10px; font-family: 'Share Tech Mono', monospace; font-size: 9px; letter-spacing: 1.5px; padding: 3px 9px; }
+  .usecase-verdict.proven { color: var(--green); border: 1px solid var(--green-border); background: var(--green-dim); }
+  .usecase-verdict.limited { color: var(--gold); border: 1px solid var(--gold-border); background: var(--gold-dim); }
+  .usecase-verdict.hype { color: var(--red); border: 1px solid var(--red-border); background: var(--red-dim); }
+
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout.danger { border-color: var(--red-border); background: var(--red-dim); }
+  .callout.info { border-color: var(--blue-border); background: var(--blue-dim); }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout.danger .callout-head { color: var(--red); }
+  .callout.info .callout-head { color: var(--blue); }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .callout ul { list-style: none; padding: 0; margin: 0; }
+  .callout ul li { font-size: 14px; color: var(--text); line-height: 1.8; padding-left: 20px; position: relative; }
+  .callout ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-family: 'Share Tech Mono', monospace; }
+  .callout.danger ul li::before { color: var(--red); }
+  .callout.info ul li::before { color: var(--blue); }
+
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .data-row, .signal-grid { grid-template-columns: 1fr; }
+    .data-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .data-cell:last-child { border-bottom: none; }
+    .signal-col-head.red { border-right: none; }
+    .signal-item.left { border-right: none; }
+    .usecase-item { grid-template-columns: 36px 1fr; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag blue">Technology</span>
+    <span class="art-num">Article 07</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>AI in the Field: What "Smart" Commissioning Actually Means in Practice</h1>
+
+  <p class="art-dek">Every vendor now claims their platform is AI-powered. Almost none of them can explain what that means on a live commissioning site, with a 6.6kV switchgear half-energised and a punch list that hasn't closed in three weeks. Here is what actually changes — and what doesn't.</p>
+
+  <div class="art-body">
+
+    <p>The word "AI" has arrived in the E&I commissioning market with the same energy it arrives everywhere: as a marketing claim first, a capability second, and a field reality a distant third. Vendors apply it to dashboards, scheduling tools, anomaly detection systems, and document platforms — often to describe what is, on inspection, a filtered spreadsheet with a better interface.</p>
+
+    <p>This is not a dismissal of the technology. Machine learning applied correctly to commissioning data is genuinely useful in specific, bounded contexts. The problem is that the claims have moved well ahead of the deployments, and project teams are making procurement decisions — and, more dangerously, operational decisions — based on capability that exists in a demo environment rather than on a live site.</p>
+
+    <p>What follows is an attempt to be precise about what AI tools actually do in the commissioning environment right now: where they add measurable value, where they add the appearance of value, and where they introduce a category of risk that experienced engineers should take seriously.</p>
+
+    <h2>What "AI" Usually Means in a Commissioning Platform</h2>
+
+    <p>Most tools marketed as AI-powered in the commissioning space are using one or more of three underlying capabilities: <strong>pattern matching on historical data</strong>, <strong>natural language processing for document handling</strong>, and <strong>rule-based anomaly flagging</strong> dressed in probabilistic language. Each of these is legitimate engineering. None of them is what most people imagine when they hear the term artificial intelligence.</p>
+
+    <p>Pattern matching on historical test data can surface statistically unusual readings during loop checks — a calibration result that falls outside the range seen across comparable instruments on previous projects. That is useful. It does not replace the technician's judgment about whether the deviation is meaningful, instrument-specific, or indicative of a wiring fault. It changes the information available to that judgment; it does not substitute for it.</p>
+
+    <p>Natural language processing applied to technical documentation — P&IDs, data sheets, loop diagrams — can accelerate the matching of tag references across documents, flag inconsistencies between revisions, and extract instrument specifications into structured formats at a speed no human reviewer can match. This is where AI tools are delivering the most consistent, demonstrable value in the commissioning context today. The underlying task — cross-referencing documents at volume — is exactly the kind of problem these tools are built for.</p>
+
+    <p>Rule-based anomaly flagging is the one most frequently overstated. When a system alerts that a transmitter's current output is 3.8mA when the loop should be live, that is a threshold check — valuable, fast, and entirely deterministic. Calling it AI is a vendor decision, not a technical description.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num blue">40%</span>
+        <span class="data-label">reduction in document cross-reference time reported on projects using NLP-assisted tag verification tools</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">8×</span>
+        <span class="data-label">faster identification of out-of-tolerance instrument readings when AI anomaly flagging is paired with structured test data entry</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num red">0</span>
+        <span class="data-label">documented cases of AI-only fault diagnosis replacing engineer judgment on a live energised system — as of 2026</span>
+      </div>
+    </div>
+
+    <h2>Where AI Tools Are Actually Delivering Value on Site</h2>
+
+    <p>The honest picture is narrower than the marketing suggests — but within its actual boundaries, it is real. The following use cases represent areas where AI-assisted tools are producing measurable improvements in commissioning speed or quality on projects where the data infrastructure to support them exists.</p>
+
+    <div class="usecase-list">
+
+      <div class="usecase-item">
+        <div class="usecase-num">01</div>
+        <div class="usecase-body">
+          <div class="usecase-title">Document Consistency Checking at Scale</div>
+          <div class="usecase-desc">NLP tools trained on engineering document formats can cross-reference tag numbers, line designations, and instrument specifications across P&IDs, loop diagrams, cause-and-effect matrices, and data sheets — identifying mismatches that would otherwise surface during loop testing, when correction is expensive. On a project with 2,000+ instruments, human review of every cross-reference is not realistic. Automated checking is.</div>
+          <span class="usecase-verdict proven">// Proven Value</span>
+        </div>
+      </div>
+
+      <div class="usecase-item">
+        <div class="usecase-num">02</div>
+        <div class="usecase-body">
+          <div class="usecase-title">Punch List Pattern Analysis</div>
+          <div class="usecase-desc">On projects with sufficient historical data — typically multi-phase plants or repeat facility types — machine learning models can identify which categories of punch items correlate with schedule overrun, which systems generate disproportionate rework, and where QA holds tend to accumulate. This is useful for sequencing re-prioritisation mid-project and for pre-mobilisation planning on future phases. It requires clean, structured punch list data — which most projects do not have.</div>
+          <span class="usecase-verdict limited">// Conditional Value</span>
+        </div>
+      </div>
+
+      <div class="usecase-item">
+        <div class="usecase-num">03</div>
+        <div class="usecase-body">
+          <div class="usecase-title">Real-Time Loop Test Data Capture and Flagging</div>
+          <div class="usecase-desc">Digital test record systems that ingest live calibration data and flag out-of-tolerance results in real time — without requiring manual transcription — reduce both data entry error and the lag between a failed test and its escalation. When paired with structured acceptance criteria loaded per instrument tag, the review time per loop drops significantly. The "AI" element here is often just automated threshold logic, but the workflow improvement is genuine regardless of how it is labelled.</div>
+          <span class="usecase-verdict proven">// Proven Value</span>
+        </div>
+      </div>
+
+      <div class="usecase-item">
+        <div class="usecase-num">04</div>
+        <div class="usecase-body">
+          <div class="usecase-title">Schedule Risk Prediction</div>
+          <div class="usecase-desc">Some commissioning management platforms use historical project data to model schedule risk — predicting which subsystems are likely to miss their completion milestone based on current progress rates and resource allocation. The outputs are most reliable when the training data closely matches the project type. On first-of-type projects, or on projects with unusual scope, these models have limited predictive accuracy and should not substitute for engineering judgment on critical path decisions.</div>
+          <span class="usecase-verdict limited">// Conditional Value</span>
+        </div>
+      </div>
+
+      <div class="usecase-item">
+        <div class="usecase-num">05</div>
+        <div class="usecase-body">
+          <div class="usecase-title">Autonomous Fault Diagnosis on Live Systems</div>
+          <div class="usecase-desc">The scenario vendors most frequently demonstrate in sales contexts: an AI model identifying the root cause of a control loop fault from process historian data, without engineer input. In controlled environments with clean data and known fault libraries, this works in bounded cases. On a live commissioning site — with wiring not yet as-built, instruments recently calibrated, and DCS configurations still being modified — the data environment is too unstable for these models to operate reliably. The risk of an incorrect AI diagnosis being acted upon is not theoretical.</div>
+          <span class="usecase-verdict hype">// Overstated</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>The Data Problem Nobody Talks About</h2>
+
+    <p>Every AI capability described above has a dependency that is almost never mentioned in vendor demonstrations: <strong>it requires structured, complete, and accurate input data to function</strong>. The quality of AI output in commissioning is directly bounded by the quality of the data it is trained on and the data it receives in operation.</p>
+
+    <p>In practice, commissioning data is among the least structured data in any industrial project. Test records are filled out inconsistently. Tag references contain manual transcription errors. Punch list categories shift mid-project. Instrument data sheets arrive in formats that resist automated parsing. Calibration results are recorded on paper and entered into systems days later — sometimes not at all.</p>
+
+    <p>This is not a criticism of commissioning teams. It is an accurate description of the environment. And it is the reason why AI tools that perform well in a vendor's controlled demo — with clean, pre-structured data — frequently underperform on actual projects where the data they receive is a realistic reflection of field conditions.</p>
+
+    <div class="pullquote">
+      <p>"The platform told us the instrument was within tolerance. The instrument was not within tolerance. The data going in had a transcription error from two weeks earlier. The AI was correct about the data it had. The data was wrong. Nobody had checked."</p>
+    </div>
+
+    <p>The practical implication is that deploying an AI-assisted commissioning tool is a data discipline project as much as a technology project. Before the tool can add value, the data workflows feeding it need to be structured, enforced, and verified. That work happens before mobilisation, not after the tool is installed.</p>
+
+    <h2>What Doesn't Change</h2>
+
+    <p>The introduction of AI tools into commissioning does not change the following things, regardless of how the tools are implemented:</p>
+
+    <div class="callout info">
+      <div class="callout-head">// What AI Cannot Replace — Field Reality, 2026</div>
+      <ul>
+        <li>The judgment of an experienced E&I supervisor reading a live circuit for the first time</li>
+        <li>The decision to hold energisation when something does not feel right — before a fault is confirmed</li>
+        <li>The interpretation of an instrument's behaviour in the context of a specific process fluid, operating pressure, and installation configuration</li>
+        <li>The authority relationship between commissioning lead, client representative, and operations — and the human negotiation that determines what gets signed off</li>
+        <li>The escalation decision when a test result is borderline and the commercial pressure is to accept it</li>
+        <li>The recognition that a pattern in the data is an artefact of how it was collected, not a real signal</li>
+      </ul>
+    </div>
+
+    <p>These are not limitations that more training data or a better model architecture will resolve in the near term. They are judgment calls that depend on physical presence, contextual knowledge, and professional accountability. The engineer signing the ITR is accountable for what it says. The AI platform is not.</p>
+
+    <h2>The Questions to Ask Before Deploying an AI Commissioning Tool</h2>
+
+    <p>If your project is evaluating an AI-assisted commissioning platform — or a vendor is proposing one as part of their service offering — the following questions are more useful than any capability demonstration.</p>
+
+    <div class="signal-grid">
+      <div class="signal-col-head red">✗ Questions Vendors Answer Well</div>
+      <div class="signal-col-head green">✓ Questions That Reveal Actual Capability</div>
+
+      <div class="signal-item left">What does your AI detect?</div>
+      <div class="signal-item right">What is the false positive rate in field deployment — not demo conditions?</div>
+
+      <div class="signal-item left">How many projects has the platform been used on?</div>
+      <div class="signal-item right">What was the data entry compliance rate on those projects, and how was it enforced?</div>
+
+      <div class="signal-item left">Can we see a demo with our project data?</div>
+      <div class="signal-item right">What happens when an instrument tag in our data does not match the platform's expected format?</div>
+
+      <div class="signal-item left">How does the AI improve over time?</div>
+      <div class="signal-item right">What data from our project will be used for model training, and what are the data sovereignty implications?</div>
+
+      <div class="signal-item left">What integrations do you support?</div>
+      <div class="signal-item right">What is the minimum data structure our field team must comply with for the tool to function — and who enforces that compliance on site?</div>
+
+      <div class="signal-item left">What is the implementation timeline?</div>
+      <div class="signal-item right">What is the rollback plan if the platform degrades data integrity during commissioning?</div>
+    </div>
+
+    <h2>The Honest Position</h2>
+
+    <p>AI is not going to replace the E&I commissioning engineer. It is going to change which tasks that engineer spends time on — removing the low-judgment, high-volume document and data tasks, and concentrating human attention on the decisions that actually require it. That is a genuine improvement, and it is already happening on well-run projects with the data infrastructure to support it.</p>
+
+    <p>The risk is not that AI will be adopted too slowly. The risk is that it will be adopted too fast — deployed into projects without the data discipline to support it, used to create an appearance of systematic commissioning that obscures the same underlying gaps, and treated as a substitute for experienced engineering judgment at exactly the moments when that judgment matters most.</p>
+
+    <p>A commissioning system that produces a clean AI dashboard from poor field data is not a smart system. It is a more convincing way of not knowing what is happening on your plant.</p>
+
+    <div class="callout">
+      <div class="callout-head">// The Standard That Doesn't Change</div>
+      <p>The measure of a commissioning programme is not the sophistication of its software. It is the defect rate at handover, the quality of the documentation the client receives, and whether the plant behaves the way the engineering intended when it is operated for the first time. AI tools that improve those outcomes are valuable. Tools that improve the appearance of those outcomes without improving the outcomes themselves are a liability.</p>
+    </div>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Talk to an Engineer, Not a Platform</h3>
+    <p>If you are evaluating AI commissioning tools for an upcoming project and want an independent technical view on what they will and won't do in your specific context, we can help you ask the right questions before you commit.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

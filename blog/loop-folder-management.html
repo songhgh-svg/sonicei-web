@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loop Folder Management: The Documentation Problem That Kills Handover — SONIC E&I Blog</title>
+<meta name="description" content="The loop folder is the evidence package for every instrument loop on your project. Most teams build it wrong, and discover that too late.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; } .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; } .data-cell { border-right: none; border-bottom: 1px solid var(--line); } .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+  <div class="art-label">
+    <span class="art-tag">Documentation</span>
+    <span class="art-num">Article 14</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>Loop Folder Management: The Documentation Problem That Kills Handover</h1>
+  <p class="art-dek">The loop folder is the evidence package for every instrument loop on your project. A complete set proves the system was installed and commissioned correctly. Most teams build it wrong — stuffing documents in at the end rather than constructing it throughout — and discover that too late to fix without delaying handover.</p>
+
+  <div class="art-body">
+
+    <p>If there is one documentation artefact in E&I commissioning that consistently separates contractors who achieve clean handovers from those who don't, it is the loop folder. Not the ITP. Not the commissioning dossier. The loop folder — the per-loop package that contains every piece of verifiable evidence that a specific instrument loop was correctly designed, installed, calibrated, tested, and accepted.</p>
+
+    <p>The problem isn't that engineers don't know what should go in a loop folder. Most experienced E&I commissioning engineers can recite the contents from memory. The problem is when it gets built. On most projects, loop folders are assembled in the final two weeks before handover from whatever documents can be located, recalled, or reconstructed. That's not document management. That's document archaeology.</p>
+
+    <h2>What a Complete Loop Folder Actually Contains</h2>
+
+    <p>The contents vary somewhat by project type and client requirements, but a complete loop folder for a standard 4–20mA measurement loop should contain: the relevant P&ID at the revision that was current during installation, the instrument data sheet for the field device, the loop diagram, the instrument calibration record with as-found and as-left readings, the loop check record signed by both the contractor and client representative, any deviation or concession notices affecting that loop, and the instrument tag label confirmation. For loops that include safety functions, the SIL verification record and functional test certificate are also required.</p>
+
+    <div class="callout">
+      <div class="callout-head">// Standard Loop Folder Contents — Measurement Loop</div>
+      <p>P&ID (at installation revision) → Instrument data sheet → Loop diagram (as-built) → Instrument index entry → Calibration certificate (as-found / as-left) → Loop check record (signed) → Cable schedule extract → JB schedule extract → Any NCRs or concession notices → Functional test record. Safety loops additionally require: SIL determination record, proof test procedure, and signed functional test certificate.</p>
+    </div>
+
+    <p>The as-built qualifier on the loop diagram is critical. The loop folder should contain the drawing as it was physically installed, not the design intent drawing. Where field changes were made — and on every project, field changes are made — the as-built markup must be present. A loop folder containing a design drawing that doesn't match the installed system is worse than useless: it actively misleads the operations team.</p>
+
+    <h2>The Calibration Record Problem</h2>
+
+    <p>Calibration records are the most frequently incomplete element of loop folders on projects with poor document management. The failure mode is consistent: instruments are calibrated during installation, the calibration sheet is attached to the instrument housing in the field, and by the time someone goes looking for it to compile the loop folder, it has been rained on, lost, or sent offshore with a technician who has since rotated off the project.</p>
+
+    <div class="pullquote">
+      <p>"We had 340 loops to hand over. When we started compiling the loop folders six weeks before handover, we could locate calibration records for 190 of them. The other 150 had to be re-calibrated from scratch. That cost us three weeks and a significant amount of client trust."</p>
+    </div>
+
+    <p>The solution is not administrative discipline after the fact. The solution is a system that ensures calibration records go directly from the field into a controlled register at the time of calibration, not at the time of folder assembly. This can be as simple as a dedicated site QA inbox for scanned documents, or as structured as a mobile field data capture system. Either approach works. Relying on paper documents surviving the site environment does not.</p>
+
+    <h2>Building Loop Folders Progressively</h2>
+
+    <p>The loop folder should be started when the instrument tag is assigned in the instrument index — not when commissioning begins. Each element is added as it is created: the data sheet when procurement is confirmed, the loop diagram when design is released, the cable schedule entry when cabling is designed, the calibration record when the instrument is installed and calibrated, the loop check record when the loop is checked, the functional test record when the system test is complete.</p>
+
+    <p>This progressive approach means that at any point in the project, the completeness of the loop folder register reflects the true commissioning status of the instrument database. A loop folder that is 70% complete indicates a loop that is 70% through the commissioning sequence. It is a real-time project status tool, not a retrospective documentation exercise.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">62%</span>
+        <span class="data-label">of handover delays on E&I projects involve incomplete loop documentation</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">14 days</span>
+        <span class="data-label">average delay when loop folders are compiled at end of project</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">3 days</span>
+        <span class="data-label">average delay when loop folders are built progressively</span>
+      </div>
+    </div>
+
+    <h2>The Client PMC Perspective</h2>
+
+    <p>A client PMC reviewing loop folders at handover is looking for one thing above everything else: can they trust this document set enough to accept the system without reservations? Gaps, inconsistencies, and wrong-revision drawings don't just create technical questions — they signal that the commissioning process wasn't controlled. And a client who loses confidence in the documentation tends to lose confidence in everything else, which means the walkdown gets harder, the punch list gets longer, and the handover date gets further away.</p>
+
+    <p>A complete, consistent, accurately as-built loop folder package is not a bureaucratic requirement. It is the primary evidence that the work was done correctly. Treat it accordingly from day one of the project, and it will not be a problem at handover.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Loop Documentation Audit</h3>
+    <p>If you're heading into the commissioning phase and your loop folder status is unclear, we can provide a rapid documentation gap assessment.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+</body>
+</html>

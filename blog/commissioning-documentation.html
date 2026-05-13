@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Commissioning Documentation Is a Liability — SONIC E&I Blog</title>
+<meta name="description" content="Incomplete commissioning dossiers are the biggest cause of delayed sign-offs in Vietnam's power and oil & gas sector. A field-tested documentation framework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; }
+    .data-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">Commissioning</span>
+    <span class="art-num">Article 10</span>
+    <span class="art-date">August 2025</span>
+  </div>
+
+  <h1>Why Your Commissioning Documentation Is a Liability — and How to Fix It Before Handover</h1>
+
+  <p class="art-dek">Incomplete, inconsistent commissioning dossiers are the single biggest cause of delayed mechanical completion sign-offs in Vietnam's power and oil & gas sector. A field-tested documentation framework that closes the gap.</p>
+
+  <div class="art-body">
+
+    <p>Commissioning documentation has a reputation problem. Engineers see it as administrative overhead — the paperwork that slows down technical work. Project managers see it as a deliverable to be completed in the final two weeks before handover. Clients see it as an afterthought that arrives late, incomplete, and formatted differently from everything else in the project record.</p>
+
+    <p>All three perspectives are wrong in the same way: they treat documentation as a record of work that has already been done, rather than as a control system that makes the work go faster, with fewer errors, and with an auditable trail that survives handover.</p>
+
+    <p>The projects where commissioning documentation causes the most pain are not the ones where engineers are lazy. They are the ones where documentation was planned last and resourced inadequately from the start.</p>
+
+    <h2>What a Commissioning Dossier Is Actually For</h2>
+
+    <p>A commissioning dossier serves three distinct purposes, each with a different audience and different consequence for failure. Understanding all three changes how you resource it.</p>
+
+    <p><strong>For the commissioning team, it is a control tool.</strong> A properly structured dossier tells the commissioning engineer what has been tested, what is outstanding, what deviations have been accepted, and what approvals are required before the next activity can begin. A team operating without this — relying on informal tracking and verbal status updates — spends 30–40% of its time managing confusion rather than doing work.</p>
+
+    <p><strong>For the client PMC, it is the basis of acceptance.</strong> The PMC will not sign a mechanical completion certificate based on the commissioning team's assurance that everything is done. They will sign it based on a dossier that demonstrates, with signed test records and deviation reports, that every required activity has been completed and every outstanding item has been formally accepted or deferred. The quality of the dossier determines whether the sign-off meeting takes four hours or four days.</p>
+
+    <p><strong>For the asset owner, it is the operational baseline.</strong> Five years after handover, when a maintenance engineer needs to know the as-found calibration value for a pressure transmitter, or the deviation that was accepted on a motor insulation resistance test, that information exists only in the commissioning dossier. If the dossier is incomplete, the information is gone.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">3.1×</span>
+        <span class="data-label">average increase in handover sign-off duration when dossier is incomplete at MC meeting</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">22 days</span>
+        <span class="data-label">average time to reconstruct missing records post-demobilisation</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">8%</span>
+        <span class="data-label">of E&I commissioning budgets consumed by documentation rework on unmanaged projects</span>
+      </div>
+    </div>
+
+    <h2>The Framework That Works in Practice</h2>
+
+    <p>The following structure is not a theoretical ideal. It is the documentation framework we apply on our own commissioning scopes, refined over multiple projects across power generation, offshore, and industrial facilities in Vietnam.</p>
+
+    <div class="callout">
+      <div class="callout-head">// SONIC Commissioning Dossier Structure</div>
+      <p><strong>Volume 1 — Scope & Basis:</strong> commissioning scope statement, applicable standards and specifications, system boundaries, hold point register. <strong>Volume 2 — Pre-commissioning records:</strong> cable IR and continuity test sheets, equipment installation inspection records, static equipment test records. <strong>Volume 3 — Loop test records:</strong> signed loop test sheets with as-found/as-left values and DCS screenshots. <strong>Volume 4 — Functional test records:</strong> motor run tests, protection relay tests, interlock functional tests. <strong>Volume 5 — Deviation register:</strong> all deviations from specification with engineering justification and client acceptance signature. <strong>Volume 6 — Outstanding items:</strong> punch list with category, owner, and target close date. <strong>Volume 7 — Certificates:</strong> MC certificate, equipment release notes, vendor commissioning reports.</p>
+    </div>
+
+    <p>Each volume has an owner who is responsible for its completeness at each project milestone, not at handover. Volume 2 should be complete by the end of pre-commissioning. Volume 3 should be 95% complete before any functional testing begins. The final 5% of outstanding items is a managed list, not an unknown quantity discovered in the last week.</p>
+
+    <h2>The Resource Question</h2>
+
+    <p>Commissioning documentation at the standard described above requires dedicated resource. On a 500-loop E&I commissioning scope, the documentation workload is equivalent to approximately one full-time engineer throughout the commissioning phase. This is not a role that can be added to a lead commissioning engineer's responsibilities without either the documentation or the technical work suffering.</p>
+
+    <div class="pullquote">
+      <p>"Every project that tries to save money by not budgeting a dedicated documentation engineer ends up spending more money — at the worst possible time — reconstructing records under client pressure at handover."</p>
+    </div>
+
+    <p>The documentation engineer is not a junior administrative role. They need sufficient technical background to understand what a loop test record is supposed to contain, recognise when a test sheet is incomplete, and interact with the commissioning team to resolve gaps in real time. On our projects, this is filled by a mid-level E&I engineer with commissioning field experience, not a document controller.</p>
+
+    <h2>Starting Before Commissioning Begins</h2>
+
+    <p>The single most impactful change a project can make to its commissioning documentation outcome is to begin the dossier structure at the start of the commissioning phase, not at the end. This means: creating the document register, populating it with blank test templates for every deliverable, and assigning owners before the first pre-commissioning activity begins.</p>
+
+    <p>A blank test sheet waiting to be filled in is a control. It tells the team what is expected. It creates a visible gap when something has not been done. An after-the-fact reconstruction of what was done creates none of these things. It creates the illusion of documentation while capturing none of the control value.</p>
+
+    <p>Projects that build the dossier structure first and fill it as work progresses arrive at handover with a complete record and a confident team. Projects that build it at the end arrive with a stressful sprint, a dossier full of gaps, and a client who has every reason to delay sign-off.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Documentation That Survives Client Scrutiny</h3>
+    <p>If your commissioning dossier structure isn't in place before testing begins, it won't be adequate when handover arrives. We can review your current approach and close the gaps while there's still time.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

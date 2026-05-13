@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offshore E&I Is a Different Game — SONIC E&I Blog</title>
+<meta name="description" content="Offshore E&I commissioning shares the same fundamentals as onshore work — and almost nothing else. What engineers who've only worked onshore need to understand before they step on a vessel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628;
+    --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1);
+    --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee;
+    --gray: #8a9ab5;
+    --line: rgba(138,154,181,0.15);
+    --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+
+  /* COMPARE GRID */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--line); }
+  .compare-col { padding: 0; }
+  .compare-col:first-child { border-right: 1px solid var(--line); }
+  .compare-head { padding: 16px 24px; border-bottom: 1px solid var(--line); }
+  .compare-head-label { font-family: 'Share Tech Mono', monospace; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+  .compare-head-title { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 1px; color: var(--white); }
+  .compare-row { display: contents; }
+  .compare-cell { padding: 16px 24px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.6; }
+  .compare-cell:last-child, .compare-col:last-child .compare-cell:last-child { border-bottom: none; }
+  .compare-cell strong { color: var(--white); font-weight: 500; display: block; margin-bottom: 2px; font-size: 12px; font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+  .compare-cell.highlight { background: rgba(201,162,39,0.06); }
+
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .compare { grid-template-columns: 1fr; }
+    .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">← All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">Offshore</span>
+    <span class="art-num">Article 04</span>
+    <span class="art-date">February 2026</span>
+  </div>
+
+  <h1>Offshore E&I Is a Different Game</h1>
+
+  <p class="art-dek">Offshore commissioning shares the same fundamentals as onshore work — and almost nothing else. What engineers who've only worked onshore need to understand before they step on a vessel.</p>
+
+  <div class="art-body">
+
+    <p>The electrical and instrumentation work on an offshore vessel or platform is technically identical to what you'd find in a power plant or industrial facility ashore. The same cable terminations, the same loop testing methodology, the same IEC standards. The engineering knowledge transfers almost completely.</p>
+
+    <p>What doesn't transfer is everything else — and "everything else" is what determines whether a project succeeds or fails.</p>
+
+    <h2>The Logistics Are the Job</h2>
+
+    <p>On an onshore project, if a technician forgets a tool, they drive back to the workshop. If a spare part is needed, procurement delivers it tomorrow. If the drawings need to be updated and reprinted, someone does it in the site office overnight.</p>
+
+    <p>Offshore, none of those options exist. <strong>What's on the vessel is what you have.</strong> Mobilisation planning — the selection of tools, spare instruments, cable glands, terminal blocks, test equipment, and consumables — is as technically demanding as the commissioning work itself. An offshore E&I engineer who has never prepared a mobilisation pack for a vessel job will underestimate this by a factor of three, and the project will pay for it in helicopter costs or outright schedule failure.</p>
+
+    <div class="compare">
+      <div class="compare-col">
+        <div class="compare-head">
+          <div class="compare-head-label">Environment</div>
+          <div class="compare-head-title">Onshore / Plant</div>
+        </div>
+        <div class="compare-cell">
+          <strong>Supply Chain</strong>
+          Same-day procurement from local suppliers or site stores
+        </div>
+        <div class="compare-cell">
+          <strong>Workforce Rotation</strong>
+          Standard shift patterns, no logistical constraints
+        </div>
+        <div class="compare-cell">
+          <strong>Documentation Access</strong>
+          Site office, engineering team on-site, cloud access
+        </div>
+        <div class="compare-cell">
+          <strong>Weather Impact</strong>
+          Minimal — outdoor work can be rescheduled
+        </div>
+        <div class="compare-cell">
+          <strong>Safety Regime</strong>
+          Plant LOTO, standard PTW, contractor HSE
+        </div>
+        <div class="compare-cell">
+          <strong>Communication</strong>
+          Direct access to project team, PMC, client
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-head">
+          <div class="compare-head-label">Environment</div>
+          <div class="compare-head-title">Offshore Vessel / Platform</div>
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Supply Chain</strong>
+          Helicopter or supply boat lead times of 24–72hrs. If it's not on board, the work stops.
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Workforce Rotation</strong>
+          28/28 or 14/14 rosters. Knowledge handover between rotations is a critical failure point.
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Documentation Access</strong>
+          Paper or offline-only. Drawing revisions must be physically transmitted and controlled.
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Weather Impact</strong>
+          Helicopter standdowns, vessel motion limits, tropical storm seasons compress available working windows.
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Safety Regime</strong>
+          Simultaneous Operations (SIMOPS), gas detection, confined space, hot work in classified zones.
+        </div>
+        <div class="compare-cell highlight">
+          <strong>Communication</strong>
+          Satellite comms with bandwidth limits. Time-zone differences with shore-based engineering.
+        </div>
+      </div>
+    </div>
+
+    <h2>Rotation Handover Is the Hidden Risk</h2>
+
+    <p>On a 28/28 rotation offshore, the commissioning team changes entirely at the midpoint of most projects. The incoming team receives a handover pack — typically a progress spreadsheet and a brief verbal from the departing supervisor — and is expected to continue seamlessly.</p>
+
+    <p>In practice, an enormous amount of tacit knowledge walks off the vessel with the departing team. <strong>Which junction boxes have been re-identified informally during the job. Where the as-built condition of a cable tray differs from the drawing. Which instrument has a field adjustment that was never formally documented.</strong> All of that lives in people's heads, and when those people leave, the incoming team discovers it through defects.</p>
+
+    <div class="pullquote">
+      <p>"A well-run offshore commissioning project treats every rotation boundary as a mini-handover to a skeptical client. Everything is documented as if the next person has never been on this vessel before. Because they haven't."</p>
+    </div>
+
+    <p>Our standard practice on offshore projects includes a mandatory 48-hour overlap between rotations, a site-specific deviation log maintained daily, and photo-documented as-built updates at each loop closure. This is overhead that some clients push back on during mobilisation planning. It consistently pays back by the end of the project.</p>
+
+    <h2>SIMOPS: The Context That Changes Everything</h2>
+
+    <p>Simultaneous Operations — the management of multiple concurrent activities in a shared space with shared hazards — is a normal part of offshore project execution and one that onshore engineers frequently underestimate.</p>
+
+    <p>On a vessel undergoing E&I commissioning, you may be working alongside marine crew doing structural work, production teams managing live process lines, and other contractor groups on completely separate scopes. The hazard interactions between these activities — hot work adjacent to live hydrocarbon systems, high-voltage testing near other work groups, confined space work in cable ducts — require a level of coordination and hazard awareness that is fundamentally different from onshore PTW systems.</p>
+
+    <div class="callout">
+      <div class="callout-head">// VARD &amp; Seaonics Experience</div>
+      <p>SONIC's lead engineer has worked with VARD and Seaonics on offshore vessel projects involving dynamic positioning systems, marine power management, and deck machinery E&I. The offshore-specific competencies — SIMOPS coordination, vessel electrical systems, offshore PTW management, and marine classification society documentation — are part of our standard operational capability, not a specialisation we develop on the job.</p>
+    </div>
+
+    <h2>What to Look for When Selecting an Offshore E&I Contractor</h2>
+
+    <p>The qualification questions that matter for offshore E&I work are different from onshore. Beyond the standard commissioning track record, ask:</p>
+
+    <p><strong>Have they managed offshore rotation handovers on projects longer than one rotation?</strong> If their only offshore experience is short-duration work where the same team sees the project from mobilisation to demobilisation, they haven't been tested on the hardest part.</p>
+
+    <p><strong>Do they have a mobilisation methodology?</strong> Ask to see their standard offshore tool and spares matrix for a project similar to yours. A contractor who builds this from scratch each time doesn't have the offshore experience they claim.</p>
+
+    <p><strong>How do they handle documentation offshore?</strong> Paper-based drawing control is the norm — their process for managing revisions, ensuring field teams are working from current drawings, and controlling as-built markups in a bandwidth-limited environment should be clearly defined.</p>
+
+    <p>The technical E&I capability is table stakes. The offshore operational discipline is what actually separates contractors when the conditions get difficult — which, on a long offshore project, they always do.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC has offshore E&I commissioning experience with VARD and Seaonics, including marine power management systems, DP systems, and deck machinery E&I on vessels operating in Vietnamese and regional waters.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Offshore Project Coming Up?</h3>
+    <p>Tell us the vessel type, scope, and rotation schedule. We'll tell you exactly what offshore-specific preparation your project needs.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>

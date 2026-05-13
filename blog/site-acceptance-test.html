@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Acceptance Tests: Why SAT Fails When FAT Passes — SONIC E&I Blog</title>
+<meta name="description" content="A successful FAT is not a guarantee of a clean SAT. The gap between factory performance and site performance is where projects get into trouble.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; } .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; } .data-cell { border-right: none; border-bottom: 1px solid var(--line); } .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+  <div class="art-label">
+    <span class="art-tag">Testing & Acceptance</span>
+    <span class="art-num">Article 15</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>Site Acceptance Tests: Why SAT Fails When FAT Passes</h1>
+  <p class="art-dek">A successful factory acceptance test is not a guarantee of a clean site acceptance test. The gap between controlled factory performance and real-world site performance is exactly where projects run into serious, expensive trouble — and where preparation makes all the difference.</p>
+
+  <div class="art-body">
+
+    <p>The FAT–SAT gap is one of the most misunderstood dynamics in E&I project delivery. The assumption embedded in most project schedules is that a system passing FAT requires only a brief site verification before formal acceptance. This assumption is wrong often enough to be dangerous.</p>
+
+    <p>The factory test validates the equipment in isolation, under ideal conditions, with the vendor's own technicians managing the environment. The site acceptance test validates the same equipment integrated with everything else on the project — the field instruments, the cable network, the power system, the control system, and the actual process. These are fundamentally different tests, and the probability of encountering defects in the second that weren't visible in the first is much higher than most schedules account for.</p>
+
+    <h2>The Five SAT Failure Categories</h2>
+
+    <p>SAT failures in E&I projects cluster into identifiable patterns. Understanding them in advance allows teams to structure their pre-SAT preparation to systematically eliminate the most likely failure modes before the client's acceptance team arrives on site.</p>
+
+    <p><strong>Integration failures</strong> are the most common. The DCS communicates with the field instruments through I/O modules, signal conditioners, marshalling cabinets, and field junction boxes — none of which existed at FAT. Any wiring error, incorrect I/O configuration, or address mapping mistake in this chain produces failures that the factory test had no way to detect. A systematic loop check from field device to DCS display, for every loop, before the SAT date, eliminates this category almost entirely.</p>
+
+    <p><strong>Process condition mismatches</strong> occur when the actual process parameters at site differ from the assumptions used in the FAT simulation. A control valve tested at the factory with simulated 4–20mA signals may behave differently when connected to a positioner tuned for the actual line pressure and flow conditions. Instrument ranges specified during engineering may not match the actual process operating window.</p>
+
+    <div class="pullquote">
+      <p>"We had 14 control loops that behaved perfectly at FAT and then oscillated continuously under real process conditions. The tuning parameters were set for a simulated process model that didn't reflect what the plant actually did. That cost us three weeks of SAT time."</p>
+    </div>
+
+    <p><strong>Environmental failures</strong> are particularly relevant for offshore and tropical onshore installations. Equipment tested in a climate-controlled European factory may behave differently in 38°C ambient with high humidity and salt-laden atmosphere. Heat-related electronic faults, condensation in enclosures, and corrosion of connections that were clean at FAT all fall into this category.</p>
+
+    <p><strong>Safety system functional test failures</strong> are the SAT failures with the most serious consequences. Fire and gas systems, ESD systems, and process safety shutdown systems must be functionally tested under site conditions to confirm that the trip logic, response times, and outputs are correct as installed. Failures here block acceptance until resolved — there is no negotiating a conditional sign-off on an ESD system that doesn't trip when it should.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">29%</span>
+        <span class="data-label">of SATs require a second attempt due to unresolved defects</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">18 days</span>
+        <span class="data-label">average additional schedule impact per failed SAT</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">Loop check</span>
+        <span class="data-label">single highest-impact pre-SAT preparation activity</span>
+      </div>
+    </div>
+
+    <h2>Preparing for SAT: The Pre-SAT Mock</h2>
+
+    <p>The most effective preparation for a site acceptance test is running an internal mock SAT against the same test procedure before the client's team arrives. This is not a novel concept — it is standard practice in well-run commissioning organisations and consistently underused in the broader industry.</p>
+
+    <div class="callout">
+      <div class="callout-head">// Pre-SAT Preparation Sequence</div>
+      <p>1. Obtain the agreed SAT procedure at least 3 weeks before the SAT date. 2. Assign an internal team to run every test in the procedure as a dry run. 3. Document every failure, marginal result, and ambiguity. 4. Resolve all failures before the SAT date. 5. Confirm with the client any test steps requiring process conditions that must be scheduled. 6. Brief the site team on each test step and expected results. On the SAT day, you should be confirming performance you have already verified — not discovering problems in front of the client.</p>
+    </div>
+
+    <p>The SAT procedure itself warrants careful review before acceptance. Test steps that are ambiguous, acceptance criteria that are unclear, or tests that require process conditions that won't be available should be negotiated with the client before the test date, not during it. A test step that cannot be executed as written is a defect in the procedure, and procedures should be revised before the test, not concession-noted during it.</p>
+
+    <h2>Managing the Client Relationship During SAT</h2>
+
+    <p>The SAT is not just a technical exercise. It is the formal event at which the client's PMC determines whether they trust the contractor's work enough to accept responsibility for the system. The technical results matter, but so does the conduct of the test.</p>
+
+    <p>A commissioning team that is clearly prepared — that can answer technical questions confidently, that has supporting documentation immediately to hand, that does not need to make phone calls to find basic project information — builds client confidence that extends beyond the specific test results. A team that appears disorganised, that cannot locate calibration records, or that argues procedural ambiguities at the test table does the opposite, regardless of whether the technical results are satisfactory.</p>
+
+    <p>SAT preparation is therefore both a technical and a presentational exercise. Both dimensions deserve deliberate preparation.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>SAT Preparation Support</h3>
+    <p>If your SAT date is approaching and you want an independent pre-SAT readiness review, we can provide structured preparation support and mock SAT facilitation.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+</body>
+</html>

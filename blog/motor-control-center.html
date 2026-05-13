@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCC Commissioning: What the Factory Test Doesn't Tell You — SONIC E&I Blog</title>
+<meta name="description" content="A motor control centre that passed FAT can still fail catastrophically on site. Here's what changes between the factory floor and the field.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; } .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; } .data-cell { border-right: none; border-bottom: 1px solid var(--line); } .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+  <div class="art-label">
+    <span class="art-tag">Electrical Systems</span>
+    <span class="art-num">Article 13</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>MCC Commissioning: What the Factory Test Doesn't Tell You</h1>
+  <p class="art-dek">A motor control centre that passed its factory acceptance test can still fail catastrophically on site. The FAT tests the equipment in a controlled environment. It does not test the installation. Here's what changes between the factory floor and the field — and how to catch it before energisation.</p>
+
+  <div class="art-body">
+
+    <p>The FAT certificate is not a commissioning certificate. This distinction matters, and it gets blurred on more projects than it should. When a project team receives a fully tested MCC with a comprehensive factory test report, there is a natural tendency to treat the on-site commissioning as a formality — a visual inspection, a few checks, and then energise.</p>
+
+    <p>The MCC that arrives on site is the same hardware that was tested. The installation connecting it to the rest of the system is not. Every field termination, every conduit entry, every cable gland, every outgoing cable, every interlock wiring connection — none of that existed during the FAT. All of it can introduce defects.</p>
+
+    <h2>Transit and Installation Damage</h2>
+
+    <p>The first category of defects that FAT-tested equipment develops is physical. Marine transport to offshore locations and road transport to remote onshore sites subjects MCC enclosures to vibration, shock loads, and humidity exposure that can loosen terminations, unseat draw-out module contacts, and introduce moisture into sealed compartments.</p>
+
+    <p>The standard site receipt inspection — a visual check confirming the MCC arrived without obvious mechanical damage — does not catch these defects. A thorough site receipt inspection for an MCC includes opening every draw-out module, checking contact wear, verifying that all busbars are fully seated and that no terminations have vibrated loose in the main incomer section. This takes time. It is worth the time.</p>
+
+    <div class="pullquote">
+      <p>"The MCC had a perfect FAT report. When we opened the incomer section on site, three main busbar bolts were finger-tight. The vibration during sea freight had backed them out. If we'd energised without checking, we'd have had an arc flash event within the first week of operation."</p>
+    </div>
+
+    <h2>Field Wiring: The New Failure Surface</h2>
+
+    <p>Once the MCC is physically verified, the focus shifts to field wiring — and this is where the volume of potential defects expands significantly. A medium-sized MCC serving 40 motor starters will have hundreds of individual field wiring terminations in the control section alone, plus power cable terminations at every outgoing feeder.</p>
+
+    <p>Each termination is a potential failure point. The failure modes are well known: incorrect cable identification leading to wrong-feeder termination, incorrect phase rotation at motor terminals, missing or wrong-value overload relay settings, control wiring polarity reversal causing contactors to fail-energise, and star-delta transition timer settings not matching motor specifications.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">23%</span>
+        <span class="data-label">of MCC outgoing feeders have at least one wiring defect on first check</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">8×</span>
+        <span class="data-label">cost multiplier for motor damage vs. correct overload setting</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">Phase rot.</span>
+        <span class="data-label">most common cause of motor damage at first start</span>
+      </div>
+    </div>
+
+    <h2>Overload Relay Setting: The Most Commonly Wrong Parameter</h2>
+
+    <p>Thermal overload relay settings are the single most frequently incorrect parameter found during MCC commissioning audits. The setting should correspond to the motor's rated full-load current, with appropriate derating for ambient temperature and starting duty. In practice, overloads are frequently found set to their maximum value — effectively bypassing the protection — or set to the same value across all feeders regardless of the motor ratings they serve.</p>
+
+    <p>This isn't carelessness. It's the consequence of a process gap: overload settings are defined in the motor schedule in the electrical design package, but there is often no formal step in the installation workflow that transfers those settings to the field. The electrician installs the overload relay, sets it somewhere reasonable-looking, and moves on.</p>
+
+    <div class="callout">
+      <div class="callout-head">// MCC Site Commissioning — Critical Checks</div>
+      <p>Phase rotation verification at every outgoing motor terminal — before first start, no exceptions. Overload relay setting: confirmed against motor FLA from nameplate and motor schedule. Control wiring functional test: local start/stop from MCC, remote start/stop from DCS, feedback signals verified. Interlock simulation: all process interlocks exercised with motor isolated. Star-delta timer: confirmed against manufacturer recommendation for motor kW rating.</p>
+    </div>
+
+    <h2>The Integration Test Gap</h2>
+
+    <p>The final category of MCC commissioning failure is the integration test — verifying that the MCC communicates correctly with the DCS or PLC that controls it. FAT typically tests the MCC in isolation or with a simulation panel representing the control system. It does not test the actual DCS I/O, the actual communication network, or the actual control logic as programmed for this project.</p>
+
+    <p>Integration faults — wrong DCS address mapping, inverted feedback signals, missing permissive logic — are consistently discovered only at the full system test stage, when the cost of correction has multiplied relative to what it would have been if caught during dedicated MCC-to-DCS loop checks.</p>
+
+    <p>Allocating time for a systematic, feeder-by-feeder MCC integration check against the control narrative — before the system-level functional test — is the investment that prevents the integration test from becoming an extended fault-finding exercise.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>MCC Commissioning Support</h3>
+    <p>If you have MCC energisation coming up and want an independent verification before first start, we provide rapid on-site commissioning support.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+</body>
+</html>

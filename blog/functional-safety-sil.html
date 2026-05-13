@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functional Safety Management: Why SIL Verification Gets Ignored Until It's Too Late — SONIC E&I Blog</title>
+<meta name="description" content="SIL verification is not a compliance checkbox. It is the engineering proof that your safety instrumented system will actually work when the process demands it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; } .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; } .data-cell { border-right: none; border-bottom: 1px solid var(--line); } .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+  <div class="art-label">
+    <span class="art-tag">Functional Safety</span>
+    <span class="art-num">Article 16</span>
+    <span class="art-date">May 2026</span>
+  </div>
+
+  <h1>Functional Safety Management: Why SIL Verification Gets Ignored Until It's Too Late</h1>
+  <p class="art-dek">SIL verification is not a compliance checkbox. It is the engineering proof that your safety instrumented system will actually perform its protective function when the process demands it. Most projects treat it like paperwork — until the auditor arrives, or worse, until it fails.</p>
+
+  <div class="art-body">
+
+    <p>Walk through the instrumentation scope of any offshore platform or power plant project in Vietnam and ask the E&I lead engineer when the SIL verification is scheduled. The most common answer is a version of: "we're handling that before handover." That answer, and the assumption behind it, is how functional safety becomes a crisis instead of a discipline.</p>
+
+    <p>SIL — Safety Integrity Level — is a measure of the reliability of a safety instrumented function: the probability that the SIF will perform its intended action on demand. The IEC 61511 standard that governs process industry safety systems requires that every SIF's SIL target be determined during design, and that the actual installed system be verified to meet that target before it is put into service. This verification is not optional. It is not a formality. And it cannot be fully completed in the final two weeks of a project.</p>
+
+    <h2>Where the Process Breaks Down</h2>
+
+    <p>On well-managed projects, the SIL determination study (LOPA or equivalent) is completed during the FEED phase and the resulting SIL targets are incorporated into the instrument selection, the logic solver specification, and the SIS design from the beginning. On most projects in the region, this does not happen. The SIL study gets deferred to detailed engineering, the instrument selection is already fixed, and the SIS designer is handed a list of SIL targets and asked to verify that the selected equipment meets them after the fact.</p>
+
+    <p>Sometimes it does. Often it doesn't — not because the equipment is inadequate, but because the specific combination of field device, logic solver, and final element, with the specific proof test interval and diagnostic coverage applicable to that installation, does not achieve the required PFDavg for the SIL target. At that point, the project has three options: change the equipment, change the proof test interval, or obtain a safety case deviation. None of these is quick or cheap when discovered late in the project lifecycle.</p>
+
+    <div class="pullquote">
+      <p>"We got to the SIS FAT and the SIL 2 verification calculation for seven ESD loops came back short of target. The logic solver was fine. The field transmitters were fine. The combination, with the diagnostic coverage we had specified, wasn't. We had to change the voting architecture on three loops and add partial stroke testing on four valve actuators. Two months from handover."</p>
+    </div>
+
+    <h2>What SIL Verification Actually Requires</h2>
+
+    <p>SIL verification is a calculation exercise that combines failure rate data (typically from IEC 61508 Part 2 or the SINTEF PDS handbook), the system architecture, the diagnostic coverage of each element, the common cause failure contribution, and the proof test interval to compute the overall PFDavg for each SIF. The result is compared against the SIL target derived from the hazard study.</p>
+
+    <p>The calculation requires specific, documented failure rate data for the exact equipment selected — not generic data for the equipment category. A pressure transmitter from one manufacturer may have published SIL-certified failure rate data; a nominally equivalent transmitter from another manufacturer may not. Equipment selection decisions made by procurement on cost grounds can inadvertently invalidate a SIL verification calculation that was based on different failure rate assumptions.</p>
+
+    <div class="callout">
+      <div class="callout-head">// SIL Verification — Minimum Documentation Set</div>
+      <p>SIL determination study (LOPA or risk graph) with SIL target per SIF → SIL certification certificates for all SIS components (sensor, logic solver, final element) → Failure rate data (λDU, λDD, DC) per component from manufacturer SIL data sheets → Architecture selection (1oo1, 1oo2, 2oo3) with justification → PFDavg calculation per SIF showing achievement of SIL target → Proof test procedure aligned with assumed proof test interval in calculation → Functional test record confirming correct SIF operation.</p>
+    </div>
+
+    <h2>The Proof Test Interval Problem</h2>
+
+    <p>Every SIL verification calculation assumes a proof test interval — the frequency at which the SIF is fully tested to reveal any dangerous undetected failures. A calculation that achieves SIL 2 with an annual proof test interval may not achieve SIL 2 with a two-year interval. The proof test interval assumed in the calculation must match the actual maintenance schedule the operations team will implement.</p>
+
+    <p>This connection between the SIL verification calculation and the operations and maintenance plan is almost never explicitly made during project execution. The SIS engineer completes the verification calculation using a one-year interval because that's what achieves the target. The maintenance plan is written by someone else who schedules proof tests at two-year intervals because that's more practical for the site. The gap between these two documents is a gap in the safety case, and it persists undetected until an audit or an incident forces a review.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">SIL 2</span>
+        <span class="data-label">most common SIL target on offshore E&I projects in Vietnam</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">44%</span>
+        <span class="data-label">of SIS projects have proof test interval mismatch at handover</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">Phase 3</span>
+        <span class="data-label">IEC 61511 lifecycle stage most frequently skipped: verification</span>
+      </div>
+    </div>
+
+    <h2>Integrating Functional Safety Into the Project Schedule</h2>
+
+    <p>The practical fix is straightforward in principle and requires discipline to execute: the SIL verification calculation must be completed before equipment procurement is finalised, not after. This means the SIL study must be completed in time to inform equipment selection, and the verification engineer must be engaged during detailed engineering, not as a handover deliverable.</p>
+
+    <p>For projects where this sequence has already been broken — where equipment is selected and the SIL verification is still outstanding — the priority is to complete the calculation immediately and identify any shortfalls with enough schedule remaining to implement corrective measures. A shortfall discovered at detailed engineering stage costs a specification change. The same shortfall discovered during commissioning costs a project delay.</p>
+
+    <p><strong>The operations team inheritance:</strong> Functional safety does not end at handover. The SIL verification calculation, the proof test procedures, the maintenance records, and the periodic revalidation requirements all transfer to the operations team as live obligations. A handover package that includes a SIL verification dossier the operations team can actually use — not just a stack of certificates — is a meaningful contribution to the long-term safety performance of the facility.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>SIL Verification Support</h3>
+    <p>If your project's SIL verification is outstanding or incomplete, we can provide an independent review and gap assessment before your next audit or handover milestone.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+</body>
+</html>

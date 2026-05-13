@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>Engineering Intelligence — Blog | SONIC E&I Solutions</title>
+<meta name="description" content="Field notes and technical insights on E&I commissioning, AI-assisted QA/QC, offshore electrical engineering, and zero-defect project delivery from SONIC E&I Solutions Vietnam.">
+<meta name="keywords" content="E&I commissioning blog, electrical instrumentation commissioning Vietnam, AI QA QC, punch list management, loop testing, offshore E&I, DCS upgrade, SONIC E&I">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="SONIC E&I Solutions">
+<link rel="canonical" href="https://sonicei.com/blog">
+
+<!-- ═══ OPEN GRAPH ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sonicei.com/blog">
+<meta property="og:title" content="Engineering Intelligence — Blog | SONIC E&I Solutions">
+<meta property="og:description" content="Zero-defect thinking from the field. Practical insights on E&I commissioning, AI-assisted QA/QC, and what 25 years of high-stakes projects teaches you.">
+<meta property="og:image" content="https://sonicei.com/SONICEI_LOGO.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="SONIC E&I Solutions">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sonicei.com/blog">
+<meta name="twitter:title" content="Engineering Intelligence — Blog | SONIC E&I Solutions">
+<meta name="twitter:description" content="Zero-defect thinking from the field. Practical insights on E&I commissioning, AI-assisted QA/QC, and 25 years of high-stakes project experience.">
+<meta name="twitter:image" content="https://sonicei.com/SONICEI_LOGO.png">
+
+<!-- ═══ GEO / LOCAL SEO ═══ -->
+<meta name="geo.region" content="VN">
+<meta name="geo.placename" content="Vietnam">
+<meta name="language" content="English">
+
+<!-- ═══ SCHEMA.ORG — Blog ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Engineering Intelligence — SONIC E&I Blog",
+  "url": "https://sonicei.com/blog",
+  "description": "Field notes and technical insights on E&I commissioning, AI-assisted QA/QC, and zero-defect project delivery from SONIC E&I Solutions Vietnam.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SONIC E&I Solutions",
+    "url": "https://sonicei.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sonicei.com/SONICEI_LOGO.png"
+    }
+  },
+  "inLanguage": "en",
+  "blogPost": [
+    { "@type": "BlogPosting", "headline": "Why Punch Lists Fail at Handover — and How AI Changes the Equation", "url": "https://sonicei.com/blog/punch-list-failures" },
+    { "@type": "BlogPosting", "headline": "The Hidden Cost of Rework: A Field Engineer's View of the $100K Mistake", "url": "https://sonicei.com/blog/hidden-cost-rework" },
+    { "@type": "BlogPosting", "headline": "DCS Upgrade Without the Downtime Disaster", "url": "https://sonicei.com/blog/dcs-upgrade" },
+    { "@type": "BlogPosting", "headline": "Offshore E&I Is a Different Game", "url": "https://sonicei.com/blog/offshore-ei" },
+    { "@type": "BlogPosting", "headline": "How to Evaluate an E&I Commissioning Contractor in Vietnam", "url": "https://sonicei.com/blog/evaluate-contractor" },
+    { "@type": "BlogPosting", "headline": "How to Evaluate a Subcontractor's E&I Capability Before They're On Site", "url": "https://sonicei.com/blog/evaluate-subcontractor-ei-capability" },
+    { "@type": "BlogPosting", "headline": "AI in the Field: What Smart Commissioning Actually Means in Practice", "url": "https://sonicei.com/blog/ai-in-the-field-smart-commissioning" },
+    { "@type": "BlogPosting", "headline": "Instrument Loop Testing: The Standard That Separates Clean Handovers from Disasters", "url": "https://sonicei.com/blog/instrument-loop-testing" },
+    { "@type": "BlogPosting", "headline": "Why Instrument Loop Testing Takes Longer Than the Schedule Says It Will", "url": "https://sonicei.com/blog/instrument-loop-testing-delays" },
+    { "@type": "BlogPosting", "headline": "Pre-Commissioning Checks: What Gets Skipped and What That Skip Costs", "url": "https://sonicei.com/blog/pre-commissioning-checks" },
+    { "@type": "BlogPosting", "headline": "Commissioning Documentation: Why the Handover Pack Is the Product", "url": "https://sonicei.com/blog/commissioning-documentation" },
+    { "@type": "BlogPosting", "headline": "Loop Folder Management: The Document System That Determines Handover Speed", "url": "https://sonicei.com/blog/loop-folder-management" },
+    { "@type": "BlogPosting", "headline": "MCC Commissioning: The Sequence That Prevents the Failures Nobody Talks About", "url": "https://sonicei.com/blog/motor-control-center" },
+    { "@type": "BlogPosting", "headline": "Earthing and Grounding Systems: The Invisible Work That Makes Everything Else Safe", "url": "https://sonicei.com/blog/earthing-grounding-systems" },
+    { "@type": "BlogPosting", "headline": "Earthing Verification on Site: The Tests That Catch What Visual Inspection Misses", "url": "https://sonicei.com/blog/earthing-grounding-verification" },
+    { "@type": "BlogPosting", "headline": "Control Valve Commissioning: Why the Valve That Passed FAT Still Fails on Site", "url": "https://sonicei.com/blog/control-valve-commissioning" },
+    { "@type": "BlogPosting", "headline": "Functional Safety and SIL Verification", "url": "https://sonicei.com/blog/functional-safety-sil" },
+    { "@type": "BlogPosting", "headline": "Hazardous Area Classification: The E&I Engineer's Field Verification Checklist", "url": "https://sonicei.com/blog/hazardous-area-classification" },
+    { "@type": "BlogPosting", "headline": "Cable Tray Inspection: The Pre-Commissioning Check Most Teams Rush and Regret", "url": "https://sonicei.com/blog/cable-tray-inspection" },
+    { "@type": "BlogPosting", "headline": "SCADA Integration Testing: Where the E&I Scope Ends and the Problems Begin", "url": "https://sonicei.com/blog/scada-integration" },
+    { "@type": "BlogPosting", "headline": "Site Acceptance Testing: How to Run a SAT That the Client Actually Signs Off", "url": "https://sonicei.com/blog/site-acceptance-test" },
+    { "@type": "BlogPosting", "headline": "What the PMC Actually Wants at Handover — and Why Most Contractors Get It Wrong", "url": "https://sonicei.com/blog/what-pmc-wants-at-handover" },
+    { "@type": "BlogPosting", "headline": "Rework Economics: The Updated Numbers on What E&I Defects Actually Cost in 2025", "url": "https://sonicei.com/blog/hidden-cost-rework-new" },
+    { "@type": "BlogPosting", "headline": "The Defect Rate Nobody Reports: How E&I QA Failures Are Buried in Project Accounts", "url": "https://sonicei.com/blog/hidden-cost-rework" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* ── Core palette — matches shared.css ── */
+    --navy:        #0a1628;
+    --navy-mid:    #112040;
+    --gold:        #c9a227;
+    --gold-light:  #e8c347;
+    --gold-dim:    rgba(201,162,39,0.15);
+    --gold-border: rgba(201,162,39,0.3);
+    --white:       #f0f4ff;
+    --gray:        #8899bb;
+    --line:        rgba(136,153,187,0.18);
+    /* ── Tag accent colours ── */
+    --purple:        #8b6fff;
+    --purple-dim:    rgba(139,111,255,0.12);
+    --purple-border: rgba(139,111,255,0.3);
+    --blue:          #3a8fd4;
+    --blue-dim:      rgba(58,143,212,0.12);
+    --blue-border:   rgba(58,143,212,0.3);
+    --green:         #2ecc71;
+    --green-dim:     rgba(46,204,113,0.12);
+    --green-border:  rgba(46,204,113,0.3);
+    --red:           #dc3c3c;
+    --red-dim:       rgba(220,60,60,0.12);
+    --red-border:    rgba(220,60,60,0.3);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BLOG NAV ── */
+  .blog-nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .blog-nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .blog-nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .blog-nav-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 3px;
+    color: var(--gold);
+  }
+  .blog-nav-logo-text span { color: var(--white); }
+  .blog-nav-right { display: flex; align-items: center; gap: 24px; }
+  .blog-nav-back {
+    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gray); text-decoration: none; transition: color 0.2s;
+  }
+  .blog-nav-back:hover { color: var(--gold); }
+  .blog-nav-cta {
+    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--navy); background: var(--gold);
+    padding: 8px 20px; text-decoration: none;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: opacity 0.2s;
+  }
+  .blog-nav-cta:hover { opacity: 0.88; }
+
+  /* ── HERO ── */
+  .blog-hero {
+    padding: 96px 48px 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .blog-label {
+    font-family: 'Share Tech Mono', monospace; font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .blog-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    letter-spacing: 4px; color: var(--white);
+    line-height: 0.92; margin-bottom: 24px;
+  }
+  .blog-hero h1 em { font-style: normal; color: var(--gold); }
+  .blog-hero-sub {
+    font-size: 15px; color: var(--gray);
+    max-width: 520px; line-height: 1.8;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    max-width: 1200px; margin: 0 auto;
+    padding: 36px 48px 0;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .filter-label {
+    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--gray);
+    text-transform: uppercase; margin-right: 4px;
+  }
+  .filter-btn {
+    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border: 1px solid var(--line);
+    background: transparent; color: var(--gray);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active { border-color: var(--gold); color: var(--navy); background: var(--gold); }
+
+  /* ── STATS ── */
+  .stats-bar {
+    max-width: 1200px; margin: 0 auto;
+    padding: 16px 48px 0;
+  }
+  .stats-count {
+    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: rgba(138,154,181,0.5);
+  }
+  .stats-count span { color: var(--gold); }
+
+  /* ── GRID ── */
+  .blog-grid {
+    max-width: 1200px; margin: 0 auto;
+    padding: 40px 48px 96px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+
+  .blog-card {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 40px 36px;
+    text-decoration: none; display: block;
+    transition: background 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .blog-card:nth-child(even) { border-right: none; }
+  .blog-card::before {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 2px;
+    background: var(--gold); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.35s ease;
+  }
+  .blog-card:hover { background: rgba(201,162,39,0.04); }
+  .blog-card:hover::before { transform: scaleX(1); }
+  .blog-card[data-hidden="true"] { display: none; }
+
+  .card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .card-tag {
+    font-family: 'Share Tech Mono', monospace; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px;
+  }
+  .card-tag.gold   { color: var(--gold);   background: var(--gold-dim);   border: 1px solid var(--gold-border); }
+  .card-tag.purple { color: var(--purple); background: var(--purple-dim); border: 1px solid var(--purple-border); }
+  .card-tag.blue   { color: var(--blue);   background: var(--blue-dim);   border: 1px solid var(--blue-border); }
+  .card-tag.green  { color: var(--green);  background: var(--green-dim);  border: 1px solid var(--green-border); }
+  .card-tag.red    { color: var(--red);    background: var(--red-dim);    border: 1px solid var(--red-border); }
+
+  .card-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); }
+  .card-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 64px;
+    color: rgba(201,162,39,0.05); line-height: 1;
+    position: absolute; top: 28px; right: 28px;
+    letter-spacing: 2px; pointer-events: none;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+    letter-spacing: 1.5px; color: var(--white);
+    line-height: 1.1; margin-bottom: 14px; transition: color 0.2s;
+  }
+  .blog-card:hover .card-title { color: var(--gold); }
+  .card-excerpt { font-size: 13px; color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
+  .card-read {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold);
+  }
+  .card-arrow {
+    width: 28px; height: 1px; background: var(--gold);
+    position: relative; transition: width 0.3s;
+  }
+  .card-arrow::after {
+    content: ''; position: absolute; right: 0; top: -3px;
+    border: 3px solid transparent; border-left: 5px solid var(--gold);
+  }
+  .blog-card:hover .card-arrow { width: 44px; }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    display: none; grid-column: 1/-1;
+    padding: 80px 0; text-align: center;
+  }
+  .empty-state.visible { display: block; }
+  .empty-state p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px; color: var(--gray); letter-spacing: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 48px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 14px; text-align: center;
+  }
+  .footer-logo {
+    display: flex; flex-direction: row;
+    align-items: center; justify-content: center; gap: 14px;
+  }
+  .footer-logo img { height: 48px; width: auto; object-fit: contain; }
+  .footer-logo-text {
+    font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+    letter-spacing: 3px; color: var(--gold); white-space: nowrap;
+  }
+  .footer-logo-text span { color: var(--white); }
+  .footer-motto {
+    font-family: 'Rajdhani', sans-serif; font-size: 13px;
+    letter-spacing: 2px; color: var(--gray); font-style: italic;
+  }
+  .footer-links {
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-links-dot {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: rgba(138,154,181,0.4);
+    display: inline-block;
+  }
+  .footer-copy {
+    font-size: 12px; color: rgba(138,154,181,0.45);
+    font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .blog-nav { padding: 0 20px; }
+    .blog-nav-cta { display: none; }
+    .blog-nav-logo-text { display: none; }
+    .blog-hero { padding: 64px 20px 48px; }
+    .filter-bar, .stats-bar { padding-left: 20px; padding-right: 20px; }
+    .blog-grid { grid-template-columns: 1fr; padding: 32px 20px 64px; }
+    .blog-card { border-right: none; padding: 32px 20px; }
+    footer { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="blog-nav">
+  <a href="https://sonicei.com/" class="blog-nav-logo">
+    <img src="../SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions">
+    <span class="blog-nav-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+  </a>
+  <div class="blog-nav-right">
+    <a href="https://sonicei.com/" class="blog-nav-back">← Main Site</a>
+    <a href="https://sonicei.com/#contact" class="blog-nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-label">// Field Notes &amp; Technical Insights</div>
+  <h1>Engineering<br><em>Intelligence</em></h1>
+  <p class="blog-hero-sub">Zero-defect thinking from the field. Practical insights on E&amp;I commissioning, AI-assisted QA/QC, and what 25 years of high-stakes projects teaches you.</p>
+</section>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <span class="filter-label">Filter //</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="QA/QC">QA / QC</button>
+  <button class="filter-btn" data-filter="Commissioning">Commissioning</button>
+  <button class="filter-btn" data-filter="Project Management">Project Mgmt</button>
+  <button class="filter-btn" data-filter="Technology">Technology</button>
+  <button class="filter-btn" data-filter="Electrical">Electrical</button>
+  <button class="filter-btn" data-filter="Instrumentation">Instrumentation</button>
+  <button class="filter-btn" data-filter="Offshore">Offshore</button>
+  <button class="filter-btn" data-filter="HSE">HSE</button>
+</div>
+
+<div class="stats-bar">
+  <span class="stats-count">Showing <span id="visible-count">24</span> of 24 articles</span>
+</div>
+
+<!-- GRID -->
+<div class="blog-grid" id="blog-grid">
+
+  <a href="https://sonicei.com/blog/punch-list-failures" class="blog-card" data-category="QA/QC">
+    <span class="card-num">01</span>
+    <div class="card-meta"><span class="card-tag gold">QA/QC</span><span class="card-date">May 2026</span></div>
+    <h2 class="card-title">Why Punch Lists Fail at Handover — and How AI Changes the Equation</h2>
+    <p class="card-excerpt">Most E&amp;I punch list failures don't happen during commissioning. They happen months earlier, in a spreadsheet nobody trusts. Here's what the data shows — and what we built to fix it.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/hidden-cost-rework" class="blog-card" data-category="Commissioning">
+    <span class="card-num">02</span>
+    <div class="card-meta"><span class="card-tag blue">Commissioning</span><span class="card-date">April 2026</span></div>
+    <h2 class="card-title">The Hidden Cost of Rework: A Field Engineer's View of the $100K Mistake</h2>
+    <p class="card-excerpt">A 1% rework rate on a $10M E&amp;I contract sounds acceptable. It isn't. We break down where that money actually goes — and why most project managers never see the full number.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/dcs-upgrade" class="blog-card" data-category="Technology">
+    <span class="card-num">03</span>
+    <div class="card-meta"><span class="card-tag purple">Technology</span><span class="card-date">March 2026</span></div>
+    <h2 class="card-title">DCS Upgrade Without the Downtime Disaster</h2>
+    <p class="card-excerpt">Two live upgrades completed at Phu My 2.1 and Phu My 3 without unplanned outages. The preparation framework that made the difference — and what other plants consistently skip.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/offshore-ei" class="blog-card" data-category="Offshore">
+    <span class="card-num">04</span>
+    <div class="card-meta"><span class="card-tag green">Offshore</span><span class="card-date">February 2026</span></div>
+    <h2 class="card-title">Offshore E&amp;I Is a Different Game</h2>
+    <p class="card-excerpt">Offshore commissioning shares the same fundamentals as onshore work — and almost nothing else. What engineers who've only worked onshore need to understand before they step on a vessel.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/evaluate-contractor" class="blog-card" data-category="Project Management">
+    <span class="card-num">05</span>
+    <div class="card-meta"><span class="card-tag gold">Project Management</span><span class="card-date">January 2026</span></div>
+    <h2 class="card-title">How to Evaluate an E&amp;I Commissioning Contractor in Vietnam</h2>
+    <p class="card-excerpt">The questions that actually separate capable E&amp;I contractors from those who will create problems at handover. A framework for project managers and PMCs — including the answers we'd give if you asked us.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/evaluate-subcontractor-ei-capability" class="blog-card" data-category="Project Management">
+    <span class="card-num">06</span>
+    <div class="card-meta"><span class="card-tag gold">Project Management</span><span class="card-date">May 2026</span></div>
+    <h2 class="card-title">How to Evaluate a Subcontractor's E&amp;I Capability Before They're On Site</h2>
+    <p class="card-excerpt">The wrong subcontractor doesn't fail on day one. They fail on day 40, when rework is expensive and replacing them is impossible. A structured capability diagnostic — not a tender scoring matrix.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/ai-in-the-field-smart-commissioning" class="blog-card" data-category="Technology">
+    <span class="card-num">07</span>
+    <div class="card-meta"><span class="card-tag purple">Technology</span><span class="card-date">May 2026</span></div>
+    <h2 class="card-title">AI in the Field: What "Smart" Commissioning Actually Means in Practice</h2>
+    <p class="card-excerpt">Every vendor now claims their platform is AI-powered. Almost none can explain what that means on a live site. What actually changes — and what doesn't — when AI enters the commissioning environment.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/instrument-loop-testing" class="blog-card" data-category="Instrumentation">
+    <span class="card-num">08</span>
+    <div class="card-meta"><span class="card-tag blue">Instrumentation</span><span class="card-date">April 2026</span></div>
+    <h2 class="card-title">Instrument Loop Testing: The Standard That Separates Clean Handovers from Disasters</h2>
+    <p class="card-excerpt">Loop testing is where commissioning schedules are won or lost. A disciplined approach to 4–20mA verification, HART diagnostics, and DCS signal integrity — from first loop to final walk-down.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/instrument-loop-testing-delays" class="blog-card" data-category="Instrumentation">
+    <span class="card-num">09</span>
+    <div class="card-meta"><span class="card-tag blue">Instrumentation</span><span class="card-date">April 2026</span></div>
+    <h2 class="card-title">Why Instrument Loop Testing Takes Longer Than the Schedule Says It Will</h2>
+    <p class="card-excerpt">The planning says 10 loops per day. The site delivers 4. The gap is not a resource problem — it is a preparation problem. The five causes we see on every project that underestimates loop test duration.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/pre-commissioning-checks" class="blog-card" data-category="Commissioning">
+    <span class="card-num">10</span>
+    <div class="card-meta"><span class="card-tag blue">Commissioning</span><span class="card-date">March 2026</span></div>
+    <h2 class="card-title">Pre-Commissioning Checks: What Gets Skipped and What That Skip Costs</h2>
+    <p class="card-excerpt">Pre-commissioning is treated as a formality on most projects. It isn't. The defects that surface at energisation were visible three weeks earlier — if anyone was looking.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/commissioning-documentation" class="blog-card" data-category="QA/QC">
+    <span class="card-num">11</span>
+    <div class="card-meta"><span class="card-tag gold">QA/QC</span><span class="card-date">March 2026</span></div>
+    <h2 class="card-title">Commissioning Documentation: Why the Handover Pack Is the Product</h2>
+    <p class="card-excerpt">The plant runs or it doesn't — that part is visible. What the client can't see until handover is whether the documentation tells the truth about what was done.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/loop-folder-management" class="blog-card" data-category="QA/QC">
+    <span class="card-num">12</span>
+    <div class="card-meta"><span class="card-tag gold">QA/QC</span><span class="card-date">February 2026</span></div>
+    <h2 class="card-title">Loop Folder Management: The Document System That Determines Handover Speed</h2>
+    <p class="card-excerpt">A loop folder is not an administrative task. It is the evidence trail for every instrument on the plant. How it is structured and maintained determines how fast — and how cleanly — the project closes out.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/motor-control-center" class="blog-card" data-category="Electrical">
+    <span class="card-num">13</span>
+    <div class="card-meta"><span class="card-tag red">Electrical</span><span class="card-date">February 2026</span></div>
+    <h2 class="card-title">MCC Commissioning: The Sequence That Prevents the Failures Nobody Talks About</h2>
+    <p class="card-excerpt">Motor control centres fail during commissioning in predictable ways. The commissioning sequence that closes each gap — before energisation, not after.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/earthing-grounding-systems" class="blog-card" data-category="Electrical">
+    <span class="card-num">14</span>
+    <div class="card-meta"><span class="card-tag red">Electrical</span><span class="card-date">January 2026</span></div>
+    <h2 class="card-title">Earthing and Grounding Systems: The Invisible Work That Makes Everything Else Safe</h2>
+    <p class="card-excerpt">Earthing defects are invisible until they become dangerous. Poor ground continuity, missing equipotential bonds, and incorrect signal cable shield earthing cause failures that are expensive and difficult to trace.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/earthing-grounding-verification" class="blog-card" data-category="Electrical">
+    <span class="card-num">15</span>
+    <div class="card-meta"><span class="card-tag red">Electrical</span><span class="card-date">January 2026</span></div>
+    <h2 class="card-title">Earthing Verification on Site: The Tests That Catch What Visual Inspection Misses</h2>
+    <p class="card-excerpt">Earth resistance measurement, continuity verification, and step-and-touch potential testing are not interchangeable. The field verification sequence — and the acceptance criteria that are actually enforceable.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/control-valve-commissioning" class="blog-card" data-category="Instrumentation">
+    <span class="card-num">16</span>
+    <div class="card-meta"><span class="card-tag blue">Instrumentation</span><span class="card-date">December 2025</span></div>
+    <h2 class="card-title">Control Valve Commissioning: Why the Valve That Passed FAT Still Fails on Site</h2>
+    <p class="card-excerpt">Factory acceptance testing does not replicate site conditions. Control valves that performed correctly in a clean test rig exhibit positioner drift, hysteresis, and seat leakage in service.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/functional-safety-sil" class="blog-card" data-category="HSE">
+    <span class="card-num">17</span>
+    <div class="card-meta"><span class="card-tag green">HSE</span><span class="card-date">December 2025</span></div>
+    <h2 class="card-title">Functional Safety and SIL Verification: What E&amp;I Engineers Need to Understand Before They Touch the SIS</h2>
+    <p class="card-excerpt">SIL-rated instrumented functions require a commissioning and proof-test process categorically different from standard loop testing. The documentation requirements and final function test sequence that keeps the Safety Case intact.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/hazardous-area-classification" class="blog-card" data-category="HSE">
+    <span class="card-num">18</span>
+    <div class="card-meta"><span class="card-tag green">HSE</span><span class="card-date">November 2025</span></div>
+    <h2 class="card-title">Hazardous Area Classification: The E&amp;I Engineer's Field Verification Checklist</h2>
+    <p class="card-excerpt">ATEX and IECEx compliance is verified on paper long before it is verified in the field. What the physical inspection must confirm before any equipment in Zone 1 or Zone 2 is energised.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/cable-tray-inspection" class="blog-card" data-category="Electrical">
+    <span class="card-num">19</span>
+    <div class="card-meta"><span class="card-tag red">Electrical</span><span class="card-date">November 2025</span></div>
+    <h2 class="card-title">Cable Tray Inspection: The Pre-Commissioning Check Most Teams Rush — and Regret</h2>
+    <p class="card-excerpt">Cable routing defects found before insulation resistance testing cost minutes to fix. Found after energisation, they cost days. The tray inspection process that catches segregation failures before they become incidents.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/scada-integration" class="blog-card" data-category="Technology">
+    <span class="card-num">20</span>
+    <div class="card-meta"><span class="card-tag purple">Technology</span><span class="card-date">October 2025</span></div>
+    <h2 class="card-title">SCADA Integration Testing: Where the E&amp;I Scope Ends and the Problems Begin</h2>
+    <p class="card-excerpt">SCADA integration sits at the boundary between the E&amp;I contractor's scope and the client's control system team — precisely where accountability disappears. The test protocol that closes the gap before handover.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/site-acceptance-test" class="blog-card" data-category="Commissioning">
+    <span class="card-num">21</span>
+    <div class="card-meta"><span class="card-tag blue">Commissioning</span><span class="card-date">October 2025</span></div>
+    <h2 class="card-title">Site Acceptance Testing: How to Run a SAT That the Client Actually Signs Off</h2>
+    <p class="card-excerpt">A Site Acceptance Test that surprises the client is a SAT that fails. The preparation, witness management, and test sequence that produces a signed completion certificate — not a punch list extension.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/what-pmc-wants-at-handover" class="blog-card" data-category="Project Management">
+    <span class="card-num">22</span>
+    <div class="card-meta"><span class="card-tag gold">Project Management</span><span class="card-date">September 2025</span></div>
+    <h2 class="card-title">What the PMC Actually Wants at Handover — and Why Most Contractors Get It Wrong</h2>
+    <p class="card-excerpt">Project Management Consultants have a specific, non-negotiable view of what constitutes an acceptable handover package. Most E&amp;I contractors find this out at the final walk-down. The PMC perspective from the other side of the table.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/hidden-cost-rework-new" class="blog-card" data-category="Commissioning">
+    <span class="card-num">23</span>
+    <div class="card-meta"><span class="card-tag blue">Commissioning</span><span class="card-date">September 2025</span></div>
+    <h2 class="card-title">Rework Economics: The Updated Numbers on What E&amp;I Defects Actually Cost in 2025</h2>
+    <p class="card-excerpt">Material costs, labour mobilisation, schedule compression, and liquidated damages. An updated analysis of rework cost drivers on E&amp;I commissioning projects in Vietnam and Southeast Asia.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <a href="https://sonicei.com/blog/hidden-cost-rework-analysis" class="blog-card" data-category="Project Management">
+    <span class="card-num">24</span>
+    <div class="card-meta"><span class="card-tag gold">Project Management</span><span class="card-date">August 2025</span></div>
+    <h2 class="card-title">The Defect Rate Nobody Reports: How E&amp;I QA Failures Are Buried in Project Accounts</h2>
+    <p class="card-excerpt">The official defect rate on most E&amp;I commissioning projects is fiction. The real cost is distributed across variation orders, extended mobilisation, and "additional scope" line items. How to read the real number.</p>
+    <div class="card-read">Read article <span class="card-arrow"></span></div>
+  </a>
+
+  <div class="empty-state" id="empty-state">
+    <p>// No articles match this filter</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="../SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions">
+    <span class="footer-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+  </div>
+  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="https://sonicei.com/privacy-policy.html">Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="https://sonicei.com/terms-of-use.html">Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="https://sonicei.com/#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
+</footer>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('.blog-card');
+  const countEl    = document.getElementById('visible-count');
+  const emptyState = document.getElementById('empty-state');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.setAttribute('data-hidden', show ? 'false' : 'true');
+        if (show) visible++;
+      });
+
+      // Fix even/odd borders after filtering
+      const shown = [...cards].filter(c => c.getAttribute('data-hidden') !== 'true');
+      shown.forEach((card, i) => {
+        card.style.borderRight = (i % 2 === 0) ? '1px solid var(--line)' : 'none';
+      });
+
+      countEl.textContent = visible;
+      emptyState.classList.toggle('visible', visible === 0);
+    });
+  });
+</script>
+
+<!-- GA4 + FB Pixel (reuse from main site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+</body>
+</html>

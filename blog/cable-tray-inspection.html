@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cable Tray Inspection Nobody Does Right — SONIC E&I Blog</title>
+<meta name="description" content="Cable tray fill, bend radius, separation of power and signal cables — the defects that survive FAT, SAT, and wait to cause faults six months after handover.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0a1628; --navy-mid: #0f1f3d; --gold: #c9a227;
+    --gold-dim: rgba(201,162,39,0.1); --gold-border: rgba(201,162,39,0.25);
+    --white: #f5f3ee; --gray: #8a9ab5; --line: rgba(138,154,181,0.15); --text: #c8d4e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-blog { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-blog:hover { color: var(--gold); }
+  .nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+  .art-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .art-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 5px 12px; }
+  .art-num { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(138,154,181,0.4); }
+  .art-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); margin-left: auto; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 68px); letter-spacing: 2px; color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+  .art-dek { font-size: 17px; color: var(--gray); font-weight: 400; line-height: 1.75; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .art-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: var(--white); margin: 56px 0 20px; }
+  .art-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 22px; }
+  .art-body strong { color: var(--white); font-weight: 500; }
+  .pullquote { margin: 48px 0; padding: 32px 36px; border-left: 3px solid var(--gold); background: var(--gold-dim); }
+  .pullquote p { font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px !important; font-weight: 400; font-style: italic; color: var(--white) !important; line-height: 1.7; margin: 0 !important; }
+  .data-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 48px 0; }
+  .data-cell { padding: 28px 24px; border-right: 1px solid var(--line); text-align: center; }
+  .data-cell:last-child { border-right: none; }
+  .data-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
+  .data-label { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+  .callout { border: 1px solid var(--gold-border); background: rgba(201,162,39,0.05); padding: 28px 32px; margin: 48px 0; }
+  .callout-head { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .callout p { font-size: 14px !important; color: var(--text) !important; margin: 0 !important; line-height: 1.8; }
+  .art-divider { display: flex; align-items: center; gap: 16px; margin: 56px 0; }
+  .art-divider::before, .art-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .art-divider-dot { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 4px; }
+  .art-cta { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+  .art-cta-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .art-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+  .art-cta p { font-size: 14px; color: var(--gray); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.88; }
+  .back-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; }
+  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; } .nav-cta { display: none; }
+    .article-wrap { padding: 48px 20px 80px; }
+    .data-row { grid-template-columns: 1fr; }
+    .data-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .data-cell:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
+  <div class="nav-right">
+    <a href="blog-index.html" class="nav-blog">← All Articles</a>
+    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="blog-index.html" class="back-link">&nbsp;All articles</a>
+
+  <div class="art-label">
+    <span class="art-tag">QA/QC</span>
+    <span class="art-num">Article 07</span>
+    <span class="art-date">November 2025</span>
+  </div>
+
+  <h1>The Cable Tray Inspection Nobody Does Right</h1>
+
+  <p class="art-dek">Cable tray fill, bend radius, separation of power and signal cables — these are the defects that survive FAT, survive SAT, and wait to cause faults six months after handover. What a proper inspection actually looks like.</p>
+
+  <div class="art-body">
+
+    <p>Cable tray inspection is one of those activities that appears in every commissioning checklist and is rarely done with any depth. The inspector walks the tray route, notes whether the tray is physically secure, ticks a box, and moves on. The defects that will cause problems after handover — overcrowding, improper segregation, unprotected cable crossings — are invisible to a cursory walkdown.</p>
+
+    <p>We've reviewed post-handover fault investigations on several power and industrial projects in Vietnam. Cable installation defects are present in the root cause chain more often than any other single factor. The defects were not new. They were present at handover and not caught.</p>
+
+    <h2>The Three Defects That Hide in Plain Sight</h2>
+
+    <p><strong>Fill ratio violations</strong> are the most common. IEC and most project specifications limit cable tray fill to 40% of cross-sectional area for single-layer installation and set specific rules for multilayer arrangements. In practice, construction teams fill trays to whatever capacity allows the last cable to be routed — often 60–70% — because no one is checking the calculation, only the visual appearance. An overfilled tray creates heat retention problems and makes future maintenance access impossible without disturbing existing cables.</p>
+
+    <p><strong>Bend radius violations</strong> are the most damaging. Each cable type has a minimum bend radius defined by the manufacturer — typically 6–12 times the cable outer diameter for multicore power cables. At corners and drops, cables are routinely bent to whatever the tray geometry allows. When the bend is too tight, insulation is stressed internally in ways that don't show on a megger test at the time of installation but cause premature insulation breakdown under operating temperature cycles. The fault appears 12–18 months after commissioning and is almost never traced back to the installation defect.</p>
+
+    <p><strong>Segregation failures</strong> create interference that is intermittent and therefore very difficult to diagnose. IEC 61000 and most EPC specifications require physical separation between power cables and instrumentation cables — typically a minimum of 300mm in parallel runs, with metallic dividers at crossings. On congested routes, these separations are not maintained. The result is induced noise on 4–20mA signal cables that manifests as instrument drift, erratic DCS readings, or false alarms under load.</p>
+
+    <div class="data-row">
+      <div class="data-cell">
+        <span class="data-num">62%</span>
+        <span class="data-label">of reviewed projects had fill ratio violations on at least one major tray run</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">300mm</span>
+        <span class="data-label">minimum power-to-signal separation — routinely ignored at congestion points</span>
+      </div>
+      <div class="data-cell">
+        <span class="data-num">14 mo.</span>
+        <span class="data-label">average time between handover and first fault traceable to bend radius damage</span>
+      </div>
+    </div>
+
+    <h2>What a Proper Cable Tray Inspection Requires</h2>
+
+    <p>A thorough cable tray inspection is not a walkdown. It is a measured audit conducted against the cable schedule and tray fill calculations, with physical verification at defined sample points and photographic records at every deviation.</p>
+
+    <div class="callout">
+      <div class="callout-head">// Cable Tray Inspection — Minimum Verification Points</div>
+      <p>Physical tray fill measurement against approved fill calculation at each tray section change → bend radius verification at all corners, drops, and transitions with reference to cable manufacturer data → segregation gap measurement at all parallel power/instrument runs and documented at every crossing → support spacing vs. specification, particularly on horizontal runs with high fill → grounding continuity of tray system end-to-end → cable identification tags present, legible, and matching the cable schedule.</p>
+    </div>
+
+    <p>The inspection should be conducted by an E&I engineer, not a general QA inspector. Reading a fill calculation, knowing which cables require what separation, and recognising a bend radius violation requires specific technical background. This is an area where using cheaper resources produces expensive outcomes.</p>
+
+    <h2>The Timing Problem</h2>
+
+    <p>Cable tray inspections are most valuable when conducted in stages: once during installation (before cables are pulled, to verify tray routing and support), once after cable pulling but before any cable is terminated or dressed, and once as part of the pre-commissioning walkdown. Conducting only the final inspection is like proofreading a document after it has been printed and distributed.</p>
+
+    <div class="pullquote">
+      <p>"The cables you can't see — buried under three more layers added by three different contractors over six months of construction — are the ones that will fail. Stage your inspections before access is lost."</p>
+    </div>
+
+    <p>On fast-track projects where stage inspection isn't possible, the risk should be explicitly documented and owned by the project manager — not absorbed silently into the commissioning team's scope without resource or schedule to address it. Known risk, documented and priced, is manageable. Unknown risk buried in a tray you can't open at handover is not.</p>
+
+    <div class="art-divider"><span class="art-divider-dot">◆</span></div>
+
+    <p style="font-size:13px; color:var(--gray); font-style:italic;">Written by the engineering team at SONIC E&I Solutions, Vietnam. SONIC specialises in zero-defect E&I commissioning for offshore, power, and industrial projects, backed by 25 years of Siemens Energy and GE Power field experience.</p>
+
+  </div>
+
+  <div class="art-cta">
+    <div class="art-cta-label">// Next Step</div>
+    <h3>Independent Cable Tray Audit</h3>
+    <p>Before your pre-commissioning walkdown, an independent cable tray audit by SONIC's QA team takes 2–3 days and closes the defects that would otherwise survive to handover.</p>
+    <a href="../index.html#contact" class="btn-gold">Request a technical consultation</a>
+  </div>
+
+</article>
+
+<footer>
+  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+</footer>
+
+</body>
+</html>
