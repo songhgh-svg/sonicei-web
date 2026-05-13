@@ -29,6 +29,7 @@
 <meta property="og:image" content="https://sonicei.com/SONICEI_LOGO.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SONIC E&I Solutions — Zero-Defect E&I Commissioning Vietnam">
 <meta property="og:site_name" content="SONIC E&I Solutions">
 <meta property="og:locale" content="en_US">
 
@@ -40,8 +41,10 @@
 <meta name="twitter:image" content="https://sonicei.com/SONICEI_LOGO.png">
 
 <!-- ═══ GEO / LOCAL SEO ═══ -->
-<meta name="geo.region" content="VN">
-<meta name="geo.placename" content="Vietnam">
+<meta name="geo.region" content="VN-SG">
+<meta name="geo.placename" content="Ho Chi Minh City, Vietnam">
+<meta name="geo.position" content="10.7769;106.7009">
+<meta name="ICBM" content="10.7769, 106.7009">
 <meta name="language" content="English">
 
 <!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
@@ -58,10 +61,29 @@
     "@type": "Person",
     "jobTitle": "Founder & Lead E&I Engineer"
   },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Vietnam"
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "65B Han Thuyen",
+    "addressLocality": "Ho Chi Minh City",
+    "addressRegion": "Rach Dua Ward",
+    "addressCountry": "VN"
   },
+  "telephone": "+84-915-460-790",
+  "email": "contact@sonicei.com",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Vietnam"
+    },
+    {
+      "@type": "City",
+      "name": "Ho Chi Minh City"
+    },
+    {
+      "@type": "City",
+      "name": "Vũng Tàu"
+    }
+  ],
   "serviceType": [
     "E&I Commissioning",
     "Electrical & Instrumentation Engineering",
@@ -80,6 +102,64 @@
   ],
   "sameAs": [
     "https://sonicei.com"
+  ]
+}
+</script>
+
+<!-- ═══ FAQ SCHEMA (Rich Snippets) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a small local company handle a GE / Siemens-spec E&I project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our founder has 25 years of hands-on E&I engineering experience at Siemens Energy and GE Power — including field roles on Vietsovpetro, Phumy 2.1 ext, Phu my 2.2, Phu my 3, Camau 1,2 and Nhontrach2 projects. We work to Siemens TI and GE EGS specifications; all projects are executed against the same technical standards used by tier-1 contractors, without the bureaucratic overhead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the zero-defect guarantee — what happens if you miss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our workmanship commitment is written into the contract: any E&I defect attributable to our work is rectified at our cost, with no change order. We use rigorous manual QA/QC processes on every project, and we are currently integrating AI-Punch™ (beta) to catch issues earlier in construction — not at punch-out. If it's our mistake, we fix it. That's not a marketing tagline; it's a contractual clause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AI-Punch™ actually work — is it just a fancy spreadsheet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. AI-Punch™ is a mobile-first inspection platform where technicians capture photo evidence per punch item on-site. The system classifies defects by category and severity, assigns ownership, tracks closure in real time, and generates a timestamped PDF close-out report automatically. It is currently in beta — functional and deployed on pilot projects, with validation data being collected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mobilise quickly if our schedule moves up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vietnam-based mobilisation for onshore Vũng Tàu / HCMC projects: typically 3–5 business days from PO. Offshore and out-of-country mobilisation varies by logistics. We keep a core team ready and don't over-book; if we can't commit to your schedule, we'll tell you upfront rather than take the work and miss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We already have an in-house team — why would we need SONIC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients engage us for one of three reasons: (1) their in-house team lacks Siemens/GE spec experience and needs a qualified supervisor, (2) they're approaching handover and need a neutral QA/QC team to run the punch list, or (3) they want to pilot AI-Punch™ alongside their existing team without rebuilding their process. We're not a replacement; we're a precision add-on for the gaps that create rework costs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Your rates look higher than local subcontractors — how do you justify that?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 1% rework rate on a $10M E&I contract costs $100K in direct labour alone — before demurrage, schedule penalties, or client relationship damage. Our premium over a standard sub is typically 15–25%. The break-even is one avoided rework event. We're not competing on day rate; we're competing on total cost of delivery."
+      }
+    }
   ]
 }
 </script>
@@ -109,7 +189,7 @@
     <a href="#investors">Investors</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="blog/blog-index.html">Blog</a>
+    <a href="blog/blog-index.html" aria-label="SONIC E&I Solutions Blog">Blog</a>
   </div>
   <div class="nav-right">
     <a href="#contact" class="btn-gold nav-cta-btn">Technical Consultation</a>
@@ -127,7 +207,7 @@
   <a href="#investors" onclick="closeMenu()">Investors</a>
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="blog/blog-index.html" onclick="closeMenu()">Blog</a>
+  <a href="blog/blog-index.html" onclick="closeMenu()" aria-label="SONIC E&I Solutions Blog">Blog</a>
   <a href="#contact" class="btn-gold" onclick="closeMenu()">Technical Consultation</a>
 </div>
 
@@ -2086,7 +2166,7 @@
 <!-- IN-VIEW BRIGHTNESS BOOST -->
 <!-- in-view boost JS → main.js -->
 <!-- ===== ZALO FLOATING CHAT + GA4 + FB PIXEL + UTM TRACKING ===== -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSWV3M6QBQ"></script>
 <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
 <!-- GA4 + FB Pixel → main.js -->
 
