@@ -94,30 +94,24 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo" style="display:flex;flex-direction:row;align-items:center;gap:10px;">
-    <img src="SONICEI_LOGO.png" alt="" style="height:40px;width:auto;object-fit:contain;">
-    <div style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;">
-      <span style="white-space:nowrap;color:#c9a227;font-weight:700;font-size:15px;letter-spacing:2px;">SONIC <span style="color:#ffffff;">E&amp;I</span></span>
-      <span style="white-space:nowrap;color:#c9a227;font-weight:700;font-size:15px;letter-spacing:2px;">SOLUTIONS</span>
+  <div class="logo-wrap">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions logo" style="height:40px;width:auto;object-fit:contain;">
+    <div class="logo-text">
+      <span class="logo-line">SONIC <span class="logo-line-ei">E&amp;I</span> SOLUTIONS</span>
     </div>
   </div>
   <div class="nav-links">
     <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
     <a href="#ai">AI Platform</a>
-    <a href="#projects">PROJECTS</a>
-    <a href="#gallery" data-i18n="nav_gallery">ENGINEERING EXPERIENCE</a>
-    <a href="#proof" data-i18n="nav_results">INDUSTRIES</a>
-    <a href="#services" data-i18n="nav_services">Services</a>
-    <a href="#supply" data-i18n="nav_supply">Supply</a>
-    <a href="#academy" data-i18n="nav_academy">Academy</a>
-    <a href="#investors" data-i18n="nav_investors">Investors</a>
-<!--    <a href="#vision" data-i18n="nav_vision">Vision</a> -->
-    <a href="#about" data-i18n="nav_about">About</a>
-    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <a href="#gallery">Engineering Experience</a>
+    <a href="#services">Services</a>
+    <a href="#academy">Academy</a>
+    <a href="#investors">Investors</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
-
-    <a href="#contact" class="btn-gold" data-i18n="nav_cta">Technical Consultation</a>
+    <a href="#contact" class="btn-gold nav-cta-btn">Technical Consultation</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -126,15 +120,12 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#ai" onclick="closeMenu()">AI Platform</a>
-  <a href="#gallery" onclick="closeMenu()" data-i18n="nav_gallery">ENGINEERING EXPERIENCE</a>
-  <a href="#proof" onclick="closeMenu()" data-i18n="nav_results">INDUSTRIES</a>
-  <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Services</a>
-  <a href="#supply" onclick="closeMenu()" data-i18n="nav_supply">Supply</a>
-  <a href="#academy" onclick="closeMenu()" data-i18n="nav_academy">Academy</a>
-  <a href="#investors" onclick="closeMenu()" data-i18n="nav_investors">Investors</a>
-  <a href="#vision" onclick="closeMenu()" data-i18n="nav_vision">Vision</a>
-  <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
-  <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
+  <a href="#gallery" onclick="closeMenu()">Engineering Experience</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#academy" onclick="closeMenu()">Academy</a>
+  <a href="#investors" onclick="closeMenu()">Investors</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="#contact" class="btn-gold" onclick="closeMenu()">Technical Consultation</a>
 </div>
 
@@ -204,123 +195,7 @@
     <span id="painBarToggle" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:1px;opacity:0.5;">▲ HIDE</span>
   </div>
 </div>
-<script>
-(function(){
-  var bar    = document.getElementById('painBar');
-  var mob    = document.getElementById('mobilePainBar');
-  var toggle = document.getElementById('painBarToggle');
-
-  // Timing (ms)
-  var SHOW_DURATION = 10000;  // hiện 10 giây rồi ẩn
-  var HIDE_DURATION = 50000;  // ẩn 50 giây rồi hiện lại
-
-  var visible   = true;
-  var cycleTimer = null;
-  var hoverForced = false; // đang hover → giữ hiện
-
-  /* ── Helpers ── */
-  function showBar() {
-    visible = true;
-    // Desktop
-    bar.style.height        = '';
-    bar.style.padding       = '';
-    bar.style.opacity       = '';
-    bar.style.borderTopWidth    = '';
-    bar.style.borderBottomWidth = '';
-    if (toggle) toggle.textContent = '▲ HIDE';
-    // Mobile
-    if (mob) {
-      mob.style.height        = '';
-      mob.style.padding       = '';
-      mob.style.opacity       = '';
-      mob.style.borderTopWidth    = '';
-      mob.style.borderBottomWidth = '';
-    }
-    // Reposition video panel sticky top
-    setTimeout(function(){
-      if (window.alignSubNav) window.alignSubNav();
-    }, 320);
-  }
-
-  function hideBar() {
-    visible = false;
-    // Desktop
-    bar.style.height        = '0';
-    bar.style.padding       = '0';
-    bar.style.opacity       = '0';
-    bar.style.borderTopWidth    = '0';
-    bar.style.borderBottomWidth = '0';
-    if (toggle) toggle.textContent = '▼ SHOW';
-    // Mobile
-    if (mob) {
-      mob.style.height        = '0';
-      mob.style.padding       = '0';
-      mob.style.opacity       = '0';
-      mob.style.borderTopWidth    = '0';
-      mob.style.borderBottomWidth = '0';
-    }
-    // Reposition video panel sticky top
-    setTimeout(function(){
-      if (window.alignSubNav) window.alignSubNav();
-    }, 320);
-  }
-
-  /* ── Cycle: hiện 10s → ẩn 50s → lặp ── */
-  function startCycle() {
-    clearTimeout(cycleTimer);
-    if (hoverForced) return; // hover đang giữ → không cycle
-
-    if (visible) {
-      // Đang hiện → đặt timer ẩn sau SHOW_DURATION
-      cycleTimer = setTimeout(function() {
-        if (!hoverForced) {
-          hideBar();
-          startCycle(); // bắt đầu đếm 50s để hiện lại
-        }
-      }, SHOW_DURATION);
-    } else {
-      // Đang ẩn → đặt timer hiện lại sau HIDE_DURATION
-      cycleTimer = setTimeout(function() {
-        showBar();
-        startCycle(); // bắt đầu đếm 10s để ẩn lại
-      }, HIDE_DURATION);
-    }
-  }
-
-  /* ── Hover: nav hoặc ticker bar → giữ hiện ── */
-  var hoverEls = [
-    document.querySelector('nav'),
-    document.querySelector('.sub-nav-wrap'),
-    document.querySelector('.ticker-bar'),
-    document.querySelector('.mobile-ticker-bar'),
-    bar,
-    mob
-  ].filter(Boolean);
-
-  hoverEls.forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      hoverForced = true;
-      clearTimeout(cycleTimer);
-      if (!visible) showBar();
-    });
-    el.addEventListener('mouseleave', function() {
-      hoverForced = false;
-      // Tiếp tục cycle từ trạng thái hiện tại
-      startCycle();
-    });
-  });
-
-  /* ── Click để toggle thủ công ── */
-  window.togglePainBar = function() {
-    clearTimeout(cycleTimer);
-    if (visible) { hideBar(); } else { showBar(); }
-    startCycle();
-  };
-
-  /* ── Bắt đầu cycle ngay khi load ── */
-  startCycle();
-})();
-</script>
+<!-- pain bar JS → main.js -->
 
 <!-- HERO -->
 <section class="hero" id="home" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
@@ -443,7 +318,7 @@
 <div style="background:rgba(10,22,40,0.85);border-top:1px solid rgba(201,162,39,0.12);border-bottom:1px solid rgba(201,162,39,0.12);padding:20px 32px;overflow:hidden;">
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;">
     <!-- Line 1: label + descriptor -->
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
+    <div class="flex-center-wrap">
       <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(201,162,39,0.5);letter-spacing:2px;white-space:nowrap;">FIELD EXPERIENCE ACROSS SIEMENS &amp; GE SYSTEMS</span>
       <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:rgba(240,244,255,0.6);letter-spacing:1.5px;white-space:nowrap;">Offshore · Power Plants · EPC Projects</span>
     </div>
@@ -564,7 +439,7 @@
     </div>
 
     <!-- RIGHT: Video (desktop) -->
-    <div style="display:flex;flex-direction:column;gap:16px;">
+    <div class="flex-col-gap">
       <!-- Video box — desktop only (mobile version ở trong hero) -->
       <div class="sonic-video-box sonic-video-purpose fade-in" style="position:relative;">
         <div class="sonic-video-label">
@@ -642,7 +517,7 @@
       </div>
     </div>
     <!-- COL 2: iPhone mockup — centered -->
-    <div style="display:flex;justify-content:center;align-items:flex-start;">
+    <div class="flex-center-start">
       <div class="phone-outer-wrap">
         <div class="phone-frame">
           <div class="phone-bezel">
@@ -676,7 +551,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span>TAKE PHOTO OR UPLOAD
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;height:320px;cursor:pointer;" onclick="demoNext()">
-              <img src="assets/images/img_01.jpg" style="width:100%;height:320px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_01.jpg" alt="AI-Punch™ Step 1 — Capture wiring photo for AI scan" style="width:100%;height:320px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
               <div style="position:absolute;inset:10px;border:1.5px solid rgba(201,162,39,0.55);border-radius:8px;pointer-events:none;">
                 <div style="position:absolute;top:-1px;left:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-left:2.5px solid #c9a227;border-radius:4px 0 0 0;"></div>
                 <div style="position:absolute;top:-1px;right:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-right:2.5px solid #c9a227;border-radius:0 4px 0 0;"></div>
@@ -695,7 +570,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span>AI ANALYZES IMAGE
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.25);position:relative;height:280px;">
-              <img src="assets/images/img_02.jpg" style="width:100%;height:280px;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_02.jpg" alt="AI-Punch™ Step 2 — Gemini AI analyzing E&amp;I component" style="width:100%;height:280px;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
               <div style="position:absolute;inset:0;background:rgba(8,16,40,0.52);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
                 <div id="scanStatusText" style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#60a5fa;letter-spacing:1.5px;text-align:center;padding:0 16px;">AI đang quét tổng quát...</div>
                 <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;">Gemini AI · Processing</div>
@@ -716,7 +591,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span>GET ERROR CODE
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(248,113,113,0.3);position:relative;">
-              <img src="assets/images/img_03.jpg" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_03.jpg" alt="AI-Punch™ Step 3 — AI defect error code detected" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
             </div>
             <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-top:10px;margin-bottom:10px;transition:filter 0.2s;" onclick="demoNext()" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='brightness(1)'">✓ ĐÃ XỬ LÝ LỖI — FIXED</button>
           </div>
@@ -727,7 +602,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span>FIXED ✓ — AI CONFIRMED
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(0,232,170,0.3);position:relative;height:260px;">
-              <img src="assets/images/img_04.jpg" style="width:100%;height:260px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_04.jpg" alt="AI-Punch™ Step 4 — Defect fixed and AI-verified" style="width:100%;height:260px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
               <div style="position:absolute;inset:0;background:rgba(0,30,20,0.58);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
                 <div style="font-size:42px;animation:fadeUp 0.4s both;">✅</div>
                 <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;">FIXED</div>
@@ -746,7 +621,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span>REPORT IMMEDIATELY
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,39,0.2);position:relative;">
-              <img src="assets/images/img_05.jpg" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_05.jpg" alt="AI-Punch™ Step 5 — Inspection report auto-generated" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
             </div>
             <div style="margin:9px 0 8px;padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;">
               📧 PDF auto-sent · Photo evidence attached
@@ -760,7 +635,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span>SAVED TO CLOUD
             </div>
             <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.2);position:relative;">
-              <img src="assets/images/img_06.jpg" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
+              <img src="assets/images/img_06.jpg" alt="AI-Punch™ Step 6 — Inspection record saved to cloud" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
             </div>
             <div class="result-badge badge-passed" style="margin:9px 0 8px;justify-content:center;font-size:10px;">
               <span class="badge-dot"></span>INSPECTION COMPLETE · AUDIT-READY
@@ -977,64 +852,9 @@
 
     </div>
 
-    <style>
-      .rsw-btn {
-        margin-top: 6px;
-        width: 100%;
-        background: transparent;
-        border: 1px solid rgba(201,162,39,0.45);
-        border-radius: 6px;
-        color: #c9a227;
-        font-family: 'Rajdhani', sans-serif;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        padding: 9px 14px;
-        cursor: pointer;
-        transition: background 0.2s, border-color 0.2s, color 0.2s;
-        text-align: left;
-      }
-      .rsw-btn:hover {
-        background: #c9a227;
-        border-color: #c9a227;
-        color: #0b1a2e;
-      }
-    </style>
+    
 
-    <script>
-    function requestSimilar(projectType, scope) {
-      /* 1. Auto-select chip(s) */
-      document.querySelectorAll('.qq-chip').forEach(function(c) {
-        c.classList.remove('active');
-        if (c.getAttribute('data-value') === projectType) {
-          c.classList.add('active');
-        }
-      });
-
-      /* 2. Pre-fill scope textarea */
-      var scopeEl = document.getElementById('qq-scope');
-      if (scopeEl) scopeEl.value = scope;
-
-      /* 3. Scroll to form with smooth offset */
-      var target = document.getElementById('quote');
-      if (target) {
-        var offset = 80;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      }
-
-      /* 4. Highlight the scope field briefly */
-      if (scopeEl) {
-        setTimeout(function() {
-          scopeEl.focus();
-          scopeEl.style.transition = 'box-shadow 0.3s';
-          scopeEl.style.boxShadow = '0 0 0 2px #c9a227';
-          setTimeout(function() { scopeEl.style.boxShadow = ''; }, 1800);
-        }, 600);
-      }
-    }
-    </script>
+    <!-- requestSimilar JS → main.js -->
     <p style="text-align:center;margin-top:28px;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:1.5px;color:rgba(200,210,220,0.45);font-style:italic;">
       Selected experience of our core engineering team across previous projects.
     </p>
@@ -1042,7 +862,7 @@
 </section>
 <!-- QUICK QUOTE FORM -->
 
-<section id="gallery" style="background:var(--navy); padding-top:0; padding-bottom:100px;">
+<section id="gallery" class="section-navy-pb">
   <div class="fade-in" style="padding-bottom:50px;">
     <div class="section-header">
       <div class="section-label">// Field Work</div>
@@ -1182,7 +1002,7 @@
         <div class="case-study-desc">Instrument installation and loop checking for onshore power plants. All work executed to Siemens Energy's specification. First-time pass rate: 100%.</div>
       </div>
     </div>
-    <div class="testimonials" style="display:flex;flex-direction:column;gap:16px;justify-content:space-between;height:100%;">
+    <div class="testimonials" class="testimonials-col">
       <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:var(--gold); margin-bottom:4px;">// WHAT PARTNERS SAY</div>
       <div class="testimonial" style="flex:1;">
         <div class="testimonial-text">Delivered to a standard I've only seen from top-tier European contractors. The team eliminated our punch-list backlog and we had zero NCRs at handover.</div>
@@ -1235,35 +1055,47 @@
 
       <!-- WHAT WE DO -->
       <div class="why-us-divider"></div>
-      <div class="fade-in" style="text-align:center;margin-bottom:0;">
+      <div class="fade-in" class="text-center">
         <div class="section-label" style="text-align:center;margin-bottom:14px;">// What We Do</div>
-        <h2 class="why-us-title">WHAT <span class="gold">WE DO</span></h2>
+        <h2 class="wwd-heading">WHAT <span class="gold">WE DO</span></h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:820px;margin:28px auto 0;">
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.2);border-radius:10px;padding:22px 20px;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">E&amp;I Installation</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:500;color:rgba(240,244,255,0.6);line-height:1.7;">Cable laying · termination · panel wiring</div>
+      <div class="wwd-grid">
+        <div class="wwd-card">
+          <div class="wwd-card-title">E&amp;I Installation</div>
+          <div class="wwd-card-item">Cable laying</div>
+          <div class="wwd-card-item">Termination</div>
+          <div class="wwd-card-item">Panel wiring</div>
         </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.2);border-radius:10px;padding:22px 20px;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">Instrumentation</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:500;color:rgba(240,244,255,0.6);line-height:1.7;">Loop check · calibration · troubleshooting</div>
+        <div class="wwd-card">
+          <div class="wwd-card-title">Instrumentation</div>
+          <div class="wwd-card-item">Loop check</div>
+          <div class="wwd-card-item">Calibration</div>
+          <div class="wwd-card-item">Troubleshooting</div>
         </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.2);border-radius:10px;padding:22px 20px;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">Testing &amp; Commissioning</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:500;color:rgba(240,244,255,0.6);line-height:1.7;">Pre-commissioning · commissioning · energization</div>
+        <div class="wwd-card">
+          <div class="wwd-card-title">Testing &amp; Commissioning</div>
+          <div class="wwd-card-item">Pre-commissioning</div>
+          <div class="wwd-card-item">Commissioning</div>
+          <div class="wwd-card-item">Energization</div>
         </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.2);border-radius:10px;padding:22px 20px;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">Maintenance / Overhaul</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:500;color:rgba(240,244,255,0.6);line-height:1.7;">Shutdown support · system recovery</div>
+        <div class="wwd-card">
+          <div class="wwd-card-title">Maintenance / Overhaul</div>
+          <div class="wwd-card-item">Shutdown support</div>
+          <div class="wwd-card-item">System recovery</div>
         </div>
       </div>
 
       <div class="why-us-divider" style="margin-top:48px;"></div>
 
       <!-- RISK REDUCTION LINE -->
-      <div style="text-align:center;margin:0 auto 40px;max-width:620px;">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:#c9a227;opacity:0.7;margin-bottom:10px;">// RISK REDUCTION</div>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:500;color:rgba(240,244,255,0.75);line-height:1.7;margin:0;">Work executed following OEM specifications and site procedures.</p>
+      <div class="risk-block">
+        <div class="risk-label">// RISK REDUCTION</div>
+        <p class="risk-text">Work executed following OEM specifications and site procedures.</p>
+      </div>
+
+      <!-- FINAL PUSH -->
+      <div class="final-push">
+        <p>Ready to support ongoing or upcoming EPC scopes.</p>
       </div>
 
       <div class="qq-header">
@@ -1304,9 +1136,9 @@
           Submit Your Scope &nbsp;→
         </button>
 
-        <div style="text-align:center;font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.5px;margin-top:4px;">
-          Response within 24 hours &nbsp;·&nbsp; No sales layer &nbsp;·&nbsp; Direct engineer contact
-        </div>
+        <div class="qq-action-hint">Send your scope or requirement — we'll review and respond with technical input.</div>
+
+        <div class="qq-microtrust">Response within 24 hours &nbsp;·&nbsp; No sales layer &nbsp;·&nbsp; Direct engineer contact</div>
       </div>
 
       <!-- SUCCESS STATE -->
@@ -1320,283 +1152,9 @@
     </div>
   </div>
 
-  <style>
-    .quick-quote-wrap {
-      background: linear-gradient(180deg, var(--navy) 0%, #0a1628 100%);
-      padding: 48px 24px 80px;
-    }
-    .qq-inner {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .qq-header { text-align: center; margin-bottom: 40px; }
-    .qq-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 5vw, 72px);
-      color: #fff;
-      letter-spacing: 2px;
-      margin: 8px 0 10px;
-      line-height: 0.95;
-    }
-    .qq-sub {
-      color: rgba(240,244,255,0.65);
-      font-size: 18px;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 500;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .qq-form-box {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    .qq-row-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 600px) { .qq-row-2 { grid-template-columns: 1fr; } }
-    .qq-field { display: flex; flex-direction: column; gap: 7px; }
-    .qq-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #c9a227;
-      opacity: 0.85;
-    }
-    .qq-input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: 6px;
-      color: #fff;
-      font-family: 'Be Vietnam Pro', sans-serif;
-      font-size: 14px;
-      padding: 12px 16px;
-      outline: none;
-      transition: border-color .2s, background .2s;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .qq-input::placeholder { color: rgba(255,255,255,0.3); }
-    .qq-input:focus {
-      border-color: #c9a227;
-      background: rgba(201,162,39,0.06);
-    }
-    .qq-input.qq-error { border-color: #e74c3c !important; }
-    .qq-textarea { resize: vertical; min-height: 90px; }
-    .qq-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .qq-chip {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,162,39,0.3);
-      border-radius: 999px;
-      color: rgba(255,255,255,0.7);
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 18px;
-      cursor: pointer;
-      transition: all .2s;
-      white-space: nowrap;
-    }
-    .qq-chip:hover {
-      border-color: #c9a227;
-      color: #fff;
-      background: rgba(201,162,39,0.1);
-    }
-    .qq-chip.active {
-      background: #c9a227;
-      border-color: #c9a227;
-      color: #0b1a2e;
-      font-weight: 700;
-    }
-    .qq-submit {
-      width: 100%;
-      padding: 16px 32px;
-      font-size: 15px;
-      letter-spacing: 2px;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      cursor: pointer;
-      border: none;
-      margin-top: 4px;
-    }
-    .qq-trust {
-      text-align: center;
-      font-size: 14px;
-      font-family: 'Rajdhani', sans-serif;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.6;
-    }
-    .qq-lock { margin-right: 4px; }
-    .qq-or { margin: 0 4px; }
-    .qq-email-link {
-      color: #c9a227;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .qq-email-link:hover { text-decoration: underline; }
-    /* ── WHY WORK WITH US ── */
-    .why-us-block {
-      text-align: center;
-      margin-bottom: 0;
-      padding: 0 8px;
-    }
-    .why-us-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 5vw, 72px);
-      color: #fff;
-      letter-spacing: 2px;
-      margin: 8px 0 28px;
-      line-height: 0.95;
-    }
-    .why-us-list {
-      list-style: none;
-      display: inline-flex;
-      flex-direction: column;
-      gap: 14px;
-      text-align: left;
-      margin: 0 auto;
-    }
-    .why-us-list li {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: rgba(240,244,255,0.85);
-      letter-spacing: 0.5px;
-      line-height: 1.85;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-    .why-us-dot {
-      color: var(--gold);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .why-us-divider {
-      width: 60px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(201,162,39,0.5), transparent);
-      margin: 36px auto;
-    }
-    /* ── Success state ── */
-    .qq-success {
-      text-align: center;
-      padding: 60px 24px;
-    }
-    .qq-success-icon { font-size: 52px; margin-bottom: 16px; }
-    .qq-success-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px;
-      color: #c9a227;
-      letter-spacing: 2px;
-      margin: 0 0 10px;
-    }
-    .qq-success-msg {
-      font-size: 17px;
-      color: rgba(255,255,255,0.75);
-      margin: 0;
-    }
-  </style>
+  
 
-  <script>
-  // Chip toggle — multi-select (click để bật/tắt từng chip riêng lẻ)
-  document.querySelectorAll('.qq-chip').forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      this.classList.toggle('active');
-    });
-  });
-
-  function qqSubmit() {
-    var name    = document.getElementById('qq-name');
-    var email   = document.getElementById('qq-email');
-    var scope   = document.getElementById('qq-scope');
-    var typeEls = document.querySelectorAll('.qq-chip.active');
-    var valid   = true;
-
-    [name, email, scope].forEach(function(el){ el.classList.remove('qq-error'); });
-
-    if (!name.value.trim())  { name.classList.add('qq-error');  valid = false; }
-    if (!email.value.trim() || !email.value.includes('@')) { email.classList.add('qq-error'); valid = false; }
-    if (!scope.value.trim()) { scope.classList.add('qq-error'); valid = false; }
-    if (!valid) return;
-
-    var projectType = typeEls.length
-      ? Array.from(typeEls).map(function(el){ return el.getAttribute('data-value'); }).join(', ')
-      : 'Not specified';
-
-    // Send via EmailJS (uses same setup as existing contact form)
-    var btn = document.getElementById('qqSubmitBtn');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    var params = {
-      from_name:    name.value.trim(),
-      from_email:   email.value.trim(),
-      project_type: projectType,
-      message:      scope.value.trim(),
-      subject:      'Quote Request — ' + projectType
-    };
-
-    function showSuccess() {
-      document.getElementById('qqFormBox').style.display = 'none';
-      document.getElementById('qqSuccess').style.display = 'block';
-      // Countdown 5 → 0
-      var secs = 5;
-      var cdEl = document.getElementById('qqCountdown');
-      if (cdEl) cdEl.textContent = '// RETURNING TO FORM IN ' + secs + 's';
-      var cdTimer = setInterval(function() {
-        secs--;
-        if (cdEl) cdEl.textContent = '// RETURNING TO FORM IN ' + secs + 's';
-        if (secs <= 0) clearInterval(cdTimer);
-      }, 1000);
-      setTimeout(function() {
-        clearInterval(cdTimer);
-        // Reset form fields
-        document.getElementById('qq-name').value = '';
-        document.getElementById('qq-email').value = '';
-        document.getElementById('qq-scope').value = '';
-        document.querySelectorAll('.qq-chip').forEach(function(c){ c.classList.remove('active'); });
-        // Reset button
-        var btn = document.getElementById('qqSubmitBtn');
-        btn.textContent = 'Request a Quote  →';
-        btn.disabled = false;
-        // Swap back to form
-        document.getElementById('qqSuccess').style.display = 'none';
-        document.getElementById('qqFormBox').style.display = 'flex';
-      }, 5000);
-    }
-
-    if (typeof emailjs !== 'undefined') {
-      // 1️⃣  Notify SONIC team (existing template)
-      emailjs.send('default_service', 'template_contact', params)
-        .then(function() {
-          // 2️⃣  Auto-reply to the client
-          return emailjs.send('default_service', 'template_autoreply', {
-            to_name:      params.from_name,
-            to_email:     params.from_email,
-            project_type: params.project_type
-          });
-        })
-        .then(showSuccess)
-        .catch(function(err) {
-          // Auto-reply may fail if template not yet created — still show success
-          console.warn('EmailJS auto-reply skipped:', err);
-          showSuccess();
-        });
-    } else {
-      setTimeout(showSuccess, 600);
-    }
-  }
-  </script>
+  <!-- quick quote JS → main.js -->
 
   </div><!-- /.qq-inner -->
   </div><!-- /.quick-quote-wrap -->
@@ -2039,6 +1597,7 @@
           <div class="founder-name">Hoang Ngoc Son</div>
           <div class="founder-title">Founder &amp; Lead E&amp;I Engineer</div>
           <div class="founder-exp">25+ Years · Siemens Energy · GE Power</div>
+          <div class="founder-exp" style="margin-top:4px;font-size:11px;letter-spacing:1.5px;color:rgba(201,162,39,0.7);">📅 ESTABLISHED 20 MAY 2026</div>
         </div>
       </div>
       <p data-i18n="about_p1">SONIC E&I Solutions is a specialist firm delivering precision Electrical &amp; Instrumentation services for the world's most demanding energy projects. Founded by a former Siemens Energy official and GE Owner's Engineer, we bring international standards directly to the field.</p>
@@ -2123,29 +1682,7 @@
             </div>
           </div>
         </div>
-        <script>
-          (function() {
-            var iframe = document.getElementById('pdf-iframe');
-            var fallback = document.getElementById('pdf-fallback');
-            var label = document.getElementById('pdf-preview-label');
-            var container = document.getElementById('pdf-frame-container');
-            var pdfUrl = 'SONIC_E_I_Solutions_Profile_2026_NEW.pdf';
-            function showFallback() {
-              iframe.style.display = 'none';
-              fallback.style.display = 'flex';
-              label.style.display = 'none';
-              // ẩn overlay-cta vì đã có nút trong fallback
-              var cta = container.querySelector('.pdf-overlay-cta');
-              if (cta) cta.style.display = 'none';
-            }
-            // Dùng fetch HEAD để kiểm tra file có tồn tại không
-            fetch(pdfUrl, { method: 'HEAD' })
-              .then(function(res) {
-                if (!res.ok) showFallback();
-              })
-              .catch(function() { showFallback(); });
-          })();
-        </script>
+        <!-- PDF fallback JS → main.js -->
 
         <div class="download-meta">
           <span class="download-meta-item">📄 12 PAGES</span>
@@ -2163,7 +1700,7 @@
   <div class="contact-grid fade-in">
     <div>
       <div class="section-label" data-i18n="contact_label">// Get In Touch</div>
-      <img src="SONICEI_LOGO.png" alt="" style="height:72px;width:auto;object-fit:contain;margin-bottom:20px;display:block;">
+
       <h2 class="section-title"><span data-i18n="contact_title1">YOUR TRUSTED</span><br><span class="gold" data-i18n="contact_title2">PARTNER</span></h2>
       <div class="divider"></div>
       <p data-i18n="contact_desc" style="color:rgba(240,244,255,0.85); font-size:24px; font-weight:700; line-height:1.75; margin-bottom:40px;">
@@ -2499,347 +2036,14 @@
   </div>
 </section>
 
-<style>
-  /* ── FAQ styles ── */
-  .faq-item {
-    border-bottom: 1px solid rgba(201,162,39,0.12);
-  }
-  .faq-q {
-    width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
-    background: none; border: none; cursor: pointer;
-    padding: 22px 0; text-align: left;
-    font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600;
-    color: var(--white); letter-spacing: 0.3px; line-height: 1.45;
-    transition: color 0.2s;
-  }
-  .faq-q:hover { color: var(--gold); }
-  .faq-icon {
-    flex-shrink: 0; font-size: 22px; color: var(--gold);
-    line-height: 1; transition: transform 0.25s;
-    margin-top: 2px;
-  }
-  .faq-q.open .faq-icon { transform: rotate(45deg); }
-  .faq-a {
-    font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 400;
-    color: rgba(240,244,255,0.75); line-height: 1.75;
-    max-height: 0; overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.25s ease;
-    padding: 0;
-  }
-  .faq-a.open {
-    max-height: 400px;
-    padding-bottom: 20px;
-  }
-  /* scope chip radio buttons */
-  .scope-chip {
-    display: flex; align-items: center; gap: 8px;
-    padding: 10px 12px; cursor: pointer;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(201,162,39,0.18);
-    font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 500;
-    color: rgba(240,244,255,0.8); letter-spacing: 0.5px;
-    transition: background 0.2s, border-color 0.2s;
-    user-select: none;
-  }
-  .scope-chip:hover { background: rgba(201,162,39,0.1); border-color: rgba(201,162,39,0.4); }
-  .scope-chip input[type="checkbox"] { accent-color: var(--gold); flex-shrink: 0; }
-  .scope-chip:has(input:checked) {
-    background: rgba(201,162,39,0.15);
-    border-color: var(--gold);
-    color: var(--white);
-  }
-    /* Be Vietnam Pro for form inputs — best Vietnamese diacritic rendering */
-  .contact-form input, .contact-form textarea, #cf-not-sure-detail {
-    font-family: 'Be Vietnam Pro', sans-serif !important;
-  }
-  .contact-form input::placeholder, #cf-not-sure-detail::placeholder {
-    font-family: 'Be Vietnam Pro', sans-serif !important;
-    font-size: 13px;
-  }
-  @media (max-width:500px) {
-    #scope-grid { grid-template-columns: 1fr; }
-  }
 
-/* FOUNDER CARD */
-.founder-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(212,175,55,0.25);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(8px);
-}
-.founder-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  border: 3px solid var(--gold, #d4af37);
-  flex-shrink: 0;
-}
-.founder-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.founder-name {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.founder-title {
-  font-size: 0.85rem;
-  color: var(--gold, #d4af37);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-.founder-exp {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.55);
-  margin-top: 2px;
-}
-@media (max-width: 480px) {
-  .founder-card { flex-direction: column; text-align: center; }
-  .founder-photo { width: 90px; height: 90px; }
-}
-
-
-/* PROJECTS SECTION */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-.project-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(212,175,55,0.15);
-  border-radius: 12px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.3s, transform 0.3s;
-}
-.project-card:hover {
-  border-color: rgba(212,175,55,0.5);
-  transform: translateY(-4px);
-}
-.project-tag {
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  font-weight: 700;
-  font-family: 'Share Tech Mono', monospace;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-.project-role-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(200,216,240,0.75);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(200,216,240,0.15);
-  border-radius: 3px;
-  padding: 4px 10px;
-  align-self: flex-start;
-}
-.project-client {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 600;
-  font-family: 'Rajdhani', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.project-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  color: #fff;
-  line-height: 1.2;
-  margin: 0;
-}
-.project-desc {
-  font-size: 14px;
-  font-family: 'Rajdhani', sans-serif;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.6;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.proj-bullet {
-  display: block;
-  font-size: 14px;
-  font-family: 'Rajdhani', sans-serif;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.5;
-}
-.project-stats {
-  display: flex;
-  gap: 20px;
-  padding: 14px 0;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.project-stat { display: flex; flex-direction: column; gap: 2px; }
-.project-stat-num {
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
-}
-.project-stat-num.gold { color: var(--gold); }
-.project-stat-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-family: 'Share Tech Mono', monospace;
-  color: rgba(255,255,255,0.4);
-}
-.project-badge {
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'Rajdhani', sans-serif;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(212,175,55,0.1);
-  border: 1px solid rgba(212,175,55,0.25);
-  border-radius: 4px;
-  padding: 5px 12px;
-  display: inline-block;
-  align-self: flex-start;
-}
-@media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .projects-grid { grid-template-columns: 1fr; }
-}
-
-</style>
-
-<script>
-  // ── FAQ accordion ──
-  function faqToggle(btn) {
-    var answer = btn.nextElementSibling;
-    var isOpen = btn.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.faq-q.open').forEach(function(b) {
-      b.classList.remove('open');
-      b.nextElementSibling.classList.remove('open');
-    });
-    if (!isOpen) {
-      btn.classList.add('open');
-      answer.classList.add('open');
-    }
-  }
-
-  // ── SONIC FORM: chỉ validate email, bỏ mọi yêu cầu khác ──
-  window.sonicHandleSubmit = function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    var emailEl = document.getElementById('cf-email');
-    var emailVal = (emailEl ? emailEl.value : '').trim();
-    var emailOk  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
-
-    if (!emailOk) {
-      if (emailEl) {
-        emailEl.style.outline = '2px solid rgba(255,60,60,0.85)';
-        emailEl.focus();
-        setTimeout(function(){ emailEl.style.outline = ''; }, 3000);
-      }
-      return false;
-    }
-
-    // Populate scope hidden field
-    var form = event.target;
-    var checked = Array.from(form.querySelectorAll('input[name="cf-scope"]:checked'));
-    var msgEl = document.getElementById('cf-message');
-    var notSureDetail = document.getElementById('cf-not-sure-detail');
-    var detail = (notSureDetail && notSureDetail.value.trim()) ? ' | Detail: ' + notSureDetail.value.trim() : '';
-    if (msgEl) {
-      msgEl.value = checked.length
-        ? 'Scope interest: ' + checked.map(function(i){ return i.value; }).join('; ') + detail
-        : 'Submitted via short form — no scope selected.' + detail;
-    }
-
-    // Call original handleSubmit if it exists
-    if (typeof handleSubmit === 'function') {
-      try { handleSubmit(event); } catch(e) {}
-    } else {
-      // Fallback: submit via emailjs directly if available
-      if (typeof emailjs !== 'undefined') {
-        var nameVal = (document.getElementById('cf-name') || {}).value || '(not provided)';
-        emailjs.send('default_service', 'template_contact', {
-          name: nameVal,
-          email: emailVal,
-          message: msgEl ? msgEl.value : ''
-        });
-      }
-      // Show success state
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.textContent = '✓ SENT — We\'ll reply within 24h'; btn.disabled = true; }
-    }
-    return false;
-  };
-
-  // ── "Not sure yet" checkbox → show/hide detail textarea ──
-  document.addEventListener('DOMContentLoaded', function() {
-    var cb  = document.getElementById('cb-not-sure');
-    var box = document.getElementById('not-sure-box');
-    if (cb && box) {
-      cb.addEventListener('change', function() {
-        box.style.display = this.checked ? 'block' : 'none';
-        if (!this.checked) {
-          var ta = document.getElementById('cf-not-sure-detail');
-          if (ta) ta.value = '';
-        }
-      });
-    }
-  });
-
-  // ── Scope chip → populate hidden message field before submit ──
-  document.addEventListener('DOMContentLoaded', function() {
-    var form = document.querySelector('.contact-form');
-    if (!form) return;
-    form.addEventListener('submit', function() {
-      var checked = Array.from(form.querySelectorAll('input[name="cf-scope"]:checked'));
-      var msg = document.getElementById('cf-message');
-      var notSureDetail = document.getElementById('cf-not-sure-detail');
-      var detail = notSureDetail && notSureDetail.value.trim() ? ' | Detail: ' + notSureDetail.value.trim() : '';
-      if (msg && checked.length) msg.value = 'Scope interest: ' + checked.map(function(i){return i.value;}).join('; ') + detail;
-      else if (msg) msg.value = 'Submitted via short form — no scope selected.' + detail;
-    });
-  });
-</script>
+<!-- FAQ + contact form JS → main.js -->
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px;">
-    <img src="SONICEI_LOGO.png" alt="" style="height:56px;width:auto;object-fit:contain;display:block;">
-    <div style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;">
-      <span style="color:#c9a227;font-weight:700;font-size:16px;letter-spacing:2.5px;">SONIC <span style="color:#ffffff;">E&amp;I</span></span>
-      <span style="color:#c9a227;font-weight:700;font-size:16px;letter-spacing:2.5px;">SOLUTIONS</span>
-    </div>
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" style="height:56px;width:auto;object-fit:contain;display:block;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap;">SONIC <span style="color:#ffffff;">E&amp;I</span> SOLUTIONS</span>
   </div>
   <div class="footer-motto">"Right the first time — Every time"</div>
   <div class="footer-links">
@@ -2852,7 +2056,7 @@
   <div class="footer-copy" data-i18n="footer_copy">© 2026 SONIC E&I Solutions. All rights reserved.</div>
 </footer>
 
-<script src="main.js" defer></script>
+<!-- main.js loaded via single tag at bottom -->
 
 <!-- FLOATING CTA -->
 <a href="#contact" id="fcta" style="
@@ -2876,68 +2080,13 @@
     user-select:none;
     white-space:nowrap;">Technical Consultation</span>
 </a>
-<style>
-  #fcta:hover {
-    background:#e0b52e;
-    box-shadow:-4px 0 22px rgba(201,162,39,0.65);
-  }
-</style>
 
 <!-- IN-VIEW BRIGHTNESS BOOST -->
-<script>
-(function(){
-  // Selectors to boost when in viewport
-  var targets = [
-    'section', '.card', '.case-study', '.testimonial',
-    '.hero', '.section-header', '.service-card',
-    '.stat-block', '.proof-grid', '.market',
-    'nav', '.hero-pain-bar', '.sub-nav-wrap',
-    'h1','h2','h3','.section-title','.section-label',
-    '.clients-strip', '.fade-in', '.about-grid',
-    '.contact-block', 'footer'
-  ].join(',');
-
-  var els = document.querySelectorAll(targets);
-  els.forEach(function(el){ el.classList.add('in-view-boost'); });
-
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.08  // trigger when 8% of element is visible
-    });
-    els.forEach(function(el){ obs.observe(el); });
-  } else {
-    // Fallback: always bright
-    els.forEach(function(el){ el.classList.add('is-visible'); });
-  }
-})();
-</script>
+<!-- in-view boost JS → main.js -->
 <!-- ===== ZALO FLOATING CHAT + GA4 + FB PIXEL + UTM TRACKING ===== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script>
-  // Google Analytics 4
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8XBEYWCNB7', { send_page_view: true });
-
-  // Facebook Pixel
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'PIXEL_ID');
-  fbq('track', 'PageView');
-</script>
+<!-- GA4 + FB Pixel → main.js -->
 
 <div id="zalo-widget">
   <button id="zalo-btn" aria-label="Open chat support">
@@ -2970,181 +2119,12 @@
   </div>
 </div>
 
-<style>
-  #zalo-widget { position: fixed; bottom: 5px; right: 0px; z-index: 9999; font-family: system-ui, -apple-system, sans-serif; }
-  #zalo-btn { display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; border: none; border-radius: 50px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 20px rgba(0,104,255,.4); transition: all .3s ease; position: relative; }
-  #zalo-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,104,255,.6); }
-  .zalo-text { display: inline-block; }
-  .zalo-badge { position: absolute; top: -4px; right: -4px; background: #00E676; color: #fff; width: 12px; height: 12px; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.1)} }
-  #zalo-box { position: absolute; bottom: 70px; right: 0; width: 320px; max-width: 90vw; background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.15); overflow: hidden; transition: all .3s ease; opacity: 1; transform: translateY(0); }
-  .zalo-hidden { opacity: 0; transform: translateY(20px); pointer-events: none; visibility: hidden; }
-  .zalo-header { background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; }
-  #zalo-close { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; line-height: 1; padding: 0 4px; }
-  .zalo-body { padding: 16px 18px; color: #333; font-size: 14px; line-height: 1.5; }
-  .zalo-body p { margin: 0 0 12px; color: #555; }
-  .zalo-quick-actions { list-style: none; padding: 0; margin: 0 0 12px; }
-  .zalo-quick-actions li { margin: 8px 0; }
-  .zalo-quick-actions a { display: flex; align-items: center; gap: 8px; color: #0068FF; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; background: #F0F7FF; transition: background .2s; }
-  .zalo-quick-actions a:hover { background: #E0F0FF; }
-  .zalo-body small { display: block; color: #999; font-size: 12px; border-top: 1px solid #eee; padding-top: 10px; }
-  @media (max-width: 480px) { #zalo-widget { bottom: 5px; right: 0px; } #zalo-box { width: 280px; bottom: 65px; } .zalo-text { display: none; } #zalo-btn { padding: 12px; border-radius: 50%; } }
-</style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // ===== 1. GET DOM ELEMENTS FIRST =====
-  const btn = document.getElementById('zalo-btn');
-  const box = document.getElementById('zalo-box');
-  const closeBtn = document.getElementById('zalo-close');
-
-  // ===== 2. UTM TRACKING =====
-  const initUTM = () => {
-    const p = new URLSearchParams(location.search);
-    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
-      if (p.get(k) && !sessionStorage.getItem(k)) sessionStorage.setItem(k, decodeURIComponent(p.get(k)));
-    });
-    if (!sessionStorage.getItem('utm_initialized')) sessionStorage.setItem('utm_initialized','1');
-  }; 
-  initUTM();
-
-  const getUTM = () => ({
-    utm_source: sessionStorage.getItem('utm_source') || 'organic',
-    utm_medium: sessionStorage.getItem('utm_medium') || 'none',
-    utm_campaign: sessionStorage.getItem('utm_campaign') || 'none'
-  });
-
-  // ===== 3. EVENT TRACKING (GA4 + FB PIXEL) =====
-  const fireEvents = (action, label) => {
-    const u = getUTM();
-    if (typeof gtag !== 'undefined') gtag('event', 'zalo_' + action, { event_category: 'engagement', event_label: label, ...u });
-    if (typeof fbq !== 'undefined') fbq('trackCustom', 'ZaloWidget_' + action, { content_name: label, ...u });
-  };
-
-  // ===== 4. AUTO-HIDE TIMER (5 SECONDS) =====
-  let autoHideTimer = null;
-
-  const hideChatBox = () => {
-    box.classList.add('zalo-hidden');
-    if (autoHideTimer) {
-      clearTimeout(autoHideTimer);
-      autoHideTimer = null;
-    }
-  };
-
-  const showChatBox = () => {
-    box.classList.remove('zalo-hidden');
-    // Clear any existing timer
-    if (autoHideTimer) {
-      clearTimeout(autoHideTimer);
-    }
-    // Start new auto-hide timer
-    autoHideTimer = setTimeout(() => {
-      hideChatBox();
-    }, 5000);
-  };
-
-  // ===== 5. WIDGET INTERACTIONS =====
-  
-  // Main button click
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (box.classList.contains('zalo-hidden')) {
-      // Opening
-      showChatBox();
-      fireEvents('open', 'floating_button');
-    } else {
-      // Closing
-      hideChatBox();
-    }
-  });
-
-  // Close button (X)
-  closeBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    hideChatBox();
-  });
-
-  // Click outside to close
-  document.addEventListener('click', function(e) {
-    if (!box.contains(e.target) && !btn.contains(e.target)) {
-      hideChatBox();
-    }
-  });
-
-  // Prevent box clicks from bubbling
-  box.addEventListener('click', function(e) {
-    e.stopPropagation();
-  });
-
-  // Track quick action clicks
-  document.querySelectorAll('.zalo-quick-actions a').forEach(a => {
-    a.addEventListener('click', function() {
-      let act = 'unknown';
-      if (this.href.includes('zalo.me')) act = 'chat';
-      else if (this.href.startsWith('tel:')) act = 'call';
-      else if (this.href.startsWith('mailto:')) act = 'email';
-      fireEvents('click', act);
-    });
-  });
-
-  // Debug: Log if element not found
-  if (!btn || !box || !closeBtn) {
-    console.error('Zalo Widget: Missing DOM elements!', { btn, box, closeBtn });
-  }
-});
-</script>
+<!-- Zalo widget JS → main.js -->
 <!-- ===== END ZALO + TRACKING BLOCK ===== -->
 
-<script>
-// ── ZALO DEEP LINK ──
-// Thử mở app Zalo trực tiếp; nếu không có app thì fallback về web
-function openZalo(e) {
-  e.preventDefault();
-  var phone = '84915460790'; // 0915460790 → bỏ số 0, thêm mã quốc gia 84
-  var appLink = 'zalo://chat?phone=' + phone;
-  var webLink = 'https://zalo.me/84915460790';
+<!-- openZalo + svPlay → main.js -->
 
-  // Tạo iframe ẩn để thử deep link (không gây navigate trang)
-  var iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  document.body.appendChild(iframe);
-
-  var appOpened = false;
-  var timer;
-
-  // Nếu sau 1.5s vẫn focus (app không bắt được) → mở web fallback
-  window.addEventListener('blur', function onBlur() {
-    appOpened = true;
-    clearTimeout(timer);
-    window.removeEventListener('blur', onBlur);
-  });
-
-  timer = setTimeout(function() {
-    if (!appOpened) {
-      window.open(webLink, '_blank');
-    }
-    document.body.removeChild(iframe);
-  }, 1500);
-
-  iframe.src = appLink;
-  return false;
-}
-
-// Click-to-play: hiện video local, ẩn thumbnail
-function svPlay(frameId) {
-  var frame = document.getElementById(frameId);
-  if (!frame) return;
-  var video = document.getElementById(frameId + '-video');
-  if (video) {
-    video.style.display = 'block';
-    video.play();
-  }
-  frame.classList.add('sv-playing');
-}
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
