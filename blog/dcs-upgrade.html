@@ -75,7 +75,7 @@
   .btn-gold { display: inline-flex; align-items: center; gap: 12px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 14px 32px; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity 0.2s; }
   .btn-gold:hover { opacity: 0.88; }
 
-  footer { border-top: 1px solid var(--line); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+  footer { border-top: 1px solid var(--line); padding: 40px 48px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
   .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
   .footer-copy { font-size: 12px; color: rgba(138,154,181,0.4); font-family: 'Rajdhani', sans-serif; }
 
@@ -86,15 +86,41 @@
     .phase-item { grid-template-columns: 36px 1fr; gap: 16px; }
     footer { flex-direction: column; gap: 10px; padding: 28px 20px; }
   }
+
+  /* ── NAV (blog-index style) ── */
+  .blog-nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,22,40,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .blog-nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .blog-nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .blog-nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); }
+  .blog-nav-logo-text span { color: var(--white); }
+  .blog-nav-right { display: flex; align-items: center; gap: 24px; }
+  .blog-nav-back { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .blog-nav-back:hover { color: var(--gold); }
+  .blog-nav-cta { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); transition: opacity 0.2s; }
+  .blog-nav-cta:hover { opacity: 0.88; }
+  /* ── FOOTER (blog-index style) ── */
+  .footer-logo { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 14px; }
+  .footer-logo img { height: 48px; width: auto; object-fit: contain; }
+  .footer-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; color: var(--gold); white-space: nowrap; }
+  .footer-logo-text span { color: var(--white); }
+  .footer-motto { font-family: 'Rajdhani', sans-serif; font-size: 13px; letter-spacing: 2px; color: var(--gray); font-style: italic; }
+  .footer-links { display: flex; align-items: center; gap: 16px; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-links-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(138,154,181,0.4); display: inline-block; }
+  .footer-copy { font-size: 12px; color: rgba(138,154,181,0.45); font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="../index.html" class="nav-logo">SONIC <span>E&amp;I</span> SOLUTIONS</a>
-  <div class="nav-right">
-    <a href="blog-index.html" class="nav-blog">← All Articles</a>
-    <a href="../index.html#contact" class="nav-cta">Technical Consultation</a>
+<nav class="blog-nav">
+  <a href="../index.html" class="blog-nav-logo">
+    <img src="../SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions">
+    <span class="blog-nav-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+  </a>
+  <div class="blog-nav-right">
+    <a href="blog-index.html" class="blog-nav-back">← All Articles</a>
+    <a href="../index.html#contact" class="blog-nav-cta">Technical Consultation</a>
   </div>
 </nav>
 
@@ -210,8 +236,19 @@
 </article>
 
 <footer>
-  <span class="footer-brand">SONIC E&amp;I Solutions — Vietnam</span>
-  <span class="footer-copy">© 2026 All rights reserved</span>
+  <div class="footer-logo">
+    <img src="../SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions">
+    <span class="footer-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+  </div>
+  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="https://sonicei.com/privacy-policy.html">Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="https://sonicei.com/terms-of-use.html">Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
 </footer>
 
 </body>
