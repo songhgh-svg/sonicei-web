@@ -25,7 +25,7 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- 24 bài blog -->
+  <!-- 23 bài blog (đã xóa hidden-cost-rework-new do trùng nội dung với hidden-cost-rework-analysis) -->
   <url>
     <loc>https://sonicei.com/blog/ai-in-the-field-smart-commissioning</loc>
     <priority>0.8</priority>
@@ -88,11 +88,6 @@
 
   <url>
     <loc>https://sonicei.com/blog/hidden-cost-rework-analysis</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://sonicei.com/blog/hidden-cost-rework-new</loc>
     <priority>0.8</priority>
   </url>
 
