@@ -3,6 +3,36 @@
    All page-level JavaScript extracted from index.html
    ═══════════════════════════════════════════════════════════ */
 
+/* ── 0. MOBILE MENU ── */
+(function () {
+  var menu      = document.getElementById('mobileMenu');
+  var hamburger = document.getElementById('hamburger');
+
+  window.toggleMenu = function () {
+    if (!menu || !hamburger) return;
+    var isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open', !isOpen);
+    hamburger.classList.toggle('open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  };
+
+  window.closeMenu = function () {
+    if (!menu || !hamburger) return;
+    menu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  // Close when clicking outside
+  document.addEventListener('click', function (e) {
+    if (menu && menu.classList.contains('open') &&
+        !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      window.closeMenu();
+    }
+  });
+})();
+
+
 /* ── 1. PAIN BAR CYCLE (show 10s / hide 50s) ── */
 (function(){
   var bar    = document.getElementById('painBar');
