@@ -224,7 +224,7 @@
   }
   @media (max-width: 900px) {
     .hero-cta-micro { flex-wrap: wrap; }
-    .hero-cta-micro span:last-child { font-size: 12px; }
+    .hero-cta-micro span:last-child { font-size: 18px; }
   }
 
   /* AI beta disclaimer below CTA */
@@ -232,7 +232,7 @@
     margin-top: 10px;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 11px;
-    color: rgba(240,244,255,0.75);
+    color: rgba(240,244,255,0.38);
     letter-spacing: 0.3px;
     text-align: center;
     max-width: 560px;
@@ -241,7 +241,7 @@
     line-height: 1.55;
   }
   @media (max-width: 480px) {
-    .hero-ai-disclaimer { font-size: 13px; padding: 0 8px; }
+    .hero-ai-disclaimer { font-size: 18px; padding: 0 8px; }
   }
 
   .hero-cta {
@@ -301,13 +301,14 @@
     background: rgba(8,18,34,0.98);
     border-top: 1px solid rgba(201,162,39,0.5);
     border-bottom: 1px solid rgba(201,162,39,0.5);
-    padding: 7px 14px;
+    padding: 0;
+    height: 28px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 9px; letter-spacing: 1px; color: #ffe066;
-    text-transform: uppercase; text-align: center;
-    line-height: 1.55; width: 100%;
+    text-transform: uppercase;
+    white-space: nowrap; overflow: hidden;
+    width: 100%;
     transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
   }
   .mobile-ticker-bar {
     display: none;
@@ -1636,10 +1637,10 @@
     .hero h1 .line-accent { font-size: clamp(30px,  9vw, 50px);  letter-spacing: 5px; }
     .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 1; }
     .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .proof-num            { font-size: 30px; }
+    .proof-num            { font-size: 26px; }
     .proof-item           { text-align: center; }
-    .hero-guarantee       { font-size: 14px; letter-spacing: 1.5px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 18px !important; }
+    .hero-guarantee       { font-size: 18px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
+    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 22px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .ai-grid { padding: 0 !important; }
@@ -1666,22 +1667,22 @@
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
     .contact-item-icon { width: 48px; height: 48px; font-size: 22px; }
-    .contact-item-value { font-size: 18px !important; word-break: break-all; }
+    .contact-item-value { font-size: 22px !important; word-break: break-all; }
 
     /* ── MOBILE UNIFIED TYPOGRAPHY ── */
     /* Card headings — cùng cấp, cùng size */
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
-    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: center !important; }
+    .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: center !important; }
     /* AI section — riêng */
     .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
-    .ai-feature p  { font-size: 16px !important; }
-    .hiw-step-title { font-size: 18px !important; }
-    .hiw-step-desc  { font-size: 18px !important; }
+    .ai-feature p  { font-size: 22px !important; }
+    .hiw-step-title { font-size: 26px !important; }
+    .hiw-step-desc  { font-size: 22px !important; }
     /* Academy modules */
-    .module-title { font-size: 28px !important; }
-    .module-desc  { font-size: 18px !important; }
+    .module-title { font-size: 26px !important; }
+    .module-desc  { font-size: 22px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
     .academy-modules { gap: 0 !important; margin-top: 28px !important; }
     .academy-module {
@@ -1697,26 +1698,26 @@
     .academy-module:last-child { border-bottom: none !important; }
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
-    .academy-stat-label { font-size: 11px !important; }
+    .academy-stat-label { font-size: 18px !important; }
     /* Body text */
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
+    .case-study-desc { font-size: 22px !important; line-height: 1.7 !important; }
     /* List items */
-    .service-card ul li, .card ul li { font-size: 16px !important; }
+    .service-card ul li, .card ul li { font-size: 22px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
-    .ai-proof-label { white-space: normal; font-size: 12px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
-    .ai-proof-icon { font-size: 11px !important; }
-    .ai-proof-num { font-size: 15px !important; flex-shrink: 0; }
+    .ai-proof-label { white-space: normal; font-size: 18px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
+    .ai-proof-icon { font-size: 18px !important; }
+    .ai-proof-num { font-size: 22px !important; flex-shrink: 0; }
     /* Social Proof */
     .case-study { padding: 18px 14px; word-break: break-word; overflow-wrap: break-word; }
     .case-study-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .case-study-client { font-size: 13px; color: rgba(240,244,255,0.85); }
+    .case-study-client { font-size: 18px; }
     .testimonial { padding: 16px 14px; word-break: break-word; overflow-wrap: break-word; }
     .testimonial-author { flex-direction: column; gap: 4px; }
     .testimonial-company { text-align: left; }
@@ -1724,17 +1725,17 @@
 
     /* ── Market ── */
     .market-bar-label {
-      font-size: 13px; letter-spacing: 0.5px;
+      font-size: 18px; letter-spacing: 0.5px;
       flex-direction: column; gap: 3px; align-items: flex-start;
     }
-    .market-bar-label span:first-child { color: rgba(240,244,255,0.85); font-size: 14px; }
-    .market-bar-label span:last-child  { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+    .market-bar-label span:first-child { color: var(--gray); font-size: 18px; }
+    .market-bar-label span:last-child  { color: var(--gold); font-size: 22px; font-weight: 800; letter-spacing: 1px; }
     .market-bar-track { height: 12px; border-radius: 6px; }
     .market-bars { gap: 24px; }
     .investor-point { padding: 12px 10px !important; }
-    .investor-point-title { font-size: 13px; }
-    .investor-point-desc  { font-size: 13px; line-height: 1.6; color: rgba(240,244,255,0.85); }
-    .investor-point-icon  { font-size: 18px; margin-bottom: 4px; }
+    .investor-point-title { font-size: 22px; }
+    .investor-point-desc  { font-size: 18px; line-height: 1.5; }
+    .investor-point-icon  { font-size: 22px; margin-bottom: 4px; }
 
     /* ── Academy ── */
     .academy-photos { grid-template-columns: 1fr; }
@@ -1763,16 +1764,16 @@
 
     .case-study-stats { flex-direction: row; flex-wrap: wrap; gap: 8px 12px; }
     .case-stat        { min-width: 72px; }
-    .case-study-title { font-size: 18px; text-align: center; }
+    .case-study-title { font-size: 22px; text-align: center; }
     .case-study       { padding: 16px 12px; }
     .case-study::before { left: 12px; }
     .testimonials { gap: 12px; }
 
     .market-bar-label { flex-direction: column; gap: 3px; }
-    .market-bar-label span:last-child { color: var(--gold); font-size: 18px; font-weight: 800; }
+    .market-bar-label span:last-child { color: var(--gold); font-size: 22px; font-weight: 800; }
     .market-bars { gap: 22px; }
 
-    .investor-point-icon { font-size: 18px; }
+    .investor-point-icon { font-size: 22px; }
     .investor-point      { padding: 10px 8px !important; }
 
     .section-title { font-size: clamp(28px, 9vw, 48px); }
@@ -1818,8 +1819,8 @@
     color: var(--gold); margin-bottom: 6px;
   }
   .gallery-desc {
-    font-size: 15px; color: rgba(240,244,255,0.9);
-    line-height: 1.6;
+    font-size: 13px; color: rgba(240,244,255,0.7);
+    line-height: 1.5;
   }
   @media (max-width: 900px) {
     .gallery-grid { grid-template-columns: 1fr; }
@@ -2022,7 +2023,7 @@
     .academy-photos { gap: 12px; margin-top: 32px; }
     .academy-photo-item img { height: 220px; }
     .academy-photo-title { font-size: clamp(14px, 5vw, 22px); }
-    .academy-photo-tag { font-size: 10px; letter-spacing: 2px; margin-bottom: 4px; }
+    .academy-photo-tag { font-size: 18px; letter-spacing: 2px; margin-bottom: 4px; }
     .academy-photo-caption { padding: 12px; }
   }
 
@@ -2127,8 +2128,8 @@
   }
   .testimonial:hover { background: rgba(201,162,39,0.04); }
   .testimonial-text {
-    font-size: 16px; line-height: 1.8;
-    color: rgba(240,244,255,0.9);
+    font-size: 15px; line-height: 1.8;
+    color: rgba(240,244,255,0.75);
     font-style: italic; margin-bottom: 16px;
   }
   .testimonial-text::before { content: '"'; color: var(--gold); font-size: 24px; line-height: 0; vertical-align: -8px; margin-right: 4px; }
@@ -2141,10 +2142,10 @@
     font-size: 16px; letter-spacing: 1px; color: var(--gold);
   }
   .testimonial-role {
-    font-size: 13px; color: var(--gray); letter-spacing: 1.5px;
+    font-size: 11px; color: var(--gray); letter-spacing: 2px;
   }
   .testimonial-company {
-    font-size: 13px; color: var(--gray); letter-spacing: 1.5px;
+    font-size: 11px; color: var(--gray); letter-spacing: 2px;
     text-align: right;
   }
 
@@ -2266,7 +2267,7 @@
   }
   @media (max-width: 900px) {
     .lang-switcher { padding: 2px; }
-    .lang-btn { padding: 5px 8px; font-size: 9px; }
+    .lang-btn { padding: 5px 8px; font-size: 13px; }
   }
 
   /* ── VISION / MISSION / CORE VALUES ─────────────────────── */
@@ -2331,7 +2332,7 @@
     .vision-grid { grid-template-columns: 1fr; gap: 16px; }
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
-    .vision-card-title { font-size: 24px; }
+    .vision-card-title { font-size: 26px; }
   }
 
 
@@ -2897,7 +2898,7 @@
   @media (max-width: 600px) {
     .vfr-card { padding: 18px 16px 14px; }
     .vfr-num { font-size: 40px; }
-    .vfr-title { font-size: 14px; }
+    .vfr-title { font-size: 22px; }
     .vfr-divider { margin: 0 12px; }
   }
 
@@ -3019,7 +3020,7 @@
     letter-spacing: 0.5px;
   }
   @media (max-width: 600px) {
-    .legal-page { padding: 120px 20px 80px; font-size: 15px; }
+    .legal-page { padding: 120px 20px 80px; font-size: 22px; }
     .legal-page h1 { font-size: clamp(40px, 12vw, 60px); }
   }
 
@@ -3300,7 +3301,7 @@
 
   @media (max-width: 700px) {
     #cookie-banner { padding: 18px 20px; gap: 16px; }
-    .cookie-text p { font-size: 13px; }
+    .cookie-text p { font-size: 18px; }
     .cookie-modal-box { padding: 28px 20px 22px; }
   }
 
@@ -3926,7 +3927,7 @@
   font-size: 15px;
 }
 @media (max-width: 600px) {
-  .btn-hero-dl { font-size: 12px; padding: 13px 20px; }
+  .btn-hero-dl { font-size: 18px; padding: 13px 20px; }
 }
 
 /* ══════════════════════════════════════════
@@ -4064,7 +4065,7 @@
 @media (max-width: 768px) {
   .section-cta-strip { padding: 22px 24px; }
   .section-cta-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .section-cta-msg { font-size: 14px; }
+  .section-cta-msg { font-size: 22px; }
   .section-cta-btn { width: 100%; justify-content: center; }
 }
 
