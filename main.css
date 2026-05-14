@@ -4325,3 +4325,112 @@
   justify-content: space-between;
   height: 100%;
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE READABILITY OVERRIDES — max-width: 900px
+   Tăng font, tăng contrast, dễ đọc dưới ánh sáng yếu
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+
+  /* ── BODY BASE ── */
+  body {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADINGS ── */
+  h1, .section-title, .hero-title {
+    font-size: clamp(32px, 9vw, 52px) !important;
+    color: #f0f4ff !important;
+    opacity: 1 !important;
+  }
+  h2 {
+    font-size: clamp(24px, 7vw, 38px) !important;
+    color: #f0f4ff !important;
+    opacity: 1 !important;
+  }
+  h3 {
+    font-size: clamp(18px, 5vw, 26px) !important;
+    color: #f0f4ff !important;
+    opacity: 1 !important;
+  }
+
+  /* ── BODY / DESCRIPTION TEXT ── */
+  p, .section-sub, .card-desc, .card-body,
+  .hero-sub, .about-text, .service-desc,
+  [class*="-desc"], [class*="-text"], [class*="-body"],
+  [class*="-sub"], [class*="-copy"], [class*="-detail"] {
+    font-size: 16px !important;
+    color: #d4ddf5 !important;
+    opacity: 1 !important;
+    line-height: 1.8 !important;
+  }
+
+  /* ── SMALL LABELS / TAGS / META ── */
+  .section-label, .card-tag, .stat-label,
+  [class*="-label"], [class*="-meta"], [class*="-tag"],
+  [class*="-date"], [class*="-category"] {
+    font-size: 11px !important;
+    opacity: 1 !important;
+    color: #c9a227 !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  /* ── STAT NUMBERS ── */
+  .stat-number, .stat-big, .hero-stat-number,
+  [class*="stat-num"], [class*="-stat"] > span:first-child {
+    font-size: clamp(36px, 10vw, 56px) !important;
+    color: #c9a227 !important;
+    opacity: 1 !important;
+  }
+
+  /* ── GUARANTEE / CALLOUT BOXES ── */
+  .hero-guarantee, [class*="guarantee"],
+  [class*="callout"], [class*="badge"] {
+    font-size: 13px !important;
+    opacity: 1 !important;
+    color: #ffe066 !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* ── CARDS ── */
+  .card, [class*="-card"] {
+    background: rgba(17, 32, 64, 0.95) !important;
+  }
+
+  /* ── MUTED / FADED TEXT — force full opacity ── */
+  [style*="opacity: 0."], [style*="opacity:0."],
+  [style*="color: rgba"], [style*="color:rgba"] {
+    opacity: 1 !important;
+  }
+
+  /* ── GENERAL rgba text color → boost to near-white ── */
+  .section-sub, .about-sub, .service-sub,
+  .proof-sub, .contact-sub, .pipeline-sub {
+    color: #c8d4ee !important;
+    font-size: 15px !important;
+    opacity: 1 !important;
+  }
+
+  /* ── BUTTON TEXT ── */
+  .btn-gold, [class*="btn-"], .cta-btn {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* ── TICKER / PAIN BAR ── */
+  .mobile-pain-bar {
+    font-size: 10px !important;
+    color: #ffe066 !important;
+    opacity: 1 !important;
+  }
+
+  /* ── FOOTER ── */
+  footer, .footer-motto, .footer-copy,
+  .footer-links a {
+    opacity: 1 !important;
+    color: #8899bb !important;
+  }
+  .footer-logo { color: #c9a227 !important; }
+}
