@@ -1660,11 +1660,12 @@
     .form-row { grid-template-columns: 1fr !important; }
 
     /* ── Tất cả grid children: chặn overflow ── */
-    .about-grid > *, .ai-grid > *, .contact-grid > *,
+    .about-grid > *, .contact-grid > *,
     .market-grid > *, .proof-grid > *, .academy-grid > *,
     .investor-points > * { min-width: 0; overflow: hidden; }
+    .ai-grid > * { min-width: 0; }
     /* Pipeline column — đẩy xuống dưới cùng, hiển thị đủ chiều cao */
-    .hiw-col { overflow: visible !important; order: 99; }
+    .ai-grid > .hiw-col { overflow: visible !important; order: 99; height: auto !important; }
 
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
