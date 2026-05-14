@@ -171,10 +171,10 @@
     text-shadow: 0 0 30px rgba(200,216,240,0.2), 0 2px 16px rgba(0,0,0,0.9);
   }
   .hero h1 .line-accent {
-    font-size: clamp(38px, 4.5vw, 66px);
+    font-size: clamp(28px, 3.5vw, 52px);
     display: block;
     color: #ffe44d;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-shadow: 0 0 50px rgba(255,228,77,0.6), 0 0 20px rgba(201,162,39,0.5), 0 2px 20px rgba(0,0,0,0.9);
   }
 
@@ -4273,6 +4273,265 @@
   margin-top: 6px;
 }
 
+
+/* ══════════════════════════════════════════
+   E&I COMMISSIONING SCOPE — WHAT WE DO
+══════════════════════════════════════════ */
+.scope-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 40px;
+}
+.scope-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 8px 0 18px;
+}
+.scope-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(240,244,255,0.65);
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Stepped list layout */
+.scope-list {
+  max-width: 820px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scope-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,162,39,0.16);
+  border-left: 3px solid rgba(201,162,39,0.55);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.scope-card:hover {
+  background: rgba(201,162,39,0.06);
+  border-left-color: var(--gold);
+}
+
+.scope-step {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 28px;
+  color: rgba(201,162,39,0.25);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 3px;
+  min-width: 40px;
+  transition: color 0.3s;
+}
+.scope-card:hover .scope-step {
+  color: rgba(201,162,39,0.6);
+}
+
+.scope-body {
+  flex: 1;
+}
+
+.scope-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: #c9a227;
+  margin: 0 0 10px;
+}
+
+.scope-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240,244,255,0.65);
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+
+.scope-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.scope-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgba(201,162,39,0.7);
+  background: rgba(201,162,39,0.07);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 2px;
+  padding: 3px 9px;
+  text-transform: uppercase;
+}
+
+/* Tech strip */
+.scope-tech-strip {
+  text-align: center;
+  margin: 32px auto 0;
+  max-width: 820px;
+  padding: 18px 24px;
+  border-top: 1px solid rgba(201,162,39,0.15);
+}
+.scope-tech-label {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(201,162,39,0.45);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.scope-tech-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(240,244,255,0.55);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.scope-tech-dot {
+  color: rgba(201,162,39,0.4);
+  font-size: 18px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .scope-card { gap: 14px; padding: 20px 18px; }
+  .scope-step { font-size: 20px; min-width: 28px; }
+  .scope-title { font-size: 17px; }
+  .scope-tech-items { font-size: 13px; }
+}
+
+/* ══════════════════════════════════════════
+   WHY EPC CONTRACTORS BRING US IN
+══════════════════════════════════════════ */
+.why-us-sub {
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(240,244,255,0.65);
+  max-width: 640px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.why-epc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 820px;
+  margin: 0 auto 40px;
+}
+@media (max-width: 640px) {
+  .why-epc-grid { grid-template-columns: 1fr; }
+}
+
+.why-epc-card {
+  background: rgba(201,162,39,0.04);
+  border: 1px solid rgba(201,162,39,0.18);
+  border-radius: 10px;
+  padding: 28px 24px;
+  position: relative;
+  transition: border-color 0.3s, background 0.3s;
+}
+.why-epc-card:hover {
+  border-color: rgba(201,162,39,0.45);
+  background: rgba(201,162,39,0.08);
+}
+
+.why-epc-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(201,162,39,0.4);
+  margin-bottom: 8px;
+}
+
+.why-epc-icon {
+  font-size: 22px;
+  margin-bottom: 12px;
+  display: block;
+  opacity: 0.85;
+}
+
+.why-epc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: #c9a227;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.why-epc-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240,244,255,0.65);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.why-epc-strong-line {
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(240,244,255,0.85);
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto 8px;
+  padding: 28px 24px;
+  border-top: 1px solid rgba(201,162,39,0.2);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+@media (max-width: 600px) {
+  .why-epc-strong-line { font-size: 17px; }
+}
+
+.why-epc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: rgba(201,162,39,0.1);
+  border: 1.5px solid rgba(201,162,39,0.5);
+  color: var(--gold);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: all 0.25s;
+}
+.why-epc-cta:hover {
+  background: rgba(201,162,39,0.2);
+  border-color: rgba(201,162,39,0.8);
+  color: #ffe066;
+}
 
 /* ══════════════════════════════════════════
    UTILITY & COMPONENT CLASSES
