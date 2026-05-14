@@ -1640,7 +1640,7 @@
     .proof-num            { font-size: 30px; }
     .proof-item           { text-align: center; }
     .hero-guarantee       { font-size: 12px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 0; font-size: 18px !important; }
+    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 0; font-size: 20px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .ai-grid { padding: 0 !important; }
@@ -1695,19 +1695,22 @@
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
     .academy-stat-label { font-size: 11px !important; }
-    /* Body text — đồng bộ 18px */
+    /* Body text — card level 18px */
     .card p, .service-card p, .supply-card p,
-    .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
     .case-study-desc,
     .ai-feature p,
-    .supply-intro, .supply-card-desc,
+    .supply-card-desc,
     .wwd-card-item,
-    .why-description, .why-list li,
+    .why-list li,
     .faq-a,
-    .project-desc, .project-outcome span,
+    .project-desc, .project-outcome span { font-size: 18px !important; line-height: 1.7 !important; }
+    /* Section-level intro text — 20px */
+    .section-sub, .hero-sub,
+    .supply-intro,
+    .why-description,
     .risk-text, .final-push p,
-    .qq-action-hint { font-size: 18px !important; line-height: 1.7 !important; }
+    .qq-action-hint { font-size: 20px !important; line-height: 1.7 !important; }
     /* List items */
     .service-card ul li, .card ul li { font-size: 18px !important; }
     /* HIW step title — giữ lớn hơn body */
@@ -3723,7 +3726,7 @@
   gap: 4px;
 }
 .founder-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
   letter-spacing: 0.04em;
@@ -4433,3 +4436,11 @@
   margin-left: 0;
   margin-right: 0;
 }
+
+.section-sub,
+.hero-sub,
+.supply-intro,
+.risk-text,
+.final-push p,
+.qq-action-hint,
+.why-description { font-size: 20px !important; }
