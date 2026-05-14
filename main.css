@@ -145,7 +145,7 @@
     opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
     text-shadow: 0 0 20px rgba(201,162,39,0.6);
   }
-  .hero-guarantee .g-icon { font-size: 22px; }
+  .hero-guarantee .g-icon { font-size: 18px; }
 
   /* Hero headline override */
   .hero h1 {
@@ -331,7 +331,7 @@
   .hero h1 .gold { color: var(--gold); }
   .hero-sub {
     margin-top: 24px;
-    font-size: 22px; font-weight: 500; line-height: 1.75;
+    font-size: 18px; font-weight: 500; line-height: 1.75;
     color: rgba(240,244,255,0.92);
     text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.85);
     max-width: 680px;
@@ -411,7 +411,7 @@
   .case-study-desc,
   .investor-point-desc {
     font-family: 'Rajdhani', sans-serif !important;
-    font-size: 22px !important;
+    font-size: 18px !important;
     line-height: 1.8 !important;
   }
 
@@ -419,7 +419,7 @@
   .service-card ul li,
   .supply-card ul li,
   .card ul li {
-    font-size: 20px !important;
+    font-size: 18px !important;
     letter-spacing: 0.3px !important;
   }
 
@@ -512,7 +512,7 @@
     margin-bottom: 20px;
   }
   .section-sub {
-    font-size: 22px; line-height: 1.85;
+    font-size: 18px; line-height: 1.85;
     color: rgba(240,244,255,0.65);
     max-width: 680px;
     margin-bottom: 36px;
@@ -555,7 +555,7 @@
     background: rgba(255,200,60,0.1);
     border: 1px solid rgba(255,200,60,0.25);
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    font-size: 18px;
     margin-bottom: 20px;
     clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
   }
@@ -566,14 +566,14 @@
     margin-bottom: 10px;
     line-height: 1.1;
   }
-  .card h4 { font-size: 20px; }
+  .card h4 { font-size: 18px; }
   .card-divider {
     width: 40px; height: 2px;
     background: linear-gradient(90deg, var(--gold), transparent);
     margin: 14px 0 16px;
   }
   .card p {
-    font-size: 22px; line-height: 1.8;
+    font-size: 18px; line-height: 1.8;
     color: rgba(240,244,255,0.65);
     max-width: 480px;
     margin-bottom: 0;
@@ -661,7 +661,7 @@
   .credentials-panel { display: flex; flex-direction: column; gap: 0; position: relative; }
   .cred-header { background: rgba(0,0,0,0.75); border: 1px solid rgba(201,162,39,0.4); border-bottom: none; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
   .cred-header-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); flex-shrink: 0; box-shadow: 0 0 8px rgba(201,162,39,0.5); }
-  .cred-header-label { font-family: 'Share Tech Mono', monospace; font-size: 22px; color: var(--gold); letter-spacing: 3px; text-shadow: 0 1px 6px rgba(0,0,0,0.8); }
+  .cred-header-label { font-family: 'Share Tech Mono', monospace; font-size: 18px; color: var(--gold); letter-spacing: 3px; text-shadow: 0 1px 6px rgba(0,0,0,0.8); }
   .cred-body { border: 1px solid rgba(201,162,39,0.3); border-bottom: none; background: rgba(0,0,0,0.72); }
   .cred-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 22px; border-bottom: 1px solid rgba(201,162,39,0.1); transition: background 0.2s; }
   .cred-row:hover { background: rgba(201,162,39,0.08); }
@@ -671,7 +671,7 @@
   .cred-info-sub { font-size: 16px; color: rgba(240,244,255,0.85); margin-top: 2px; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
   .download-card { border: 1px solid rgba(201,162,39,0.4); padding: 26px 24px; background: rgba(0,0,0,0.78); position: relative; overflow: hidden; backdrop-filter: blur(4px); }
   .download-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(to right, var(--gold), transparent); }
-  .download-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; text-shadow: 0 0 18px rgba(201,162,39,0.7), 0 2px 8px rgba(0,0,0,0.8); animation: title-blink 2.5s ease-in-out infinite; }
+  .download-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; font-weight: 900; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; text-shadow: 0 0 18px rgba(201,162,39,0.7), 0 2px 8px rgba(0,0,0,0.8); animation: title-blink 2.5s ease-in-out infinite; }
   @keyframes title-blink {
     0%, 100% { opacity: 1; text-shadow: 0 0 18px rgba(201,162,39,0.7), 0 2px 8px rgba(0,0,0,0.8); }
     50% { opacity: 0.65; text-shadow: 0 0 32px rgba(201,162,39,1), 0 0 60px rgba(201,162,39,0.5), 0 2px 8px rgba(0,0,0,0.8); }
@@ -713,7 +713,7 @@
     color: var(--gold); margin-bottom: 16px;
   }
   .service-card p {
-    font-size: 22px; line-height: 1.85;
+    font-size: 18px; line-height: 1.85;
     color: rgba(240,244,255,0.7);
     max-width: 600px;
   }
@@ -784,7 +784,7 @@
     color: var(--white); margin-bottom: 4px;
   }
   .hiw-step-desc {
-    font-size: 22px; color: var(--gray);
+    font-size: 18px; color: var(--gray);
     line-height: 1.6; letter-spacing: 0.3px;
   }
   /* connector line between steps */
@@ -902,7 +902,7 @@
   }
   .ai-client-badge {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 3px;
+    font-size: 18px; letter-spacing: 3px;
     color: #fff;
     padding: 3px 12px;
     border: 1px solid rgba(201,162,39,0.5);
@@ -1120,7 +1120,7 @@
     background: rgba(201,162,39,0.1);
     border: 1px solid rgba(201,162,39,0.3);
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    font-size: 18px;
   }
   .ai-feature h4 {
     font-family: 'Bebas Neue', sans-serif;
@@ -1128,7 +1128,7 @@
     color: var(--gold); margin-bottom: 6px;
   }
   .ai-feature p {
-    font-size: 22px; line-height: 1.7;
+    font-size: 18px; line-height: 1.7;
     color: rgba(240,244,255,0.7);
   }
 
@@ -1158,7 +1158,7 @@
   }
   .supply-intro {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1212,7 +1212,7 @@
   .supply-card-body { flex: 1; }
   .supply-card-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 2px;
     color: var(--gold);
     margin-bottom: 10px;
@@ -1225,7 +1225,7 @@
   }
   .supply-card-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1284,7 +1284,7 @@
     font-family: 'Share Tech Mono', monospace;
   }
   .contact-item-value {
-    font-size: 22px; font-weight: 700; color: var(--white);
+    font-size: 18px; font-weight: 700; color: var(--white);
     font-family: 'Rajdhani', sans-serif;
   }
   .contact-link {
@@ -1496,7 +1496,7 @@
   }
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 3px; color: var(--gold);
+    font-size: 18px; letter-spacing: 3px; color: var(--gold);
   }
   .footer-logo .footer-ei { color: #ffffff; }
   .footer-copy {
@@ -1666,7 +1666,7 @@
 
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
-    .contact-item-icon { width: 48px; height: 48px; font-size: 22px; }
+    .contact-item-icon { width: 48px; height: 48px; font-size: 18px; }
     .contact-item-value { font-size: 18px !important; word-break: break-all; }
 
     /* ── MOBILE UNIFIED TYPOGRAPHY ── */
@@ -1676,7 +1676,7 @@
     .vision-card h3,
     .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: left !important; }
     /* AI section — riêng */
-    .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    .ai-feature h4 { font-size: 18px !important; letter-spacing: 1.5px !important; }
     /* Academy modules */
     .module-title { font-size: 28px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
@@ -1707,11 +1707,11 @@
     .faq-a,
     .project-desc, .project-outcome span,
     .risk-text, .final-push p,
-    .qq-action-hint { font-size: 22px !important; line-height: 1.7 !important; }
+    .qq-action-hint { font-size: 18px !important; line-height: 1.7 !important; }
     /* List items */
     .service-card ul li, .card ul li { font-size: 18px !important; }
     /* HIW step title — giữ lớn hơn body */
-    .hiw-step-title { font-size: 20px !important; }
+    .hiw-step-title { font-size: 18px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
@@ -1735,7 +1735,7 @@
       flex-direction: column; gap: 3px; align-items: flex-start;
     }
     .market-bar-label span:first-child { color: var(--gray); font-size: 13px; }
-    .market-bar-label span:last-child  { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+    .market-bar-label span:last-child  { color: var(--gold); font-size: 18px; font-weight: 800; letter-spacing: 1px; }
     .market-bar-track { height: 12px; border-radius: 6px; }
     .market-bars { gap: 24px; }
     .investor-point { padding: 12px 10px !important; }
@@ -1821,7 +1821,7 @@
   .gallery-item:hover .gallery-overlay { opacity: 1; }
   .gallery-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 2px;
+    font-size: 18px; letter-spacing: 2px;
     color: var(--gold); margin-bottom: 6px;
   }
   .gallery-desc {
@@ -1878,7 +1878,7 @@
     color: var(--gold); margin-bottom: 6px;
   }
   .module-desc {
-    font-size: 22px; color: rgba(240,244,255,0.65);
+    font-size: 18px; color: rgba(240,244,255,0.65);
     line-height: 1.65;
   }
 
@@ -1917,7 +1917,7 @@
   }
   .amod-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     color: rgba(240,244,255,0.5);
     line-height: 1.6;
@@ -1951,7 +1951,7 @@
     background: rgba(201,162,39,0.08);
     border: 1px solid rgba(201,162,39,0.3);
     margin-bottom: 24px;
-    font-size: 20px; font-weight: 700; letter-spacing: 2px;
+    font-size: 18px; font-weight: 700; letter-spacing: 2px;
     color: var(--gold); text-transform: uppercase;
     cursor: pointer;
     transition: background 0.25s, box-shadow 0.25s, color 0.25s, transform 0.2s;
@@ -2120,7 +2120,7 @@
     white-space: nowrap;
   }
   .case-study-desc {
-    font-size: 22px; color: rgba(240,244,255,0.6);
+    font-size: 18px; color: rgba(240,244,255,0.6);
     line-height: 1.8; border-top: 1px solid rgba(201,162,39,0.1);
     padding-top: 16px; margin-top: 4px;
   }
@@ -2134,7 +2134,7 @@
   }
   .testimonial:hover { background: rgba(201,162,39,0.04); }
   .testimonial-text {
-    font-size: 22px; line-height: 1.8;
+    font-size: 18px; line-height: 1.8;
     color: rgba(240,244,255,0.75);
     font-style: italic; margin-bottom: 16px;
   }
@@ -2324,14 +2324,14 @@
     padding: 14px 0;
     border-bottom: 1px solid rgba(255,255,255,0.07);
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px; color: rgba(255,255,255,0.75);
+    font-size: 18px; color: rgba(255,255,255,0.75);
     line-height: 1.65;
   }
   .vision-values li:last-child { border-bottom: none; }
   .vision-values strong {
     color: #00c896;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 2px;
+    font-size: 18px; letter-spacing: 2px;
     display: block; margin-bottom: 4px;
   }
   @media (max-width: 768px) {
@@ -2339,7 +2339,6 @@
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
     .vision-card-title { font-size: 24px; }
-    .vision-values li { font-size: 18px; }
   }
 
 
@@ -2460,7 +2459,7 @@
 
   .why-description {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.85;
     color: rgba(240,244,255,0.85);
     margin-bottom: 20px;
@@ -2481,7 +2480,7 @@
     padding: 12px 0 12px 28px;
     border-bottom: 1px solid rgba(201,162,39,0.1);
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     color: rgba(240,244,255,0.75);
     line-height: 1.6;
     display: flex;
@@ -3065,7 +3064,7 @@
     opacity: 0.7;
   }
   .cookie-icon {
-    font-size: 22px;
+    font-size: 18px;
     flex-shrink: 0;
     opacity: 0.85;
   }
@@ -3645,19 +3644,19 @@
     width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
     background: none; border: none; cursor: pointer;
     padding: 22px 0; text-align: left;
-    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 600;
+    font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 600;
     color: var(--white); letter-spacing: 0.3px; line-height: 1.45;
     transition: color 0.2s;
   }
   .faq-q:hover { color: var(--gold); }
   .faq-icon {
-    flex-shrink: 0; font-size: 22px; color: var(--gold);
+    flex-shrink: 0; font-size: 18px; color: var(--gold);
     line-height: 1; transition: transform 0.25s;
     margin-top: 2px;
   }
   .faq-q.open .faq-icon { transform: rotate(45deg); }
   .faq-a {
-    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 400;
+    font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 400;
     color: rgba(240,244,255,0.75); line-height: 1.75;
     max-height: 0; overflow: hidden;
     transition: max-height 0.35s ease, padding 0.25s ease;
@@ -3724,20 +3723,20 @@
   gap: 4px;
 }
 .founder-name {
-  font-size: 1.15rem;
+  font-size: 18px;
   font-weight: 700;
   color: #fff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .founder-title {
-  font-size: 0.85rem;
+  font-size: 16px;
   color: var(--gold, #d4af37);
   font-weight: 600;
   letter-spacing: 0.05em;
 }
 .founder-exp {
-  font-size: 0.78rem;
+  font-size: 15px;
   color: rgba(255,255,255,0.55);
   margin-top: 2px;
 }
@@ -3803,7 +3802,7 @@
 }
 .project-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: 1.5px;
   font-weight: 400;
   color: #fff;
@@ -3811,7 +3810,7 @@
   margin: 0;
 }
 .project-desc {
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Rajdhani', sans-serif;
   color: rgba(255,255,255,0.55);
   line-height: 1.6;
@@ -3822,7 +3821,7 @@
 }
 .proj-bullet {
   display: block;
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Rajdhani', sans-serif;
   color: rgba(255,255,255,0.5);
   line-height: 1.5;
@@ -3836,7 +3835,7 @@
 }
 .project-stat { display: flex; flex-direction: column; gap: 2px; }
 .project-stat-num {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   color: #fff;
   font-family: 'Bebas Neue', sans-serif;
@@ -3859,7 +3858,7 @@
   border: 1px solid rgba(0,200,150,0.18);
   border-radius: 6px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.7);
   line-height: 1.55;
@@ -4195,14 +4194,14 @@
 }
 .wwd-card-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: 2px;
   color: #c9a227;
   margin-bottom: 14px;
 }
 .wwd-card-item {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
   line-height: 1;
@@ -4226,7 +4225,7 @@
 }
 .risk-text {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.75);
   line-height: 1.7;
@@ -4241,7 +4240,7 @@
 }
 .final-push p {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   color: rgba(240,244,255,0.5);
   letter-spacing: 1px;
@@ -4252,7 +4251,7 @@
 .qq-action-hint {
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(255,255,255,0.5);
   letter-spacing: 0.3px;
@@ -4291,7 +4290,7 @@
   color: var(--gold);
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 2px;
 }
 .logo-line-ei {
@@ -4427,4 +4426,10 @@
   .project-stat-num {
     text-align: left !important;
   }
+}
+
+.ai-section .section-sub {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
 }
