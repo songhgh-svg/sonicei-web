@@ -1630,17 +1630,17 @@
 
     /* ── Hero ── */
     .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: center; }
-    .hero-content { max-width: 100% !important; width: 100%; text-align: center; }
+    .hero-content { max-width: 100% !important; width: 100%; text-align: left; }
     /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
     .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; margin-bottom: 20px; }
     .hero h1 .line-med    { font-size: clamp(54px, 15vw, 87px);  letter-spacing: 8px; margin-bottom: 20px; }
     .hero h1 .line-accent { font-size: clamp(30px,  9vw, 50px);  letter-spacing: 5px; }
     .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 1; }
-    .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .proof-num            { font-size: 26px; }
-    .proof-item           { text-align: center; }
+    .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: flex-start; }
+    .proof-num            { font-size: 30px; }
+    .proof-item           { text-align: left; }
     .hero-guarantee       { font-size: 18px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 22px !important; }
+    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 0; font-size: 22px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .ai-grid { padding: 0 !important; }
@@ -1670,13 +1670,13 @@
     .contact-item-value { font-size: 22px !important; word-break: break-all; }
 
     /* ── MOBILE UNIFIED TYPOGRAPHY ── */
-    /* Card headings — cùng cấp, cùng size */
+    /* Card headings */
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
-    .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: center !important; }
-    /* AI section — riêng */
-    .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: left !important; }
+    /* AI section */
+    .ai-feature h4 { font-size: 26px !important; letter-spacing: 1.5px !important; }
     .ai-feature p  { font-size: 22px !important; }
     .hiw-step-title { font-size: 26px !important; }
     .hiw-step-desc  { font-size: 22px !important; }
@@ -1704,6 +1704,7 @@
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
     .case-study-desc { font-size: 22px !important; line-height: 1.7 !important; }
+    .section-sub { text-align: left !important; margin-left: 0 !important; margin-right: 0 !important; max-width: 100% !important; }
     /* List items */
     .service-card ul li, .card ul li { font-size: 22px !important; }
     /* Stat numbers mobile */
@@ -1764,7 +1765,7 @@
 
     .case-study-stats { flex-direction: row; flex-wrap: wrap; gap: 8px 12px; }
     .case-stat        { min-width: 72px; }
-    .case-study-title { font-size: 22px; text-align: center; }
+    .case-study-title { font-size: 26px; text-align: left; }
     .case-study       { padding: 16px 12px; }
     .case-study::before { left: 12px; }
     .testimonials { gap: 12px; }
@@ -2267,7 +2268,7 @@
   }
   @media (max-width: 900px) {
     .lang-switcher { padding: 2px; }
-    .lang-btn { padding: 5px 8px; font-size: 13px; }
+    .lang-btn { padding: 5px 8px; font-size: 18px; }
   }
 
   /* ── VISION / MISSION / CORE VALUES ─────────────────────── */
@@ -2332,7 +2333,7 @@
     .vision-grid { grid-template-columns: 1fr; gap: 16px; }
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
-    .vision-card-title { font-size: 26px; }
+    .vision-card-title { font-size: 24px; }
   }
 
 
@@ -2898,7 +2899,7 @@
   @media (max-width: 600px) {
     .vfr-card { padding: 18px 16px 14px; }
     .vfr-num { font-size: 40px; }
-    .vfr-title { font-size: 22px; }
+    .vfr-title { font-size: 18px; }
     .vfr-divider { margin: 0 12px; }
   }
 
@@ -3020,7 +3021,7 @@
     letter-spacing: 0.5px;
   }
   @media (max-width: 600px) {
-    .legal-page { padding: 120px 20px 80px; font-size: 22px; }
+    .legal-page { padding: 120px 20px 80px; font-size: 18px; }
     .legal-page h1 { font-size: clamp(40px, 12vw, 60px); }
   }
 
@@ -3735,7 +3736,7 @@
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .founder-card { flex-direction: column; text-align: center; }
+  .founder-card { flex-direction: column; text-align: left; }
   .founder-photo { width: 90px; height: 90px; }
 }
 
@@ -4065,7 +4066,7 @@
 @media (max-width: 768px) {
   .section-cta-strip { padding: 22px 24px; }
   .section-cta-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .section-cta-msg { font-size: 22px; }
+  .section-cta-msg { font-size: 18px; }
   .section-cta-btn { width: 100%; justify-content: center; }
 }
 

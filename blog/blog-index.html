@@ -346,24 +346,27 @@
     footer { padding: 32px 20px; }
 
     /* ── MOBILE FONT SIZE FIXES ── */
-    /* Tầng 1: Hero heading — clamp lớn */
+    /* Tầng 1: Hero heading */
     .blog-hero h1  { font-size: clamp(40px, 12vw, 56px) !important; line-height: 1.0 !important; }
-    /* Tầng 2: Sub-heading / Card title — 26px */
+    /* Tầng 2: Card title — 26px */
     .card-title    { font-size: 26px; line-height: 1.15; }
-    /* Tầng 3: Body / excerpt — 22px */
+    /* Tầng 3: Body — 22px */
     .card-excerpt  { font-size: 22px !important; line-height: 1.8; }
-    .blog-hero-sub { font-size: 22px; line-height: 1.75; }
+    .blog-hero-sub { font-size: 22px; line-height: 1.75; text-align: left; }
     /* Tầng phụ: Label / tag / meta — 18px */
     .card-date     { font-size: 18px; letter-spacing: 1px; }
     .card-tag      { font-size: 18px; padding: 5px 12px; }
     .card-read     { font-size: 18px; letter-spacing: 2px; }
     .blog-label    { font-size: 18px; letter-spacing: 2px; }
-    .filter-btn    { font-size: 18px; padding: 6px 12px; }
+    .filter-btn    { font-size: 18px; padding: 8px 14px; }
     .filter-label  { font-size: 18px; }
     .stats-count   { font-size: 18px; }
     .footer-motto  { font-size: 18px; }
     .footer-links  { font-size: 18px; }
     .footer-copy   { font-size: 18px; }
+    /* Alignment — left trên mobile */
+    .blog-hero     { text-align: left; }
+    .empty-state p { font-size: 18px; }
   }
 </style>
 </head>
