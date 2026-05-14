@@ -1234,7 +1234,7 @@
     .supply-layout {
       grid-template-columns: 1fr;
       gap: 40px;
-      padding: 0 24px 60px;
+      padding: 0 0 60px;
     }
   }
 
@@ -1650,44 +1650,12 @@
     /* ── Section title ── */
     .section-title { font-size: clamp(30px, 8vw, 56px); }
 
-    /* ── FULL WIDTH + 22px cho tất cả sections trên mobile ── */
-    /* What We Do */
-    .wwd-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
-    .wwd-card { padding: 24px 16px !important; }
-    .wwd-card-title { font-size: 26px !important; }
-    .wwd-card-item  { font-size: 22px !important; line-height: 1.5 !important; }
-
-    /* Supply / Materials / Technical Consultant */
-    .supply-layout { grid-template-columns: 1fr !important; padding: 0 0 60px !important; max-width: 100% !important; gap: 32px !important; }
-    .supply-intro { font-size: 22px !important; }
-    .supply-value-item { font-size: 18px !important; }
-    .supply-card-title { font-size: 26px !important; }
-    .supply-card-desc  { font-size: 22px !important; }
-    .supply-card-num   { font-size: 18px !important; }
-
-    /* How It Works (6 steps) */
-    .hiw-pipe-title { font-size: 22px !important; }
-    .hiw-pipe-sub   { font-size: 18px !important; }
-
-    /* Academy */
-    .amod-title { font-size: 26px !important; }
-    .amod-desc  { font-size: 22px !important; }
-    .amod-num   { font-size: 18px !important; }
-
-    /* Vision / Mission */
-    .vision-grid { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 100% !important; }
-    .vision-card p { font-size: 22px !important; }
-    .vision-values li { font-size: 22px !important; }
-
-    /* Services */
-    .services-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; max-width: 100% !important; }
-    .service-card  { padding: 24px 16px !important; max-width: 100% !important; }
-    .service-card p { font-size: 22px !important; }
-    .service-card ul li { font-size: 22px !important; }
-    /* ── Other grids → 1 cột ── */
+    /* ── All grids → 1 cột, full width ── */
     .about-grid, .ai-grid, .contact-grid,
     .market-grid, .proof-grid,
     .academy-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .services-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
+    .service-card { padding: 24px 0 !important; }
     .investor-points { grid-template-columns: 1fr 1fr; gap: 8px; }
     .form-row { grid-template-columns: 1fr !important; }
 
@@ -1701,20 +1669,19 @@
     .contact-item-icon { width: 48px; height: 48px; font-size: 22px; }
     .contact-item-value { font-size: 18px !important; word-break: break-all; }
 
-    /* ── MOBILE UNIFIED TYPOGRAPHY ── */
-    /* Card headings — cùng cấp, cùng size */
+    /* ── MOBILE TYPOGRAPHY ── */
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
-    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: center !important; }
-    /* AI section — riêng */
-    .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
-    .ai-feature p  { font-size: 16px !important; }
-    .hiw-step-title { font-size: 18px !important; }
-    .hiw-step-desc  { font-size: 18px !important; }
-    /* Academy modules */
-    .module-title { font-size: 28px !important; }
-    .module-desc  { font-size: 18px !important; }
+    .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: left !important; }
+    .ai-feature h4 { font-size: 26px !important; letter-spacing: 1.5px !important; }
+    .ai-feature p  { font-size: 22px !important; }
+    .hiw-step-title { font-size: 26px !important; }
+    .hiw-step-desc  { font-size: 22px !important; }
+    .hiw-pipe-title { font-size: 22px !important; }
+    .hiw-pipe-sub   { font-size: 18px !important; }
+    .module-title { font-size: 26px !important; }
+    .module-desc  { font-size: 22px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
     .academy-modules { gap: 0 !important; margin-top: 28px !important; }
     .academy-module {
@@ -1730,26 +1697,34 @@
     .academy-module:last-child { border-bottom: none !important; }
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
-    .academy-stat-label { font-size: 11px !important; }
-    /* Body text */
+    .academy-stat-label { font-size: 18px !important; }
+    .amod-title { font-size: 26px !important; }
+    .amod-desc  { font-size: 22px !important; }
+    .amod-num   { font-size: 18px !important; }
+    .wwd-card-title { font-size: 26px !important; }
+    .wwd-card-item  { font-size: 22px !important; }
+    .supply-card-title { font-size: 26px !important; }
+    .supply-card-desc  { font-size: 22px !important; }
+    .supply-intro      { font-size: 22px !important; }
+    .supply-value-item { font-size: 18px !important; }
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
-    /* List items */
-    .service-card ul li, .card ul li { font-size: 16px !important; }
-    /* Stat numbers mobile */
+    .case-study-desc { font-size: 22px !important; line-height: 1.7 !important; }
+    .section-sub { text-align: left !important; margin-left: 0 !important; margin-right: 0 !important; max-width: 100% !important; }
+    .service-card ul li, .card ul li { font-size: 22px !important; }
+    .vision-card p { font-size: 22px !important; }
+    .vision-values li { font-size: 22px !important; }
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
-    .ai-proof-label { white-space: normal; font-size: 9px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
-    .ai-proof-icon { font-size: 11px !important; }
-    .ai-proof-num { font-size: 15px !important; flex-shrink: 0; }
-    /* Social Proof */
+    .ai-proof-label { white-space: normal; font-size: 18px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
+    .ai-proof-icon { font-size: 18px !important; }
+    .ai-proof-num { font-size: 22px !important; flex-shrink: 0; }
     .case-study { padding: 18px 14px; word-break: break-word; overflow-wrap: break-word; }
     .case-study-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .case-study-client { font-size: 11px; }
+    .case-study-client { font-size: 18px; }
     .testimonial { padding: 16px 14px; word-break: break-word; overflow-wrap: break-word; }
     .testimonial-author { flex-direction: column; gap: 4px; }
     .testimonial-company { text-align: left; }
@@ -1757,17 +1732,17 @@
 
     /* ── Market ── */
     .market-bar-label {
-      font-size: 13px; letter-spacing: 0.5px;
+      font-size: 18px; letter-spacing: 0.5px;
       flex-direction: column; gap: 3px; align-items: flex-start;
     }
-    .market-bar-label span:first-child { color: var(--gray); font-size: 13px; }
-    .market-bar-label span:last-child  { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+    .market-bar-label span:first-child { color: var(--gray); font-size: 18px; }
+    .market-bar-label span:last-child  { color: var(--gold); font-size: 22px; font-weight: 800; letter-spacing: 1px; }
     .market-bar-track { height: 12px; border-radius: 6px; }
     .market-bars { gap: 24px; }
     .investor-point { padding: 12px 10px !important; }
-    .investor-point-title { font-size: 13px; }
-    .investor-point-desc  { font-size: 10px; line-height: 1.5; }
-    .investor-point-icon  { font-size: 18px; margin-bottom: 4px; }
+    .investor-point-title { font-size: 22px; }
+    .investor-point-desc  { font-size: 18px; line-height: 1.5; }
+    .investor-point-icon  { font-size: 22px; margin-bottom: 4px; }
 
     /* ── Academy ── */
     .academy-photos { grid-template-columns: 1fr; }
@@ -1796,16 +1771,16 @@
 
     .case-study-stats { flex-direction: row; flex-wrap: wrap; gap: 8px 12px; }
     .case-stat        { min-width: 72px; }
-    .case-study-title { font-size: 15px; text-align: center; }
+    .case-study-title { font-size: 26px; text-align: left; }
     .case-study       { padding: 16px 12px; }
     .case-study::before { left: 12px; }
     .testimonials { gap: 12px; }
 
     .market-bar-label { flex-direction: column; gap: 3px; }
-    .market-bar-label span:last-child { color: var(--gold); font-size: 18px; font-weight: 800; }
+    .market-bar-label span:last-child { color: var(--gold); font-size: 22px; font-weight: 800; }
     .market-bars { gap: 22px; }
 
-    .investor-point-icon { font-size: 18px; }
+    .investor-point-icon { font-size: 22px; }
     .investor-point      { padding: 10px 8px !important; }
 
     .section-title { font-size: clamp(28px, 9vw, 48px); }
@@ -2364,7 +2339,9 @@
     .vision-grid { grid-template-columns: 1fr; gap: 16px; }
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
-    .vision-card-title { font-size: 24px; }
+    .vision-card-title { font-size: 26px; }
+    .vision-card p { font-size: 22px; }
+    .vision-values li { font-size: 22px; }
   }
 
 
