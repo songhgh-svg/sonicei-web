@@ -4345,7 +4345,7 @@
 
 .scope-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 1.5px;
   color: #c9a227;
   margin: 0 0 10px;
@@ -4353,7 +4353,7 @@
 
 .scope-desc {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
   line-height: 1.65;
@@ -4415,8 +4415,8 @@
 
 @media (max-width: 640px) {
   .scope-card { gap: 14px; padding: 20px 18px; }
-  .scope-step { font-size: 20px; min-width: 28px; }
-  .scope-title { font-size: 17px; }
+  .scope-step { font-size: 22px; min-width: 28px; }
+  .scope-title { font-size: 20px; }
   .scope-tech-items { font-size: 13px; }
 }
 
@@ -4476,7 +4476,7 @@
 
 .why-epc-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 19px;
+  font-size: 24px;
   letter-spacing: 1.5px;
   color: #c9a227;
   margin: 0 0 12px;
@@ -4485,7 +4485,7 @@
 
 .why-epc-desc {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
   line-height: 1.65;
@@ -4507,7 +4507,7 @@
   border-bottom: 1px solid rgba(201,162,39,0.2);
 }
 @media (max-width: 600px) {
-  .why-epc-strong-line { font-size: 17px; }
+  .why-epc-strong-line { font-size: 18px; }
 }
 
 .why-epc-cta {

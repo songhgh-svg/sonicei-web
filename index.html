@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ═══ FAVICON ═══ -->
+<link rel="icon" type="image/png" href="SONICEI_LOGO.png">
+<link rel="apple-touch-icon" href="SONICEI_LOGO.png">
+
+<!-- ═══ SITEMAP ═══ -->
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
 <!-- ═══ PRIMARY SEO ═══ -->
 <title>SONIC E&I Solutions | E&I Commissioning Vietnam — Zero Defects or Fee Reduction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +33,7 @@
 <meta property="og:url" content="https://sonicei.com/">
 <meta property="og:title" content="SONIC E&I Solutions | E&I Commissioning Vietnam — Performance-Backed. Zero Defects or Fee Reduction.">
 <meta property="og:description" content="Vietnam's specialist E&I commissioning company with a contractual zero-defect guarantee. Fee tied to handover quality. 25+ years with Siemens Energy & GE Power. AI-Punch™ QA/QC platform. Offshore, power plants & industrial.">
-<meta property="og:image" content="https://sonicei.com/SONICEI_LOGO.png">
+<meta property="og:image" content="https://sonicei.com/assets/images/img_33.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SONIC E&I Solutions — Zero-Defect E&I Commissioning Vietnam">
@@ -38,7 +45,7 @@
 <meta name="twitter:url" content="https://sonicei.com/">
 <meta name="twitter:title" content="SONIC E&I Solutions | E&I Commissioning Vietnam — Zero Defects or Fee Reduction">
 <meta name="twitter:description" content="Vietnam's specialist E&I commissioning company with a contractual zero-defect guarantee. Fee tied to handover performance. AI-Punch™ QA/QC. 25+ years field experience with Siemens Energy & GE Power.">
-<meta name="twitter:image" content="https://sonicei.com/SONICEI_LOGO.png">
+<meta name="twitter:image" content="https://sonicei.com/assets/images/img_33.webp">
 
 <!-- ═══ GEO / LOCAL SEO ═══ -->
 <meta name="geo.region" content="VN-SG">
@@ -51,11 +58,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "LocalBusiness"],
   "name": "SONIC E&I Solutions",
   "url": "https://sonicei.com",
   "logo": "https://sonicei.com/SONICEI_LOGO.png",
-  "image": "https://sonicei.com/SONICEI_LOGO.png",
+  "image": "https://sonicei.com/assets/images/img_33.webp",
   "description": "Vietnam's specialist electrical & instrumentation commissioning company, backed by a contractual zero-defect guarantee. Founded by a 25-year E&I veteran with Siemens Energy and GE Power field experience. AI-Punch™ QA/QC technology for offshore, power plant and industrial projects across Vietnam and Southeast Asia.",
   "founder": {
     "@type": "Person",
@@ -67,6 +74,11 @@
     "addressLocality": "Ho Chi Minh City",
     "addressRegion": "Rach Dua Ward",
     "addressCountry": "VN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.7769,
+    "longitude": 106.7009
   },
   "telephone": "+84-915-460-790",
   "email": "contact@sonicei.com",
@@ -101,7 +113,8 @@
     "Power Plant Maintenance"
   ],
   "sameAs": [
-    "https://sonicei.com"
+    "https://sonicei.com",
+    "https://www.linkedin.com/company/sonic-ei-solutions"
   ]
 }
 </script>
@@ -170,13 +183,7 @@
 <script defer src="emailjs-config.js"></script>
 <link rel="stylesheet" href="main.css">
 <style>
-  .metrics-bar { padding: 20px 40px !important; margin: 0 !important; }
-  .metric-item { padding: 8px 24px !important; }
   .ai-section .section-sub { text-align: left; margin-left: 0; margin-right: 0; }
-  @media (max-width: 900px) {
-    .metrics-bar { padding: 16px 24px !important; }
-    .metric-item { padding: 6px 16px !important; }
-  }
 </style>
 </head>
 <body>
@@ -184,7 +191,7 @@
 <!-- NAV -->
 <nav>
   <div class="logo-wrap">
-    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions logo" style="height:40px;width:auto;object-fit:contain;">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions logo" width="40" height="40" style="height:40px;width:auto;object-fit:contain;">
     <div class="logo-text">
       <span class="logo-line">SONIC <span class="logo-line-ei">E&amp;I</span> SOLUTIONS</span>
     </div>
@@ -407,60 +414,52 @@
 
 </section>
 
-<!-- CLIENT TRUST STRIP -->
-<div style="background:rgba(10,22,40,0.85);border-top:1px solid rgba(201,162,39,0.12);border-bottom:1px solid rgba(201,162,39,0.12);padding:10px 32px;overflow:hidden;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;">
-    <!-- Line 1: label + descriptor -->
-    <div class="flex-center-wrap">
-      <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(201,162,39,0.5);letter-spacing:2px;white-space:nowrap;">FIELD EXPERIENCE ACROSS SIEMENS &amp; GE SYSTEMS</span>
-      <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:rgba(240,244,255,0.6);letter-spacing:1.5px;white-space:nowrap;">Offshore · Power Plants · EPC Projects</span>
-    </div>
-    <!-- Line 2: logos -->
-    <div style="display:flex;align-items:center;flex-wrap:wrap;justify-content:space-evenly;width:100%;max-width:960px;">
+<!-- ═══ HERO BOTTOM BLOCK: LOGOS + STATS ═══ -->
+<div class="hero-bottom-block">
 
-      <!-- SIEMENS ENERGY logo SVG -->
-      <div style="flex:1;min-width:100px;display:flex;align-items:center;justify-content:center;padding:8px 12px;opacity:0.5;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.5'" title="Siemens Energy">
-        <svg height="32" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Row 1: Logo strip -->
+  <div class="hbb-logos-wrap">
+    <span class="hbb-eyebrow">FIELD EXPERIENCE ACROSS SIEMENS &amp; GE SYSTEMS <span class="hbb-eyebrow-dot">·</span> Offshore · Power Plants · EPC Projects</span>
+    <div class="hbb-logos">
+
+      <div class="hbb-logo-item" title="Siemens Energy">
+        <svg height="30" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
           <text x="0" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="1" fill="white">SIEMENS</text>
-          <text x="0" y="38" font-family="Arial,sans-serif" font-weight="400" font-size="12" letter-spacing="3" fill="rgba(255,255,255,0.7)">ENERGY</text>
+          <text x="0" y="38" font-family="Arial,sans-serif" font-weight="400" font-size="12" letter-spacing="3" fill="rgba(255,255,255,0.75)">ENERGY</text>
         </svg>
       </div>
 
-      <span style="width:1px;height:30px;background:rgba(255,255,255,0.12);flex-shrink:0;"></span>
+      <span class="hbb-sep"></span>
 
-      <!-- GE logo SVG -->
-      <div style="flex:1;min-width:80px;display:flex;align-items:center;justify-content:center;padding:8px 12px;opacity:0.5;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.5'" title="GE Power">
-        <svg height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <div class="hbb-logo-item" title="GE Power">
+        <svg height="30" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="14" fill="none" stroke="white" stroke-width="2"/>
           <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-weight="700" font-size="13" fill="white">GE</text>
         </svg>
       </div>
 
-      <span style="width:1px;height:30px;background:rgba(255,255,255,0.12);flex-shrink:0;"></span>
+      <span class="hbb-sep"></span>
 
-      <!-- VARD -->
-      <div style="flex:1;min-width:80px;display:flex;align-items:center;justify-content:center;padding:8px 12px;opacity:0.5;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.5'" title="VARD">
-        <svg height="28" viewBox="0 0 88 32" xmlns="http://www.w3.org/2000/svg">
+      <div class="hbb-logo-item" title="VARD">
+        <svg height="26" viewBox="0 0 88 32" xmlns="http://www.w3.org/2000/svg">
           <text x="0" y="26" font-family="Arial,sans-serif" font-weight="800" font-size="26" letter-spacing="2" fill="white">VARD</text>
         </svg>
       </div>
 
-      <span style="width:1px;height:30px;background:rgba(255,255,255,0.12);flex-shrink:0;"></span>
+      <span class="hbb-sep"></span>
 
-      <!-- VIETSOVPETRO -->
-      <div style="flex:1;min-width:130px;display:flex;align-items:center;justify-content:center;padding:8px 12px;opacity:0.5;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.5'" title="Vietsovpetro">
-        <svg height="28" viewBox="0 0 168 32" xmlns="http://www.w3.org/2000/svg">
+      <div class="hbb-logo-item" title="Vietsovpetro">
+        <svg height="26" viewBox="0 0 168 32" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="2" width="26" height="26" rx="2" fill="none" stroke="white" stroke-width="2"/>
           <text x="13" y="20" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="white">VSP</text>
           <text x="34" y="22" font-family="Arial,sans-serif" font-weight="600" font-size="13" letter-spacing="0.5" fill="white">VIETSOVPETRO</text>
         </svg>
       </div>
 
-      <span style="width:1px;height:30px;background:rgba(255,255,255,0.12);flex-shrink:0;"></span>
+      <span class="hbb-sep"></span>
 
-      <!-- SEAONICS -->
-      <div style="flex:1;min-width:110px;display:flex;align-items:center;justify-content:center;padding:8px 12px;opacity:0.5;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.5'" title="Seaonics">
-        <svg height="26" viewBox="0 0 112 30" xmlns="http://www.w3.org/2000/svg">
+      <div class="hbb-logo-item" title="Seaonics">
+        <svg height="24" viewBox="0 0 112 30" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 16 Q7 7 12 16 Q17 25 22 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
           <text x="28" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="14" letter-spacing="1" fill="white">SEAONICS</text>
         </svg>
@@ -468,62 +467,406 @@
 
     </div>
   </div>
-</div>
 
-<!-- METRICS BAR -->
-<section class="metrics-bar">
-  <div class="metrics-bar-inner">
+  <!-- Divider line -->
+  <div class="hbb-divider"></div>
 
-    <div class="metric-item">
-      <div class="metric-num">25<span class="metric-sup">+</span></div>
-      <div class="metric-label">Years E&amp;I Field Experience</div>
+  <!-- Row 2: Stats -->
+  <div class="hbb-stats">
+
+    <div class="hbb-stat">
+      <div class="hbb-stat-num">25<sup>+</sup></div>
+      <div class="hbb-stat-label">Years E&amp;I Field Experience</div>
     </div>
 
-    <div class="metric-divider"></div>
+    <span class="hbb-stat-sep"></span>
 
-    <div class="metric-item">
-      <div class="metric-num">15<span class="metric-sup">+</span></div>
-      <div class="metric-label">Major Projects Delivered</div>
+    <div class="hbb-stat">
+      <div class="hbb-stat-num">15<sup>+</sup></div>
+      <div class="hbb-stat-label">Major Projects Delivered</div>
     </div>
 
-    <div class="metric-divider"></div>
+    <span class="hbb-stat-sep"></span>
 
-    <div class="metric-item">
-      <div class="metric-num">60K<span class="metric-sup">+</span></div>
-      <div class="metric-label">Terminations · Zero Defects</div>
+    <div class="hbb-stat">
+      <div class="hbb-stat-num">60K<sup>+</sup></div>
+      <div class="hbb-stat-label">Terminations · Zero Defects</div>
     </div>
 
-    <div class="metric-divider"></div>
+    <span class="hbb-stat-sep"></span>
 
-    <div class="metric-item">
-      <div class="metric-num">0</div>
-      <div class="metric-label">Critical Failures at Handover</div>
+    <div class="hbb-stat hbb-stat-zero">
+      <div class="hbb-stat-num">0</div>
+      <div class="hbb-stat-label">Critical Failures at Handover</div>
     </div>
 
-    <div class="metric-divider"></div>
+    <span class="hbb-stat-sep"></span>
 
-    <div class="metric-item">
-      <div class="metric-num">100<span class="metric-sup">%</span></div>
-      <div class="metric-label">First-Time Handover Acceptance</div>
+    <div class="hbb-stat">
+      <div class="hbb-stat-num">100<sup>%</sup></div>
+      <div class="hbb-stat-label">First-Time Handover Acceptance</div>
     </div>
 
   </div>
-</section>
 
-<!-- LEAD MAGNET BANNER -->
-<div class="lead-magnet-banner fade-in">
-  <div class="lead-magnet-inner">
-    <div class="lead-magnet-icon">📄</div>
-    <div class="lead-magnet-text">
-      <div class="lead-magnet-title">Company Profile 2026 — Free Download</div>
-      <div class="lead-magnet-sub">Full service offering · Project history · Technical credentials · AI-Punch™ platform · 12 pages · Print ready</div>
+  <!-- Row 3: PDF download banner -->
+  <div class="hbb-pdf-banner">
+    <div class="hbb-pdf-icon">
+      <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1H3C1.9 1 1 1.9 1 3V21C1 22.1 1.9 23 3 23H17C18.1 23 19 22.1 19 21V8L12 1Z" stroke="rgba(201,162,39,0.7)" stroke-width="1.5" fill="none"/>
+        <path d="M12 1V8H19" stroke="rgba(201,162,39,0.7)" stroke-width="1.5" fill="none"/>
+        <line x1="6" y1="13" x2="14" y2="13" stroke="rgba(201,162,39,0.5)" stroke-width="1.2"/>
+        <line x1="6" y1="16.5" x2="14" y2="16.5" stroke="rgba(201,162,39,0.5)" stroke-width="1.2"/>
+        <line x1="6" y1="10" x2="10" y2="10" stroke="rgba(201,162,39,0.5)" stroke-width="1.2"/>
+      </svg>
     </div>
-    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="lead-magnet-btn"
-       onclick="if(typeof gtag!=='undefined') gtag('event','capability_download',{event_category:'lead',event_label:'banner'});">
-      ⬇ Download PDF
+    <div class="hbb-pdf-text">
+      <div class="hbb-pdf-title">Company Profile 2026 — Free Download</div>
+      <div class="hbb-pdf-sub">Full service offering · Project history · Technical credentials · AI-Punch™ platform · 12 pages · Print ready</div>
+    </div>
+    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="hbb-pdf-btn"
+       onclick="if(typeof gtag!=='undefined') gtag('event','capability_download',{event_category:'lead',event_label:'hero_bottom'});">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex-shrink:0"><path d="M6.5 1v8M3 6.5l3.5 3.5 3.5-3.5M1 12h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download PDF
     </a>
   </div>
+
 </div>
+<!-- ═══ END HERO BOTTOM BLOCK ═══ -->
+
+<!-- WHY EPC CONTRACTORS BRING US IN + WHAT WE DO — moved above client trust strip -->
+<section id="why-epc" style="background: var(--navy); padding: 0;">
+  <div class="quick-quote-wrap fade-in">
+    <div class="qq-inner">
+      <!-- WHY EPC CONTRACTORS BRING US IN -->
+      <div class="why-us-block fade-in">
+        <div class="section-label" style="text-align:center;margin-bottom:14px;">// Why EPC Contractors Bring Us In</div>
+        <h2 class="why-us-title">WHY EPC CONTRACTORS <span class="gold">BRING US IN</span></h2>
+        <p class="why-us-sub">When deadlines are tight, systems are complex, and failure is not an option — we are brought in to make commissioning predictable.</p>
+
+        <div class="why-epc-grid">
+
+          <div class="why-epc-card">
+            <div class="why-epc-num">01</div>
+            <div class="why-epc-icon">⚠</div>
+            <h3 class="why-epc-title">When rework risk is unacceptable</h3>
+            <p class="why-epc-desc">E&amp;I defects at commissioning stage can trigger costly rework, delays, and contract disputes. We eliminate defects before handover — not after.</p>
+          </div>
+
+          <div class="why-epc-card">
+            <div class="why-epc-num">02</div>
+            <div class="why-epc-icon">⏱</div>
+            <h3 class="why-epc-title">When schedule pressure is critical</h3>
+            <p class="why-epc-desc">Every delay day can cost tens of thousands. We structure commissioning to meet deadlines without last-minute surprises.</p>
+          </div>
+
+          <div class="why-epc-card">
+            <div class="why-epc-num">03</div>
+            <div class="why-epc-icon">⚙</div>
+            <h3 class="why-epc-title">When systems are complex and integrated</h3>
+            <p class="why-epc-desc">From DCS to field instruments, integration failures are common. We ensure systems work together — not just individually.</p>
+          </div>
+
+          <div class="why-epc-card">
+            <div class="why-epc-num">04</div>
+            <div class="why-epc-icon">✔</div>
+            <h3 class="why-epc-title">When accountability matters</h3>
+            <p class="why-epc-desc">We tie our performance to project outcomes. Clear scope, measurable results, and no ambiguity at handover.</p>
+          </div>
+
+        </div><!-- /why-epc-grid -->
+
+        <div class="why-epc-strong-line">
+          We are not here to "support commissioning".<br>
+          We are here to ensure it works — <span class="gold">the first time.</span>
+        </div>
+
+        <div style="text-align:center;margin-top:32px;">
+          <a href="#contact" class="why-epc-cta">Discuss Your Project →</a>
+        </div>
+      </div>
+
+      <!-- WHAT WE DO — E&I Commissioning Scope -->
+      <div class="why-us-divider"></div>
+      <div class="fade-in scope-header">
+        <div class="section-label" style="text-align:center;margin-bottom:14px;">// What We Do</div>
+        <h2 class="scope-heading">E&amp;I COMMISSIONING SCOPE —<br><span class="gold">CLEAR, STRUCTURED, ACCOUNTABLE</span></h2>
+        <p class="scope-sub">From pre-commissioning to final handover, we take responsibility for making electrical and instrumentation systems fully operational — safely, reliably, and without rework.</p>
+      </div>
+
+      <!-- 5 service blocks — stepped layout -->
+      <div class="scope-list">
+
+        <div class="scope-card fade-in">
+          <div class="scope-step">01</div>
+          <div class="scope-body">
+            <h3 class="scope-title">Pre-Commissioning Preparation</h3>
+            <p class="scope-desc">Loop checks, cable testing, instrument calibration, and documentation review — ensuring every component is ready before energization.</p>
+            <div class="scope-tags">
+              <span class="scope-tag">Loop checking</span>
+              <span class="scope-tag">Megger testing</span>
+              <span class="scope-tag">Calibration records</span>
+              <span class="scope-tag">Document review</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scope-card fade-in">
+          <div class="scope-step">02</div>
+          <div class="scope-body">
+            <h3 class="scope-title">System Integration &amp; Functional Testing</h3>
+            <p class="scope-desc">DCS, PLC, and field instrumentation tested as a complete system — verifying signals, logic, interlocks, and control sequences.</p>
+            <div class="scope-tags">
+              <span class="scope-tag">DCS / PLC I/O verification</span>
+              <span class="scope-tag">Signal integrity checks</span>
+              <span class="scope-tag">Interlock testing</span>
+              <span class="scope-tag">Control sequence validation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scope-card fade-in">
+          <div class="scope-step">03</div>
+          <div class="scope-body">
+            <h3 class="scope-title">Energization &amp; Start-Up Support</h3>
+            <p class="scope-desc">Controlled energization procedures with full monitoring — minimizing risk during first power-up and initial operation.</p>
+            <div class="scope-tags">
+              <span class="scope-tag">Energization procedures</span>
+              <span class="scope-tag">Live monitoring</span>
+              <span class="scope-tag">MV/LV switchgear</span>
+              <span class="scope-tag">First fire support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scope-card fade-in">
+          <div class="scope-step">04</div>
+          <div class="scope-body">
+            <h3 class="scope-title">Troubleshooting &amp; Defect Elimination</h3>
+            <p class="scope-desc">Root-cause analysis and rapid resolution of issues — eliminating defects before they impact schedule or performance.</p>
+            <div class="scope-tags">
+              <span class="scope-tag">Root-cause analysis</span>
+              <span class="scope-tag">Fault isolation</span>
+              <span class="scope-tag">Rapid rectification</span>
+              <span class="scope-tag">Punch item closure</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scope-card fade-in">
+          <div class="scope-step">05</div>
+          <div class="scope-body">
+            <h3 class="scope-title">Handover &amp; Documentation</h3>
+            <p class="scope-desc">Final system verification, punch list closure, and complete documentation — ensuring smooth acceptance by client and operator.</p>
+            <div class="scope-tags">
+              <span class="scope-tag">Punch list management</span>
+              <span class="scope-tag">As-built records</span>
+              <span class="scope-tag">Test dossiers</span>
+              <span class="scope-tag">Client sign-off</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /scope-list -->
+
+      <!-- Visual support line -->
+      <div class="scope-tech-strip">
+        <span class="scope-tech-label">// Systems covered</span>
+        <div class="scope-tech-items">
+          <span>DCS</span><span class="scope-tech-dot">·</span>
+          <span>PLC</span><span class="scope-tech-dot">·</span>
+          <span>Field Instrumentation</span><span class="scope-tech-dot">·</span>
+          <span>MV/LV Systems</span><span class="scope-tech-dot">·</span>
+          <span>Turbine &amp; Balance of Plant</span>
+        </div>
+      </div>
+
+      <!-- Mini CTA -->
+      <div style="text-align:center;margin-top:32px;margin-bottom:8px;">
+        <a href="#contact" class="why-epc-cta">Get Detailed Scope for Your Project →</a>
+      </div>
+
+    </div><!-- /qq-inner -->
+  </div><!-- /quick-quote-wrap -->
+</section>
+
+
+<style>
+/* ── HERO BOTTOM BLOCK ────────────────────────────── */
+.hero-bottom-block {
+  background: linear-gradient(180deg, rgba(6,15,32,0.97) 0%, rgba(10,22,40,1) 100%);
+  border-top: 1px solid rgba(201,162,39,0.18);
+  border-bottom: 1px solid rgba(201,162,39,0.10);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Logo strip */
+.hbb-logos-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 32px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.hbb-eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9.5px;
+  color: rgba(201,162,39,0.45);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.hbb-eyebrow-dot { color: rgba(255,255,255,0.2); margin: 0 6px; }
+.hbb-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 920px;
+  gap: 4px 0;
+}
+.hbb-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  opacity: 0.45;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  cursor: default;
+}
+.hbb-logo-item:hover { opacity: 0.88; transform: translateY(-1px); }
+.hbb-sep {
+  width: 1px;
+  height: 26px;
+  background: rgba(255,255,255,0.10);
+  flex-shrink: 0;
+}
+
+/* Divider */
+.hbb-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.2) 30%, rgba(201,162,39,0.2) 70%, transparent);
+  margin: 0;
+}
+
+/* Stats row */
+.hbb-stats {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  padding: 22px 32px 20px;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.hbb-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  padding: 0 8px;
+}
+.hbb-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  color: #c9a227;
+  letter-spacing: 1px;
+}
+.hbb-stat-num sup {
+  font-size: 18px;
+  vertical-align: super;
+  line-height: 0;
+  letter-spacing: 0;
+}
+.hbb-stat-zero .hbb-stat-num { color: #e8f0ff; }
+.hbb-stat-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(200,215,245,0.55);
+  text-align: center;
+  line-height: 1.35;
+}
+.hbb-stat-sep {
+  width: 1px;
+  background: rgba(255,255,255,0.08);
+  align-self: stretch;
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+/* PDF banner */
+.hbb-pdf-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 32px;
+  background: rgba(201,162,39,0.055);
+}
+.hbb-pdf-icon { flex-shrink: 0; opacity: 0.8; }
+.hbb-pdf-text { flex: 1; min-width: 0; }
+.hbb-pdf-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(240,244,255,0.92);
+  letter-spacing: 0.3px;
+}
+.hbb-pdf-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: rgba(200,215,245,0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hbb-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 10px 22px;
+  background: #c9a227;
+  color: #0a1628;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.15s;
+}
+.hbb-pdf-btn:hover { background: #e0b72e; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────── */
+@media (max-width: 860px) {
+  .hbb-logos-wrap { padding: 14px 20px 10px; }
+  .hbb-logo-item { padding: 5px 10px; }
+  .hbb-stats { padding: 16px 12px 14px; flex-wrap: wrap; gap: 12px 0; }
+  .hbb-stat { min-width: 33%; }
+  .hbb-stat-sep { display: none; }
+  .hbb-stat-num { font-size: 32px; }
+  .hbb-pdf-banner { flex-wrap: wrap; gap: 10px; padding: 12px 20px; }
+  .hbb-pdf-sub { display: none; }
+  .hbb-pdf-btn { width: 100%; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .hbb-stat { min-width: 48%; }
+  .hbb-eyebrow { font-size: 8px; letter-spacing: 1.5px; }
+}
+</style>
+
+
 
 <!-- WHY WE BUILT SONIC AI PUNCH -->
 <section class="why-sonic-section fade-in" id="purpose">
@@ -1230,156 +1573,6 @@
 <section id="quote" style="background: var(--navy); padding: 0;">
   <div class="quick-quote-wrap fade-in">
     <div class="qq-inner">
-      <!-- WHY EPC CONTRACTORS BRING US IN -->
-      <div class="why-us-block fade-in">
-        <div class="section-label" style="text-align:center;margin-bottom:14px;">// Why EPC Contractors Bring Us In</div>
-        <h2 class="why-us-title">WHY EPC CONTRACTORS <span class="gold">BRING US IN</span></h2>
-        <p class="why-us-sub">When deadlines are tight, systems are complex, and failure is not an option — we are brought in to make commissioning predictable.</p>
-
-        <div class="why-epc-grid">
-
-          <div class="why-epc-card">
-            <div class="why-epc-num">01</div>
-            <div class="why-epc-icon">⚠</div>
-            <h3 class="why-epc-title">When rework risk is unacceptable</h3>
-            <p class="why-epc-desc">E&amp;I defects at commissioning stage can trigger costly rework, delays, and contract disputes. We eliminate defects before handover — not after.</p>
-          </div>
-
-          <div class="why-epc-card">
-            <div class="why-epc-num">02</div>
-            <div class="why-epc-icon">⏱</div>
-            <h3 class="why-epc-title">When schedule pressure is critical</h3>
-            <p class="why-epc-desc">Every delay day can cost tens of thousands. We structure commissioning to meet deadlines without last-minute surprises.</p>
-          </div>
-
-          <div class="why-epc-card">
-            <div class="why-epc-num">03</div>
-            <div class="why-epc-icon">⚙</div>
-            <h3 class="why-epc-title">When systems are complex and integrated</h3>
-            <p class="why-epc-desc">From DCS to field instruments, integration failures are common. We ensure systems work together — not just individually.</p>
-          </div>
-
-          <div class="why-epc-card">
-            <div class="why-epc-num">04</div>
-            <div class="why-epc-icon">✔</div>
-            <h3 class="why-epc-title">When accountability matters</h3>
-            <p class="why-epc-desc">We tie our performance to project outcomes. Clear scope, measurable results, and no ambiguity at handover.</p>
-          </div>
-
-        </div><!-- /why-epc-grid -->
-
-        <div class="why-epc-strong-line">
-          We are not here to "support commissioning".<br>
-          We are here to ensure it works — <span class="gold">the first time.</span>
-        </div>
-
-        <div style="text-align:center;margin-top:32px;">
-          <a href="#contact" class="why-epc-cta">Discuss Your Project →</a>
-        </div>
-      </div>
-
-      <!-- WHAT WE DO — E&I Commissioning Scope -->
-      <div class="why-us-divider"></div>
-      <div class="fade-in scope-header">
-        <div class="section-label" style="text-align:center;margin-bottom:14px;">// What We Do</div>
-        <h2 class="scope-heading">E&amp;I COMMISSIONING SCOPE —<br><span class="gold">CLEAR, STRUCTURED, ACCOUNTABLE</span></h2>
-        <p class="scope-sub">From pre-commissioning to final handover, we take responsibility for making electrical and instrumentation systems fully operational — safely, reliably, and without rework.</p>
-      </div>
-
-      <!-- 5 service blocks — stepped layout -->
-      <div class="scope-list">
-
-        <div class="scope-card fade-in">
-          <div class="scope-step">01</div>
-          <div class="scope-body">
-            <h3 class="scope-title">Pre-Commissioning Preparation</h3>
-            <p class="scope-desc">Loop checks, cable testing, instrument calibration, and documentation review — ensuring every component is ready before energization.</p>
-            <div class="scope-tags">
-              <span class="scope-tag">Loop checking</span>
-              <span class="scope-tag">Megger testing</span>
-              <span class="scope-tag">Calibration records</span>
-              <span class="scope-tag">Document review</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="scope-card fade-in">
-          <div class="scope-step">02</div>
-          <div class="scope-body">
-            <h3 class="scope-title">System Integration &amp; Functional Testing</h3>
-            <p class="scope-desc">DCS, PLC, and field instrumentation tested as a complete system — verifying signals, logic, interlocks, and control sequences.</p>
-            <div class="scope-tags">
-              <span class="scope-tag">DCS / PLC I/O verification</span>
-              <span class="scope-tag">Signal integrity checks</span>
-              <span class="scope-tag">Interlock testing</span>
-              <span class="scope-tag">Control sequence validation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="scope-card fade-in">
-          <div class="scope-step">03</div>
-          <div class="scope-body">
-            <h3 class="scope-title">Energization &amp; Start-Up Support</h3>
-            <p class="scope-desc">Controlled energization procedures with full monitoring — minimizing risk during first power-up and initial operation.</p>
-            <div class="scope-tags">
-              <span class="scope-tag">Energization procedures</span>
-              <span class="scope-tag">Live monitoring</span>
-              <span class="scope-tag">MV/LV switchgear</span>
-              <span class="scope-tag">First fire support</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="scope-card fade-in">
-          <div class="scope-step">04</div>
-          <div class="scope-body">
-            <h3 class="scope-title">Troubleshooting &amp; Defect Elimination</h3>
-            <p class="scope-desc">Root-cause analysis and rapid resolution of issues — eliminating defects before they impact schedule or performance.</p>
-            <div class="scope-tags">
-              <span class="scope-tag">Root-cause analysis</span>
-              <span class="scope-tag">Fault isolation</span>
-              <span class="scope-tag">Rapid rectification</span>
-              <span class="scope-tag">Punch item closure</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="scope-card fade-in">
-          <div class="scope-step">05</div>
-          <div class="scope-body">
-            <h3 class="scope-title">Handover &amp; Documentation</h3>
-            <p class="scope-desc">Final system verification, punch list closure, and complete documentation — ensuring smooth acceptance by client and operator.</p>
-            <div class="scope-tags">
-              <span class="scope-tag">Punch list management</span>
-              <span class="scope-tag">As-built records</span>
-              <span class="scope-tag">Test dossiers</span>
-              <span class="scope-tag">Client sign-off</span>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /scope-list -->
-
-      <!-- Visual support line -->
-      <div class="scope-tech-strip">
-        <span class="scope-tech-label">// Systems covered</span>
-        <div class="scope-tech-items">
-          <span>DCS</span><span class="scope-tech-dot">·</span>
-          <span>PLC</span><span class="scope-tech-dot">·</span>
-          <span>Field Instrumentation</span><span class="scope-tech-dot">·</span>
-          <span>MV/LV Systems</span><span class="scope-tech-dot">·</span>
-          <span>Turbine &amp; Balance of Plant</span>
-        </div>
-      </div>
-
-      <!-- Mini CTA -->
-      <div style="text-align:center;margin-top:32px;margin-bottom:8px;">
-        <a href="#contact" class="why-epc-cta">Get Detailed Scope for Your Project →</a>
-      </div>
-
-      <div class="why-us-divider" style="margin-top:48px;"></div>
-
       <div class="qq-header">
         <div class="section-label" style="text-align:center;">// Technical Consultation</div>
         <h2 class="qq-title">DISCUSS YOUR E&amp;I PROJECT <span class="gold">WITH AN ENGINEER</span></h2>
@@ -1449,52 +1642,52 @@
   <div class="clients-marquee-wrap">
     <div class="clients-marquee-track">
       <div class="client-logo-item">
-        <img src="assets/images/img_15.png" alt="Siemens Energy" title="Siemens Energy">
+        <img loading="lazy" src="assets/images/img_15.png" alt="Siemens Energy" title="Siemens Energy">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_16.png" alt="GE" title="GE">
+        <img loading="lazy" src="assets/images/img_16.png" alt="GE" title="GE">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_17.png" alt="VARD · Fincantieri" title="VARD · Fincantieri">
+        <img loading="lazy" src="assets/images/img_17.png" alt="VARD · Fincantieri" title="VARD · Fincantieri">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_18.png" alt="Seaonics" title="Seaonics">
+        <img loading="lazy" src="assets/images/img_18.png" alt="Seaonics" title="Seaonics">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_19.png" alt="Vietsovpetro" title="Vietsovpetro">
+        <img loading="lazy" src="assets/images/img_19.png" alt="Vietsovpetro" title="Vietsovpetro">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_20.png" alt="PetroVietnam Power" title="PetroVietnam Power">
+        <img loading="lazy" src="assets/images/img_20.png" alt="PetroVietnam Power" title="PetroVietnam Power">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_21.png" alt="EVN Genco3" title="EVN Genco3">
+        <img loading="lazy" src="assets/images/img_21.png" alt="EVN Genco3" title="EVN Genco3">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_22.png" alt="BIWASE" title="BIWASE">
+        <img loading="lazy" src="assets/images/img_22.png" alt="BIWASE" title="BIWASE">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_23.png" alt="Siemens Energy" title="Siemens Energy">
+        <img loading="lazy" src="assets/images/img_23.png" alt="Siemens Energy" title="Siemens Energy">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_24.png" alt="GE" title="GE">
+        <img loading="lazy" src="assets/images/img_24.png" alt="GE" title="GE">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_25.png" alt="VARD · Fincantieri" title="VARD · Fincantieri">
+        <img loading="lazy" src="assets/images/img_25.png" alt="VARD · Fincantieri" title="VARD · Fincantieri">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_26.png" alt="Seaonics" title="Seaonics">
+        <img loading="lazy" src="assets/images/img_26.png" alt="Seaonics" title="Seaonics">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_27.png" alt="Vietsovpetro" title="Vietsovpetro">
+        <img loading="lazy" src="assets/images/img_27.png" alt="Vietsovpetro" title="Vietsovpetro">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_28.png" alt="PetroVietnam Power" title="PetroVietnam Power">
+        <img loading="lazy" src="assets/images/img_28.png" alt="PetroVietnam Power" title="PetroVietnam Power">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_29.png" alt="EVN Genco3" title="EVN Genco3">
+        <img loading="lazy" src="assets/images/img_29.png" alt="EVN Genco3" title="EVN Genco3">
       </div>
       <div class="client-logo-item">
-        <img src="assets/images/img_30.png" alt="BIWASE" title="BIWASE">
+        <img loading="lazy" src="assets/images/img_30.png" alt="BIWASE" title="BIWASE">
       </div>
     </div>
   </div>
@@ -1776,14 +1969,14 @@
   <!-- Academy Photo Gallery -->
   <div class="academy-photos fade-in">
     <div class="academy-photo-item">
-      <img src="assets/images/img_31.jpg" alt="SONIC Academy — Classroom Training">
+      <img loading="lazy" src="assets/images/img_31.jpg" alt="SONIC Academy — Classroom Training">
       <div class="academy-photo-caption">
         <span class="academy-photo-tag">// Classroom Training</span>
         <div class="academy-photo-title">E&I Technical Diagrams & AI-Punch™ Integration</div>
       </div>
     </div>
     <div class="academy-photo-item">
-      <img src="assets/images/img_32.jpg" alt="SONIC Academy — On-site Training">
+      <img loading="lazy" src="assets/images/img_32.jpg" alt="SONIC Academy — On-site Training">
       <div class="academy-photo-caption">
         <span class="academy-photo-tag">// On-site Training</span>
         <div class="academy-photo-title">Hands-on Gas Turbine Field Instruction</div>
@@ -2385,7 +2578,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px;">
-    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" style="height:56px;width:auto;object-fit:contain;display:block;">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" width="56" height="56" style="height:56px;width:auto;object-fit:contain;display:block;">
     <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap;">SONIC <span style="color:#ffffff;">E&amp;I</span> SOLUTIONS</span>
   </div>
   <div class="footer-motto">"Right the first time — Every time"</div>
