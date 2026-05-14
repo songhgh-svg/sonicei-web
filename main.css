@@ -2324,7 +2324,7 @@
     padding: 14px 0;
     border-bottom: 1px solid rgba(255,255,255,0.07);
     font-family: 'Rajdhani', sans-serif;
-    font-size: 18px; color: rgba(255,255,255,0.75);
+    font-size: 22px; color: rgba(255,255,255,0.75);
     line-height: 1.65;
   }
   .vision-values li:last-child { border-bottom: none; }
@@ -2339,6 +2339,7 @@
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
     .vision-card-title { font-size: 24px; }
+    .vision-values li { font-size: 18px; }
   }
 
 
