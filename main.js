@@ -442,16 +442,133 @@ function openZalo(e) {
 }
 
 
-/* ── 10. VIDEO CLICK-TO-PLAY ── */
+/* ── 10. AI-PUNCH™ DEMO (phone mockup steps) ── */
+(function () {
+  var currentStep = 0;
+  var totalSteps  = 6;
+  var scanTimer   = null;
+
+  function updateProgressBars(step) {
+    for (var i = 1; i <= totalSteps; i++) {
+      var bar = document.getElementById('sbar' + i);
+      if (bar) bar.style.background = i <= step
+        ? '#c9a227'
+        : 'rgba(201,162,39,0.15)';
+    }
+    var badge = document.getElementById('demoStepBadge');
+    if (badge) badge.textContent = 'STEP ' + step + ' / ' + totalSteps;
+  }
+
+  function showStep(idx) {
+    for (var i = 0; i < totalSteps; i++) {
+      var el = document.getElementById('demoStep' + i);
+      if (el) { el.style.display = 'none'; el.style.animation = 'none'; }
+    }
+    var target = document.getElementById('demoStep' + idx);
+    if (target) {
+      target.style.display = 'block';
+      void target.offsetWidth;
+      target.style.animation = 'fadeUp 0.35s both';
+    }
+    var screen = document.getElementById('demoScreen');
+    if (screen) screen.scrollTop = 0;
+    updateProgressBars(idx + 1);
+  }
+
+  function runScanAnimation(onComplete) {
+    var fill       = document.getElementById('progressFill');
+    var text       = document.getElementById('progressText');
+    var statusText = document.getElementById('scanStatusText');
+    var stages = [
+      { pct: 18,  status: 'AI đang quét tổng quát...',   label: 'Initializing Gemini AI...' },
+      { pct: 35,  status: 'Phân tích cấu trúc dây...',   label: 'Analyzing wiring structure...' },
+      { pct: 52,  status: 'Kiểm tra tiêu chuẩn IEC...',  label: 'Checking IEC standards...' },
+      { pct: 68,  status: 'So sánh với Siemens TI...',   label: 'Cross-referencing Siemens TI...' },
+      { pct: 84,  status: 'Phát hiện bất thường...',     label: 'Detecting anomalies...' },
+      { pct: 100, status: 'Phân tích hoàn tất ✓',        label: 'Analysis complete — defect found' }
+    ];
+    var i = 0;
+    if (scanTimer) clearInterval(scanTimer);
+    scanTimer = setInterval(function () {
+      if (i >= stages.length) {
+        clearInterval(scanTimer);
+        setTimeout(onComplete, 600);
+        return;
+      }
+      var s = stages[i];
+      if (fill)       fill.style.width       = s.pct + '%';
+      if (text)       text.textContent       = s.label;
+      if (statusText) statusText.textContent = s.status;
+      i++;
+    }, 420);
+  }
+
+  window.demoNext = function () {
+    if (currentStep === 0) {
+      currentStep = 1;
+      showStep(1);
+      runScanAnimation(function () {
+        currentStep = 2;
+        showStep(2);
+      });
+    } else {
+      currentStep = Math.min(currentStep + 1, totalSteps - 1);
+      showStep(currentStep);
+    }
+  };
+
+  window.resetDemo = function () {
+    if (scanTimer) clearInterval(scanTimer);
+    currentStep = 0;
+    showStep(0);
+    var fill       = document.getElementById('progressFill');
+    var text       = document.getElementById('progressText');
+    var statusText = document.getElementById('scanStatusText');
+    if (fill)       fill.style.width       = '0%';
+    if (text)       text.textContent       = 'Initializing Gemini AI...';
+    if (statusText) statusText.textContent = 'AI đang quét tổng quát...';
+  };
+})();
+
+
+/* ── 11. VIDEO CLICK-TO-PLAY ── */
 function svPlay(frameId) {
   var frame = document.getElementById(frameId);
   if (!frame) return;
   var video = document.getElementById(frameId + '-video');
-  if (video) {
-    video.style.display = 'block';
-    video.play();
-  }
+  if (!video) return;
+
+  // Hide the thumbnail/overlay UI
   frame.classList.add('sv-playing');
+
+  // Show video element and attempt play directly
+  video.style.display = 'block';
+  video.load(); // force reload source in case browser cached a failed state
+
+  var playAttempt = video.play();
+  if (playAttempt !== undefined) {
+    playAttempt.catch(function(err) {
+      console.warn('svPlay error:', err);
+      // Autoplay policy blocked — video is visible with controls, user can press play
+    });
+  }
+
+  // If file genuinely missing/broken, show a clean error overlay
+  video.addEventListener('error', function onErr() {
+    video.removeEventListener('error', onErr);
+    video.style.display = 'none';
+    frame.classList.remove('sv-playing');
+    if (frame.querySelector('.sv-missing-notice')) return;
+    var n = document.createElement('div');
+    n.className = 'sv-missing-notice';
+    n.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(8,16,40,0.92);z-index:10;font-family:"Share Tech Mono",monospace;text-align:center;padding:24px;';
+    n.innerHTML = '<div style="font-size:28px">🎬</div>'
+      + '<div style="font-size:11px;color:#c9a227;letter-spacing:2px;text-transform:uppercase;">Video Not Found</div>'
+      + '<div style="font-size:10px;color:rgba(136,153,187,0.7);letter-spacing:1px;line-height:1.7;max-width:240px;">Check that <code style="color:#60a5fa">AI Platform LIVE.mp4</code> is in the <code style="color:#60a5fa">/videos/</code> folder on your server.</div>'
+      + '<button onclick="this.parentElement.remove()" style="margin-top:8px;padding:6px 18px;background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.4);color:#c9a227;font-family:inherit;font-size:10px;letter-spacing:1.5px;cursor:pointer;border-radius:4px;">CLOSE</button>';
+    frame.style.position = 'relative';
+    frame.appendChild(n);
+  }, { once: true });
 }
 
 
