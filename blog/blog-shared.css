@@ -1,0 +1,315 @@
+/*
+ * ═══════════════════════════════════════════════════════
+ *  blog-shared.css — SONIC E&I Solutions
+ *  Shared stylesheet for all blog post pages (/blog/*)
+ *
+ *  Usage: add to every blog post <head>:
+ *  <link rel="stylesheet" href="/blog/blog-shared.css">
+ *
+ *  Fonts (also add to <head> if not already present):
+ *  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue
+ *    &family=Be+Vietnam+Pro:wght@300;400;500;600;700
+ *    &family=Rajdhani:wght@400;500;600;700
+ *    &family=Share+Tech+Mono&display=swap" rel="stylesheet">
+ * ═══════════════════════════════════════════════════════
+ */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --navy:          #0a1628;
+  --navy-mid:      #112040;
+  --gold:          #c9a227;
+  --gold-light:    #e8c347;
+  --gold-dim:      rgba(201,162,39,0.15);
+  --gold-border:   rgba(201,162,39,0.3);
+  --white:         #f0f4ff;
+  --gray:          #8899bb;
+  --line:          rgba(136,153,187,0.18);
+  --purple:        #8b6fff;
+  --purple-dim:    rgba(139,111,255,0.12);
+  --purple-border: rgba(139,111,255,0.3);
+  --blue:          #3a8fd4;
+  --blue-dim:      rgba(58,143,212,0.12);
+  --blue-border:   rgba(58,143,212,0.3);
+  --green:         #2ecc71;
+  --green-dim:     rgba(46,204,113,0.12);
+  --green-border:  rgba(46,204,113,0.3);
+  --red:           #dc3c3c;
+  --red-dim:       rgba(220,60,60,0.12);
+  --red-border:    rgba(220,60,60,0.3);
+}
+
+/* ── BASE ── */
+html { scroll-behavior: smooth; }
+
+body {
+  background:   var(--navy);
+  color:        var(--white);
+  font-family:  'Rajdhani', sans-serif;
+  font-weight:  400;
+  font-size:    17px;
+  line-height:  1.75;
+  min-height:   100vh;
+  overflow-x:   hidden;
+}
+
+/* ── NAVIGATION ── */
+.blog-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  height: 64px;
+  background: rgba(10,22,40,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.blog-nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.blog-nav-logo img { height: 36px; width: auto; object-fit: contain; }
+.blog-nav-logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: 3px;
+  color: var(--gold);
+}
+.blog-nav-logo-text span { color: var(--white); }
+.blog-nav-right { display: flex; align-items: center; gap: 24px; }
+.blog-nav-back {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color 0.2s;
+}
+.blog-nav-back:hover { color: var(--gold); }
+.blog-nav-cta {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--navy); background: var(--gold);
+  padding: 8px 20px; text-decoration: none;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+}
+.blog-nav-cta:hover { opacity: 0.88; }
+
+/* ── ARTICLE HEADER ── */
+.post-header {
+  padding: 80px 48px 56px;
+  max-width: 860px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.post-label {
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.post-meta {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 24px; flex-wrap: wrap;
+}
+.post-tag {
+  font-family: 'Share Tech Mono', monospace; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px;
+}
+.post-tag.gold   { color: var(--gold);   background: var(--gold-dim);   border: 1px solid var(--gold-border); }
+.post-tag.purple { color: var(--purple); background: var(--purple-dim); border: 1px solid var(--purple-border); }
+.post-tag.blue   { color: var(--blue);   background: var(--blue-dim);   border: 1px solid var(--blue-border); }
+.post-tag.green  { color: var(--green);  background: var(--green-dim);  border: 1px solid var(--green-border); }
+.post-tag.red    { color: var(--red);    background: var(--red-dim);    border: 1px solid var(--red-border); }
+.post-date {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  letter-spacing: 1.5px; color: var(--gray);
+}
+.post-header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: 2px; color: var(--white);
+  line-height: 1.05; margin-bottom: 24px;
+}
+.post-intro {
+  font-size: 19px; color: var(--gray);
+  line-height: 1.8; max-width: 680px;
+}
+
+/* ── ARTICLE BODY ── */
+.post-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 48px 96px;
+}
+
+/* Headings */
+.post-body h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 2px; color: var(--white);
+  line-height: 1.1; margin: 56px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.post-body h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin: 36px 0 14px;
+}
+.post-body h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--white); margin: 28px 0 10px;
+}
+
+/* Paragraphs */
+.post-body p {
+  font-size: 17px;
+  color: var(--gray);
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+
+/* Strong / emphasis */
+.post-body strong { color: var(--white); font-weight: 600; }
+.post-body em     { color: var(--gold-light); font-style: normal; }
+
+/* Lists */
+.post-body ul,
+.post-body ol {
+  margin: 0 0 24px 20px;
+  color: var(--gray);
+  font-size: 17px;
+  line-height: 1.85;
+}
+.post-body li { margin-bottom: 8px; }
+.post-body li::marker { color: var(--gold); }
+
+/* Blockquote */
+.post-body blockquote {
+  margin: 36px 0;
+  padding: 24px 32px;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-dim);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px; font-weight: 600;
+  color: var(--white); line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+/* Callout / highlight box */
+.post-callout {
+  margin: 36px 0;
+  padding: 28px 32px;
+  border: 1px solid var(--gold-border);
+  background: var(--gold-dim);
+  font-size: 16px; color: var(--white); line-height: 1.8;
+}
+.post-callout-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+
+/* Inline code / mono */
+.post-body code {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px; color: var(--gold-light);
+  background: rgba(201,162,39,0.08);
+  padding: 2px 6px; border-radius: 2px;
+}
+
+/* Horizontal rule */
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 48px 0;
+}
+
+/* ── BACK LINK ── */
+.post-back {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  margin: 0 48px 48px;
+  transition: opacity 0.2s;
+}
+.post-back:hover { opacity: 0.75; }
+.post-back::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--gold); position: relative;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 48px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px; text-align: center;
+}
+.footer-logo {
+  display: flex; flex-direction: row;
+  align-items: center; justify-content: center; gap: 14px;
+}
+.footer-logo img { height: 48px; width: auto; object-fit: contain; }
+.footer-logo-text {
+  font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+  letter-spacing: 3px; color: var(--gold); white-space: nowrap;
+}
+.footer-logo-text span { color: var(--white); }
+.footer-motto {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  letter-spacing: 2px; color: var(--gray); font-style: italic;
+}
+.footer-links {
+  display: flex; align-items: center; gap: 16px;
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-links-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(138,154,181,0.4); display: inline-block;
+}
+.footer-copy {
+  font-size: 13px; color: rgba(138,154,181,0.45);
+  font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 768px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .blog-nav          { padding: 0 20px; }
+  .blog-nav-cta      { display: none; }
+  .blog-nav-logo-text { display: none; }
+
+  /* Article header */
+  .post-header { padding: 56px 20px 40px; }
+  .post-header h1 { font-size: 45px !important; line-height: 1.05 !important; }
+  .post-intro  { font-size: 22px !important; line-height: 1.75; }
+  .post-label  { font-size: 11px; }
+  .post-tag    { font-size: 12px; padding: 4px 10px; }
+  .post-date   { font-size: 14px; }
+
+  /* Article body */
+  .post-body { padding: 40px 20px 64px; }
+  .post-body h2 { font-size: 32px !important; margin: 40px 0 16px; }
+  .post-body h3 { font-size: 20px !important; }
+  .post-body h4 { font-size: 17px !important; }
+  .post-body p,
+  .post-body ul,
+  .post-body ol  { font-size: 22px !important; line-height: 1.8; }
+  .post-body blockquote { font-size: 19px; padding: 20px 20px; }
+  .post-callout  { font-size: 18px; padding: 20px 20px; }
+
+  /* Back link & footer */
+  .post-back { margin: 0 20px 40px; font-size: 13px; }
+  footer     { padding: 32px 20px; }
+}
