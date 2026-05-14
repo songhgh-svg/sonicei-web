@@ -1640,7 +1640,7 @@
     .proof-num            { font-size: 30px; }
     .proof-item           { text-align: center; }
     .hero-guarantee       { font-size: 12px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 18px !important; }
+    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 0; font-size: 18px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .ai-grid { padding: 0 !important; }
@@ -1674,7 +1674,7 @@
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
-    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: center !important; }
+    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: left !important; }
     /* AI section — riêng */
     .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
     .ai-feature p  { font-size: 16px !important; }
@@ -1889,7 +1889,7 @@
   .academy-module-v2:hover .amod-title { color: var(--gold-light); }
   .amod-num {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: rgba(201,162,39,0.4);
     padding-top: 5px;
@@ -1903,7 +1903,7 @@
   }
   .amod-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
+    font-size: 26px;
     letter-spacing: 2px;
     color: var(--white);
     margin-bottom: 6px;
@@ -1911,7 +1911,7 @@
   }
   .amod-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.5);
     line-height: 1.6;
@@ -4324,4 +4324,100 @@
   gap: 16px;
   justify-content: space-between;
   height: 100%;
+}
+
+/* ══════════════════════════════════════════
+   MOBILE TEXT ALIGNMENT FIX
+   Loại bỏ justify + căn chỉnh nhất quán
+   cho tất cả text body trên mobile
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+
+  /* Body text — luôn left, không justify */
+  .section-sub,
+  .hero-sub,
+  .why-description,
+  .supply-intro,
+  .supply-card-desc,
+  .service-card p,
+  .card p,
+  .hiw-step-desc,
+  .testimonial-text,
+  .case-study-desc,
+  .ai-feature p,
+  .module-desc,
+  .faq-a,
+  .proj-bullet,
+  .project-desc,
+  .project-outcome span,
+  .risk-text,
+  .final-push p {
+    text-align: left !important;
+  }
+
+  /* Section headers — vẫn center (đây là design intent) */
+  .section-header,
+  .section-label,
+  .section-title,
+  .divider {
+    text-align: center !important;
+  }
+
+  /* Card content — left (không center) */
+  .service-card h3,
+  .supply-card-title,
+  .supply-card-desc,
+  .card h3, .card h4,
+  .hiw-title,
+  .vision-card h3 {
+    text-align: left !important;
+  }
+
+  /* Founder card — left thay vì center khi stack */
+  .founder-card {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  /* Hero content — center là đúng cho hero */
+  .hero-content,
+  .hero-guarantee,
+  .hero-proof,
+  .proof-item,
+  .hero-cta {
+    text-align: center !important;
+  }
+
+  /* why-list items — left */
+  .why-list li,
+  .why-us-list li {
+    text-align: left !important;
+  }
+
+  /* Contact items — left */
+  .contact-item-label,
+  .contact-item-value {
+    text-align: left !important;
+  }
+
+  /* Testimonial company — left (nhất quán với author) */
+  .testimonial-company {
+    text-align: left !important;
+  }
+
+  /* qq-action-hint, qq-microtrust — left thay vì center */
+  .qq-action-hint,
+  .qq-microtrust {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Giữ nguyên case-study-title center (đã nhỏ) */
+  /* project cards — toàn left */
+  .project-outcome,
+  .project-stat-label,
+  .project-stat-num {
+    text-align: left !important;
+  }
 }
