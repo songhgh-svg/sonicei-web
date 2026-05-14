@@ -171,19 +171,19 @@
     border-bottom: 1px solid var(--line);
   }
   .blog-label {
-    font-family: 'Share Tech Mono', monospace; font-size: 11px;
+    font-family: 'Share Tech Mono', monospace; font-size: 18px;
     letter-spacing: 3px; text-transform: uppercase;
     color: var(--gold); margin-bottom: 20px;
   }
   .blog-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 8vw, 96px);
+    font-size: clamp(40px, 5vw, 64px);
     letter-spacing: 4px; color: var(--white);
     line-height: 0.92; margin-bottom: 24px;
   }
   .blog-hero h1 em { font-style: normal; color: var(--gold); }
   .blog-hero-sub {
-    font-size: 15px; color: var(--gray);
+    font-size: 22px; color: var(--gray);
     max-width: 520px; line-height: 1.8;
   }
 
@@ -194,12 +194,12 @@
     display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   }
   .filter-label {
-    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    font-family: 'Share Tech Mono', monospace; font-size: 18px;
     letter-spacing: 2px; color: var(--gray);
     text-transform: uppercase; margin-right: 4px;
   }
   .filter-btn {
-    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    font-family: 'Share Tech Mono', monospace; font-size: 18px;
     letter-spacing: 1.5px; text-transform: uppercase;
     padding: 5px 14px; border: 1px solid var(--line);
     background: transparent; color: var(--gray);
@@ -214,7 +214,7 @@
     padding: 16px 48px 0;
   }
   .stats-count {
-    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    font-family: 'Share Tech Mono', monospace; font-size: 18px;
     letter-spacing: 2px; color: rgba(138,154,181,0.5);
   }
   .stats-count span { color: var(--gold); }
@@ -247,7 +247,7 @@
 
   .card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
   .card-tag {
-    font-family: 'Share Tech Mono', monospace; font-size: 9px;
+    font-family: 'Share Tech Mono', monospace; font-size: 18px;
     letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px;
   }
   .card-tag.gold   { color: var(--gold);   background: var(--gold-dim);   border: 1px solid var(--gold-border); }
@@ -256,7 +256,7 @@
   .card-tag.green  { color: var(--green);  background: var(--green-dim);  border: 1px solid var(--green-border); }
   .card-tag.red    { color: var(--red);    background: var(--red-dim);    border: 1px solid var(--red-border); }
 
-  .card-date { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: var(--gray); }
+  .card-date { font-family: 'Rajdhani', sans-serif; font-size: 18px; letter-spacing: 1.5px; color: var(--gray); }
   .card-num {
     font-family: 'Bebas Neue', sans-serif; font-size: 64px;
     color: rgba(201,162,39,0.05); line-height: 1;
@@ -264,15 +264,15 @@
     letter-spacing: 2px; pointer-events: none;
   }
   .card-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px;
     letter-spacing: 1.5px; color: var(--white);
     line-height: 1.1; margin-bottom: 14px; transition: color 0.2s;
   }
   .blog-card:hover .card-title { color: var(--gold); }
-  .card-excerpt { font-size: 13px; color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
+  .card-excerpt { font-size: 22px; color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
   .card-read {
     display: inline-flex; align-items: center; gap: 10px;
-    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    font-family: 'Rajdhani', sans-serif; font-size: 18px;
     font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold);
   }
   .card-arrow {
@@ -293,7 +293,7 @@
   .empty-state.visible { display: block; }
   .empty-state p {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 12px; color: var(--gray); letter-spacing: 2px;
+    font-size: 18px; color: var(--gray); letter-spacing: 2px;
   }
 
   /* ── FOOTER ── */
@@ -314,12 +314,12 @@
   }
   .footer-logo-text span { color: var(--white); }
   .footer-motto {
-    font-family: 'Rajdhani', sans-serif; font-size: 13px;
+    font-family: 'Rajdhani', sans-serif; font-size: 18px;
     letter-spacing: 2px; color: var(--gray); font-style: italic;
   }
   .footer-links {
     display: flex; align-items: center; gap: 16px;
-    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    font-family: 'Rajdhani', sans-serif; font-size: 18px;
     letter-spacing: 1.5px; text-transform: uppercase;
   }
   .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
@@ -330,7 +330,7 @@
     display: inline-block;
   }
   .footer-copy {
-    font-size: 12px; color: rgba(138,154,181,0.45);
+    font-size: 18px; color: rgba(138,154,181,0.45);
     font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
   }
 
@@ -346,27 +346,17 @@
     footer { padding: 32px 20px; }
 
     /* ── MOBILE FONT SIZE FIXES ── */
-    /* Tầng 1: Hero heading */
-    .blog-hero h1  { font-size: clamp(40px, 12vw, 56px) !important; line-height: 1.0 !important; }
-    /* Tầng 2: Card title — 26px */
-    .card-title    { font-size: 26px; line-height: 1.15; }
-    /* Tầng 3: Body — 22px */
+    .card-title    { font-size: 28px; line-height: 1.15; }
     .card-excerpt  { font-size: 22px !important; line-height: 1.8; }
-    .blog-hero-sub { font-size: 22px; line-height: 1.75; text-align: left; }
-    /* Tầng phụ: Label / tag / meta — 18px */
-    .card-date     { font-size: 18px; letter-spacing: 1px; }
-    .card-tag      { font-size: 18px; padding: 5px 12px; }
-    .card-read     { font-size: 18px; letter-spacing: 2px; }
-    .blog-label    { font-size: 18px; letter-spacing: 2px; }
-    .filter-btn    { font-size: 18px; padding: 8px 14px; }
-    .filter-label  { font-size: 18px; }
+    .card-date     { font-size: 20px; letter-spacing: 1px; }
+    .card-tag      { font-size: 17px; padding: 5px 12px; }
+    .card-read     { font-size: 20px; letter-spacing: 2px; }
+    .blog-hero h1  { font-size: 45px !important; line-height: 1.0 !important; }
+    .blog-hero-sub { font-size: 22px; line-height: 1.75; }
+    .blog-label    { font-size: 11px; letter-spacing: 2px; }
+    .filter-btn    { font-size: 11px; padding: 6px 12px; }
+    .filter-label  { font-size: 11px; }
     .stats-count   { font-size: 18px; }
-    .footer-motto  { font-size: 18px; }
-    .footer-links  { font-size: 18px; }
-    .footer-copy   { font-size: 18px; }
-    /* Alignment — left trên mobile */
-    .blog-hero     { text-align: left; }
-    .empty-state p { font-size: 18px; }
   }
 </style>
 </head>

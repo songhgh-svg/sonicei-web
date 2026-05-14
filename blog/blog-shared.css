@@ -50,7 +50,7 @@ body {
   color:        var(--white);
   font-family:  'Rajdhani', sans-serif;
   font-weight:  400;
-  font-size:    17px;
+  font-size:    22px;
   line-height:  1.75;
   min-height:   100vh;
   overflow-x:   hidden;
@@ -102,7 +102,7 @@ body {
   border-bottom: 1px solid var(--line);
 }
 .post-label {
-  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  font-family: 'Share Tech Mono', monospace; font-size: 18px;
   letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 20px;
 }
@@ -111,7 +111,7 @@ body {
   margin-bottom: 24px; flex-wrap: wrap;
 }
 .post-tag {
-  font-family: 'Share Tech Mono', monospace; font-size: 10px;
+  font-family: 'Share Tech Mono', monospace; font-size: 18px;
   letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px;
 }
 .post-tag.gold   { color: var(--gold);   background: var(--gold-dim);   border: 1px solid var(--gold-border); }
@@ -120,17 +120,17 @@ body {
 .post-tag.green  { color: var(--green);  background: var(--green-dim);  border: 1px solid var(--green-border); }
 .post-tag.red    { color: var(--red);    background: var(--red-dim);    border: 1px solid var(--red-border); }
 .post-date {
-  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-family: 'Rajdhani', sans-serif; font-size: 18px;
   letter-spacing: 1.5px; color: var(--gray);
 }
 .post-header h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(36px, 4.5vw, 56px);
   letter-spacing: 2px; color: var(--white);
   line-height: 1.05; margin-bottom: 24px;
 }
 .post-intro {
-  font-size: 19px; color: var(--gray);
+  font-size: 22px; color: var(--gray);
   line-height: 1.8; max-width: 680px;
 }
 
@@ -144,7 +144,7 @@ body {
 /* Headings */
 .post-body h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(26px, 3vw, 36px);
   letter-spacing: 2px; color: var(--white);
   line-height: 1.1; margin: 56px 0 20px;
   padding-bottom: 12px;
@@ -152,19 +152,19 @@ body {
 }
 .post-body h3 {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px; font-weight: 700;
+  font-size: 26px; font-weight: 700;
   letter-spacing: 1.5px; text-transform: uppercase;
   color: var(--gold); margin: 36px 0 14px;
 }
 .post-body h4 {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 18px; font-weight: 700;
+  font-size: 22px; font-weight: 700;
   color: var(--white); margin: 28px 0 10px;
 }
 
 /* Paragraphs */
 .post-body p {
-  font-size: 17px;
+  font-size: 22px;
   color: var(--gray);
   line-height: 1.85;
   margin-bottom: 22px;
@@ -179,7 +179,7 @@ body {
 .post-body ol {
   margin: 0 0 24px 20px;
   color: var(--gray);
-  font-size: 17px;
+  font-size: 22px;
   line-height: 1.85;
 }
 .post-body li { margin-bottom: 8px; }
@@ -192,7 +192,7 @@ body {
   border-left: 3px solid var(--gold);
   background: var(--gold-dim);
   font-family: 'Rajdhani', sans-serif;
-  font-size: 20px; font-weight: 600;
+  font-size: 22px; font-weight: 600;
   color: var(--white); line-height: 1.6;
   letter-spacing: 0.5px;
 }
@@ -203,11 +203,11 @@ body {
   padding: 28px 32px;
   border: 1px solid var(--gold-border);
   background: var(--gold-dim);
-  font-size: 16px; color: var(--white); line-height: 1.8;
+  font-size: 22px; color: var(--white); line-height: 1.8;
 }
 .post-callout-label {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  font-size: 18px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 10px;
 }
 
@@ -261,12 +261,12 @@ footer {
 }
 .footer-logo-text span { color: var(--white); }
 .footer-motto {
-  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-family: 'Rajdhani', sans-serif; font-size: 18px;
   letter-spacing: 2px; color: var(--gray); font-style: italic;
 }
 .footer-links {
   display: flex; align-items: center; gap: 16px;
-  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-family: 'Rajdhani', sans-serif; font-size: 18px;
   letter-spacing: 1.5px; text-transform: uppercase;
 }
 .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
@@ -276,7 +276,7 @@ footer {
   background: rgba(138,154,181,0.4); display: inline-block;
 }
 .footer-copy {
-  font-size: 13px; color: rgba(138,154,181,0.45);
+  font-size: 18px; color: rgba(138,154,181,0.45);
   font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
 }
 
@@ -292,24 +292,25 @@ footer {
 
   /* Article header */
   .post-header { padding: 56px 20px 40px; }
-  .post-header h1 { font-size: 45px !important; line-height: 1.05 !important; }
-  .post-intro  { font-size: 22px !important; line-height: 1.75; }
-  .post-label  { font-size: 11px; }
-  .post-tag    { font-size: 12px; padding: 4px 10px; }
-  .post-date   { font-size: 14px; }
+  .post-header h1 { font-size: clamp(32px, 9vw, 48px) !important; line-height: 1.05 !important; }
+  .post-intro  { font-size: 22px; line-height: 1.75; }
+  .post-label  { font-size: 18px; }
+  .post-tag    { font-size: 18px; padding: 4px 10px; }
+  .post-date   { font-size: 18px; }
 
   /* Article body */
   .post-body { padding: 40px 20px 64px; }
-  .post-body h2 { font-size: 32px !important; margin: 40px 0 16px; }
-  .post-body h3 { font-size: 20px !important; }
-  .post-body h4 { font-size: 17px !important; }
+  .post-body h2 { font-size: clamp(24px, 7vw, 32px) !important; margin: 40px 0 16px; }
+  .post-body h3 { font-size: 26px !important; }
+  .post-body h4 { font-size: 22px !important; }
   .post-body p,
   .post-body ul,
-  .post-body ol  { font-size: 22px !important; line-height: 1.8; }
-  .post-body blockquote { font-size: 19px; padding: 20px 20px; }
-  .post-callout  { font-size: 18px; padding: 20px 20px; }
+  .post-body ol  { font-size: 22px; line-height: 1.8; }
+  .post-body blockquote { font-size: 22px; padding: 20px 20px; }
+  .post-callout  { font-size: 22px; padding: 20px 20px; }
+  .post-callout-label { font-size: 18px; }
 
   /* Back link & footer */
-  .post-back { margin: 0 20px 40px; font-size: 13px; }
+  .post-back { margin: 0 20px 40px; font-size: 18px; }
   footer     { padding: 32px 20px; }
 }
