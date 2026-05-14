@@ -411,7 +411,7 @@
   .case-study-desc,
   .investor-point-desc {
     font-family: 'Rajdhani', sans-serif !important;
-    font-size: 18px !important;
+    font-size: 22px !important;
     line-height: 1.8 !important;
   }
 
@@ -512,7 +512,7 @@
     margin-bottom: 20px;
   }
   .section-sub {
-    font-size: 18px; line-height: 1.85;
+    font-size: 22px; line-height: 1.85;
     color: rgba(240,244,255,0.65);
     max-width: 680px;
     margin-bottom: 36px;
@@ -573,7 +573,7 @@
     margin: 14px 0 16px;
   }
   .card p {
-    font-size: 16px; line-height: 1.8;
+    font-size: 22px; line-height: 1.8;
     color: rgba(240,244,255,0.65);
     max-width: 480px;
     margin-bottom: 0;
@@ -713,7 +713,7 @@
     color: var(--gold); margin-bottom: 16px;
   }
   .service-card p {
-    font-size: 17px; line-height: 1.85;
+    font-size: 22px; line-height: 1.85;
     color: rgba(240,244,255,0.7);
     max-width: 600px;
   }
@@ -784,7 +784,7 @@
     color: var(--white); margin-bottom: 4px;
   }
   .hiw-step-desc {
-    font-size: 16px; color: var(--gray);
+    font-size: 22px; color: var(--gray);
     line-height: 1.6; letter-spacing: 0.3px;
   }
   /* connector line between steps */
@@ -1128,7 +1128,7 @@
     color: var(--gold); margin-bottom: 6px;
   }
   .ai-feature p {
-    font-size: 18px; line-height: 1.7;
+    font-size: 22px; line-height: 1.7;
     color: rgba(240,244,255,0.7);
   }
 
@@ -1158,7 +1158,7 @@
   }
   .supply-intro {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1225,7 +1225,7 @@
   }
   .supply-card-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 15px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1677,12 +1677,8 @@
     .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: left !important; }
     /* AI section — riêng */
     .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
-    .ai-feature p  { font-size: 16px !important; }
-    .hiw-step-title { font-size: 18px !important; }
-    .hiw-step-desc  { font-size: 18px !important; }
     /* Academy modules */
     .module-title { font-size: 28px !important; }
-    .module-desc  { font-size: 18px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
     .academy-modules { gap: 0 !important; margin-top: 28px !important; }
     .academy-module {
@@ -1699,13 +1695,23 @@
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
     .academy-stat-label { font-size: 11px !important; }
-    /* Body text */
+    /* Body text — đồng bộ 18px */
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
+    .case-study-desc,
+    .ai-feature p,
+    .supply-intro, .supply-card-desc,
+    .wwd-card-item,
+    .why-description, .why-list li,
+    .faq-a,
+    .project-desc, .project-outcome span,
+    .risk-text, .final-push p,
+    .qq-action-hint { font-size: 22px !important; line-height: 1.7 !important; }
     /* List items */
-    .service-card ul li, .card ul li { font-size: 16px !important; }
+    .service-card ul li, .card ul li { font-size: 18px !important; }
+    /* HIW step title — giữ lớn hơn body */
+    .hiw-step-title { font-size: 20px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
@@ -1872,7 +1878,7 @@
     color: var(--gold); margin-bottom: 6px;
   }
   .module-desc {
-    font-size: 20px; color: rgba(240,244,255,0.65);
+    font-size: 22px; color: rgba(240,244,255,0.65);
     line-height: 1.65;
   }
 
@@ -2114,7 +2120,7 @@
     white-space: nowrap;
   }
   .case-study-desc {
-    font-size: 14px; color: rgba(240,244,255,0.6);
+    font-size: 22px; color: rgba(240,244,255,0.6);
     line-height: 1.8; border-top: 1px solid rgba(201,162,39,0.1);
     padding-top: 16px; margin-top: 4px;
   }
@@ -2128,7 +2134,7 @@
   }
   .testimonial:hover { background: rgba(201,162,39,0.04); }
   .testimonial-text {
-    font-size: 15px; line-height: 1.8;
+    font-size: 22px; line-height: 1.8;
     color: rgba(240,244,255,0.75);
     font-style: italic; margin-bottom: 16px;
   }
@@ -2453,7 +2459,7 @@
 
   .why-description {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 19px;
+    font-size: 22px;
     line-height: 1.85;
     color: rgba(240,244,255,0.85);
     margin-bottom: 20px;
@@ -2474,7 +2480,7 @@
     padding: 12px 0 12px 28px;
     border-bottom: 1px solid rgba(201,162,39,0.1);
     font-family: 'Rajdhani', sans-serif;
-    font-size: 17px;
+    font-size: 22px;
     color: rgba(240,244,255,0.75);
     line-height: 1.6;
     display: flex;
@@ -3638,7 +3644,7 @@
     width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
     background: none; border: none; cursor: pointer;
     padding: 22px 0; text-align: left;
-    font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600;
+    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 600;
     color: var(--white); letter-spacing: 0.3px; line-height: 1.45;
     transition: color 0.2s;
   }
@@ -3650,7 +3656,7 @@
   }
   .faq-q.open .faq-icon { transform: rotate(45deg); }
   .faq-a {
-    font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 400;
+    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 400;
     color: rgba(240,244,255,0.75); line-height: 1.75;
     max-height: 0; overflow: hidden;
     transition: max-height 0.35s ease, padding 0.25s ease;
@@ -3804,7 +3810,7 @@
   margin: 0;
 }
 .project-desc {
-  font-size: 14px;
+  font-size: 22px;
   font-family: 'Rajdhani', sans-serif;
   color: rgba(255,255,255,0.55);
   line-height: 1.6;
@@ -3815,7 +3821,7 @@
 }
 .proj-bullet {
   display: block;
-  font-size: 14px;
+  font-size: 22px;
   font-family: 'Rajdhani', sans-serif;
   color: rgba(255,255,255,0.5);
   line-height: 1.5;
@@ -3852,7 +3858,7 @@
   border: 1px solid rgba(0,200,150,0.18);
   border-radius: 6px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 13.5px;
+  font-size: 22px;
   font-weight: 500;
   color: rgba(240,244,255,0.7);
   line-height: 1.55;
@@ -4195,7 +4201,7 @@
 }
 .wwd-card-item {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
   line-height: 1;
@@ -4219,7 +4225,7 @@
 }
 .risk-text {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   color: rgba(240,244,255,0.75);
   line-height: 1.7;
@@ -4234,7 +4240,7 @@
 }
 .final-push p {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 600;
   color: rgba(240,244,255,0.5);
   letter-spacing: 1px;
@@ -4245,7 +4251,7 @@
 .qq-action-hint {
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 500;
   color: rgba(255,255,255,0.5);
   letter-spacing: 0.3px;
