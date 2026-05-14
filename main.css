@@ -813,7 +813,7 @@
     border-bottom: 1px solid rgba(201,162,39,0.08);
     align-items: center;
   }
-  .hiw-pipe-step--last { border-bottom: none; }
+  .hiw-pipe-step--last { border-bottom: none; padding-bottom: 20px; }
   .hiw-pipe-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 13px;
@@ -1666,6 +1666,7 @@
     .ai-grid > * { min-width: 0; }
     /* Pipeline column — đẩy xuống dưới cùng, hiển thị đủ chiều cao */
     .ai-grid > .hiw-col { overflow: visible !important; order: 99; height: auto !important; }
+    .hiw-pipeline { padding-bottom: 32px !important; }
 
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
@@ -1720,7 +1721,7 @@
     .hiw-step-title { font-size: 18px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
-    .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
+    .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; margin-top: 24px; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
     .ai-proof-label { white-space: normal; font-size: 9px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
