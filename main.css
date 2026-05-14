@@ -516,9 +516,9 @@
     color: rgba(240,244,255,0.65);
     max-width: 680px;
     margin-bottom: 36px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 500;
   }
@@ -713,7 +713,7 @@
     color: var(--gold); margin-bottom: 16px;
   }
   .service-card p {
-    font-size: 22px; line-height: 1.85;
+    font-size: 17px; line-height: 1.85;
     color: rgba(240,244,255,0.7);
     max-width: 600px;
   }
@@ -722,7 +722,7 @@
     list-style: none;
   }
   .service-card ul li {
-    font-size: 22px; color: rgba(240,244,255,0.6);
+    font-size: 14px; color: rgba(240,244,255,0.6);
     padding: 6px 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; gap: 10px;
@@ -839,7 +839,7 @@
   }
   .hiw-pipe-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 2px;
     color: var(--white);
     grid-row: 1;
@@ -849,7 +849,7 @@
   .hiw-pipe-step--green .hiw-pipe-title { color: #00e8aa; }
   .hiw-pipe-sub {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 18px;
+    font-size: 9.5px;
     letter-spacing: 1px;
     color: var(--gray);
     grid-row: 2;
@@ -858,7 +858,7 @@
     text-transform: uppercase;
   }
   @media (max-width: 1100px) {
-    .hiw-pipe-title { font-size: 22px; }
+    .hiw-pipe-title { font-size: 16px; }
   }
 
 
@@ -1158,7 +1158,7 @@
   }
   .supply-intro {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1174,7 +1174,7 @@
     align-items: center;
     gap: 12px;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 18px;
+    font-size: 11px;
     letter-spacing: 1.5px;
     color: rgba(240,244,255,0.65);
     text-transform: uppercase;
@@ -1202,7 +1202,7 @@
   .supply-card-v2:hover { background: rgba(201,162,39,0.03); }
   .supply-card-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
+    font-size: 13px;
     letter-spacing: 2px;
     color: rgba(201,162,39,0.35);
     flex-shrink: 0;
@@ -1212,7 +1212,7 @@
   .supply-card-body { flex: 1; }
   .supply-card-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     letter-spacing: 2px;
     color: var(--gold);
     margin-bottom: 10px;
@@ -1225,7 +1225,7 @@
   }
   .supply-card-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1234,7 +1234,7 @@
     .supply-layout {
       grid-template-columns: 1fr;
       gap: 40px;
-      padding: 0 0 60px;
+      padding: 0 24px 60px;
     }
   }
 
@@ -1650,12 +1650,12 @@
     /* ── Section title ── */
     .section-title { font-size: clamp(30px, 8vw, 56px); }
 
-    /* ── All grids → 1 cột, full width ── */
+    /* ── All grids → 1 cột ── */
     .about-grid, .ai-grid, .contact-grid,
     .market-grid, .proof-grid,
     .academy-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-    .services-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
-    .service-card { padding: 24px 0 !important; }
+    .services-grid, .supply-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
+    .service-card { padding: 24px 18px !important; }
     .investor-points { grid-template-columns: 1fr 1fr; gap: 8px; }
     .form-row { grid-template-columns: 1fr !important; }
 
@@ -1669,19 +1669,20 @@
     .contact-item-icon { width: 48px; height: 48px; font-size: 22px; }
     .contact-item-value { font-size: 18px !important; word-break: break-all; }
 
-    /* ── MOBILE TYPOGRAPHY ── */
+    /* ── MOBILE UNIFIED TYPOGRAPHY ── */
+    /* Card headings — cùng cấp, cùng size */
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
     .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: left !important; }
-    .ai-feature h4 { font-size: 26px !important; letter-spacing: 1.5px !important; }
-    .ai-feature p  { font-size: 22px !important; }
-    .hiw-step-title { font-size: 26px !important; }
-    .hiw-step-desc  { font-size: 22px !important; }
-    .hiw-pipe-title { font-size: 22px !important; }
-    .hiw-pipe-sub   { font-size: 18px !important; }
-    .module-title { font-size: 26px !important; }
-    .module-desc  { font-size: 22px !important; }
+    /* AI section — riêng */
+    .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    .ai-feature p  { font-size: 16px !important; }
+    .hiw-step-title { font-size: 18px !important; }
+    .hiw-step-desc  { font-size: 18px !important; }
+    /* Academy modules */
+    .module-title { font-size: 28px !important; }
+    .module-desc  { font-size: 18px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
     .academy-modules { gap: 0 !important; margin-top: 28px !important; }
     .academy-module {
@@ -1697,34 +1698,26 @@
     .academy-module:last-child { border-bottom: none !important; }
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
-    .academy-stat-label { font-size: 18px !important; }
-    .amod-title { font-size: 26px !important; }
-    .amod-desc  { font-size: 22px !important; }
-    .amod-num   { font-size: 18px !important; }
-    .wwd-card-title { font-size: 26px !important; }
-    .wwd-card-item  { font-size: 22px !important; }
-    .supply-card-title { font-size: 26px !important; }
-    .supply-card-desc  { font-size: 22px !important; }
-    .supply-intro      { font-size: 22px !important; }
-    .supply-value-item { font-size: 18px !important; }
+    .academy-stat-label { font-size: 11px !important; }
+    /* Body text */
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 22px !important; line-height: 1.7 !important; }
-    .section-sub { text-align: left !important; margin-left: 0 !important; margin-right: 0 !important; max-width: 100% !important; }
-    .service-card ul li, .card ul li { font-size: 22px !important; }
-    .vision-card p { font-size: 22px !important; }
-    .vision-values li { font-size: 22px !important; }
+    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
+    /* List items */
+    .service-card ul li, .card ul li { font-size: 16px !important; }
+    /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
-    .ai-proof-label { white-space: normal; font-size: 18px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
-    .ai-proof-icon { font-size: 18px !important; }
-    .ai-proof-num { font-size: 22px !important; flex-shrink: 0; }
+    .ai-proof-label { white-space: normal; font-size: 9px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
+    .ai-proof-icon { font-size: 11px !important; }
+    .ai-proof-num { font-size: 15px !important; flex-shrink: 0; }
+    /* Social Proof */
     .case-study { padding: 18px 14px; word-break: break-word; overflow-wrap: break-word; }
     .case-study-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .case-study-client { font-size: 18px; }
+    .case-study-client { font-size: 11px; }
     .testimonial { padding: 16px 14px; word-break: break-word; overflow-wrap: break-word; }
     .testimonial-author { flex-direction: column; gap: 4px; }
     .testimonial-company { text-align: left; }
@@ -1732,17 +1725,17 @@
 
     /* ── Market ── */
     .market-bar-label {
-      font-size: 18px; letter-spacing: 0.5px;
+      font-size: 13px; letter-spacing: 0.5px;
       flex-direction: column; gap: 3px; align-items: flex-start;
     }
-    .market-bar-label span:first-child { color: var(--gray); font-size: 18px; }
-    .market-bar-label span:last-child  { color: var(--gold); font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+    .market-bar-label span:first-child { color: var(--gray); font-size: 13px; }
+    .market-bar-label span:last-child  { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
     .market-bar-track { height: 12px; border-radius: 6px; }
     .market-bars { gap: 24px; }
     .investor-point { padding: 12px 10px !important; }
-    .investor-point-title { font-size: 22px; }
-    .investor-point-desc  { font-size: 18px; line-height: 1.5; }
-    .investor-point-icon  { font-size: 22px; margin-bottom: 4px; }
+    .investor-point-title { font-size: 13px; }
+    .investor-point-desc  { font-size: 10px; line-height: 1.5; }
+    .investor-point-icon  { font-size: 18px; margin-bottom: 4px; }
 
     /* ── Academy ── */
     .academy-photos { grid-template-columns: 1fr; }
@@ -1777,10 +1770,10 @@
     .testimonials { gap: 12px; }
 
     .market-bar-label { flex-direction: column; gap: 3px; }
-    .market-bar-label span:last-child { color: var(--gold); font-size: 22px; font-weight: 800; }
+    .market-bar-label span:last-child { color: var(--gold); font-size: 18px; font-weight: 800; }
     .market-bars { gap: 22px; }
 
-    .investor-point-icon { font-size: 22px; }
+    .investor-point-icon { font-size: 18px; }
     .investor-point      { padding: 10px 8px !important; }
 
     .section-title { font-size: clamp(28px, 9vw, 48px); }
@@ -1896,7 +1889,7 @@
   .academy-module-v2:hover .amod-title { color: var(--gold-light); }
   .amod-num {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 18px;
+    font-size: 11px;
     letter-spacing: 1px;
     color: rgba(201,162,39,0.4);
     padding-top: 5px;
@@ -1910,7 +1903,7 @@
   }
   .amod-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
+    font-size: 20px;
     letter-spacing: 2px;
     color: var(--white);
     margin-bottom: 6px;
@@ -1918,7 +1911,7 @@
   }
   .amod-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 500;
     color: rgba(240,244,255,0.5);
     line-height: 1.6;
@@ -2339,9 +2332,7 @@
     .vision-grid { grid-template-columns: 1fr; gap: 16px; }
     .vision-section { padding: 60px 16px; }
     .vision-card { padding: 24px 20px 20px; }
-    .vision-card-title { font-size: 26px; }
-    .vision-card p { font-size: 22px; }
-    .vision-values li { font-size: 22px; }
+    .vision-card-title { font-size: 24px; }
   }
 
 
@@ -3461,7 +3452,7 @@
       max-width: 820px;
       margin: 0 auto;
     }
-    .qq-header { text-align: center; margin-bottom: 40px; }
+    .qq-header { text-align: left; margin-bottom: 40px; }
     .qq-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(40px, 5vw, 72px);
@@ -3577,7 +3568,7 @@
     .qq-email-link:hover { text-decoration: underline; }
     /* ── WHY WORK WITH US ── */
     .why-us-block {
-      text-align: center;
+      text-align: left;
       margin-bottom: 0;
       padding: 0 8px;
     }
@@ -3744,7 +3735,7 @@
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .founder-card { flex-direction: column; text-align: center; }
+  .founder-card { flex-direction: column; text-align: left; }
   .founder-photo { width: 90px; height: 90px; }
 }
 
@@ -4197,25 +4188,25 @@
 }
 .wwd-card-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   letter-spacing: 2px;
   color: #c9a227;
   margin-bottom: 14px;
 }
 .wwd-card-item {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
-  line-height: 1.3;
+  line-height: 1;
   margin-top: 10px;
 }
 .wwd-card-item:first-child { margin-top: 0; }
 
 /* ── RISK REDUCTION line ── */
 .risk-block {
-  text-align: center;
-  margin: 0 auto 40px;
+  text-align: left;
+  margin: 0 0 40px;
   max-width: 620px;
 }
 .risk-label {
@@ -4237,8 +4228,8 @@
 
 /* ── FINAL PUSH line ── */
 .final-push {
-  text-align: center;
-  margin: 0 auto 32px;
+  text-align: left;
+  margin: 0 0 32px;
   max-width: 620px;
 }
 .final-push p {
@@ -4252,7 +4243,7 @@
 
 /* ── CTA micro-copy lines ── */
 .qq-action-hint {
-  text-align: center;
+  text-align: left;
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -4261,7 +4252,7 @@
   margin-top: 8px;
 }
 .qq-microtrust {
-  text-align: center;
+  text-align: left;
   font-family: 'Rajdhani', sans-serif;
   font-size: 13px;
   color: rgba(255,255,255,0.35);
