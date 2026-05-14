@@ -3428,7 +3428,7 @@
         border-radius: 6px;
         color: #c9a227;
         font-family: 'Rajdhani', sans-serif;
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -3463,7 +3463,7 @@
     }
     .qq-sub {
       color: rgba(240,244,255,0.65);
-      font-size: 22px;
+      font-size: 18px;
       font-family: 'Rajdhani', sans-serif;
       font-weight: 500;
       line-height: 1.85;
@@ -3483,7 +3483,7 @@
     .qq-field { display: flex; flex-direction: column; gap: 7px; }
     .qq-label {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 18px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -3496,7 +3496,7 @@
       border-radius: 6px;
       color: #fff;
       font-family: 'Be Vietnam Pro', sans-serif;
-      font-size: 22px;
+      font-size: 14px;
       padding: 12px 16px;
       outline: none;
       transition: border-color .2s, background .2s;
@@ -3521,7 +3521,7 @@
       border-radius: 999px;
       color: rgba(255,255,255,0.7);
       font-family: 'Rajdhani', sans-serif;
-      font-size: 22px;
+      font-size: 15px;
       font-weight: 600;
       padding: 8px 18px;
       cursor: pointer;
@@ -3542,7 +3542,7 @@
     .qq-submit {
       width: 100%;
       padding: 16px 32px;
-      font-size: 22px;
+      font-size: 15px;
       letter-spacing: 2px;
       font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
@@ -3553,7 +3553,7 @@
     }
     .qq-trust {
       text-align: center;
-      font-size: 18px;
+      font-size: 14px;
       font-family: 'Rajdhani', sans-serif;
       color: rgba(255,255,255,0.4);
       line-height: 1.6;
@@ -3568,7 +3568,7 @@
     .qq-email-link:hover { text-decoration: underline; }
     /* ── WHY WORK WITH US ── */
     .why-us-block {
-      text-align: left;
+      text-align: center;
       margin-bottom: 0;
       padding: 0 8px;
     }
@@ -3590,7 +3590,7 @@
     }
     .why-us-list li {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 500;
       color: rgba(240,244,255,0.85);
       letter-spacing: 0.5px;
@@ -3624,7 +3624,7 @@
       margin: 0 0 10px;
     }
     .qq-success-msg {
-      font-size: 22px;
+      font-size: 17px;
       color: rgba(255,255,255,0.75);
       margin: 0;
     }
@@ -3638,7 +3638,7 @@
     width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
     background: none; border: none; cursor: pointer;
     padding: 22px 0; text-align: left;
-    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 600;
+    font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600;
     color: var(--white); letter-spacing: 0.3px; line-height: 1.45;
     transition: color 0.2s;
   }
@@ -3650,7 +3650,7 @@
   }
   .faq-q.open .faq-icon { transform: rotate(45deg); }
   .faq-a {
-    font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 400;
+    font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 400;
     color: rgba(240,244,255,0.75); line-height: 1.75;
     max-height: 0; overflow: hidden;
     transition: max-height 0.35s ease, padding 0.25s ease;
@@ -4325,3 +4325,190 @@
   justify-content: space-between;
   height: 100%;
 }
+
+
+/* ══════════════════════════════════════════
+   EXTRACTED FROM INLINE STYLES — index.html
+══════════════════════════════════════════ */
+
+.pain-dot-inline { display:inline-block;width:6px;height:6px;border-radius:50%;background:#c9a227;margin-right:8px;vertical-align:middle; }
+.flex-col-center { display:flex;flex-direction:column;align-items:center;justify-content:center; }
+.hero-inner-wrap { max-width:780px;margin:0 auto;text-align:left;align-items:flex-start; }
+.hero-cta-wrap { display:flex;justify-content:flex-start;margin-top:28px; }
+.flex-row-center { display:flex;justify-content:flex-start;align-items:center; }
+.mx-auto-left { margin-left:0;margin-right:0;text-align:left; }
+.video-bg { position:absolute;inset:0;width:100%;height:100%;display:none;background:#000; }
+.hero-stats-bar { background:rgba(10,22,40,0.85);border-top:1px solid rgba(201,162,39,0.12);border-bottom:1px solid rgba(201,162,39,0.12);padding:18px 0; }
+.hero-stats-inner { max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px; }
+.hero-stats-label { font-family:'Share Tech Mono',monospace;font-size:18px;color:rgba(201,162,39,0.5);letter-spacing:2px;white-space:nowrap; }
+.hero-stats-desc { font-family:'Rajdhani',sans-serif;font-weight:600;font-size:22px;color:rgba(240,244,255,0.6);letter-spacing:1.5px;white-space:nowrap; }
+.hero-logos-row { display:flex;align-items:center;flex-wrap:wrap;justify-content:space-evenly;width:100%;max-width:960px; }
+.hero-logo-divider { width:1px;height:30px;background:rgba(255,255,255,0.12);flex-shrink:0; }
+.section-projects { background:linear-gradient(180deg,var(--navy) 0%,#0a1628 100%);padding:80px 0 100px; }
+.container-1200 { max-width:1200px;margin:0 auto;padding:0 24px; }
+.section-caption { text-align:left;margin-top:28px;font-family:'Rajdhani',sans-serif;font-size:18px;letter-spacing:1.5px;color:rgba(200,210,220,0.45);font-style:italic; }
+.proof-card-wrap { padding:32px;position:relative;overflow:visible; }
+.proof-stats-row { display:flex;gap:0;width:100%;align-items:stretch; }
+.case-stat-text { font-size:22px;line-height:1.25;white-space:normal;word-break:break-word; }
+.proof-section-label { font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--gold);margin-bottom:8px; }
+.section-quote { background:var(--navy);padding:0; }
+.qq-section-header { text-align:left;margin-bottom:14px; }
+.academy-body-text { color:rgba(240,244,255,0.6);font-size:22px;line-height:1.8;margin-bottom:20px; }
+.academy-body-quote { border-left:3px solid var(--gold);padding-left:18px;font-style:italic;color:var(--gold-light);font-size:22px;line-height:1.8;margin-bottom:28px; }
+.academy-enroll-box { margin-top:28px;padding:16px 20px;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.2);display:flex;flex-direction:column;gap:0; }
+.academy-enroll-label { font-size:18px;color:rgba(240,244,255,0.5);letter-spacing:2px;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid rgba(201,162,39,0.1);margin-bottom:8px; }
+.market-disclaimer { margin-top:14px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(240,244,255,0.32);letter-spacing:0.3px;line-height:1.6; }
+.investor-wins-label { font-family:'Share Tech Mono',monospace;font-size:18px;color:var(--gold);letter-spacing:3px;margin-bottom:16px; }
+.investor-inner-box { border:1px solid rgba(201,162,39,0.2);padding:clamp(16px,4vw,40px);position:relative;box-sizing:border-box;min-width:0; }
+.investor-partner-box { margin-top:28px;padding:20px;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.2); }
+.investor-partner-text { font-size:22px;font-weight:700;color:rgba(240,244,255,0.85);margin-bottom:16px; }
+.container-1100 { max-width:1100px;margin:0 auto; }
+.founder-established { margin-top:4px;font-size:18px;letter-spacing:1.5px;color:rgba(201,162,39,0.7); }
+.contact-intro-text { color:rgba(240,244,255,0.85);font-size:22px;font-weight:700;line-height:1.75;margin-bottom:40px; }
+.pdf-download-banner { background:rgba(201,162,39,0.07);border:1px solid rgba(201,162,39,0.3);padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+.pdf-download-label { font-family:'Share Tech Mono',monospace;font-size:18px;letter-spacing:2px;color:#ffe066;margin-bottom:4px; }
+.pdf-download-title { font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;color:var(--white); }
+.contact-form-box { background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.15);padding:clamp(20px,4vw,36px) clamp(16px,4vw,40px); }
+.contact-form-title { font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:var(--gold);margin-bottom:6px; }
+.contact-form-helper { font-family:'Rajdhani',sans-serif;font-size:18px;color:var(--gray);letter-spacing:1px;margin-bottom:22px; }
+.form-label-hint { color:var(--gray);font-size:14px;letter-spacing:1px; }
+.scope-grid-layout { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px; }
+.not-sure-detail-wrap { display:none;margin-top:10px;animation:fadeUp 0.3s both; }
+.contact-form-note { text-align:center;margin-top:10px;font-family:'Share Tech Mono',monospace;font-size:18px;color:rgba(136,153,187,0.5);letter-spacing:1px; }
+.section-investment { background:var(--navy-mid);padding:80px 0;border-top:1px solid rgba(201,162,39,0.12); }
+.container-1100-clamp { max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,60px); }
+.price-cards-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:48px; }
+.price-card { background:rgba(10,22,40,0.7);border:1px solid rgba(201,162,39,0.2);padding:28px 24px; }
+.price-card-label { font-family:'Share Tech Mono',monospace;font-size:18px;letter-spacing:2px;color:#ffe066;margin-bottom:10px; }
+.price-card-heading { font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);margin-bottom:4px; }
+.price-card-sub { font-size:18px;color:var(--gray);letter-spacing:1px;margin-bottom:16px; }
+.price-card-list { list-style:none;padding:0;margin:0;font-family:'Rajdhani',sans-serif;font-size:22px;color:rgba(240,244,255,0.8);line-height:2; }
+.price-card-bestfit { margin-top:16px;padding:10px 14px;background:rgba(201,162,39,0.08);border-left:2px solid var(--gold);font-family:'Rajdhani',sans-serif;font-size:18px;color:var(--gray); }
+.qualifier-block { background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.15);padding:24px 28px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap; }
+.qualifier-title { font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--white);margin-bottom:6px; }
+.qualifier-body { font-family:'Rajdhani',sans-serif;font-size:22px;color:rgba(240,244,255,0.75);line-height:1.7;max-width:680px; }
+.section-faq { background:var(--navy);padding:80px 0;border-top:1px solid rgba(201,162,39,0.1); }
+.container-860-clamp { max-width:860px;margin:0 auto;padding:0 clamp(20px,5vw,60px); }
+.faq-cta-wrap { text-align:left;margin-top:44px; }
+.faq-ask-text { font-family:'Rajdhani',sans-serif;font-size:18px;color:var(--gray);margin-bottom:18px; }
+.footer-logo-wrap { display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px; }
+.footer-logo-img { height:56px;width:auto;object-fit:contain;display:block; }
+.footer-brand-text { font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap; }
+.qq-countdown-text { margin-top:18px;font-family:'Share Tech Mono',monospace;font-size:18px;letter-spacing:2px;color:rgba(201,162,39,0.55); }
+.dl-fallback-wrap { display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:200px; }
+.dl-fallback-title { font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold);letter-spacing:2px;text-align:left; }
+.dl-fallback-note { font-size:18px;color:rgba(240,244,255,0.6);letter-spacing:1px;text-align:left; }
+/* ── Logo image in nav ── */
+.nav-logo-img { height:40px; width:auto; object-fit:contain; }
+
+/* ── Pain bar dot ── */
+.pain-dot-inline { display:inline-block; width:6px; height:6px; border-radius:50%; background:#c9a227; margin-right:8px; vertical-align:middle; animation:pulse-dot 1.8s ease-in-out infinite; }
+
+/* ── Pain bar toggle btn ── */
+.pain-bar-toggle { cursor:pointer; position:relative; }
+.pain-bar-toggle-label { position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:10px; letter-spacing:1px; opacity:0.5; }
+
+/* ── Hero stats bar ── */
+.hero-stats-bar { background:rgba(10,22,40,0.85); border-top:1px solid rgba(201,162,39,0.12); border-bottom:1px solid rgba(201,162,39,0.12); padding:18px 0; }
+.hero-logo-item { flex:1; min-width:100px; display:flex; align-items:center; justify-content:center; padding:8px 12px; opacity:0.5; transition:opacity 0.3s; }
+.hero-logo-item:hover { opacity:1; }
+.hero-logo-divider { width:1px; height:30px; background:rgba(255,255,255,0.12); flex-shrink:0; }
+
+/* ── Proof stat items ── */
+.proof-stat-item { flex:1; text-align:center; padding:0 8px; border-right:1px solid rgba(201,162,39,0.15); display:flex; flex-direction:column; justify-content:center; }
+.proof-stat-item:last-child { border-right:none; }
+.proof-stat-label-text { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--gold); margin-bottom:4px; }
+
+/* ── QQ success countdown ── */
+.qq-back-link { margin-top:12px; display:inline-block; }
+
+/* ── Academy enroll links ── */
+.academy-enroll-link { display:flex; align-items:center; gap:10px; text-decoration:none; padding:8px 0 12px; border-bottom:1px solid rgba(201,162,39,0.08); transition:opacity 0.2s; }
+.academy-enroll-link:last-child { border-bottom:none; padding:8px 0 0; }
+.academy-enroll-phone { color:var(--gold); font-weight:800; font-size:clamp(18px,4.5vw,26px); letter-spacing:2px; white-space:nowrap; }
+.academy-enroll-email { color:var(--gold); font-weight:800; font-size:clamp(14px,3.8vw,22px); letter-spacing:0.5px; white-space:nowrap; }
+
+/* ── Investor partnership heading ── */
+.investor-partner-heading { font-family:'Bebas Neue',sans-serif; font-size:27px; letter-spacing:2px; color:var(--gold); margin-bottom:8px; text-shadow:0 2px 16px rgba(201,162,39,0.5), 0 0 40px rgba(201,162,39,0.25); animation:partnership-pulse 2.2s ease-in-out infinite; }
+
+/* ── About bg image ── */
+.about-bg-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0.18; }
+.about-bg-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(10,22,40,0.62) 0%,rgba(10,22,40,0.42) 50%,rgba(10,22,40,0.62) 100%); }
+
+/* ── About gold dot ── */
+.about-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block; margin-right:8px; }
+
+/* ── Download fallback ── */
+.dl-fallback-icon { font-size:72px; line-height:1; }
+
+/* ── Contact form textarea ── */
+.contact-textarea { width:100%; box-sizing:border-box; background:rgba(10,22,40,0.8); border:1px solid rgba(201,162,39,0.25); color:var(--white); font-family:'Be Vietnam Pro',sans-serif; font-size:22px; padding:14px 16px; outline:none; resize:vertical; min-height:100px; transition:border-color 0.2s; border-radius:4px; }
+.contact-textarea:focus { border-color:var(--gold); }
+
+/* ── PDF download button in contact ── */
+.pdf-dl-btn { flex-shrink:0; display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:var(--gold); color:var(--navy); font-family:'Rajdhani',sans-serif; font-weight:700; font-size:18px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%); transition:background 0.2s; }
+.pdf-dl-btn:hover { background:var(--gold-light); }
+
+/* ── Contact form box alternate style ── */
+.contact-form-alt-box { background:rgba(255,255,255,0.02); border:1px solid rgba(201,162,39,0.15); padding:clamp(20px,4vw,36px) clamp(16px,4vw,40px); box-sizing:border-box; }
+
+/* ── Qualifier CTA btn ── */
+.qualifier-cta-btn { display:inline-flex; align-items:center; gap:8px; margin-top:14px; padding:11px 24px; background:var(--gold); color:var(--navy); font-family:'Rajdhani',sans-serif; font-weight:700; font-size:18px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%); transition:background 0.2s; }
+.qualifier-cta-btn:hover { background:var(--gold-light); }
+
+/* ── FAQ ask us btn ── */
+.faq-ask-btn { display:inline-flex; align-items:center; gap:10px; padding:14px 32px; background:rgba(201,162,39,0.1); border:1.5px solid rgba(201,162,39,0.5); color:var(--gold); font-family:'Rajdhani',sans-serif; font-weight:700; font-size:18px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); transition:all 0.2s; }
+.faq-ask-btn:hover { background:rgba(201,162,39,0.18); }
+
+/* ── Pain bar toggle label ── */
+.pain-bar-toggle-label { position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:10px; letter-spacing:1px; opacity:0.5; }
+
+/* ── Floating CTA button ── */
+.fcta-btn { position:fixed; bottom:70px; right:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:#c9a227; color:#0a1628; border-radius:6px 0 0 6px; box-shadow:-3px 0 16px rgba(201,162,39,0.4); text-decoration:none; padding:12px 10px; cursor:pointer; transition:background 0.2s, box-shadow 0.2s; }
+.fcta-btn:hover { background:#e0b52e; box-shadow:-4px 0 22px rgba(201,162,39,0.65); }
+.fcta-label { writing-mode:vertical-rl; transform:rotate(180deg); font-family:'Rajdhani',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; user-select:none; white-space:nowrap; }
+
+/* ── Hero logo item hover (replaces onmouseover) ── */
+.hero-logo-item { flex:1; min-width:80px; display:flex; align-items:center; justify-content:center; padding:8px 12px; opacity:0.5; transition:opacity 0.2s; }
+.hero-logo-item:hover { opacity:1; }
+
+/* ── Missing classes (used in HTML, not yet in CSS) ── */
+
+/* case-stat-siemens: stat number with text wrapping */
+.case-stat-siemens { font-size:22px; line-height:1.25; white-space:normal; word-break:break-word; }
+
+/* counter: JS-animated number */
+.counter { font-family:'Bebas Neue',sans-serif; font-size:inherit; color:inherit; }
+
+/* investor-partner-btn: btn-gold size override */
+.investor-partner-btn { font-size:18px !important; padding:12px 28px !important; }
+
+/* pain-bar-inner: inner wrapper of pain bar */
+.pain-bar-inner { transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden; }
+
+/* proof-stat-item--last: last stat, no border */
+.proof-stat-item--last { border-right:none !important; }
+
+/* qq-row: form row layout */
+.qq-row { display:flex; gap:16px; flex-wrap:wrap; }
+
+/* supply-left: left column of supply layout */
+.supply-left { display:flex; flex-direction:column; }
+
+/* section-navy: section with navy background */
+.section-navy { background:var(--navy); }
+
+/* card-divider: horizontal rule in cards */
+.card-divider { width:100%; height:1px; background:rgba(201,162,39,0.15); margin:16px 0 18px; }
+
+/* qualifier-icon: emoji icon in qualifier block */
+.qualifier-icon { font-size:28px; flex-shrink:0; }
+
+/* pdf-download-text: text column in PDF download banner */
+.pdf-download-text { flex:1; min-width:180px; }
+
+/* wa-link: WhatsApp link in widget */
+.wa-link { color:#25D366 !important; background:#f0fff5 !important; }
+
+/* hero-stats-bar padding update */
+.hero-stats-bar { background:rgba(10,22,40,0.85); border-top:1px solid rgba(201,162,39,0.12); border-bottom:1px solid rgba(201,162,39,0.12); padding:20px 32px; overflow:hidden; }
