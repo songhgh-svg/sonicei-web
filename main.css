@@ -224,7 +224,7 @@
   }
   @media (max-width: 900px) {
     .hero-cta-micro { flex-wrap: wrap; }
-    .hero-cta-micro span:last-child { font-size: 18px; }
+    .hero-cta-micro span:last-child { font-size: 9px; }
   }
 
   /* AI beta disclaimer below CTA */
@@ -241,7 +241,7 @@
     line-height: 1.55;
   }
   @media (max-width: 480px) {
-    .hero-ai-disclaimer { font-size: 18px; padding: 0 8px; }
+    .hero-ai-disclaimer { font-size: 10px; padding: 0 8px; }
   }
 
   .hero-cta {
@@ -713,7 +713,7 @@
     color: var(--gold); margin-bottom: 16px;
   }
   .service-card p {
-    font-size: 17px; line-height: 1.85;
+    font-size: 22px; line-height: 1.85;
     color: rgba(240,244,255,0.7);
     max-width: 600px;
   }
@@ -722,7 +722,7 @@
     list-style: none;
   }
   .service-card ul li {
-    font-size: 14px; color: rgba(240,244,255,0.6);
+    font-size: 22px; color: rgba(240,244,255,0.6);
     padding: 6px 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; gap: 10px;
@@ -839,7 +839,7 @@
   }
   .hiw-pipe-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 2px;
     color: var(--white);
     grid-row: 1;
@@ -849,7 +849,7 @@
   .hiw-pipe-step--green .hiw-pipe-title { color: #00e8aa; }
   .hiw-pipe-sub {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 9.5px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: var(--gray);
     grid-row: 2;
@@ -858,7 +858,7 @@
     text-transform: uppercase;
   }
   @media (max-width: 1100px) {
-    .hiw-pipe-title { font-size: 16px; }
+    .hiw-pipe-title { font-size: 22px; }
   }
 
 
@@ -1158,7 +1158,7 @@
   }
   .supply-intro {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1174,7 +1174,7 @@
     align-items: center;
     gap: 12px;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
+    font-size: 18px;
     letter-spacing: 1.5px;
     color: rgba(240,244,255,0.65);
     text-transform: uppercase;
@@ -1202,7 +1202,7 @@
   .supply-card-v2:hover { background: rgba(201,162,39,0.03); }
   .supply-card-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
+    font-size: 18px;
     letter-spacing: 2px;
     color: rgba(201,162,39,0.35);
     flex-shrink: 0;
@@ -1212,7 +1212,7 @@
   .supply-card-body { flex: 1; }
   .supply-card-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     letter-spacing: 2px;
     color: var(--gold);
     margin-bottom: 10px;
@@ -1225,7 +1225,7 @@
   }
   .supply-card-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 15px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.6);
     line-height: 1.7;
@@ -1630,17 +1630,17 @@
 
     /* ── Hero ── */
     .hero { padding: 140px 16px 80px !important; min-height: auto; align-items: center; }
-    .hero-content { max-width: 100% !important; width: 100%; text-align: left; }
+    .hero-content { max-width: 100% !important; width: 100%; text-align: center; }
     /* Headline: lớn hơn + letter-spacing rộng hơn cho impact */
     .hero h1 .line-big    { font-size: clamp(64px, 17vw, 100px); letter-spacing: 2px; margin-bottom: 20px; }
     .hero h1 .line-med    { font-size: clamp(54px, 15vw, 87px);  letter-spacing: 8px; margin-bottom: 20px; }
     .hero h1 .line-accent { font-size: clamp(30px,  9vw, 50px);  letter-spacing: 5px; }
     .hero h1              { font-size: clamp(64px, 17vw, 100px); line-height: 1; }
-    .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: flex-start; }
+    .hero-proof           { gap: 12px; flex-wrap: wrap; justify-content: center; }
     .proof-num            { font-size: 30px; }
-    .proof-item           { text-align: left; }
-    .hero-guarantee       { font-size: 18px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
-    .hero-sub             { text-align: left; margin-left: 0; margin-right: 0; padding-right: 0; font-size: 22px !important; }
+    .proof-item           { text-align: center; }
+    .hero-guarantee       { font-size: 12px; letter-spacing: 2px; padding: 12px 18px; justify-content: center; width: 100%; box-sizing: border-box; }
+    .hero-sub             { text-align: justify; margin-left: 0; margin-right: 0; padding-right: 28px; font-size: 18px !important; }
     .hero-cta             { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
     .hero-cta .btn-gold, .hero-cta .btn-outline { width: 100%; text-align: center; }
     .ai-grid { padding: 0 !important; }
@@ -1650,12 +1650,44 @@
     /* ── Section title ── */
     .section-title { font-size: clamp(30px, 8vw, 56px); }
 
-    /* ── All grids → 1 cột ── */
+    /* ── FULL WIDTH + 22px cho tất cả sections trên mobile ── */
+    /* What We Do */
+    .wwd-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
+    .wwd-card { padding: 24px 16px !important; }
+    .wwd-card-title { font-size: 26px !important; }
+    .wwd-card-item  { font-size: 22px !important; line-height: 1.5 !important; }
+
+    /* Supply / Materials / Technical Consultant */
+    .supply-layout { grid-template-columns: 1fr !important; padding: 0 0 60px !important; max-width: 100% !important; gap: 32px !important; }
+    .supply-intro { font-size: 22px !important; }
+    .supply-value-item { font-size: 18px !important; }
+    .supply-card-title { font-size: 26px !important; }
+    .supply-card-desc  { font-size: 22px !important; }
+    .supply-card-num   { font-size: 18px !important; }
+
+    /* How It Works (6 steps) */
+    .hiw-pipe-title { font-size: 22px !important; }
+    .hiw-pipe-sub   { font-size: 18px !important; }
+
+    /* Academy */
+    .amod-title { font-size: 26px !important; }
+    .amod-desc  { font-size: 22px !important; }
+    .amod-num   { font-size: 18px !important; }
+
+    /* Vision / Mission */
+    .vision-grid { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 100% !important; }
+    .vision-card p { font-size: 22px !important; }
+    .vision-values li { font-size: 22px !important; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; max-width: 100% !important; }
+    .service-card  { padding: 24px 16px !important; max-width: 100% !important; }
+    .service-card p { font-size: 22px !important; }
+    .service-card ul li { font-size: 22px !important; }
+    /* ── Other grids → 1 cột ── */
     .about-grid, .ai-grid, .contact-grid,
     .market-grid, .proof-grid,
     .academy-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-    .services-grid, .supply-grid { grid-template-columns: 1fr !important; gap: 2px !important; margin-top: 28px !important; }
-    .service-card { padding: 24px 18px !important; }
     .investor-points { grid-template-columns: 1fr 1fr; gap: 8px; }
     .form-row { grid-template-columns: 1fr !important; }
 
@@ -1667,22 +1699,22 @@
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
     .contact-item-icon { width: 48px; height: 48px; font-size: 22px; }
-    .contact-item-value { font-size: 22px !important; word-break: break-all; }
+    .contact-item-value { font-size: 18px !important; word-break: break-all; }
 
     /* ── MOBILE UNIFIED TYPOGRAPHY ── */
-    /* Card headings */
+    /* Card headings — cùng cấp, cùng size */
     .card h3, .card h4,
     .service-card h3, .supply-card h3,
     .vision-card h3,
-    .case-study-title, .hiw-title { font-size: 26px !important; letter-spacing: 1.5px !important; text-align: left !important; }
-    /* AI section */
-    .ai-feature h4 { font-size: 26px !important; letter-spacing: 1.5px !important; }
-    .ai-feature p  { font-size: 22px !important; }
-    .hiw-step-title { font-size: 26px !important; }
-    .hiw-step-desc  { font-size: 22px !important; }
+    .case-study-title, .hiw-title { font-size: 32px !important; letter-spacing: 1.5px !important; text-align: center !important; }
+    /* AI section — riêng */
+    .ai-feature h4 { font-size: 22px !important; letter-spacing: 1.5px !important; }
+    .ai-feature p  { font-size: 16px !important; }
+    .hiw-step-title { font-size: 18px !important; }
+    .hiw-step-desc  { font-size: 18px !important; }
     /* Academy modules */
-    .module-title { font-size: 26px !important; }
-    .module-desc  { font-size: 22px !important; }
+    .module-title { font-size: 28px !important; }
+    .module-desc  { font-size: 18px !important; }
     .module-num   { font-size: 64px !important; min-width: unset !important; color: rgba(201,162,39,0.15) !important; line-height: 1 !important; margin-bottom: 4px !important; }
     .academy-modules { gap: 0 !important; margin-top: 28px !important; }
     .academy-module {
@@ -1698,27 +1730,26 @@
     .academy-module:last-child { border-bottom: none !important; }
     .academy-module > div:last-child { padding: 0 !important; }
     .academy-stat-num { font-size: 36px !important; }
-    .academy-stat-label { font-size: 18px !important; }
+    .academy-stat-label { font-size: 11px !important; }
     /* Body text */
     .card p, .service-card p, .supply-card p,
     .section-sub, .hero-sub,
     .hiw-step-desc, .testimonial-text,
-    .case-study-desc { font-size: 22px !important; line-height: 1.7 !important; }
-    .section-sub { text-align: left !important; margin-left: 0 !important; margin-right: 0 !important; max-width: 100% !important; }
+    .case-study-desc { font-size: 18px !important; line-height: 1.7 !important; }
     /* List items */
-    .service-card ul li, .card ul li { font-size: 22px !important; }
+    .service-card ul li, .card ul li { font-size: 16px !important; }
     /* Stat numbers mobile */
     .proof-num, .case-stat-num { font-size: 26px !important; }
     .ai-proof-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 0; }
     .ai-proof-item { padding: 10px 0; width: 100%; white-space: normal; gap: 10px; flex-wrap: nowrap; overflow: hidden; }
     .ai-proof-divider { width: 100%; height: 1px; background: linear-gradient(to right, rgba(201,162,39,0.3), transparent); }
-    .ai-proof-label { white-space: normal; font-size: 18px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
-    .ai-proof-icon { font-size: 18px !important; }
-    .ai-proof-num { font-size: 22px !important; flex-shrink: 0; }
+    .ai-proof-label { white-space: normal; font-size: 9px !important; letter-spacing: 1px !important; overflow-wrap: break-word; word-break: break-word; flex: 1; min-width: 0; }
+    .ai-proof-icon { font-size: 11px !important; }
+    .ai-proof-num { font-size: 15px !important; flex-shrink: 0; }
     /* Social Proof */
     .case-study { padding: 18px 14px; word-break: break-word; overflow-wrap: break-word; }
     .case-study-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; }
-    .case-study-client { font-size: 18px; }
+    .case-study-client { font-size: 11px; }
     .testimonial { padding: 16px 14px; word-break: break-word; overflow-wrap: break-word; }
     .testimonial-author { flex-direction: column; gap: 4px; }
     .testimonial-company { text-align: left; }
@@ -1726,17 +1757,17 @@
 
     /* ── Market ── */
     .market-bar-label {
-      font-size: 18px; letter-spacing: 0.5px;
+      font-size: 13px; letter-spacing: 0.5px;
       flex-direction: column; gap: 3px; align-items: flex-start;
     }
-    .market-bar-label span:first-child { color: var(--gray); font-size: 18px; }
-    .market-bar-label span:last-child  { color: var(--gold); font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+    .market-bar-label span:first-child { color: var(--gray); font-size: 13px; }
+    .market-bar-label span:last-child  { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
     .market-bar-track { height: 12px; border-radius: 6px; }
     .market-bars { gap: 24px; }
     .investor-point { padding: 12px 10px !important; }
-    .investor-point-title { font-size: 22px; }
-    .investor-point-desc  { font-size: 18px; line-height: 1.5; }
-    .investor-point-icon  { font-size: 22px; margin-bottom: 4px; }
+    .investor-point-title { font-size: 13px; }
+    .investor-point-desc  { font-size: 10px; line-height: 1.5; }
+    .investor-point-icon  { font-size: 18px; margin-bottom: 4px; }
 
     /* ── Academy ── */
     .academy-photos { grid-template-columns: 1fr; }
@@ -1765,16 +1796,16 @@
 
     .case-study-stats { flex-direction: row; flex-wrap: wrap; gap: 8px 12px; }
     .case-stat        { min-width: 72px; }
-    .case-study-title { font-size: 26px; text-align: left; }
+    .case-study-title { font-size: 15px; text-align: center; }
     .case-study       { padding: 16px 12px; }
     .case-study::before { left: 12px; }
     .testimonials { gap: 12px; }
 
     .market-bar-label { flex-direction: column; gap: 3px; }
-    .market-bar-label span:last-child { color: var(--gold); font-size: 22px; font-weight: 800; }
+    .market-bar-label span:last-child { color: var(--gold); font-size: 18px; font-weight: 800; }
     .market-bars { gap: 22px; }
 
-    .investor-point-icon { font-size: 22px; }
+    .investor-point-icon { font-size: 18px; }
     .investor-point      { padding: 10px 8px !important; }
 
     .section-title { font-size: clamp(28px, 9vw, 48px); }
@@ -1890,7 +1921,7 @@
   .academy-module-v2:hover .amod-title { color: var(--gold-light); }
   .amod-num {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: rgba(201,162,39,0.4);
     padding-top: 5px;
@@ -1904,7 +1935,7 @@
   }
   .amod-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
+    font-size: 26px;
     letter-spacing: 2px;
     color: var(--white);
     margin-bottom: 6px;
@@ -1912,7 +1943,7 @@
   }
   .amod-desc {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 500;
     color: rgba(240,244,255,0.5);
     line-height: 1.6;
@@ -2024,7 +2055,7 @@
     .academy-photos { gap: 12px; margin-top: 32px; }
     .academy-photo-item img { height: 220px; }
     .academy-photo-title { font-size: clamp(14px, 5vw, 22px); }
-    .academy-photo-tag { font-size: 18px; letter-spacing: 2px; margin-bottom: 4px; }
+    .academy-photo-tag { font-size: 10px; letter-spacing: 2px; margin-bottom: 4px; }
     .academy-photo-caption { padding: 12px; }
   }
 
@@ -2268,7 +2299,7 @@
   }
   @media (max-width: 900px) {
     .lang-switcher { padding: 2px; }
-    .lang-btn { padding: 5px 8px; font-size: 18px; }
+    .lang-btn { padding: 5px 8px; font-size: 9px; }
   }
 
   /* ── VISION / MISSION / CORE VALUES ─────────────────────── */
@@ -2899,7 +2930,7 @@
   @media (max-width: 600px) {
     .vfr-card { padding: 18px 16px 14px; }
     .vfr-num { font-size: 40px; }
-    .vfr-title { font-size: 18px; }
+    .vfr-title { font-size: 14px; }
     .vfr-divider { margin: 0 12px; }
   }
 
@@ -3021,7 +3052,7 @@
     letter-spacing: 0.5px;
   }
   @media (max-width: 600px) {
-    .legal-page { padding: 120px 20px 80px; font-size: 18px; }
+    .legal-page { padding: 120px 20px 80px; font-size: 15px; }
     .legal-page h1 { font-size: clamp(40px, 12vw, 60px); }
   }
 
@@ -3302,7 +3333,7 @@
 
   @media (max-width: 700px) {
     #cookie-banner { padding: 18px 20px; gap: 16px; }
-    .cookie-text p { font-size: 18px; }
+    .cookie-text p { font-size: 13px; }
     .cookie-modal-box { padding: 28px 20px 22px; }
   }
 
@@ -3736,7 +3767,7 @@
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .founder-card { flex-direction: column; text-align: left; }
+  .founder-card { flex-direction: column; text-align: center; }
   .founder-photo { width: 90px; height: 90px; }
 }
 
@@ -3928,7 +3959,7 @@
   font-size: 15px;
 }
 @media (max-width: 600px) {
-  .btn-hero-dl { font-size: 18px; padding: 13px 20px; }
+  .btn-hero-dl { font-size: 12px; padding: 13px 20px; }
 }
 
 /* ══════════════════════════════════════════
@@ -4066,7 +4097,7 @@
 @media (max-width: 768px) {
   .section-cta-strip { padding: 22px 24px; }
   .section-cta-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .section-cta-msg { font-size: 18px; }
+  .section-cta-msg { font-size: 14px; }
   .section-cta-btn { width: 100%; justify-content: center; }
 }
 
@@ -4189,17 +4220,17 @@
 }
 .wwd-card-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
+  font-size: 26px;
   letter-spacing: 2px;
   color: #c9a227;
   margin-bottom: 14px;
 }
 .wwd-card-item {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
-  line-height: 1;
+  line-height: 1.3;
   margin-top: 10px;
 }
 .wwd-card-item:first-child { margin-top: 0; }
