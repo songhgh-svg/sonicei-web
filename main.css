@@ -1663,8 +1663,8 @@
     .about-grid > *, .ai-grid > *, .contact-grid > *,
     .market-grid > *, .proof-grid > *, .academy-grid > *,
     .investor-points > * { min-width: 0; overflow: hidden; }
-    /* Pipeline column cần hiển thị đủ chiều cao */
-    .hiw-col { overflow: visible !important; }
+    /* Pipeline column — đẩy xuống dưới cùng, hiển thị đủ chiều cao */
+    .hiw-col { overflow: visible !important; order: 99; }
 
     /* ── Contact ── */
     .contact-item { padding: 18px 16px; align-items: center; }
