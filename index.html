@@ -182,24 +182,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script defer src="emailjs-config.js"></script>
 <link rel="stylesheet" href="main.css">
-<style>
-  .ai-section .section-sub { text-align: left; margin-left: 0; margin-right: 0; }
-  /* Fix: mobile pain bar text wrap */
-  .mobile-pain-bar {
-    white-space: normal !important;
-    word-break: break-word;
-    text-align: center;
-    padding-left: 16px;
-    padding-right: 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-  }
-  .mobile-pain-bar .pain-dot {
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-</style>
+
 </head>
 <body>
 
@@ -245,6 +228,12 @@
 
 
 <!-- MOBILE PAIN BAR + TICKER (static, below nav, mobile only) -->
+<div class="mobile-pain-bar">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="pain-dot"></span> EACH E&amp;I DEFECT CAN COST $500–$5,000. EACH DELAY DAY: $50K+. WE ELIMINATE BOTH.</span>
+    <span class="ticker-item"><span class="pain-dot"></span> EACH E&amp;I DEFECT CAN COST $500–$5,000. EACH DELAY DAY: $50K+. WE ELIMINATE BOTH.</span>
+  </div>
+</div>
 <div class="mobile-ticker-bar">
   <div class="ticker-track">
     <!-- Set 1 -->
@@ -269,9 +258,7 @@
     <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
   </div>
 </div>
-<div class="mobile-pain-bar" id="mobilePainBar" style="display:none; transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
-  <span class="pain-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c9a227;margin-right:8px;vertical-align:middle;animation:pulse-dot 1.8s ease-in-out infinite;flex-shrink:0;"></span><span data-i18n="hero_pain_bar">Each E&amp;I defect can cost $500–$5,000. Each delay day: $50K+. We eliminate both.</span>
-</div>
+
 
 <!-- FLOATING CTA -->
 <!-- SUB-NAV WRAP: sticks right below fixed nav -->
@@ -405,15 +392,40 @@
 
 </section>
 
+<style>
+@media (max-width: 700px) {
+  .logo-grid-responsive {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .logo-grid-responsive > div {
+    padding: 18px 12px !important;
+  }
+  .logo-grid-responsive > div:nth-child(2n) {
+    border-right: none !important;
+  }
+  .logo-grid-responsive > div:nth-child(n+7) {
+    border-bottom: none !important;
+  }
+  .logo-grid-responsive img {
+    height: 40px !important;
+    max-width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .logo-grid-responsive img {
+    height: 32px !important;
+  }
+}
+</style>
 <!-- ═══ HERO BOTTOM BLOCK: LOGOS + STATS ═══ -->
 <div class="hero-bottom-block">
 
   <!-- Row 1: Logo strip — real PNG logos, bright white card, 2x4 grid -->
   <div class="hbb-logos-wrap" style="background:#ffffff;border-radius:14px;padding:24px 0 0 0;box-shadow:0 12px 56px rgba(0,0,0,0.45);margin-bottom:0;overflow:hidden;">
-    <div style="text-align:center;margin-bottom:20px;padding:0 24px;">
-      <span style="font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#8892aa;text-transform:uppercase;">FIELD EXPERIENCE WITH · OFFSHORE · POWER PLANTS · EPC</span>
+    <div style="text-align:center;margin-bottom:20px;padding:0 16px;overflow:hidden;">
+      <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#8892aa;text-transform:uppercase;">FIELD EXPERIENCE WITH · OFFSHORE · POWER PLANTS · EPC</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;width:100%;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;width:100%;" class="logo-grid-responsive">
 
       <!-- 1. Siemens Energy — PNG thật -->
       <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;border-bottom:1.5px solid #e8eaf0;">
@@ -1683,7 +1695,7 @@
 <section id="services" style="background: var(--navy);">
   <div class="fade-in">
     <div class="section-header">
-      <div class="section-label" data-i18n="svc_label">// What We Do</div>
+      <div class="section-label" data-i18n="svc_label">// Our Execution Model</div>
       <h2 class="section-title"><span data-i18n="svc_title1">ELITE</span> <span class="gold" data-i18n="svc_title2">E&amp;I</span> <span data-i18n="svc_title3">EXECUTION</span></h2>
       <p class="section-sub" data-i18n="svc_sub">International standards. Precision results. Right First Time — we don't just finish projects; we deliver integrity.</p>
       <div class="divider"></div>
@@ -2119,10 +2131,10 @@
           <div class="founder-name">Hoang Ngoc Son</div>
           <div class="founder-title">Founder &amp; Lead E&amp;I Engineer</div>
           <div class="founder-exp">25+ Years · Siemens Energy · GE Power</div>
-          <div class="founder-exp" style="margin-top:4px;font-size:11px;letter-spacing:1.5px;color:rgba(201,162,39,0.7);">📅 ESTABLISHED 20 MAY 2026</div>
+          <div class="founder-exp" style="margin-top:4px;font-size:11px;letter-spacing:1.5px;color:rgba(201,162,39,0.55);">Independent practice established 2026 — built on 25 years of hands-on E&amp;I engineering with Siemens Energy and GE Power.</div>
         </div>
       </div>
-      <p data-i18n="about_p1">SONIC E&I Solutions is a specialist E&amp;I commissioning company delivering precision Electrical &amp; Instrumentation services for Vietnam's most demanding energy projects. Founded by a former Siemens Energy official and GE Owner's Engineer, we bring international OEM standards directly to the field — with a contractual zero-defect guarantee on every project.</p>
+      <p data-i18n="about_p1">SONIC E&amp;I Solutions is a specialist E&amp;I commissioning practice founded by Hoang Ngoc Son — a 25-year veteran of Siemens Energy and GE Power field operations. Independent practice established 2026, built on accumulated OEM-level expertise delivered directly to the field under one accountable name, with a contractual zero-defect guarantee on every project.</p>
       <div class="quote" data-i18n="about_quote">"Integrating Global Standards into Local Field Excellence."</div>
       <p data-i18n="about_p2">From Siemens gas turbines to GE gensets, Vietsovpetro offshore platforms to VARD vessel systems — our founder has operated at the highest levels of E&amp;I technical integrity across 25+ years. Every termination, every loop check, every handover to the same standard you would expect from a tier-1 European contractor.</p>
     </div>

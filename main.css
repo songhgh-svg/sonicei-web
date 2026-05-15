@@ -122,6 +122,22 @@
     background: var(--gold); flex-shrink: 0;
     animation: pulse-dot 1.8s ease-in-out infinite;
   }
+  @media (max-width: 768px) {
+    .hero-pain-bar {
+      white-space: normal;
+      word-break: break-word;
+      text-align: center;
+      padding: 10px 40px 10px 16px;
+      height: auto;
+      min-height: unset;
+      line-height: 1.5;
+      font-size: 11px;
+    }
+    #painBarToggle {
+      top: 10px !important;
+      transform: none !important;
+    }
+  }
   @keyframes pulse-dot {
     0%,100% { opacity:1; transform:scale(1); }
     50%      { opacity:0.4; transform:scale(0.6); }
