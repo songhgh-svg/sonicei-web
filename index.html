@@ -269,7 +269,7 @@
     <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
   </div>
 </div>
-<div class="mobile-pain-bar" id="mobilePainBar" style="transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
+<div class="mobile-pain-bar" id="mobilePainBar" style="display:none; transition:height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; overflow:hidden;">
   <span class="pain-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c9a227;margin-right:8px;vertical-align:middle;animation:pulse-dot 1.8s ease-in-out infinite;flex-shrink:0;"></span><span data-i18n="hero_pain_bar">Each E&amp;I defect can cost $500–$5,000. Each delay day: $50K+. We eliminate both.</span>
 </div>
 
@@ -336,7 +336,7 @@
     <!-- Proof row -->
     <div class="hero-proof" style="justify-content:center;">
       <div class="proof-item">
-        <div class="proof-num"><span class="counter" data-target="25" data-suffix="+">10+</span></div>
+        <div class="proof-num"><span class="counter" data-target="25" data-suffix="+">25+</span></div>
         <div class="proof-label" data-i18n="hero_stat1">Years Experience</div>
       </div>
       <div class="proof-divider"></div>
@@ -369,31 +369,7 @@
       Contractual guarantee covers all E&amp;I workmanship &amp; termination quality — written into every project agreement.
     </div>
 
-    <!-- VERIFIED FIELD RESULT CARD -->
-    <div class="vfr-card" style="margin-left:auto;margin-right:auto;text-align:left;">
-      <div class="vfr-label">// VERIFIED FIELD RESULT</div>
-      <div class="vfr-title">PHUMY 2.1 EXT — DCS UPGRADE <span class="vfr-year">2018</span></div>
-      <div class="vfr-stats">
-        <div class="vfr-stat">
-          <div class="vfr-num">6</div>
-          <div class="vfr-unit">WEEKS</div>
-          <div class="vfr-desc">Commissioned on schedule</div>
-        </div>
-        <div class="vfr-divider"></div>
-        <div class="vfr-stat">
-          <div class="vfr-num">0</div>
-          <div class="vfr-unit">RE-TESTS</div>
-          <div class="vfr-desc">Required at handover</div>
-        </div>
-        <div class="vfr-divider"></div>
-        <div class="vfr-stat">
-          <div class="vfr-num">0</div>
-          <div class="vfr-unit">DEFECTS</div>
-          <div class="vfr-desc">E&amp;I punch items at close-out</div>
-        </div>
-      </div>
-      <div class="vfr-footer">SIEMENS ENERGY · GAS TURBINE PLANT · VIETNAM</div>
-    </div>
+
 
     <!-- Video box — mobile only (desktop version ở trong Our Purpose) -->
     <div class="sonic-video-box sonic-video-hero-mobile">
@@ -432,52 +408,51 @@
 <!-- ═══ HERO BOTTOM BLOCK: LOGOS + STATS ═══ -->
 <div class="hero-bottom-block">
 
-  <!-- Row 1: Logo strip -->
-  <div class="hbb-logos-wrap">
-    <span class="hbb-eyebrow">FIELD EXPERIENCE ACROSS SIEMENS &amp; GE SYSTEMS <span class="hbb-eyebrow-dot">·</span> Offshore · Power Plants · EPC Projects</span>
-    <div class="hbb-logos">
+  <!-- Row 1: Logo strip — real PNG logos, bright white card, 2x4 grid -->
+  <div class="hbb-logos-wrap" style="background:#ffffff;border-radius:14px;padding:24px 0 0 0;box-shadow:0 12px 56px rgba(0,0,0,0.45);margin-bottom:0;overflow:hidden;">
+    <div style="text-align:center;margin-bottom:20px;padding:0 24px;">
+      <span style="font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#8892aa;text-transform:uppercase;">FIELD EXPERIENCE WITH · OFFSHORE · POWER PLANTS · EPC</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;width:100%;">
 
-      <div class="hbb-logo-item" title="Siemens Energy">
-        <svg height="30" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="1" fill="white">SIEMENS</text>
-          <text x="0" y="38" font-family="Arial,sans-serif" font-weight="400" font-size="12" letter-spacing="3" fill="rgba(255,255,255,0.75)">ENERGY</text>
-        </svg>
+      <!-- 1. Siemens Energy — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;border-bottom:1.5px solid #e8eaf0;">
+        <img src="assets/logos/Siemens_Energy.png" alt="Siemens Energy" style="height:56px;width:auto;object-fit:contain;display:block;">
       </div>
 
-      <span class="hbb-sep"></span>
-
-      <div class="hbb-logo-item" title="GE Power">
-        <svg height="30" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="white" stroke-width="2"/>
-          <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-weight="700" font-size="13" fill="white">GE</text>
-        </svg>
+      <!-- 2. GE — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;border-bottom:1.5px solid #e8eaf0;">
+        <img src="assets/logos/GE.png" alt="GE" style="height:64px;width:auto;object-fit:contain;display:block;">
       </div>
 
-      <span class="hbb-sep"></span>
-
-      <div class="hbb-logo-item" title="VARD">
-        <svg height="26" viewBox="0 0 88 32" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="26" font-family="Arial,sans-serif" font-weight="800" font-size="26" letter-spacing="2" fill="white">VARD</text>
-        </svg>
+      <!-- 3. PV Power — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;border-bottom:1.5px solid #e8eaf0;">
+        <img src="assets/logos/PV_Power.png" alt="PV Power - Petrovietnam Power" style="height:72px;width:auto;object-fit:contain;display:block;">
       </div>
 
-      <span class="hbb-sep"></span>
-
-      <div class="hbb-logo-item" title="Vietsovpetro">
-        <svg height="26" viewBox="0 0 168 32" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="2" width="26" height="26" rx="2" fill="none" stroke="white" stroke-width="2"/>
-          <text x="13" y="20" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="white">VSP</text>
-          <text x="34" y="22" font-family="Arial,sans-serif" font-weight="600" font-size="13" letter-spacing="0.5" fill="white">VIETSOVPETRO</text>
-        </svg>
+      <!-- 4. EVN Genco3 — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-bottom:1.5px solid #e8eaf0;">
+        <img src="assets/logos/EVNGenco3.png" alt="EVN Genco 3" style="height:72px;width:auto;object-fit:contain;display:block;">
       </div>
 
-      <span class="hbb-sep"></span>
+      <!-- 5. Vietsovpetro — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;">
+        <img src="assets/logos/Vietsovpetro.png" alt="Vietsovpetro" style="height:68px;width:auto;object-fit:contain;display:block;">
+      </div>
 
-      <div class="hbb-logo-item" title="Seaonics">
-        <svg height="24" viewBox="0 0 112 30" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 16 Q7 7 12 16 Q17 25 22 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="28" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="14" letter-spacing="1" fill="white">SEAONICS</text>
-        </svg>
+      <!-- 6. VARD — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;">
+        <img src="assets/logos/Vard.png" alt="VARD" style="height:56px;width:auto;object-fit:contain;display:block;">
+      </div>
+
+      <!-- 7. Seaonics — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;border-right:1.5px solid #e8eaf0;">
+        <img src="assets/logos/Seaonics.png" alt="Seaonics" style="height:44px;width:auto;object-fit:contain;display:block;">
+      </div>
+
+      <!-- 8. Biwase — PNG thật -->
+      <div style="display:flex;align-items:center;justify-content:center;padding:24px 16px;">
+        <img src="assets/logos/Biwase.png" alt="Biwase" style="height:72px;width:auto;object-fit:contain;display:block;">
       </div>
 
     </div>
