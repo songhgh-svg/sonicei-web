@@ -5,7 +5,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ── GOOGLE FONTS (import if not loaded via <link>) ── */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+/* Font import moved to <link> tags in <head> for better performance */
 
 /* ── CSS CUSTOM PROPERTIES ── */
 :root {
