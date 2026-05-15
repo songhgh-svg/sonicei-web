@@ -3,17 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use — SONIC E&I Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<title>Terms of Use | Điều Khoản Sử Dụng — SONIC E&I Solutions</title>
+<link rel="icon" type="image/png" href="SONICEI_LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
+  body { font-family:'Be Vietnam Pro',sans-serif; }
+
+  .legal-page { max-width:1100px; }
+
+  .page-title-vi {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(18px,3vw,28px);
+    letter-spacing:2px;
+    color:rgba(201,162,39,0.5);
+    margin-top:4px;
+    margin-bottom:2px;
+  }
   .legal-meta {
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.55;
-    margin-top: -0.5rem;
-    margin-bottom: 2rem;
+    font-size:0.82rem; letter-spacing:0.08em;
+    text-transform:uppercase; opacity:0.55;
+    margin-top:0; margin-bottom:2rem;
+  }
+
+  .sh-row {
+    display:grid; grid-template-columns:1fr 1fr;
+    border-bottom:1px solid rgba(201,162,39,0.2);
+    padding-bottom:6px; margin:32px 0 14px;
+  }
+  .sh-en {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(16px,2.5vw,22px);
+    letter-spacing:2px; color:var(--gold);
+  }
+  .sh-vi {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(16px,2.5vw,22px);
+    letter-spacing:2px; color:rgba(201,162,39,0.45);
+    text-align:right;
+  }
+
+  .bi-p {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:0; margin-bottom:14px;
+  }
+  .bi-p-en {
+    font-size:15px; line-height:1.85;
+    color:rgba(240,244,255,0.75);
+    padding-right:28px;
+    border-right:1px solid rgba(201,162,39,0.1);
+  }
+  .bi-p-vi {
+    font-size:14px; line-height:1.85;
+    color:rgba(200,211,232,0.55);
+    padding-left:28px;
+    font-style:italic;
+  }
+
+  .legal-page a { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+  .legal-page a:hover { color:var(--gold-light); }
+
+  @media(max-width:768px){
+    .sh-row { grid-template-columns:1fr; }
+    .sh-vi { text-align:left; color:rgba(201,162,39,0.4); font-size:14px; }
+    .bi-p { grid-template-columns:1fr; }
+    .bi-p-en { border-right:none; padding-right:0; border-bottom:1px solid rgba(201,162,39,0.08); padding-bottom:10px; margin-bottom:6px; }
+    .bi-p-vi { padding-left:0; }
   }
 </style>
 </head>
@@ -25,9 +80,7 @@
   <div class="nav-links">
     <a href="index.html#ai">AI Platform</a>
     <a href="index.html#gallery">Engineering Experience</a>
-    <a href="index.html#proof">Industries</a>
     <a href="index.html#services">Services</a>
-    <a href="index.html#supply">Supply</a>
     <a href="index.html#academy">Academy</a>
     <a href="index.html#about">About</a>
     <a href="index.html#contact">Contact</a>
@@ -45,9 +98,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html#ai"       onclick="closeMenu()">AI Platform</a>
   <a href="index.html#gallery"  onclick="closeMenu()">Engineering Experience</a>
-  <a href="index.html#proof"    onclick="closeMenu()">Industries</a>
   <a href="index.html#services" onclick="closeMenu()">Services</a>
-  <a href="index.html#supply"   onclick="closeMenu()">Supply</a>
   <a href="index.html#academy"  onclick="closeMenu()">Academy</a>
   <a href="index.html#about"    onclick="closeMenu()">About</a>
   <a href="index.html#contact"  onclick="closeMenu()">Contact</a>
@@ -58,74 +109,87 @@
 <section class="legal-page">
 
   <h1>Terms <span class="gold">of Use</span></h1>
+  <div class="page-title-vi">ĐIỀU KHOẢN SỬ DỤNG</div>
+  <p class="legal-meta">Last updated / Cập nhật: May 11, 2026</p>
 
-  <p class="legal-meta">Last updated: May 11, 2026</p>
+  <!-- INTRO -->
+  <div class="bi-p">
+    <div class="bi-p-en">By accessing and using this website, you agree to the following terms and conditions.</div>
+    <div class="bi-p-vi">Bằng cách truy cập và sử dụng website này, bạn đồng ý với các điều khoản và điều kiện sau đây.</div>
+  </div>
 
-  <p>
-    By accessing and using this website, you agree to the following terms and conditions.
-  </p>
+  <!-- 1 -->
+  <div class="sh-row"><span class="sh-en">Website Content</span><span class="sh-vi">Nội Dung Website</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">All content, visuals, text, graphics, and materials presented on this website are provided for informational and business communication purposes only.</div>
+    <div class="bi-p-vi">Tất cả nội dung, hình ảnh, văn bản và tài liệu trên website này được cung cấp chỉ nhằm mục đích thông tin và giao tiếp kinh doanh.</div>
+  </div>
 
-  <h2>Website Content</h2>
-  <p>
-    All content, visuals, text, graphics, and materials presented on this website
-    are provided for informational and business communication purposes only.
-  </p>
+  <!-- 2 -->
+  <div class="sh-row"><span class="sh-en">Intellectual Property</span><span class="sh-vi">Sở Hữu Trí Tuệ</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">Unless otherwise stated, all website content, branding, and materials are the property of SONIC E&amp;I SOLUTIONS and may not be copied, reproduced, or distributed without permission.</div>
+    <div class="bi-p-vi">Trừ khi có quy định khác, toàn bộ nội dung, thương hiệu và tài liệu trên website là tài sản của SONIC E&amp;I SOLUTIONS và không được sao chép, tái sản xuất hoặc phân phối khi chưa được phép.</div>
+  </div>
 
-  <h2>Intellectual Property</h2>
-  <p>
-    Unless otherwise stated, all website content, branding, and materials are the property
-    of SONIC E&amp;I SOLUTIONS and may not be copied, reproduced, or distributed without permission.
-  </p>
+  <!-- 3 -->
+  <div class="sh-row"><span class="sh-en">Service Information</span><span class="sh-vi">Thông Tin Dịch Vụ</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">Descriptions related to industrial engineering services, AI technologies, and operational concepts are presented in good faith and may evolve as projects, research, and development activities progress.</div>
+    <div class="bi-p-vi">Các mô tả liên quan đến dịch vụ kỹ thuật công nghiệp, công nghệ AI và các khái niệm vận hành được trình bày trung thực và có thể thay đổi theo tiến trình dự án, nghiên cứu và phát triển.</div>
+  </div>
 
-  <h2>Service Information</h2>
-  <p>
-    Descriptions related to industrial engineering services, AI technologies,
-    and operational concepts are presented in good faith and may evolve as projects,
-    research, and development activities progress.
-  </p>
+  <!-- 4 -->
+  <div class="sh-row"><span class="sh-en">Limitation of Liability</span><span class="sh-vi">Giới Hạn Trách Nhiệm</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">SONIC E&amp;I SOLUTIONS shall not be held liable for any direct or indirect damages resulting from the use of this website or reliance on its content.</div>
+    <div class="bi-p-vi">SONIC E&amp;I SOLUTIONS không chịu trách nhiệm về bất kỳ thiệt hại trực tiếp hoặc gián tiếp nào phát sinh từ việc sử dụng website này hoặc dựa vào nội dung của nó.</div>
+  </div>
 
-  <h2>Limitation of Liability</h2>
-  <p>
-    SONIC E&amp;I SOLUTIONS shall not be held liable for any direct or indirect damages
-    resulting from the use of this website or reliance on its content.
-  </p>
+  <!-- 5 -->
+  <div class="sh-row"><span class="sh-en">External Resources</span><span class="sh-vi">Tài Nguyên Bên Ngoài</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">This website may contain links to third-party platforms or resources. We are not responsible for the content or availability of external websites.</div>
+    <div class="bi-p-vi">Website có thể chứa liên kết đến các nền tảng hoặc tài nguyên bên thứ ba. Chúng tôi không chịu trách nhiệm về nội dung hoặc tính khả dụng của các trang web bên ngoài đó.</div>
+  </div>
 
-  <h2>External Resources</h2>
-  <p>
-    This website may contain links to third-party platforms or resources.
-    We are not responsible for the content or availability of external websites.
-  </p>
+  <!-- 6 -->
+  <div class="sh-row"><span class="sh-en">Governing Law &amp; Jurisdiction</span><span class="sh-vi">Luật Điều Chỉnh &amp; Thẩm Quyền</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">These Terms of Use are governed by and construed in accordance with the laws of the <strong>Socialist Republic of Vietnam</strong>. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the competent courts of Vietnam. Users accessing this website from other jurisdictions do so at their own initiative and are responsible for compliance with applicable local laws.</div>
+    <div class="bi-p-vi">Các Điều Khoản Sử Dụng này được điều chỉnh và giải thích theo pháp luật của <strong>Cộng hoà Xã hội Chủ nghĩa Việt Nam</strong>. Mọi tranh chấp phát sinh từ việc sử dụng website này thuộc thẩm quyền xét xử của Toà án nhân dân có thẩm quyền tại Việt Nam.</div>
+  </div>
 
-  <h2>Governing Law &amp; Jurisdiction</h2>
-  <p>
-    These Terms of Use are governed by and construed in accordance with the laws of
-    the <strong>Socialist Republic of Vietnam</strong>. Any disputes arising from the use
-    of this website shall be subject to the exclusive jurisdiction of the competent courts
-    of Vietnam. Users accessing this website from other jurisdictions do so at their own
-    initiative and are responsible for compliance with applicable local laws.
-  </p>
+  <!-- 7 -->
+  <div class="sh-row"><span class="sh-en">Changes to Terms</span><span class="sh-vi">Thay Đổi Điều Khoản</span></div>
+  <div class="bi-p">
+    <div class="bi-p-en">These Terms of Use may be updated or modified at any time. The "Last updated" date at the top of this page will reflect any changes.</div>
+    <div class="bi-p-vi">Các Điều Khoản Sử Dụng này có thể được cập nhật hoặc sửa đổi bất cứ lúc nào. Ngày "Cập nhật" ở đầu trang sẽ phản ánh mọi thay đổi.</div>
+  </div>
 
-  <h2>Changes to Terms</h2>
-  <p>
-    These Terms of Use may be updated or modified at any time. The "Last updated" date
-    at the top of this page will reflect any changes.
-  </p>
-
-  <p>
-    Continued use of this website constitutes acceptance of these terms.
-    If you have any questions, please <a href="index.html#contact">contact us</a>.
-  </p>
+  <!-- CLOSING -->
+  <div class="bi-p" style="margin-top:8px;">
+    <div class="bi-p-en">Continued use of this website constitutes acceptance of these terms. If you have any questions, please <a href="index.html#contact">contact us</a>.</div>
+    <div class="bi-p-vi">Tiếp tục sử dụng website đồng nghĩa bạn chấp nhận các điều khoản này. Nếu có thắc mắc, vui lòng <a href="index.html#contact">liên hệ với chúng tôi</a>.</div>
+  </div>
 
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">SONIC <span class="footer-ei">E&amp;I</span> SOLUTIONS</div>
+  <div class="footer-logo" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px;">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" width="56" height="56" style="height:56px;width:auto;object-fit:contain;display:block;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap;">SONIC <span style="color:#ffffff;">E&amp;I</span> SOLUTIONS</span>
+  </div>
   <div class="footer-motto">"Right the first time — Every time"</div>
   <div class="footer-links">
-    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="services.html">Dịch Vụ / Services</a>
     <span class="footer-links-dot"></span>
-    <a href="terms-of-use.html" class="active">Terms of Use</a>
+    <a href="payment.html">Thanh Toán / Payment</a>
+    <span class="footer-links-dot"></span>
+    <a href="privacy-policy.html">Bảo Mật / Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="terms-of-use.html" class="active">Điều Khoản / Terms of Use</a>
     <span class="footer-links-dot"></span>
     <a href="index.html#contact">Contact Information</a>
   </div>
@@ -141,7 +205,6 @@
     document.getElementById('mobileMenu').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
-  // Close menu on outside click
   document.addEventListener('click', function(e) {
     var menu = document.getElementById('mobileMenu');
     var btn  = document.getElementById('hamburger');
@@ -149,10 +212,8 @@
       closeMenu();
     }
   });
-
-  // In-view brightness boost
   (function(){
-    var els = document.querySelectorAll('nav, footer, .legal-page, h1, h2');
+    var els = document.querySelectorAll('nav, footer, .legal-page, h1');
     els.forEach(function(el){ el.classList.add('in-view-boost'); });
     if ('IntersectionObserver' in window) {
       var obs = new IntersectionObserver(function(entries){
@@ -166,6 +227,5 @@
     }
   })();
 </script>
-
 </body>
 </html>
