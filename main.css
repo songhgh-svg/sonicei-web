@@ -292,11 +292,11 @@
 
   /* Right side stats panel */
 
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(100deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.75) 55%, rgba(10,22,40,0.65) 100%),
-      url('assets/images/img_33.webp') center center / cover no-repeat;
+  /* .hero-bg replaced by <img class="hero-lcp-img"> + .hero-overlay — see index.html */
+  .hero-bg { display: none; }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(100deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.75) 55%, rgba(10,22,40,0.65) 100%);
   }
   .grid-lines {
     position: absolute; inset: 0; opacity: 0.04;
