@@ -941,99 +941,58 @@
 
 
 
-<!-- WHY WE BUILT SONIC AI PUNCH -->
-<section class="why-sonic-section fade-in" id="purpose">
-  <div class="why-sonic-container">
-
-    <!-- LEFT: Content -->
-    <div class="why-sonic-content fade-in">
-      <div class="section-label">// Field-Driven QA/QC</div>
-
-      <h2 class="why-title">
-        🔧 AI PUNCH —<br>
-        <span class="gold">FIELD-DRIVEN QA/QC</span>
-      </h2>
-
-      <div class="why-divider"></div>
-
-      <p class="why-description">
-        After 25+ years across Siemens and GE projects — from power plants to offshore platforms — the same pattern repeats in E&amp;I commissioning.
-      </p>
-
-      <div class="why-highlight" style="margin-bottom:24px;">
-        <div class="highlight-label">// Field Observations</div>
-        <ul class="why-list" style="margin-top:12px;">
-          <li>QA/QC is still managed through fragmented tools with limited auditability</li>
-          <li>Defects are often identified at punch-out instead of during installation</li>
-          <li>Status tracking across systems and teams is inconsistent</li>
-        </ul>
-        <p style="margin-top:12px;font-size:13px;color:rgba(200,215,245,0.6);font-style:italic;">
-          These issues are not caused by lack of effort — but by the way information is captured and managed on site.
-        </p>
-      </div>
-
-      <div class="why-highlight">
-        <div class="highlight-label">// System Design Principle</div>
-        <p>
-          Defects are significantly easier to correct during construction than at handover.
-          AI Punch shifts QA/QC to the point of work — where each termination, loop, and device
-          can be checked, recorded, and verified before progressing.
-        </p>
-      </div>
-
-      <div style="margin-top:20px;padding:14px 18px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.55);line-height:1.7;">
-        AI Punch is currently used internally and under continuous development based on real project conditions.
-        It is not positioned as standalone software, but as part of our commissioning execution approach.
-      </div>
-    </div>
-
-    <!-- RIGHT: Video (desktop) -->
-    <div class="flex-col-gap">
-      <!-- Video box — desktop only (mobile version ở trong hero) -->
-      <div class="sonic-video-box sonic-video-purpose fade-in" style="position:relative;">
-        <div class="sonic-video-label">
-          <span class="sonic-video-dot"></span>
-          <span>WATCH: ZERO-DEFECT IN ACTION</span>
-        </div>
-        <div class="sonic-video-frame" id="svframe-desktop">
-          <div class="sonic-video-thumb"></div>
-          <div class="sonic-video-grid"></div>
-          <div class="sonic-video-scan"></div>
-          <div class="sonic-video-center">
-            <div class="sonic-video-tagline-top">// Industrial AI</div>
-            <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
-            <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
-            <button class="sonic-play-btn" onclick="svPlay('svframe-desktop')" aria-label="Play video">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
-              </svg>
-            </button>
-          </div>
-          <video id="svframe-desktop-video" playsinline controls
-            style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
-            <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
-          </video>
-          <!-- Experience badge — moved here from removed image block -->
-          <div class="experience-badge">
-            <h3>25+</h3>
-            <span>Years of Global<br>E&amp;I Excellence</span>
-          </div>
-        </div>
-        <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AI PUNCH -->
+<!-- AI PUNCH — FIELD-DRIVEN QA/QC -->
 <section class="ai-section" id="ai">
+
+  <!-- HEADER -->
+  <div style="max-width:860px;margin:0 auto;text-align:center;padding:0 clamp(16px,5vw,60px);padding-bottom:48px;" class="fade-in">
+    <div class="section-label">// Field-Driven QA/QC</div>
+    <h2 class="section-title" style="text-align:center;">🔧 AI PUNCH — <span class="gold">FIELD-DRIVEN QA/QC</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub">After 25+ years across Siemens and GE projects — from power plants to offshore platforms — the same pattern repeats in E&amp;I commissioning.</p>
+
+    <!-- 3 Observation cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px;text-align:left;">
+      <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);min-width:0;overflow:hidden;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;word-break:break-word;">01 / FRAGMENTED TOOLS</div>
+        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">QA/QC is still managed through fragmented tools with limited auditability</p>
+      </div>
+      <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);min-width:0;overflow:hidden;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;word-break:break-word;">02 / LATE DETECTION</div>
+        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Defects are often identified at punch-out instead of during installation</p>
+      </div>
+      <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);min-width:0;overflow:hidden;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;word-break:break-word;">03 / INCONSISTENT TRACKING</div>
+        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Status tracking across systems and teams is inconsistent</p>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 700px) {
+        #ai .obs-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+    <p style="margin-top:16px;font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,215,245,0.45);font-style:italic;">
+      These issues are not caused by lack of effort — but by the way information is captured and managed on site.
+    </p>
+
+    <!-- System design principle -->
+    <div style="margin-top:24px;padding:20px 24px;background:rgba(201,162,39,0.07);border-left:3px solid rgba(201,162,39,0.6);text-align:left;">
+      <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">// SYSTEM DESIGN PRINCIPLE</div>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:16px;color:rgba(240,244,255,0.85);line-height:1.7;">
+        Defects are significantly easier to correct during construction than at handover.
+        AI Punch shifts QA/QC to the point of work — where each termination, loop, and device
+        can be checked, recorded, and verified before progressing.
+      </p>
+    </div>
+  </div>
+
+  <!-- 3-COL GRID: Features | Mockup+Video | 6 Steps -->
   <div class="ai-grid fade-in">
+
+    <!-- COL 1: Workflow features -->
     <div>
       <div class="section-label">// Real Workflow — On Site</div>
-      <h2 class="section-title">CAPTURING, CLASSIFYING &amp; VERIFYING <span class="gold">AT POINT OF WORK</span></h2>
-      <div class="divider"></div>
-      <p class="section-sub" style="margin-bottom:16px;text-align:left;margin-left:0;margin-right:0;">Capturing, classifying, and verifying defects directly during execution — not after completion.</p>
+      <p class="section-sub" style="margin-bottom:24px;text-align:left;margin-left:0;margin-right:0;">Capturing, classifying, and verifying defects directly during execution — not after completion.</p>
       <div class="ai-features">
         <div class="ai-feature">
           <div class="ai-feature-icon">📸</div>
@@ -1065,18 +1024,14 @@
         </div>
       </div>
     </div>
-    <!-- COL 2: iPhone mockup — centered -->
-    <div class="flex-center-start">
+
+    <!-- COL 2: Phone mockup + Video below -->
+    <div class="flex-col-gap" style="display:flex;flex-direction:column;gap:24px;align-items:center;">
       <div class="phone-outer-wrap">
         <div class="phone-frame">
           <div class="phone-bezel">
-
-            <!-- Dynamic Island -->
             <div class="phone-island"></div>
-            <!-- Glass reflection -->
             <div class="phone-reflection"></div>
-
-            <!-- App header (status + progress) -->
             <div class="phone-app-bar">
               <div class="phone-app-bar-inner">
                 <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#c9a227;letter-spacing:2px;">SONIC AI-PUNCH™</div>
@@ -1091,197 +1046,127 @@
                 <div id="sbar6" style="flex:1;height:3px;border-radius:2px;background:rgba(201,162,39,0.15);transition:background 0.4s;"></div>
               </div>
             </div>
-            <!-- Scrollable app screen -->
             <div class="phone-screen-scroll" id="demoScreen">
-
-          <!-- STEP 1 -->
-          <div id="demoStep0" style="padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span>TAKE PHOTO OR UPLOAD
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;height:320px;cursor:pointer;" onclick="demoNext()">
-              <img src="assets/images/img_01.jpg" alt="AI-Punch™ Step 1 — Capture wiring photo for AI scan" style="width:100%;height:320px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-              <div style="position:absolute;inset:10px;border:1.5px solid rgba(201,162,39,0.55);border-radius:8px;pointer-events:none;">
-                <div style="position:absolute;top:-1px;left:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-left:2.5px solid #c9a227;border-radius:4px 0 0 0;"></div>
-                <div style="position:absolute;top:-1px;right:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-right:2.5px solid #c9a227;border-radius:0 4px 0 0;"></div>
-                <div style="position:absolute;bottom:-1px;left:-1px;width:18px;height:18px;border-bottom:2.5px solid #c9a227;border-left:2.5px solid #c9a227;border-radius:0 0 0 4px;"></div>
-                <div style="position:absolute;bottom:-1px;right:-1px;width:18px;height:18px;border-bottom:2.5px solid #c9a227;border-right:2.5px solid #c9a227;border-radius:0 0 4px 0;"></div>
-              </div>
-              <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;background:rgba(10,22,40,0.8);padding:4px 14px;border-radius:20px;border:1px solid rgba(201,162,39,0.3);white-space:nowrap;">📷 TAP TO CAPTURE</div>
-            </div>
-            <div style="font-size:9px;color:rgba(136,153,187,0.65);text-align:center;margin:7px 0 8px;letter-spacing:0.5px;">Capture wiring / component · IEC · Siemens · GE</div>
-            <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;transition:filter 0.2s;" onclick="demoNext()" onmouseover="this.style.filter='brightness(1.15)'" onmouseout="this.style.filter='brightness(1)'">⚡ START AI SCAN</button>
-          </div>
-
-          <!-- STEP 2 -->
-          <div id="demoStep1" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span>AI ANALYZES IMAGE
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.25);position:relative;height:280px;">
-              <img src="assets/images/img_02.jpg" alt="AI-Punch™ Step 2 — Gemini AI analyzing E&amp;I component" style="width:100%;height:280px;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-              <div style="position:absolute;inset:0;background:rgba(8,16,40,0.52);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
-                <div id="scanStatusText" style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#60a5fa;letter-spacing:1.5px;text-align:center;padding:0 16px;">AI đang quét tổng quát...</div>
-                <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;">Gemini AI · Processing</div>
-              </div>
-              <div id="scanLine" style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#60a5fa,transparent);animation:scanAnim 1.2s linear infinite;"></div>
-              <div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(8,16,40,0.85);border-radius:6px;padding:8px 10px;">
-                <div style="height:4px;background:rgba(96,165,250,0.12);border-radius:2px;overflow:hidden;margin-bottom:5px;">
-                  <div id="progressFill" style="height:100%;width:0%;background:#60a5fa;transition:width 0.08s;border-radius:2px;"></div>
+              <div id="demoStep0" style="padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span>TAKE PHOTO OR UPLOAD</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;height:320px;cursor:pointer;" onclick="demoNext()">
+                  <img src="assets/images/img_01.jpg" alt="AI-Punch™ Step 1" style="width:100%;height:320px;object-fit:cover;object-position:top center;display:block;" loading="lazy"/>
+                  <div style="position:absolute;inset:10px;border:1.5px solid rgba(201,162,39,0.55);border-radius:8px;pointer-events:none;"><div style="position:absolute;top:-1px;left:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-left:2.5px solid #c9a227;border-radius:4px 0 0 0;"></div><div style="position:absolute;top:-1px;right:-1px;width:18px;height:18px;border-top:2.5px solid #c9a227;border-right:2.5px solid #c9a227;border-radius:0 4px 0 0;"></div><div style="position:absolute;bottom:-1px;left:-1px;width:18px;height:18px;border-bottom:2.5px solid #c9a227;border-left:2.5px solid #c9a227;border-radius:0 0 0 4px;"></div><div style="position:absolute;bottom:-1px;right:-1px;width:18px;height:18px;border-bottom:2.5px solid #c9a227;border-right:2.5px solid #c9a227;border-radius:0 0 4px 0;"></div></div>
+                  <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;background:rgba(10,22,40,0.8);padding:4px 14px;border-radius:20px;border:1px solid rgba(201,162,39,0.3);white-space:nowrap;">📷 TAP TO CAPTURE</div>
                 </div>
-                <div id="progressText" style="font-size:9px;color:#60a5fa;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">Initializing Gemini AI...</div>
+                <div style="font-size:9px;color:rgba(136,153,187,0.65);text-align:center;margin:7px 0 8px;letter-spacing:0.5px;">Capture wiring / component · IEC · Siemens · GE</div>
+                <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">⚡ START AI SCAN</button>
               </div>
-            </div>
-          </div>
-
-          <!-- STEP 3 — real app screenshot -->
-          <div id="demoStep2" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f87171;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span>GET ERROR CODE
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(248,113,113,0.3);position:relative;">
-              <img src="assets/images/img_03.jpg" alt="AI-Punch™ Step 3 — AI defect error code detected" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-            </div>
-            <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-top:10px;margin-bottom:10px;transition:filter 0.2s;" onclick="demoNext()" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='brightness(1)'">✓ ĐÃ XỬ LÝ LỖI — FIXED</button>
-          </div>
-
-          <!-- STEP 4 -->
-          <div id="demoStep3" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#00e8aa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span>FIXED ✓ — AI CONFIRMED
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(0,232,170,0.3);position:relative;height:260px;">
-              <img src="assets/images/img_04.jpg" alt="AI-Punch™ Step 4 — Defect fixed and AI-verified" style="width:100%;height:260px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-              <div style="position:absolute;inset:0;background:rgba(0,30,20,0.58);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
-                <div style="font-size:42px;animation:fadeUp 0.4s both;">✅</div>
-                <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;">FIXED</div>
-                <div style="font-size:9px;color:rgba(0,232,170,0.6);letter-spacing:1px;">Correction verified by AI</div>
+              <div id="demoStep1" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span>AI ANALYZES IMAGE</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.25);position:relative;height:280px;">
+                  <img src="assets/images/img_02.jpg" alt="AI-Punch™ Step 2" style="width:100%;height:280px;object-fit:cover;object-position:center;display:block;" loading="lazy"/>
+                  <div style="position:absolute;inset:0;background:rgba(8,16,40,0.52);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                    <div id="scanStatusText" style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#60a5fa;letter-spacing:1.5px;text-align:center;padding:0 16px;">AI đang quét tổng quát...</div>
+                    <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;">Gemini AI · Processing</div>
+                  </div>
+                  <div id="scanLine" style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#60a5fa,transparent);animation:scanAnim 1.2s linear infinite;"></div>
+                  <div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(8,16,40,0.85);border-radius:6px;padding:8px 10px;">
+                    <div style="height:4px;background:rgba(96,165,250,0.12);border-radius:2px;overflow:hidden;margin-bottom:5px;"><div id="progressFill" style="height:100%;width:0%;background:#60a5fa;transition:width 0.08s;border-radius:2px;"></div></div>
+                    <div id="progressText" style="font-size:9px;color:#60a5fa;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">Initializing Gemini AI...</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div style="margin:9px 0 8px;padding:8px 12px;background:rgba(0,232,170,0.05);border:1px solid rgba(0,232,170,0.2);border-radius:8px;font-size:10px;color:#00e8aa;letter-spacing:0.5px;">
-              ✓ Technician resolved · AI re-scan confirmed
-            </div>
-            <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;transition:filter 0.2s;" onclick="demoNext()" onmouseover="this.style.filter='brightness(1.15)'" onmouseout="this.style.filter='brightness(1)'">📄 GENERATE REPORT</button>
-          </div>
-
-          <!-- STEP 5 -->
-          <div id="demoStep4" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span>REPORT IMMEDIATELY
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,39,0.2);position:relative;">
-              <img src="assets/images/img_05.jpg" alt="AI-Punch™ Step 5 — Inspection report auto-generated" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-            </div>
-            <div style="margin:9px 0 8px;padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;">
-              📧 PDF auto-sent · Photo evidence attached
-            </div>
-            <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;transition:filter 0.2s;" onclick="demoNext()" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='brightness(1)'">☁ SAVE TO CLOUD</button>
-          </div>
-
-          <!-- STEP 6 -->
-          <div id="demoStep5" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span>SAVED TO CLOUD
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.2);position:relative;">
-              <img src="assets/images/img_06.jpg" alt="AI-Punch™ Step 6 — Inspection record saved to cloud" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease;" loading="lazy"/>
-            </div>
-            <div class="result-badge badge-passed" style="margin:9px 0 8px;justify-content:center;font-size:10px;">
-              <span class="badge-dot"></span>INSPECTION COMPLETE · AUDIT-READY
-            </div>
-            <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;transition:filter 0.2s;" onclick="resetDemo()" onmouseover="this.style.filter='brightness(1.15)'" onmouseout="this.style.filter='brightness(1)'">↩ RUN DEMO AGAIN</button>
-          </div>
-
-        </div><!-- /phone-screen-scroll -->
-
-            <!-- Home indicator -->
+              <div id="demoStep2" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f87171;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span>GET ERROR CODE</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(248,113,113,0.3);position:relative;"><img src="assets/images/img_03.jpg" alt="AI-Punch™ Step 3" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;" loading="lazy"/></div>
+                <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-top:10px;margin-bottom:10px;" onclick="demoNext()">✓ ĐÃ XỬ LÝ LỖI — FIXED</button>
+              </div>
+              <div id="demoStep3" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#00e8aa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span>FIXED ✓ — AI CONFIRMED</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(0,232,170,0.3);position:relative;height:260px;">
+                  <img src="assets/images/img_04.jpg" alt="AI-Punch™ Step 4" style="width:100%;height:260px;object-fit:cover;object-position:top center;display:block;" loading="lazy"/>
+                  <div style="position:absolute;inset:0;background:rgba(0,30,20,0.58);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;"><div style="font-size:42px;animation:fadeUp 0.4s both;">✅</div><div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;">FIXED</div><div style="font-size:9px;color:rgba(0,232,170,0.6);letter-spacing:1px;">Correction verified by AI</div></div>
+                </div>
+                <div style="margin:9px 0 8px;padding:8px 12px;background:rgba(0,232,170,0.05);border:1px solid rgba(0,232,170,0.2);border-radius:8px;font-size:10px;color:#00e8aa;letter-spacing:0.5px;">✓ Technician resolved · AI re-scan confirmed</div>
+                <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">📄 GENERATE REPORT</button>
+              </div>
+              <div id="demoStep4" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span>REPORT IMMEDIATELY</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,39,0.2);position:relative;"><img src="assets/images/img_05.jpg" alt="AI-Punch™ Step 5" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;" loading="lazy"/></div>
+                <div style="margin:9px 0 8px;padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;">📧 PDF auto-sent · Photo evidence attached</div>
+                <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">☁ SAVE TO CLOUD</button>
+              </div>
+              <div id="demoStep5" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span>SAVED TO CLOUD</div>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.2);position:relative;"><img src="assets/images/img_06.jpg" alt="AI-Punch™ Step 6" style="width:100%;height:400px;object-fit:cover;object-position:top center;display:block;" loading="lazy"/></div>
+                <div class="result-badge badge-passed" style="margin:9px 0 8px;justify-content:center;font-size:10px;"><span class="badge-dot"></span>INSPECTION COMPLETE · AUDIT-READY</div>
+                <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="resetDemo()">↩ RUN DEMO AGAIN</button>
+              </div>
+            </div><!-- /phone-screen-scroll -->
             <div class="phone-home-ind"></div>
-
           </div><!-- /phone-bezel -->
         </div><!-- /phone-frame -->
       </div><!-- /phone-outer-wrap -->
-    </div>
 
-    <!-- COL 3: How It Works — right column -->
+      <!-- VIDEO — ngay dưới mockup, cùng cột -->
+      <div class="sonic-video-box" style="position:relative;width:100%;">
+        <div class="sonic-video-label">
+          <span class="sonic-video-dot"></span>
+          <span>WATCH: ZERO-DEFECT IN ACTION</span>
+        </div>
+        <div class="sonic-video-frame" id="svframe-desktop" style="min-height:280px;padding-bottom:75%!important;">
+          <div class="sonic-video-thumb"></div>
+          <div class="sonic-video-grid"></div>
+          <div class="sonic-video-scan"></div>
+          <div class="sonic-video-center">
+            <div class="sonic-video-tagline-top">// Industrial AI</div>
+            <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
+            <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
+            <button class="sonic-play-btn" onclick="svPlay('svframe-desktop')" aria-label="Play video">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="5,2 18,10 5,18" fill="#c9a227"/></svg>
+            </button>
+          </div>
+          <video id="svframe-desktop-video" playsinline controls style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+            <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
+      </div>
+
+    </div><!-- /col 2 -->
+
+    <!-- COL 3: How It Works -->
     <div class="hiw-col">
       <div class="hiw-label">// How It Works</div>
       <h3 class="hiw-title">6 <span class="gold">Steps</span></h3>
       <div class="hiw-pipeline">
-
-        <div class="hiw-pipe-step">
-          <div class="hiw-pipe-num">01</div>
-          <div class="hiw-pipe-connector"></div>
-          <div class="hiw-pipe-title">CAPTURE</div>
-          <div class="hiw-pipe-sub">Photo or upload in field</div>
-        </div>
-
-        <div class="hiw-pipe-step">
-          <div class="hiw-pipe-num">02</div>
-          <div class="hiw-pipe-connector"></div>
-          <div class="hiw-pipe-title">ANALYZE</div>
-          <div class="hiw-pipe-sub">Gemini AI · &lt;3 seconds</div>
-        </div>
-
-        <div class="hiw-pipe-step">
-          <div class="hiw-pipe-num">03</div>
-          <div class="hiw-pipe-connector"></div>
-          <div class="hiw-pipe-title">CLASSIFY</div>
-          <div class="hiw-pipe-sub">Type · location · severity</div>
-        </div>
-
-        <div class="hiw-pipe-step hiw-pipe-step--green">
-          <div class="hiw-pipe-num hiw-pipe-num--green">04</div>
-          <div class="hiw-pipe-connector hiw-pipe-connector--green"></div>
-          <div class="hiw-pipe-title">VERIFY ✓</div>
-          <div class="hiw-pipe-sub">AI confirms correction</div>
-        </div>
-
-        <div class="hiw-pipe-step">
-          <div class="hiw-pipe-num">05</div>
-          <div class="hiw-pipe-connector"></div>
-          <div class="hiw-pipe-title">REPORT</div>
-          <div class="hiw-pipe-sub">PDF auto-sent · photo proof</div>
-        </div>
-
-        <div class="hiw-pipe-step hiw-pipe-step--last">
-          <div class="hiw-pipe-num">06</div>
-          <div class="hiw-pipe-title">STORE</div>
-          <div class="hiw-pipe-sub">Cloud · searchable · audit-ready</div>
-        </div>
-
+        <div class="hiw-pipe-step"><div class="hiw-pipe-num">01</div><div class="hiw-pipe-connector"></div><div class="hiw-pipe-title">CAPTURE</div><div class="hiw-pipe-sub">Photo or upload in field</div></div>
+        <div class="hiw-pipe-step"><div class="hiw-pipe-num">02</div><div class="hiw-pipe-connector"></div><div class="hiw-pipe-title">ANALYZE</div><div class="hiw-pipe-sub">Gemini AI · &lt;3 seconds</div></div>
+        <div class="hiw-pipe-step"><div class="hiw-pipe-num">03</div><div class="hiw-pipe-connector"></div><div class="hiw-pipe-title">CLASSIFY</div><div class="hiw-pipe-sub">Type · location · severity</div></div>
+        <div class="hiw-pipe-step hiw-pipe-step--green"><div class="hiw-pipe-num hiw-pipe-num--green">04</div><div class="hiw-pipe-connector hiw-pipe-connector--green"></div><div class="hiw-pipe-title">VERIFY ✓</div><div class="hiw-pipe-sub">AI confirms correction</div></div>
+        <div class="hiw-pipe-step"><div class="hiw-pipe-num">05</div><div class="hiw-pipe-connector"></div><div class="hiw-pipe-title">REPORT</div><div class="hiw-pipe-sub">PDF auto-sent · photo proof</div></div>
+        <div class="hiw-pipe-step hiw-pipe-step--last"><div class="hiw-pipe-num">06</div><div class="hiw-pipe-title">STORE</div><div class="hiw-pipe-sub">Cloud · searchable · audit-ready</div></div>
       </div>
     </div>
 
-  </div><!-- end ai-grid -->
+  </div><!-- /ai-grid -->
 
-  <!-- SOCIAL PROOF BAR — below demo -->
+  <!-- PROOF BAR -->
   <div class="ai-proof-bar">
-    <div class="ai-proof-item">
-      <span class="ai-proof-icon">📉</span>
-      <span class="ai-proof-num">Fewer</span>
-      <span class="ai-proof-label">Defects at punch-out</span>
-    </div>
+    <div class="ai-proof-item"><span class="ai-proof-icon">📉</span><span class="ai-proof-num">Fewer</span><span class="ai-proof-label">Defects at punch-out</span></div>
     <div class="ai-proof-divider"></div>
-    <div class="ai-proof-item">
-      <span class="ai-proof-icon">🔍</span>
-      <span class="ai-proof-num">Clear</span>
-      <span class="ai-proof-label">Traceability across QA/QC records</span>
-    </div>
+    <div class="ai-proof-item"><span class="ai-proof-icon">🔍</span><span class="ai-proof-num">Clear</span><span class="ai-proof-label">Traceability across QA/QC records</span></div>
     <div class="ai-proof-divider"></div>
-    <div class="ai-proof-item">
-      <span class="ai-proof-icon">📅</span>
-      <span class="ai-proof-num">Predictable</span>
-      <span class="ai-proof-label">Commissioning &amp; handover</span>
-    </div>
+    <div class="ai-proof-item"><span class="ai-proof-icon">📅</span><span class="ai-proof-num">Predictable</span><span class="ai-proof-label">Commissioning &amp; handover</span></div>
     <div class="ai-proof-divider"></div>
-    <div class="ai-proof-item">
-      <span class="ai-proof-icon">🔧</span>
-      <span class="ai-proof-num">Internal</span>
-      <span class="ai-proof-label">Continuous development · real projects</span>
-    </div>
+    <div class="ai-proof-item"><span class="ai-proof-icon">🔧</span><span class="ai-proof-num">Internal</span><span class="ai-proof-label">Continuous development · real projects</span></div>
   </div>
 
-  <!-- SECTION CTA -->
+  <!-- DISCLAIMER -->
+  <div style="max-width:860px;margin:24px auto 0;padding:0 clamp(16px,5vw,60px);">
+    <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.4);font-style:italic;text-align:center;line-height:1.7;">
+      AI Punch is currently used internally and under continuous development based on real project conditions.
+      It is not positioned as standalone software, but as part of our commissioning execution approach.
+    </p>
+  </div>
+
+  <!-- CTA -->
   <div class="section-cta-strip">
     <div class="section-cta-inner">
       <div class="section-cta-text">
@@ -1293,6 +1178,7 @@
   </div>
 
 </section>
+
 
 <!-- GALLERY -->
 
