@@ -108,15 +108,6 @@
   };
 
   startCycle();
-
-  // Dừng timer khi tab bị ẩn — giảm CPU khi user chuyển tab
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-      clearTimeout(cycleTimer);
-    } else {
-      startCycle();
-    }
-  });
 })();
 
 
@@ -458,11 +449,25 @@ function openZalo(e) {
   e.preventDefault();
   var phone   = '84915460790';
   var webLink = 'https://zalo.me/' + phone;
-  // Thử mở app trước; nếu không cài, fallback về web sau 1.2s
-  window.location.href = 'zalo://chat?phone=' + phone;
-  setTimeout(function() {
-    window.open(webLink, '_blank');
-  }, 1200);
+  var iframe  = document.createElement('iframe');
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  var appOpened = false;
+  var timer;
+
+  window.addEventListener('blur', function onBlur() {
+    appOpened = true;
+    clearTimeout(timer);
+    window.removeEventListener('blur', onBlur);
+  });
+
+  timer = setTimeout(function() {
+    if (!appOpened) window.open(webLink, '_blank');
+    document.body.removeChild(iframe);
+  }, 1500);
+
+  iframe.src = 'zalo://chat?phone=' + phone;
   return false;
 }
 
@@ -597,27 +602,16 @@ function svPlay(frameId) {
 }
 
 
-/* ── 11. GA4 + FB PIXEL ──
-   Loaded lazily via inline script trong index.html (window 'load' + 3s delay).
-   KHÔNG khởi tạo lại ở đây — gây double-fire và block parse thread. */
+/* ── 11. GA4 + FACEBOOK PIXEL ── */
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-8XBEYWCNB7', { send_page_view: true });
 
-
-/* ── 12. EMAILJS LAZY LOADER ──
-   Chuyển từ inline script trong index.html vào đây để giữ HTML sạch. */
-(function() {
-  var contactSection = document.getElementById('contact');
-  if (!contactSection) return;
-  contactSection.addEventListener('focusin', function onFocus() {
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-    s.onload = function() {
-      var cfg = document.createElement('script');
-      cfg.src = 'emailjs-config.js';
-      document.head.appendChild(cfg);
-    };
-    document.head.appendChild(s);
-    contactSection.removeEventListener('focusin', onFocus, true);
-  }, true);
-})();
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID');
+fbq('track', 'PageView');
