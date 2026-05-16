@@ -106,14 +106,68 @@
     ol.bi-list li, ul.bi-list li { grid-template-columns:1fr; }
     .li-vi, .ul-vi { display:none; }
   }
+
+  /* ── NAV EXTRAS ── */
+  .nav-back { display:none; }
+  .nav-links { display:flex; gap:28px; }
+  .nav-links a { font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color .2s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-right { display:flex; align-items:center; gap:12px; margin-left:auto; }
+  .profile-dl-btn { font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--gray); text-decoration:none; border:1px solid rgba(201,162,39,0.3); padding:6px 14px; transition:all .2s; }
+  .profile-dl-btn:hover { color:var(--gold); border-color:var(--gold); }
+  .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; z-index:1001; }
+  .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all .3s; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(5,14,35,0.98); backdrop-filter:blur(12px); padding:20px 24px 28px; z-index:999; flex-direction:column; gap:4px; border-bottom:1px solid rgba(201,162,39,0.2); }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { font-family:'Rajdhani',sans-serif; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); text-decoration:none; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .mobile-menu a:hover { color:var(--gold); }
+  .mobile-menu .btn-gold { margin-top:12px; text-align:center; border-bottom:none; }
+  @media(max-width:900px){
+    .nav-links { display:none; }
+    .nav-right .profile-dl-btn { display:none; }
+    .hamburger { display:flex; }
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="logo" href="/">SONIC <span>E&amp;I</span> SOLUTIONS</a>
-  <a class="nav-back" href="/">← Home</a>
+  <a class="logo" href="index.html">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" style="height:36px;width:auto;object-fit:contain;vertical-align:middle;margin-right:10px;">SONIC <span>E&amp;I</span> SOLUTIONS
+  </a>
+  <div class="nav-links">
+    <a href="index.html#ai">AI Platform</a>
+    <a href="index.html#gallery">Engineering Experience</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#academy">Academy</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
+    <a href="index.html#contact" class="btn-gold">Request Consultation</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#ai"       onclick="closeMenu()">AI Platform</a>
+  <a href="index.html#gallery"  onclick="closeMenu()">Engineering Experience</a>
+  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="index.html#academy"  onclick="closeMenu()">Academy</a>
+  <a href="index.html#about"    onclick="closeMenu()">About</a>
+  <a href="index.html#contact"  onclick="closeMenu()">Contact</a>
+  <a href="index.html#contact"  class="btn-gold" onclick="closeMenu()">Request Consultation</a>
+</div>
+
+
 
 <div class="page-wrap">
 
@@ -344,13 +398,46 @@
       <li><span class="ul-en"><strong style="color:var(--white)">Disputes:</strong> Referred to competent court in Ho Chi Minh City or per contract arbitration clause.</span><span class="ul-vi"><strong style="color:rgba(240,244,255,0.8)">Tranh chấp:</strong> Đưa ra Toà án nhân dân có thẩm quyền tại TP. HCM hoặc theo điều khoản trọng tài trong hợp đồng.</span></li>
     </ul>
   </div>
-
-  <div class="page-footer">
-    <p><a href="/">Home / Trang chủ</a> &nbsp;|&nbsp; <a href="/services.html">Services / Dịch Vụ</a> &nbsp;|&nbsp; <a href="/payment.html">Payment Policy / Thanh Toán</a> &nbsp;|&nbsp; <a href="/privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms-of-use.html">Terms of Use</a> &nbsp;|&nbsp; <a href="/#contact">Contact</a></p>
-    <p style="margin-top:10px">© 2026 SONIC E&amp;I Solutions. All rights reserved.</p>
-    <p class="legal-note">Thực hiện theo Nghị định 52/2013/NĐ-CP về Thương mại điện tử, sửa đổi bởi Nghị định 85/2021/NĐ-CP.</p>
-  </div>
-
 </div>
+
+<footer>
+  <div class="footer-logo" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px;">
+    <img src="SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" width="56" height="56" style="height:56px;width:auto;object-fit:contain;display:block;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap;">SONIC <span style="color:#ffffff;">E&amp;I</span> SOLUTIONS</span>
+  </div>
+  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-links">
+    <a href="services.html" class="active">Dịch Vụ / Services</a>
+    <span class="footer-links-dot"></span>
+    <a href="payment.html">Thanh Toán / Payment</a>
+    <span class="footer-links-dot"></span>
+    <a href="privacy-policy.html">Bảo Mật / Privacy Policy</a>
+    <span class="footer-links-dot"></span>
+    <a href="terms-of-use.html">Điều Khoản / Terms of Use</a>
+    <span class="footer-links-dot"></span>
+    <a href="index.html#contact">Contact Information</a>
+  </div>
+  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
+</footer>
+
+
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+</script>
 </body>
 </html>
