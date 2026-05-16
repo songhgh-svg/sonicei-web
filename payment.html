@@ -25,7 +25,7 @@
   .page-title-wrap { margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid rgba(201,162,39,0.2); }
   .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,5vw,48px); letter-spacing:3px; color:var(--white); line-height:1; margin-bottom:4px; }
   .page-title span { color:var(--gold); }
-  .page-title-vi { font-family:'Bebas Neue',sans-serif; font-size:clamp(18px,3vw,26px); letter-spacing:2px; color:rgba(201,162,39,0.75); }
+  .page-title-vi { font-family:'Be Vietnam Pro',sans-serif; font-size:clamp(16px,2.5vw,22px); font-weight:700; letter-spacing:1px; color:rgba(201,162,39,0.75); }
   .updated { font-size:11px; color:rgba(136,153,187,0.7); margin-top:6px; }
   .legal-ref { font-size:11px; color:rgba(136,153,187,0.7); margin-top:4px; font-style:italic; }
   .notice-box { border:1px solid rgba(201,162,39,0.3); border-left:4px solid var(--gold); background:rgba(201,162,39,0.06); margin-bottom:36px; display:grid; grid-template-columns:1fr 1fr; }
@@ -35,7 +35,7 @@
   .section { margin-bottom:44px; }
   .section-head { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-bottom:16px; border-bottom:1px solid rgba(201,162,39,0.2); padding-bottom:8px; }
   .sh-en { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:2px; color:var(--gold); }
-  .sh-vi { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:2px; color:rgba(201,162,39,0.7); text-align:right; }
+  .sh-vi { font-family:'Be Vietnam Pro',sans-serif; font-size:15px; font-weight:700; letter-spacing:1px; color:rgba(201,162,39,0.7); text-align:right; }
   .bi-row { display:grid; grid-template-columns:1fr 1fr; gap:0; }
   .bi-row + .bi-row { border-top:1px solid rgba(255,255,255,0.05); }
   .bi-col { padding:10px 0; color:#c8d3e8; font-size:14px; }
@@ -79,11 +79,11 @@
     .bi-col:first-child { border-right:none; padding-right:0; border-bottom:1px solid rgba(201,162,39,0.08); }
     .bi-col:last-child { padding-left:0; }
     .sh-vi { text-align:left; }
-    th.th-vi,td.td-vi { display:none; }
+    th.th-vi,td.td-vi { display:table-cell; }
     ul.bi-list li { grid-template-columns:1fr; }
-    .ul-vi { display:none; }
+    .ul-vi { display:block; border-left:none; padding-left:16px; padding-top:4px; }
     .card { grid-template-columns:1fr; }
-    .card-vi-wrap { display:none; }
+    .card-vi-wrap { display:block; padding-left:0; border-left:none; padding-top:8px; border-top:1px solid rgba(201,162,39,0.1); }
   }
 
   /* ── NAV EXTRAS ── */
