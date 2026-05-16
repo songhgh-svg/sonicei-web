@@ -177,13 +177,17 @@
 }
 </script>
 
-<!-- ═══ FIX 3: FONTS — bỏ Roboto Condensed + Rajdhani 300/500, non-blocking preload ═══ -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap"></noscript>
+<!-- ═══ FIX 3: FONTS — non-blocking preload, bao gồm Share Tech Mono ═══ -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap"></noscript>
 
-<!-- ═══ FIX 4: CSS — blocking (cần cho hero render đúng) ═══ -->
-<link rel="stylesheet" href="shared.css">
-<link rel="stylesheet" href="main.css">
+<!-- ═══ FIX 4: CSS — non-blocking async load (minified) ═══ -->
+<link rel="preload" href="shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="main.css">
+</noscript>
 
 <!-- ═══ FIX 5: CRITICAL CSS INLINE ═══ -->
 <style>
@@ -340,7 +344,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
     width="1200"
     height="800"
     fetchpriority="high"
-    decoding="sync"
+    decoding="async"
     alt=""
     aria-hidden="true"
   >
