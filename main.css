@@ -4469,6 +4469,10 @@
   padding: 28px 24px;
   position: relative;
   transition: border-color 0.3s, background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .why-epc-card:hover {
   border-color: rgba(201,162,39,0.45);
@@ -4506,6 +4510,8 @@
   color: rgba(240,244,255,0.65);
   line-height: 1.65;
   margin: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .why-epc-strong-line {
