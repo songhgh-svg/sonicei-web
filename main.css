@@ -4186,7 +4186,14 @@
   .zalo-quick-actions a { display: flex; align-items: center; gap: 8px; color: #0068FF; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; background: #F0F7FF; transition: background .2s; }
   .zalo-quick-actions a:hover { background: #E0F0FF; }
   .zalo-body small { display: block; color: #999; font-size: 12px; border-top: 1px solid #eee; padding-top: 10px; }
-  @media (max-width: 480px) { #zalo-widget { bottom: 5px; right: 0px; } #zalo-box { width: 280px; bottom: 65px; } .zalo-text { display: none; } #zalo-btn { padding: 12px; border-radius: 50%; } }
+  @media (max-width: 480px) {
+    #zalo-widget { bottom: 5px; right: 0px; }
+    #zalo-box { width: 280px; bottom: 65px; }
+    .zalo-text { display: none; }
+    #zalo-btn { padding: 12px; border-radius: 50%; }
+    #fcta { bottom: 62px; padding: 10px 8px; }
+    #fcta span { font-size: 0; letter-spacing: 0; }
+  }
 
 /* ══════════════════════════════════════════
    WHAT WE DO — Decision Block

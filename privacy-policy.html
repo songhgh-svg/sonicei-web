@@ -99,6 +99,27 @@
   }
 
 </style>
+<style>
+#fcta{position:fixed;bottom:70px;right:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#c9a227;color:#0a1628;border-radius:6px 0 0 6px;box-shadow:-3px 0 16px rgba(201,162,39,0.4);text-decoration:none;padding:12px 10px;cursor:pointer;transition:background 0.2s,box-shadow 0.2s;}
+#fcta:hover{background:#e8c347;}
+#fcta span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:"Rajdhani",sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;user-select:none;white-space:nowrap;}
+#zalo-widget{position:fixed;bottom:5px;right:0;z-index:9999;font-family:system-ui,-apple-system,sans-serif;}
+#zalo-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0068FF,#00B4FF);color:#fff;border:none;border-radius:50px;padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 20px rgba(0,104,255,.4);transition:all .3s ease;position:relative;}
+#zalo-btn:hover{transform:translateY(-2px);}
+.zalo-badge{position:absolute;top:-4px;right:-4px;background:#00E676;width:12px;height:12px;border-radius:50%;animation:zalo-pulse 2s infinite;}
+@keyframes zalo-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+#zalo-box{position:absolute;bottom:70px;right:0;width:320px;max-width:90vw;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.15);overflow:hidden;transition:all .3s ease;}
+.zalo-hidden{opacity:0;transform:translateY(20px);pointer-events:none;visibility:hidden;}
+.zalo-header{background:linear-gradient(135deg,#0068FF,#00B4FF);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:15px;}
+#zalo-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;line-height:1;padding:0 4px;}
+.zalo-body{padding:16px 18px;color:#333;font-size:14px;line-height:1.5;}
+.zalo-body p{margin:0 0 12px;color:#555;}
+.zalo-quick-actions{list-style:none;padding:0;margin:0 0 12px;}
+.zalo-quick-actions li{margin:8px 0;}
+.zalo-quick-actions a{display:flex;align-items:center;gap:8px;color:#0068FF;text-decoration:none;font-weight:500;padding:8px 12px;border-radius:8px;background:#F0F7FF;transition:background .2s;}
+.zalo-body small{color:#999;font-size:12px;}
+@media(max-width:480px){#zalo-widget{bottom:5px;}#zalo-box{width:280px;bottom:65px;}.zalo-text{display:none;}#zalo-btn{padding:12px;border-radius:50%;}#fcta{bottom:62px;padding:10px 8px;}#fcta span{font-size:0;letter-spacing:0;}#fcta::after{content:'📞';font-size:18px;writing-mode:horizontal-tb;transform:none;}}
+</style>
 </head>
 <body>
 
@@ -156,7 +177,7 @@
         <strong>SONIC E&amp;I SOLUTIONS COMPANY LIMITED</strong><br>
         <span class="sub">CÔNG TY TNHH SONIC E&amp;I SOLUTIONS</span><br>
         MST: <strong>[MST — cập nhật sau]</strong><br>
-        Địa chỉ: 65B Hàn Thuyên, Phường Rạch Dừa, TP. Vũng Tàu<br>
+        Địa chỉ: 65B Hàn Thuyên, Phường Rạch Dừa, TP. HCM<br>
         Email: <a href="mailto:contact@sonicei.com">contact@sonicei.com</a><br>
         Phone: <a href="tel:+84915460790">+84 915 460 790</a>
       </div>
@@ -165,14 +186,14 @@
       <div class="lid-label muted">Website Owner / Chủ Sở Hữu Website</div>
       <div class="lid-body-vi">
         This website is owned and operated by <strong>SONIC E&amp;I SOLUTIONS COMPANY LIMITED</strong>, incorporated under the laws of the Socialist Republic of Vietnam.<br><br>
-        Website <strong>sonicei.com</strong> được sở hữu và vận hành bởi <strong>CÔNG TY TNHH SONIC E&amp;I SOLUTIONS</strong>, thành lập theo pháp luật Cộng hoà Xã hội Chủ nghĩa Việt Nam.
+        Website <strong>sonicei.com</strong> được sở hữu và vận hành bởi <strong>CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>, thành lập theo pháp luật Cộng hoà Xã hội Chủ nghĩa Việt Nam.
       </div>
     </div>
   </div>
 
   <div style="margin-bottom:32px;padding:10px 16px;border-left:3px solid rgba(201,162,39,0.4);background:rgba(201,162,39,0.04);font-size:13px;color:rgba(200,211,232,0.82);font-style:italic;">
     This policy is issued by <strong style="color:rgba(240,244,255,0.75);font-style:normal;">SONIC E&amp;I SOLUTIONS COMPANY LIMITED</strong> as the data controller responsible for personal data collected through this website.<br><br>
-    Chính sách này được ban hành bởi <strong style="color:rgba(240,244,255,0.75);font-style:normal;">CÔNG TY TNHH SONIC E&amp;I SOLUTIONS</strong> với tư cách là đơn vị kiểm soát dữ liệu chịu trách nhiệm về dữ liệu cá nhân thu thập qua website này.
+    Chính sách này được ban hành bởi <strong style="color:rgba(240,244,255,0.75);font-style:normal;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong> với tư cách là đơn vị kiểm soát dữ liệu chịu trách nhiệm về dữ liệu cá nhân thu thập qua website này.
   </div>
   <!-- INTRO -->
   <div class="section">
@@ -350,8 +371,8 @@
     <a href="index.html#contact">Contact Information</a>
   </div>
   <div style="padding-top:14px;border-top:1px solid rgba(201,162,39,0.15);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:0.8px;color:rgba(136,153,187,0.75);text-align:center;line-height:2;width:100%;">
-    <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC E&amp;I SOLUTIONS</strong>
-    MST: [cập nhật sau] &nbsp;·&nbsp; 65B Hàn Thuyên, Phường Rạch Dừa, TP. Vũng Tàu, Việt Nam<br>
+    <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
+    MST: [cập nhật sau] &nbsp;·&nbsp; 65B Hàn Thuyên, Phường Rạch Dừa, TP. HCM, Việt Nam<br>
     Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
     &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
     <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
@@ -377,5 +398,124 @@
     }
   });
 </script>
+
+<!-- FLOATING CTA -->
+<a href="/#contact" id="fcta" style="
+  position:fixed;bottom:70px;right:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:#c9a227;color:#0a1628;
+  border-radius:6px 0 0 6px;
+  box-shadow:-3px 0 16px rgba(201,162,39,0.4);
+  text-decoration:none;
+  padding:12px 10px;
+  cursor:pointer;
+  transition:background 0.2s, box-shadow 0.2s;">
+  <span style="
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    font-family:'Rajdhani',sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    user-select:none;
+    white-space:nowrap;">Technical Consultation</span>
+</a>
+
+<!-- IN-VIEW BRIGHTNESS BOOST -->
+<!-- in-view boost JS → main.js -->
+<!-- ===== ZALO FLOATING CHAT + GA4 + FB PIXEL + UTM TRACKING ===== -->
+<!-- FIX 6: GA4 + FB Pixel delayed 3s sau load — không block render -->
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TSWV3M6QBQ';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TSWV3M6QBQ');
+    setTimeout(function() {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    }, 2000);
+  }, 3000);
+});
+</script>
+
+<div id="zalo-widget">
+  <button id="zalo-btn" aria-label="Open chat support">
+    <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
+      <path d="M20.66 11.33c0-4.84-3.92-8.76-8.76-8.76S3.14 6.49 3.14 11.33c0 2.73 1.26 5.16 3.23 6.74l-.58 2.13 2.22-.55c.97.26 1.98.4 3.03.4 4.84 0 8.76-3.92 8.76-8.76h.86z"/>
+    </svg>
+    <span class="zalo-text">Chat Now</span>
+    <span class="zalo-badge">●</span>
+  </button>
+
+  <div id="zalo-box" class="zalo-hidden">
+    <div class="zalo-header">
+      <span>Online Support</span>
+      <button id="zalo-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="zalo-body">
+      <p>👋 Hi there! Need assistance with E&I services?</p>
+      <ul class="zalo-quick-actions">
+        <!-- ⚠️ REPLACE WITH YOUR ZALO NUMBER -->
+        <li><a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
+        <li><a href="https://wa.me/84915460790" target="_blank" rel="noopener" style="color:#25D366;background:#f0fff5;">
+          <svg viewBox="0 0 24 24" fill="#25D366" width="16" height="16" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a></li>
+        <li><a href="tel:+84915460790">📞 Quick Call</a></li>
+        <li><a href="mailto:contact@sonicei.com">✉️ Send Email</a></li>
+      </ul>
+      <small>⏰ Replies within 15 mins (business hours)</small>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var btn=document.getElementById('zalo-btn');
+  var box=document.getElementById('zalo-box');
+  var cl=document.getElementById('zalo-close');
+  if(!btn||!box) return;
+  btn.addEventListener('click',function(){box.classList.toggle('zalo-hidden');});
+  cl.addEventListener('click',function(e){e.stopPropagation();box.classList.add('zalo-hidden');});
+  document.addEventListener('click',function(e){
+    var w=document.getElementById('zalo-widget');
+    if(w&&!w.contains(e.target))box.classList.add('zalo-hidden');
+  });
+  window.openZalo=function(e){e.preventDefault();box.classList.toggle('zalo-hidden');return false;};
+})();
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('zalo-btn');
+  var box=document.getElementById('zalo-box');
+  var cl=document.getElementById('zalo-close');
+  if(!btn||!box)return;
+  btn.addEventListener('click',function(){box.classList.toggle('zalo-hidden');});
+  cl.addEventListener('click',function(e){e.stopPropagation();box.classList.add('zalo-hidden');});
+  document.addEventListener('click',function(e){var w=document.getElementById('zalo-widget');if(w&&!w.contains(e.target))box.classList.add('zalo-hidden');});
+  window.openZalo=function(e){e.preventDefault();box.classList.toggle('zalo-hidden');return false;};
+})();
+</script>
+<!-- ===== END ZALO + TRACKING BLOCK ===== -->
+
+<!-- openZalo + svPlay → main.js -->
+
+<!-- EmailJS lazy-loaded từ main.js khi user focus vào form liên hệ -->
+
+<script src="/main.js" defer></script>
 </body>
 </html>
