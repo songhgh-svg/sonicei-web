@@ -501,9 +501,11 @@ window.addEventListener('load', function() {
             </svg>
           </button>
         </div>
-        <video id="svframe-mobile-video" playsinline controls>
-          <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
-        </video>
+          <div class="sv-video-wrap" id="svframe-mobile-wrap">
+            <video id="svframe-mobile-video" playsinline controls>
+              <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+            </video>
+          </div>
       </div>
       <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
     </div>
@@ -1182,9 +1184,11 @@ window.addEventListener('load', function() {
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="5,2 18,10 5,18" fill="#c9a227"/></svg>
             </button>
           </div>
-          <video id="svframe-desktop-video" playsinline controls>
-            <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
-          </video>
+          <div class="sv-video-wrap" id="svframe-desktop-wrap">
+            <video id="svframe-desktop-video" playsinline controls>
+              <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
         <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
       </div>
@@ -2642,6 +2646,27 @@ window.addEventListener('load', function() {
 <!-- openZalo + svPlay → main.js -->
 
 <!-- EmailJS lazy-loaded từ main.js khi user focus vào form liên hệ -->
+
+<!-- PORTRAIT VIDEO FIX: override svPlay để show wrapper thay vì video trực tiếp -->
+<script>
+function svPlay(frameId) {
+  var frame = document.getElementById(frameId);
+  if (!frame) return;
+  // Show wrapper (có rotation CSS) thay vì video trực tiếp
+  var wrap = document.getElementById(frameId + '-wrap');
+  var video = document.getElementById(frameId + '-video');
+  if (wrap) {
+    wrap.style.display = 'block';
+    frame.classList.add('sv-playing');
+    if (video) { video.play(); }
+  } else if (video) {
+    // fallback nếu không có wrapper
+    video.style.display = 'block';
+    frame.classList.add('sv-playing');
+    video.play();
+  }
+}
+</script>
 
 <script src="main.js" defer></script>
 </body>
