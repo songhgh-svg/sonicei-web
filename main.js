@@ -248,7 +248,7 @@ function requestSimilar(projectType, scope) {
 })();
 
 
-/* ── 4. PDF PREVIEW FALLBACK ── */
+/* ── 4. PDF PREVIEW — PDF.js direct render (no fetch HEAD) ── */
 (function() {
   var iframe    = document.getElementById('pdf-iframe');
   var fallback  = document.getElementById('pdf-fallback');
@@ -256,19 +256,72 @@ function requestSimilar(projectType, scope) {
   var container = document.getElementById('pdf-frame-container');
   var pdfUrl    = 'SONIC_E_I_Solutions_Profile_2026_NEW.pdf';
 
-  if (!iframe) return;
+  if (!iframe || !container) return;
 
-  function showFallback() {
-    iframe.style.display   = 'none';
-    fallback.style.display = 'flex';
-    if (label) label.style.display = 'none';
-    var cta = container && container.querySelector('.pdf-overlay-cta');
+  // Ẩn iframe, dùng PDF.js cho cả desktop lẫn mobile
+  iframe.style.display = 'none';
+  if (fallback) fallback.style.display = 'none';
+  if (label) label.textContent = '● PREVIEW — SCROLL TO EXPLORE';
+
+  // Canvas wrap cuộn được
+  var canvasWrap = document.createElement('div');
+  canvasWrap.id = 'pdfjs-canvas-wrap';
+  canvasWrap.style.cssText =
+    'position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;' +
+    'background:#1a1a2e;width:100%;box-sizing:border-box;' +
+    'scrollbar-width:thin;scrollbar-color:rgba(201,162,39,0.4) transparent;';
+  container.appendChild(canvasWrap);
+
+  function showMissingFallback() {
+    canvasWrap.remove();
+    if (fallback) fallback.style.display = 'flex';
+    if (label)    label.style.display    = 'none';
+    var cta = container.querySelector('.pdf-overlay-cta');
     if (cta) cta.style.display = 'none';
   }
 
-  fetch(pdfUrl, { method: 'HEAD' })
-    .then(function(res) { if (!res.ok) showFallback(); })
-    .catch(function() { showFallback(); });
+  var script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  script.onload = function() {
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
+      var totalPages = pdfDoc.numPages;
+
+      function renderPage(pageNum) {
+        if (pageNum > totalPages) return;
+        pdfDoc.getPage(pageNum).then(function(page) {
+          var containerW = canvasWrap.clientWidth || container.clientWidth || 320;
+          var viewport0  = page.getViewport({ scale: 1 });
+          var scale      = (containerW - 2) / viewport0.width;
+          var viewport   = page.getViewport({ scale: scale });
+
+          var canvas    = document.createElement('canvas');
+          canvas.width  = Math.floor(viewport.width);
+          canvas.height = Math.floor(viewport.height);
+          canvas.style.cssText =
+            'display:block;width:100%;height:auto;max-width:100%;' +
+            'border-bottom:1px solid rgba(201,162,39,0.1);box-sizing:border-box;';
+
+          canvasWrap.appendChild(canvas);
+
+          page.render({
+            canvasContext: canvas.getContext('2d'),
+            viewport: viewport
+          }).promise.then(function() {
+            renderPage(pageNum + 1);
+          });
+        });
+      }
+
+      renderPage(1);
+
+    }).catch(function() { showMissingFallback(); });
+  };
+  script.onerror = function() { showMissingFallback(); };
+  document.head.appendChild(script);
 })();
 
 
