@@ -503,7 +503,7 @@ window.addEventListener('load', function() {
         </div>
           <div class="sv-video-wrap" id="svframe-mobile-wrap">
             <video id="svframe-mobile-video" playsinline controls>
-              <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+              <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
             </video>
           </div>
       </div>
@@ -1186,7 +1186,7 @@ window.addEventListener('load', function() {
           </div>
           <div class="sv-video-wrap" id="svframe-desktop-wrap">
             <video id="svframe-desktop-video" playsinline controls>
-              <source src="/videos/AI Platform LIVE.mp4" type="video/mp4">
+              <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -2652,17 +2652,18 @@ window.addEventListener('load', function() {
 function svPlay(frameId) {
   var frame = document.getElementById(frameId);
   if (!frame) return;
-  // Show wrapper (có rotation CSS) thay vì video trực tiếp
-  var wrap = document.getElementById(frameId + '-wrap');
+  var wrap  = document.getElementById(frameId + '-wrap');
   var video = document.getElementById(frameId + '-video');
+  frame.classList.add('sv-playing');
   if (wrap) {
     wrap.style.display = 'block';
-    frame.classList.add('sv-playing');
-    if (video) { video.play(); }
+    // Video bên trong wrap cũng phải hiện (CSS đặt display:none mặc định)
+    if (video) {
+      video.style.display = 'block';
+      video.play();
+    }
   } else if (video) {
-    // fallback nếu không có wrapper
     video.style.display = 'block';
-    frame.classList.add('sv-playing');
     video.play();
   }
 }
