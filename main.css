@@ -4868,3 +4868,319 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ══════════════════════════════════════════
+   SNV — VIDEO BOX (thay thế sonic-video-box cũ)
+   Video portrait 9:16, thumbnail + play button
+   ══════════════════════════════════════════ */
+.snv-box {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(201,162,39,0.25);
+  background: #000;
+  overflow: hidden;
+}
+
+/* Label bar trên cùng */
+.snv-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(10,22,40,0.95);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(201,162,39,0.9);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+}
+.snv-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #e74c3c;
+  box-shadow: 0 0 6px rgba(231,76,60,0.8);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Frame — aspect ratio 9:16 cho video dọc */
+.snv-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 portrait */
+  background: #000;
+  overflow: hidden;
+}
+
+/* Thumbnail overlay */
+.snv-thumb {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(26,74,138,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse at 75% 30%, rgba(201,162,39,0.12) 0%, transparent 55%),
+    linear-gradient(135deg, #040d1a 0%, #0a1628 40%, #0d2040 70%, #071220 100%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated grid */
+.snv-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(201,162,39,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: snvgrid 8s linear infinite;
+}
+@keyframes snvgrid {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 40px; }
+}
+
+/* Scan line */
+.snv-scan {
+  position: absolute; left: 0; right: 0; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.5) 30%, rgba(255,228,77,0.8) 50%, rgba(201,162,39,0.5) 70%, transparent);
+  box-shadow: 0 0 12px rgba(201,162,39,0.4);
+  animation: snvscan 3.5s ease-in-out infinite;
+  z-index: 3;
+}
+@keyframes snvscan {
+  0%   { top: 0%;   opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Corner brackets */
+.snv-thumb::before,
+.snv-thumb::after {
+  content: ''; position: absolute; width: 18px; height: 18px; pointer-events: none;
+}
+.snv-thumb::before {
+  top: 10px; left: 10px;
+  border-top: 2px solid rgba(201,162,39,0.7);
+  border-left: 2px solid rgba(201,162,39,0.7);
+}
+.snv-thumb::after {
+  bottom: 10px; right: 10px;
+  border-bottom: 2px solid rgba(201,162,39,0.7);
+  border-right: 2px solid rgba(201,162,39,0.7);
+}
+
+/* Center text block */
+.snv-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; z-index: 5; padding: 16px;
+}
+.snv-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; letter-spacing: 4px;
+  color: rgba(201,162,39,0.6);
+  text-transform: uppercase; text-align: center;
+}
+.snv-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(22px,4.5vw,38px);
+  letter-spacing: 4px; color: #fff; line-height: 1; text-align: center;
+  text-shadow: 0 0 40px rgba(255,255,255,0.2), 0 2px 20px rgba(0,0,0,0.9);
+}
+.snv-brand span { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
+.snv-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(11px,1.8vw,14px); letter-spacing: 2px;
+  color: rgba(200,216,240,0.75); text-transform: uppercase;
+  text-align: center; max-width: 280px; line-height: 1.4;
+}
+
+/* Play button */
+.snv-play {
+  margin-top: 6px;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: rgba(201,162,39,0.15);
+  border: 2px solid rgba(201,162,39,0.7);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  animation: snvpulse 2.4s ease-in-out infinite;
+  pointer-events: all;
+}
+@keyframes snvpulse {
+  0%,100% { box-shadow: 0 0 0 0   rgba(201,162,39,0.35); }
+  50%      { box-shadow: 0 0 0 14px rgba(201,162,39,0); }
+}
+.snv-play:hover {
+  background: rgba(201,162,39,0.3);
+  transform: scale(1.12);
+  animation: none;
+  box-shadow: 0 0 24px rgba(201,162,39,0.5);
+}
+.snv-play svg { margin-left: 4px; }
+
+/* Caption bar dưới cùng */
+.snv-caption {
+  padding: 7px 14px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9.5px; letter-spacing: 1.5px;
+  color: rgba(136,153,187,0.7);
+  text-transform: uppercase; text-align: center;
+  border-top: 1px solid rgba(201,162,39,0.1);
+  background: rgba(10,22,40,0.95);
+}
+
+/* ═══════════════════════════════════════════
+   VIDEO BOX — vb-* (portrait-safe, clean)
+═══════════════════════════════════════════ */
+.vb-wrap {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(201,162,39,0.25);
+  background: #000;
+  overflow: hidden;
+}
+.vb-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(10,22,40,0.97);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(201,162,39,0.9);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+}
+.vb-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #e74c3c;
+  box-shadow: 0 0 6px rgba(231,76,60,0.8);
+  display: inline-block;
+  flex-shrink: 0;
+}
+/* Stage: tỉ lệ dọc 9:16 cố định */
+.vb-stage {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 portrait */
+  background: #000;
+  overflow: hidden;
+}
+/* Poster overlay — hiện mặc định */
+.vb-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(26,74,138,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse at 75% 30%, rgba(201,162,39,0.12) 0%, transparent 55%),
+    linear-gradient(135deg, #040d1a 0%, #0a1628 40%, #0d2040 70%, #071220 100%);
+}
+/* Grid animation */
+.vb-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(201,162,39,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: vbgrid 8s linear infinite;
+}
+@keyframes vbgrid {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 40px; }
+}
+/* Scan line */
+.vb-scan {
+  position: absolute; left: 0; right: 0; height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.5) 30%, rgba(255,228,77,0.8) 50%, rgba(201,162,39,0.5) 70%, transparent);
+  box-shadow: 0 0 12px rgba(201,162,39,0.4);
+  animation: vbscan 3.5s ease-in-out infinite;
+  z-index: 3;
+}
+@keyframes vbscan {
+  0%   { top: 0%;   opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+/* Center text inside poster */
+.vb-poster-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; z-index: 5; padding: 16px;
+}
+.vb-eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; letter-spacing: 4px;
+  color: rgba(201,162,39,0.6);
+  text-transform: uppercase; text-align: center;
+}
+.vb-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(26px, 6vw, 42px);
+  letter-spacing: 4px; color: #fff; line-height: 1; text-align: center;
+  text-shadow: 0 0 40px rgba(255,255,255,0.2), 0 2px 20px rgba(0,0,0,0.9);
+}
+.vb-title span { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
+.vb-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(11px, 2vw, 14px); letter-spacing: 2px;
+  color: rgba(200,216,240,0.75); text-transform: uppercase;
+  text-align: center; max-width: 260px; line-height: 1.4;
+}
+/* Play button */
+.vb-playbtn {
+  margin-top: 8px;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(201,162,39,0.15);
+  border: 2px solid rgba(201,162,39,0.7);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  animation: vbpulse 2.4s ease-in-out infinite;
+}
+@keyframes vbpulse {
+  0%,100% { box-shadow: 0 0 0 0   rgba(201,162,39,0.35); }
+  50%      { box-shadow: 0 0 0 14px rgba(201,162,39,0); }
+}
+.vb-playbtn:hover {
+  background: rgba(201,162,39,0.3);
+  transform: scale(1.12);
+  animation: none;
+  box-shadow: 0 0 24px rgba(201,162,39,0.5);
+}
+.vb-playbtn svg { margin-left: 3px; }
+/* Video element — ẩn mặc định, JS show khi play */
+.vb-video {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  z-index: 10;
+}
+/* Caption bar */
+.vb-caption {
+  padding: 7px 14px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9.5px; letter-spacing: 1.5px;
+  color: rgba(136,153,187,0.7);
+  text-transform: uppercase; text-align: center;
+  border-top: 1px solid rgba(201,162,39,0.1);
+  background: rgba(10,22,40,0.97);
+}

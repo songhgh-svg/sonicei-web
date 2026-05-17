@@ -481,33 +481,27 @@ window.addEventListener('load', function() {
 
 
 
-    <!-- Video box — mobile only (desktop version ở trong Our Purpose) -->
-    <div class="sonic-video-box sonic-video-hero-mobile">
-      <div class="sonic-video-label">
-        <span class="sonic-video-dot"></span>
-        <span>WATCH: ZERO-DEFECT IN ACTION</span>
-      </div>
-      <div class="sonic-video-frame" id="svframe-mobile">
-        <div class="sonic-video-thumb"></div>
-        <div class="sonic-video-grid"></div>
-        <div class="sonic-video-scan"></div>
-        <div class="sonic-video-center">
-          <div class="sonic-video-tagline-top">// Industrial AI</div>
-          <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
-          <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
-          <button class="sonic-play-btn" onclick="svPlay('svframe-mobile')" aria-label="Play video">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <polygon points="5,2 18,10 5,18" fill="#c9a227"/>
-            </svg>
-          </button>
-        </div>
-          <div class="sv-video-wrap" id="svframe-mobile-wrap">
-            <video id="svframe-mobile-video" playsinline controls>
-              <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
-            </video>
+    <!-- Video box — mobile only -->
+    <div class="vb-wrap sonic-video-hero-mobile">
+      <div class="vb-topbar"><span class="vb-dot"></span> WATCH: ZERO-DEFECT IN ACTION</div>
+      <div class="vb-stage" id="vb-mobile">
+        <div class="vb-poster" id="vb-mobile-poster">
+          <div class="vb-grid"></div>
+          <div class="vb-scan"></div>
+          <div class="vb-poster-center">
+            <div class="vb-eyebrow">// Industrial AI</div>
+            <div class="vb-title">SONIC <span>AI</span> PLATFORM</div>
+            <div class="vb-subtitle">Engineering-driven industrial AI</div>
+            <button class="vb-playbtn" onclick="vbPlay('vb-mobile')" aria-label="Play video">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="6,2 20,11 6,20" fill="#c9a227"/></svg>
+            </button>
           </div>
+        </div>
+        <video id="vb-mobile-video" class="vb-video" playsinline controls preload="metadata">
+          <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
+      <div class="vb-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
     </div>
 
   </div>
@@ -1166,31 +1160,27 @@ window.addEventListener('load', function() {
         </div><!-- /phone-frame -->
       </div><!-- /phone-outer-wrap -->
 
-      <!-- VIDEO — ngay dưới mockup, cùng cột -->
-      <div class="sonic-video-box" style="position:relative;width:100%;">
-        <div class="sonic-video-label">
-          <span class="sonic-video-dot"></span>
-          <span>WATCH: ZERO-DEFECT IN ACTION</span>
-        </div>
-        <div class="sonic-video-frame" id="svframe-desktop" style="min-height:280px;padding-bottom:75%!important;">
-          <div class="sonic-video-thumb"></div>
-          <div class="sonic-video-grid"></div>
-          <div class="sonic-video-scan"></div>
-          <div class="sonic-video-center">
-            <div class="sonic-video-tagline-top">// Industrial AI</div>
-            <div class="sonic-video-brand">SONIC <span class="sv-gold">AI</span> PLATFORM</div>
-            <div class="sonic-video-sub">Engineering-driven industrial AI company</div>
-            <button class="sonic-play-btn" onclick="svPlay('svframe-desktop')" aria-label="Play video">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="5,2 18,10 5,18" fill="#c9a227"/></svg>
-            </button>
+      <!-- VIDEO BOX — desktop -->
+      <div class="vb-wrap">
+        <div class="vb-topbar"><span class="vb-dot"></span> WATCH: ZERO-DEFECT IN ACTION</div>
+        <div class="vb-stage" id="vb-desktop">
+          <div class="vb-poster" id="vb-desktop-poster">
+            <div class="vb-grid"></div>
+            <div class="vb-scan"></div>
+            <div class="vb-poster-center">
+              <div class="vb-eyebrow">// Industrial AI</div>
+              <div class="vb-title">SONIC <span>AI</span> PLATFORM</div>
+              <div class="vb-subtitle">Engineering-driven industrial AI</div>
+              <button class="vb-playbtn" onclick="vbPlay('vb-desktop')" aria-label="Play video">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="6,2 20,11 6,20" fill="#c9a227"/></svg>
+              </button>
+            </div>
           </div>
-          <div class="sv-video-wrap" id="svframe-desktop-wrap">
-            <video id="svframe-desktop-video" playsinline controls>
-              <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video id="vb-desktop-video" class="vb-video" playsinline controls preload="metadata">
+            <source src="videos/AI_Platform_LIVE.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="sonic-video-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
+        <div class="vb-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
       </div>
 
     </div><!-- /col 2 -->
@@ -2647,25 +2637,15 @@ window.addEventListener('load', function() {
 
 <!-- EmailJS lazy-loaded từ main.js khi user focus vào form liên hệ -->
 
-<!-- PORTRAIT VIDEO FIX: override svPlay để show wrapper thay vì video trực tiếp -->
+<!-- VIDEO BOX: vbPlay -->
 <script>
-function svPlay(frameId) {
-  var frame = document.getElementById(frameId);
-  if (!frame) return;
-  var wrap  = document.getElementById(frameId + '-wrap');
-  var video = document.getElementById(frameId + '-video');
-  frame.classList.add('sv-playing');
-  if (wrap) {
-    wrap.style.display = 'block';
-    // Video bên trong wrap cũng phải hiện (CSS đặt display:none mặc định)
-    if (video) {
-      video.style.display = 'block';
-      video.play();
-    }
-  } else if (video) {
-    video.style.display = 'block';
-    video.play();
-  }
+function vbPlay(id) {
+  var poster = document.getElementById(id + '-poster');
+  var video  = document.getElementById(id + '-video');
+  if (!poster || !video) return;
+  poster.style.display = 'none';
+  video.style.display  = 'block';
+  video.play().catch(function(){});
 }
 </script>
 
