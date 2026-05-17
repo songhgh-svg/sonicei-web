@@ -2226,6 +2226,15 @@ window.addEventListener('load', function() {
           <span class="download-meta-item">🗓 UPDATED 2026</span>
           <span class="download-meta-item">🌐 ENGLISH</span>
           <span class="download-meta-item">✓ PRINT READY</span>
+          <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download
+             style="margin-left:auto;display:inline-flex;align-items:center;gap:8px;
+                    padding:9px 20px;background:var(--gold);color:#0a1628;
+                    font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;
+                    text-decoration:none;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+                    transition:opacity 0.2s;white-space:nowrap;"
+             onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            &#11015; DOWNLOAD PDF
+          </a>
         </div>
       </div>
     </div>
@@ -2647,51 +2656,6 @@ function vbPlay(id) {
   video.style.display  = 'block';
   video.play().catch(function(){});
 }
-</script>
-
-<!-- VIDEO BOX DESKTOP: căn đáy bằng đáy cột text -->
-<script>
-(function() {
-  function fitDesktopVideo() {
-    if (window.innerWidth <= 900) return;
-
-    // Col 1: cột chứa ai-features (anh chị em đầu tiên trong ai-grid)
-    var grid = document.querySelector('.ai-grid');
-    if (!grid) return;
-    var col1 = grid.children[0]; // cột features bên trái
-    var col2 = grid.children[1]; // cột phone + video
-    if (!col1 || !col2) return;
-
-    var vbWrap  = col2.querySelector('.vb-wrap');
-    var vbStage = col2.querySelector('.vb-stage');
-    if (!vbWrap || !vbStage) return;
-
-    // Đo tổng chiều cao col1
-    var col1H = col1.getBoundingClientRect().height;
-
-    // Đo phone + gap trong col2
-    var phoneWrap = col2.querySelector('.phone-outer-wrap');
-    var phoneH    = phoneWrap ? phoneWrap.getBoundingClientRect().height : 0;
-    var gap       = 24; // gap trong flex-col-gap
-    var topbar    = vbWrap.querySelector('.vb-topbar');
-    var caption   = vbWrap.querySelector('.vb-caption');
-    var topbarH   = topbar  ? topbar.getBoundingClientRect().height  : 0;
-    var captionH  = caption ? caption.getBoundingClientRect().height : 0;
-
-    // Chiều cao stage = col1 - phone - gap - topbar - caption - border(2px)
-    var stageH = col1H - phoneH - gap - topbarH - captionH - 2;
-    if (stageH < 120) stageH = 120; // min height
-
-    vbStage.style.paddingBottom = '0';
-    vbStage.style.height = stageH + 'px';
-  }
-
-  // Chạy sau khi fonts/images load
-  window.addEventListener('load',   fitDesktopVideo);
-  window.addEventListener('resize', fitDesktopVideo);
-  // Chạy thêm sau 500ms phòng khi lazy content làm thay đổi layout
-  setTimeout(fitDesktopVideo, 500);
-})();
 </script>
 
 <script src="main.js" defer></script>
