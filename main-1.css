@@ -5187,143 +5187,94 @@
 
 
 /* ══════════════════════════════════════════
-   VIDEO CONTAINER — MOBILE OVERFLOW FIX
-   Đảm bảo video box vừa mọi màn hình mobile
+   MOBILE OVERFLOW FIX — footer & pain bar
+   Prevents horizontal scroll on small screens
 ══════════════════════════════════════════ */
 
-/* ── 1. Global overflow guard ── */
-html, body {
+/* Global overflow guard */
+body, html {
   overflow-x: hidden;
   max-width: 100%;
 }
 
-/* ── 2. Hero content wrapper ── */
-@media (max-width: 900px) {
-  .hero-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-
-/* ── 3. Video wrapper — fit 100% width, no overflow ── */
-.vb-wrap {
-  box-sizing: border-box;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.sonic-video-hero-mobile {
-  box-sizing: border-box;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden;
-}
-
-/* ── 4. Topbar — rút ngắn letter-spacing trên mobile ── */
 @media (max-width: 600px) {
-  .vb-topbar {
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
-    padding: 6px 10px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  /* Footer wrapper */
+  footer {
+    padding: 28px 16px 24px !important;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
-}
 
-/* ── 5. Stage: aspect ratio responsive ── */
-/* Desktop: giữ 9:16 portrait */
-/* Mobile nhỏ (< 480px): chuyển sang 4:3 cho dễ xem */
-@media (max-width: 480px) {
-  .vb-stage {
-    padding-bottom: 133.33% !important; /* 4:3 — thoải mái hơn 9:16 trên màn nhỏ */
-  }
-}
-
-/* ── 6. Video element — đảm bảo không vượt container ── */
-.vb-video {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  box-sizing: border-box;
-}
-
-/* ── 7. Caption bar ── */
-@media (max-width: 600px) {
-  .vb-caption {
-    font-size: 8.5px !important;
-    letter-spacing: 0.8px !important;
-    padding: 6px 10px !important;
-    white-space: normal;
+  /* Logo row — cho phép wrap, bỏ nowrap */
+  .footer-logo {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    justify-content: center !important;
     text-align: center;
-    line-height: 1.5;
-  }
-}
-
-/* ── 8. Hero section padding mobile ── */
-@media (max-width: 600px) {
-  .hero {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-
-/* ══════════════════════════════════════════
-   VIDEO BOX #2 (desktop — trong ai-grid)
-   Fix overflow khi ai-grid collapse 1 cột
-══════════════════════════════════════════ */
-
-@media (max-width: 900px) {
-
-  /* Col chứa video desktop — không được tràn */
-  .ai-grid > div:has(#vb-desktop),
-  .ai-grid > div:has(.vb-wrap) {
-    overflow: hidden !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    gap: 10px !important;
+    max-width: 100%;
   }
 
-  /* Fallback: tất cả vb-wrap trong ai-grid */
-  .ai-grid .vb-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+  /* Logo img */
+  .footer-logo img {
+    height: 44px !important;
+    width: auto !important;
   }
 
-  /* Stage trong ai-grid: dùng 16:9 landscape khi màn ngang hơn */
-  .ai-grid .vb-stage {
-    padding-bottom: 56.25% !important; /* 16:9 — phù hợp desktop video trên mobile */
+  /* Logo text span */
+  .footer-logo span {
+    font-size: 18px !important;
+    letter-spacing: 1.5px !important;
+    white-space: normal !important;
+    word-break: break-word;
   }
 
-  /* Topbar desktop vb */
-  .ai-grid .vb-topbar {
-    font-size: 9px !important;
+  /* Motto — thu nhỏ font & letter-spacing */
+  .footer-motto {
+    font-size: 16px !important;
     letter-spacing: 1px !important;
-    padding: 6px 10px !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    text-align: center;
+    padding: 0 8px;
+    word-break: break-word;
   }
 
-  /* Caption desktop vb */
-  .ai-grid .vb-caption {
-    font-size: 8.5px !important;
-    letter-spacing: 0.8px !important;
-    padding: 6px 10px !important;
-    white-space: normal;
-    line-height: 1.5;
+  /* Footer links — canh giữa, xuống dòng */
+  .footer-links {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .footer-links a {
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    text-align: center;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  .footer-links-dot {
+    display: none !important;
+  }
+
+  /* Footer bottom info — MST, địa chỉ, email, phone */
+  footer > div:last-child {
+    font-size: 10px !important;
+    letter-spacing: 0.3px !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 0 4px;
   }
 }
 
-/* Màn rất nhỏ < 480px: cả 2 video dùng 4:3 */
-@media (max-width: 480px) {
-  .ai-grid .vb-stage,
-  .sonic-video-hero-mobile .vb-stage {
-    padding-bottom: 133.33% !important; /* 4:3 */
+/* Pain bar & sub-nav — tránh tràn */
+@media (max-width: 600px) {
+  .hero-pain-bar,
+  .sub-nav-wrap {
+    overflow: hidden;
+    max-width: 100vw;
   }
 }
