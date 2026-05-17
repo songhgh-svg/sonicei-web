@@ -2933,20 +2933,27 @@
   .sonic-play-btn svg { margin-left: 4px; }
 
   /* Video — hidden until clicked */
+  /* FIX PORTRAIT VIDEO:
+     File MP4 quay dọc (9:16) nhưng container là landscape (4:3, padding-bottom:75%).
+     Sau rotate(-90deg): axis hoán đổi nên video nhỏ và lệch góc.
+     Giải pháp: căn giữa tuyệt đối + rotate + scale để fill container.
+     Scale = container_ratio / video_landscape_ratio = (4/3) / (16/9) ≈ 1.333
+     Dùng scale lớn hơn (1.5) để đảm bảo fill kể cả video không đúng 9:16 chuẩn.
+  */
   .sonic-video-frame video {
-    position: absolute;
-    top: 50%; left: 50%;
-    /* Video file quay dọc (portrait) → xoay 90° để hiện đúng chiều trong container ngang */
-    /* Swap width/height: dùng height=100vw để fill sau khi rotate */
-    width: auto; height: 100%;
-    min-width: 100%; min-height: 100%;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
     border: none;
     display: none;
     z-index: 10;
-    object-fit: cover;
-    transform: translate(-50%, -50%) rotate(-90deg) !important;
-    max-width: none;
-    max-height: none;
+    object-fit: fill;
+    transform: translate(-50%, -50%) rotate(-90deg) scaleX(1.334) scaleY(1.334) !important;
+    max-width: none !important;
+    max-height: none !important;
+    inset: unset !important;
   }
   .sonic-video-frame.sv-playing {
     cursor: default;
