@@ -1512,11 +1512,11 @@
     .pdf-frame-container { height: 320px; }
   }
   @media (max-width: 600px) {
-    .pdf-preview-wrap { margin: 16px -16px 0; border-left: none; border-right: none; }
-    .pdf-frame-container { height: 260px; }
-    .pdf-overlay-cta { padding: 24px 16px 16px; }
-    .pdf-overlay-cta a { width: 100%; text-align: center; box-sizing: border-box; }
-    .pdf-overlay-text { font-size: 10px; }
+    .pdf-preview-wrap { display: none; }
+    .pdf-mobile-cta { display: block; margin-top: 20px; }
+  }
+  @media (min-width: 601px) {
+    .pdf-mobile-cta { display: none; }
   }
 
   footer {
