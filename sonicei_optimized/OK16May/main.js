@@ -3,15 +3,6 @@
    All page-level JavaScript extracted from index.html
    ═══════════════════════════════════════════════════════════ */
 
-/* ── 0a. MOBILE TICKER CLONE — tránh duplicate HTML ── */
-(function() {
-  var desktopTrack = document.getElementById('tickerTrack');
-  var mobileTrack  = document.getElementById('mobileTickerTrack');
-  if (desktopTrack && mobileTrack) {
-    mobileTrack.innerHTML = desktopTrack.innerHTML;
-  }
-})();
-
 /* ── 0. MOBILE MENU ── */
 (function () {
   var menu      = document.getElementById('mobileMenu');
@@ -629,46 +620,4 @@ function gtag(){ dataLayer.push(arguments); }
     document.head.appendChild(s);
     contactSection.removeEventListener('focusin', onFocus, true);
   }, true);
-})();
-
-
-/* ── 13. IN-VIEW BRIGHTNESS BOOST — lazy IntersectionObserver ── */
-(function() {
-  if (!('IntersectionObserver' in window)) return;
-  var els = document.querySelectorAll('.in-view-boost');
-  if (!els.length) return;
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      e.target.classList.toggle('is-visible', e.isIntersecting);
-    });
-  }, { threshold: 0.15 });
-  els.forEach(function(el) { obs.observe(el); });
-})();
-
-
-/* ── 14. FADE-IN sections — lazy load với IntersectionObserver ── */
-(function() {
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
-    return;
-  }
-  var style = document.createElement('style');
-  style.textContent = '.fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.55s ease,transform 0.55s ease}.fade-in.visible{opacity:1;transform:none}';
-  document.head.appendChild(style);
-
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(function(el) {
-    obs.observe(el);
-  });
 })();

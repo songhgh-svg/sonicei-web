@@ -177,14 +177,13 @@
 }
 </script>
 
-<!-- ═══ FIX 3: FONTS — Bebas Neue + Rajdhani + Share Tech Mono (Be Vietnam Pro tách ra legal pages) ═══ -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap"></noscript>
+<!-- ═══ FIX 3: FONTS — thêm Share Tech Mono (bị thiếu), giữ Be Vietnam Pro (legal + form tiếng Việt), trim Rajdhani weight ═══ -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;600;700&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap"></noscript>
 
-<!-- ═══ FIX 4: CSS — non-blocking preload ═══ -->
-<link rel="preload" href="shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="shared.css"><link rel="stylesheet" href="main.css"></noscript>
+<!-- ═══ FIX 4: CSS — blocking (cần cho hero render đúng) ═══ -->
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="main.css">
 
 <!-- ═══ FIX 5: CRITICAL CSS INLINE — chỉ giữ những gì cần cho hero paint, xoá duplicate với shared.css/main.css ═══ -->
 <style>
@@ -248,15 +247,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
 
 
 
-<!-- MOBILE PAIN BAR + TICKER (JS clone từ desktop ticker — không duplicate HTML) -->
+<!-- MOBILE PAIN BAR + TICKER (static, below nav, mobile only) -->
 <div class="mobile-pain-bar">
-  <div class="ticker-track" id="mobilePainTrack">
+  <div class="ticker-track">
     <span class="ticker-item"><span class="pain-dot"></span> EACH E&amp;I DEFECT CAN COST $500–$5,000. EACH DELAY DAY: $50K+. WE ELIMINATE BOTH.</span>
     <span class="ticker-item"><span class="pain-dot"></span> EACH E&amp;I DEFECT CAN COST $500–$5,000. EACH DELAY DAY: $50K+. WE ELIMINATE BOTH.</span>
   </div>
 </div>
 <div class="mobile-ticker-bar">
-  <div class="ticker-track" id="mobileTickerTrack"></div>
+  <div class="ticker-track">
+    <!-- Set 1 -->
+    <span class="ticker-item"><span class="ticker-dot">●</span> FOUNDED BY <span class="ticker-highlight">25-Year E&I Veteran</span> — Siemens Energy · GE Power Field Experience</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Continuous accuracy improvement</span> — AI-assisted QA/QC workflow</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ >1000 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+    <!-- Set 2 — bản sao -->
+    <span class="ticker-item"><span class="ticker-dot">●</span> FOUNDED BY <span class="ticker-highlight">25-Year E&I Veteran</span> — Siemens Energy · GE Power Field Experience</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI-PUNCH™ <span class="ticker-highlight">Continuous accuracy improvement</span> — AI-assisted QA/QC workflow</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DCS <span class="ticker-highlight">Upgrade completed successfully</span> — Phumy2.1 ext 2018, Phumy3 2020</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> MAJOR <span class="ticker-highlight">Overhaul</span> — Maintenance &amp; Re-commissioning, Nhontrach2 2014,2017. Camau1,2 2011,2014,2015,2018,2021,2022</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Medium <span class="ticker-highlight">Inspection</span> Hot Gas Path Inspection — Phumy3 2012,2014,2016,2018,2021</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Assembly <span class="ticker-highlight">Commissioning</span> Power Plant — Que Vo 1 2022, Thang Long 2023, Biwase 2023</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LIVE <span class="ticker-highlight">✓ >1000 punch items closed</span> — Seaonics GW Project 2025</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> ACTIVE <span class="ticker-highlight">VARD Offshore</span> — System Commissioning, Q1 2026</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> COMPLETED <span class="ticker-highlight">0 defects</span> on 60,000+ termination points — Seaonics Gangway 2026</span>
+  </div>
 </div>
 
 
@@ -694,7 +714,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">01</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Pre-Commissioning Review</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">Document & Drawing Verification</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Before any field work begins: P&IDs, single-line diagrams, cable schedules and instrument datasheets are reviewed against as-installed conditions. Discrepancies are flagged and resolved — not discovered at handover.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Before any field work begins: P&IDs, single-line diagrams, cable schedules and instrument datasheets are reviewed against as-installed conditions. Discrepancies are flagged and resolved — not discovered at handover.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">P&ID Review</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Cable Schedule Check</span>
@@ -707,7 +727,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">02</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Physical Inspection</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">Point-of-Work Quality Check</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Every termination, cable entry, instrument mounting and earthing connection is physically inspected before loop testing begins. Issues caught here cost a fraction of what they cost at punch-out. AI-Punch™ is used to capture and track each item with photo evidence.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Every termination, cable entry, instrument mounting and earthing connection is physically inspected before loop testing begins. Issues caught here cost a fraction of what they cost at punch-out. AI-Punch™ is used to capture and track each item with photo evidence.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Termination Inspection</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Earthing Verification</span>
@@ -720,7 +740,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">03</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Loop Check</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">End-to-End Signal Verification</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Full loop verification from field instrument to DCS/PLC — including signal integrity, range calibration, alarm and trip setpoint confirmation. Executed against the loop diagram, signed off per item. No loop is closed until it passes.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Full loop verification from field instrument to DCS/PLC — including signal integrity, range calibration, alarm and trip setpoint confirmation. Executed against the loop diagram, signed off per item. No loop is closed until it passes.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Signal Calibration</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Trip Setpoint Verification</span>
@@ -733,7 +753,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">04</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Functional Testing</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">Interlock & Sequence Validation</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">All safety interlocks, shutdown sequences and control logic are tested under simulated and real conditions. Tested against the cause-and-effect matrix. Any deviation is documented, resolved, and re-tested before energization is permitted.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">All safety interlocks, shutdown sequences and control logic are tested under simulated and real conditions. Tested against the cause-and-effect matrix. Any deviation is documented, resolved, and re-tested before energization is permitted.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">C&E Matrix Testing</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">SIL Interlock Check</span>
@@ -746,7 +766,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">05</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Energization</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">Controlled Power-Up Procedure</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Energization follows a written, step-by-step procedure — approved before execution. MV/LV switchgear, motor starters and field devices are brought live in controlled sequence. No shortcuts. No improvisation. Every step signed by the responsible engineer.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Energization follows a written, step-by-step procedure — approved before execution. MV/LV switchgear, motor starters and field devices are brought live in controlled sequence. No shortcuts. No improvisation. Every step signed by the responsible engineer.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Written Energization Procedure</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">MV/LV Sequence Control</span>
@@ -759,7 +779,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
         <div style="font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(201,162,39,0.08);position:absolute;top:16px;right:20px;letter-spacing:2px;">06</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(201,162,39,0.6);text-transform:uppercase;margin-bottom:12px;">Handover</div>
         <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#e8f0ff;letter-spacing:0.5px;margin-bottom:12px;">Documentation & Client Sign-Off</h3>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Handover pack includes: completed test dossiers, signed loop check sheets, punch list close-out report (AI-Punch™ generated), as-built redlines and calibration certificates. Delivered before the handover meeting — not scrambled together the night before.</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(200,215,245,0.6);line-height:1.7;margin-bottom:16px;">Handover pack includes: completed test dossiers, signed loop check sheets, punch list close-out report (AI-Punch™ generated), as-built redlines and calibration certificates. Delivered before the handover meeting — not scrambled together the night before.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">Test Dossiers</span>
           <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(201,162,39,0.7);background:rgba(201,162,39,0.07);padding:3px 8px;border:1px solid rgba(201,162,39,0.15);">AI-Punch™ Close-Out Report</span>
@@ -2048,7 +2068,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
           <div class="market-bar-label"><span>SONIC's Project Pipeline</span><span>Growing Q2 2026</span></div>
           <div class="market-bar-track"><div class="market-bar-fill" data-width="55"></div></div>
         </div>
-        <p style="margin-top:14px;font-family:'Rajdhani',sans-serif;font-size:10px;color:rgba(240,244,255,0.72);letter-spacing:0.3px;line-height:1.6;">
+        <p style="margin-top:14px;font-family:'Be Vietnam Pro',sans-serif;font-size:10px;color:rgba(240,244,255,0.72);letter-spacing:0.3px;line-height:1.6;">
           Market size: Vietnam Ministry of Industry &amp; Trade / PetroVietnam sector outlook 2023–2030. AI adoption: internal estimate based on project data and regional EPC survey, 2024–2025. Contractor count: SONIC field assessment of regional E&amp;I subcontractors qualifying to Siemens TI / GE EGS standards, 2025.
         </p>
       </div>
@@ -2439,7 +2459,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
                   background:rgba(10,22,40,0.8);
                   border:1px solid rgba(201,162,39,0.4);
                   color:#f0f4ff;
-                  font-family:'Rajdhani',sans-serif;
+                  font-family:'Be Vietnam Pro',sans-serif;
                   font-size:13px;
                   letter-spacing:0;
                   padding:10px 14px;
