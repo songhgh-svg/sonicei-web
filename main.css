@@ -5188,33 +5188,38 @@
 
 /* ══════════════════════════════════════════
    VIDEO BOX DESKTOP — căn đáy bằng cột text
-   Giới hạn chiều cao stage để không tràn grid
 ══════════════════════════════════════════ */
-
-/* Desktop: ai-grid col 2 — video stage dùng max-height thay ratio */
 @media (min-width: 901px) {
+
+  /* Col 2 stretch full height của grid row */
+  .ai-grid > .flex-col-gap {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  /* vb-wrap lấp đầy phần còn lại sau phone */
   .ai-grid .vb-wrap {
-    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
-  /* Bỏ padding-bottom ratio, dùng chiều cao cố định */
+  /* Stage fill toàn bộ chiều cao còn lại của vb-wrap */
   .ai-grid .vb-stage {
+    flex: 1;
     padding-bottom: 0 !important;
-    height: 220px !important; /* vừa khít đáy cột text */
+    height: auto !important;
+    min-height: 160px;
   }
 
-  /* Video element fill stage */
-  .ai-grid .vb-video {
+  /* Video + poster fill stage */
+  .ai-grid .vb-video,
+  .ai-grid .vb-poster {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  /* Poster fill stage */
-  .ai-grid .vb-poster {
-    position: absolute;
-    inset: 0;
   }
 }
