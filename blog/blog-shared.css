@@ -11,6 +11,26 @@
  *    &family=Be+Vietnam+Pro:wght@300;400;500;600;700
  *    &family=Rajdhani:wght@400;500;600;700
  *    &family=Share+Tech+Mono&display=swap" rel="stylesheet">
+ *
+ * ── FOOTER ─────────────────────────────────────────────
+ *  Footer được quản lý tập trung tại: /blog/blog-footer.html
+ *  Để thêm/xóa link hoặc đổi text → chỉ sửa file đó.
+ *
+ *  Mỗi trang blog (kể cả trang mới) thay <footer>...</footer>
+ *  bằng đoạn sau — dán vào trước </body>:
+ *
+ *    <div id="blog-footer-mount"></div>
+ *    <script>
+ *      fetch('/blog/blog-footer.html')
+ *        .then(r => r.text())
+ *        .then(html => {
+ *          document.getElementById('blog-footer-mount').innerHTML = html;
+ *        })
+ *        .catch(() => {
+ *          document.getElementById('blog-footer-mount').innerHTML =
+ *            '<footer><div class="footer-copy">© 2026 SONIC E&I Solutions</div></footer>';
+ *        });
+ *    </script>
  * ═══════════════════════════════════════════════════════
  */
 

@@ -5187,143 +5187,34 @@
 
 
 /* ══════════════════════════════════════════
-   VIDEO CONTAINER — MOBILE OVERFLOW FIX
-   Đảm bảo video box vừa mọi màn hình mobile
+   VIDEO BOX DESKTOP — căn đáy bằng cột text
+   Giới hạn chiều cao stage để không tràn grid
 ══════════════════════════════════════════ */
 
-/* ── 1. Global overflow guard ── */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-/* ── 2. Hero content wrapper ── */
-@media (max-width: 900px) {
-  .hero-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-
-/* ── 3. Video wrapper — fit 100% width, no overflow ── */
-.vb-wrap {
-  box-sizing: border-box;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.sonic-video-hero-mobile {
-  box-sizing: border-box;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden;
-}
-
-/* ── 4. Topbar — rút ngắn letter-spacing trên mobile ── */
-@media (max-width: 600px) {
-  .vb-topbar {
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
-    padding: 6px 10px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-/* ── 5. Stage: aspect ratio responsive ── */
-/* Desktop: giữ 9:16 portrait */
-/* Mobile nhỏ (< 480px): chuyển sang 4:3 cho dễ xem */
-@media (max-width: 480px) {
-  .vb-stage {
-    padding-bottom: 133.33% !important; /* 4:3 — thoải mái hơn 9:16 trên màn nhỏ */
-  }
-}
-
-/* ── 6. Video element — đảm bảo không vượt container ── */
-.vb-video {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  box-sizing: border-box;
-}
-
-/* ── 7. Caption bar ── */
-@media (max-width: 600px) {
-  .vb-caption {
-    font-size: 8.5px !important;
-    letter-spacing: 0.8px !important;
-    padding: 6px 10px !important;
-    white-space: normal;
-    text-align: center;
-    line-height: 1.5;
-  }
-}
-
-/* ── 8. Hero section padding mobile ── */
-@media (max-width: 600px) {
-  .hero {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-
-/* ══════════════════════════════════════════
-   VIDEO BOX #2 (desktop — trong ai-grid)
-   Fix overflow khi ai-grid collapse 1 cột
-══════════════════════════════════════════ */
-
-@media (max-width: 900px) {
-
-  /* Col chứa video desktop — không được tràn */
-  .ai-grid > div:has(#vb-desktop),
-  .ai-grid > div:has(.vb-wrap) {
-    overflow: hidden !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Fallback: tất cả vb-wrap trong ai-grid */
+/* Desktop: ai-grid col 2 — video stage dùng max-height thay ratio */
+@media (min-width: 901px) {
   .ai-grid .vb-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+    width: 100%;
   }
 
-  /* Stage trong ai-grid: dùng 16:9 landscape khi màn ngang hơn */
+  /* Bỏ padding-bottom ratio, dùng chiều cao cố định */
   .ai-grid .vb-stage {
-    padding-bottom: 56.25% !important; /* 16:9 — phù hợp desktop video trên mobile */
+    padding-bottom: 0 !important;
+    height: 220px !important; /* vừa khít đáy cột text */
   }
 
-  /* Topbar desktop vb */
-  .ai-grid .vb-topbar {
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
-    padding: 6px 10px !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  /* Video element fill stage */
+  .ai-grid .vb-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  /* Caption desktop vb */
-  .ai-grid .vb-caption {
-    font-size: 8.5px !important;
-    letter-spacing: 0.8px !important;
-    padding: 6px 10px !important;
-    white-space: normal;
-    line-height: 1.5;
-  }
-}
-
-/* Màn rất nhỏ < 480px: cả 2 video dùng 4:3 */
-@media (max-width: 480px) {
-  .ai-grid .vb-stage,
-  .sonic-video-hero-mobile .vb-stage {
-    padding-bottom: 133.33% !important; /* 4:3 */
+  /* Poster fill stage */
+  .ai-grid .vb-poster {
+    position: absolute;
+    inset: 0;
   }
 }

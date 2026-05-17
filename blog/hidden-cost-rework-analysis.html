@@ -441,7 +441,38 @@
     .blog-nav-cta { display: none; }
     .blog-nav-logo-text { display: none; }
   }
-</style>
+
+  /* ── ZALO WIDGET ── */
+  #zalo-widget { position: fixed; bottom: 16px; right: 16px; z-index: 9999; font-family: system-ui, sans-serif; }
+  #zalo-btn { display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; border: none; border-radius: 50px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 20px rgba(0,104,255,.4); transition: all .3s; position: relative; }
+  #zalo-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,104,255,.6); }
+  .zalo-text { display: inline-block; }
+  .zalo-badge { position: absolute; top: -4px; right: -4px; background: #00E676; width: 12px; height: 12px; border-radius: 50%; animation: zalo-pulse 2s infinite; }
+  @keyframes zalo-pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.3);opacity:.7} }
+  #zalo-box { position: absolute; bottom: 70px; right: 0; width: 300px; max-width: 90vw; background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.15); overflow: hidden; transition: all .3s; }
+  .zalo-hidden { opacity: 0 !important; transform: translateY(20px) !important; pointer-events: none !important; visibility: hidden !important; }
+  .zalo-header { background: linear-gradient(135deg, #0068FF, #00B4FF); color: #fff; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; }
+  #zalo-close { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; line-height: 1; padding: 0 4px; }
+  .zalo-body { padding: 16px 18px; color: #333; font-size: 14px; line-height: 1.5; }
+  .zalo-body p { margin: 0 0 12px; color: #555; }
+  .zalo-quick-actions { list-style: none; padding: 0; margin: 0 0 12px; }
+  .zalo-quick-actions li { margin: 8px 0; }
+  .zalo-quick-actions a { display: flex; align-items: center; gap: 8px; color: #0068FF; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; background: #F0F7FF; transition: background .2s; }
+  .zalo-quick-actions a:hover { background: #E0F0FF; }
+  .zalo-body small { display: block; color: #999; font-size: 12px; border-top: 1px solid #eee; padding-top: 10px; }
+
+  /* ── PHONE FAB ── */
+  #phone-fab { position: fixed; bottom: 80px; right: 20px; z-index: 9998; width: 48px; height: 48px; border-radius: 50%; background: var(--gold, #c9a227); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(201,162,39,.5); transition: transform .2s, box-shadow .2s; text-decoration: none; }
+  #phone-fab:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(201,162,39,.7); }
+
+  @media (max-width: 600px) {
+    .zalo-text { display: none; }
+    #zalo-btn { padding: 12px; border-radius: 50%; }
+    #zalo-widget { bottom: 10px; right: 10px; }
+    #phone-fab { bottom: 72px; right: 14px; }
+  }
+
+  </style>
 </head>
 <body>
 
@@ -603,21 +634,69 @@
 
 </article>
 
-<footer>
-  <div class="footer-logo">
-    <img src="../SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions">
-    <span class="footer-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+
+
+<!-- ZALO WIDGET -->
+<div id="zalo-widget">
+  <button id="zalo-btn" aria-label="Open chat support">
+    <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
+      <path d="M20.66 11.33c0-4.84-3.92-8.76-8.76-8.76S3.14 6.49 3.14 11.33c0 2.73 1.26 5.16 3.23 6.74l-.58 2.13 2.22-.55c.97.26 1.98.4 3.03.4 4.84 0 8.76-3.92 8.76-8.76h.86z"/>
+    </svg>
+    <span class="zalo-text">Chat Now</span>
+    <span class="zalo-badge">●</span>
+  </button>
+  <div id="zalo-box" class="zalo-hidden">
+    <div class="zalo-header">
+      <span>Online Support</span>
+      <button id="zalo-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="zalo-body">
+      <p>👋 Hi there! Need assistance with E&I services?</p>
+      <ul class="zalo-quick-actions">
+        <li><a href="https://zalo.me/84915460790" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
+        <li><a href="https://wa.me/84915460790" target="_blank" rel="noopener">💚 WhatsApp</a></li>
+        <li><a href="tel:+84915460790">📞 Quick Call</a></li>
+        <li><a href="mailto:contact@sonicei.com">✉️ Send Email</a></li>
+      </ul>
+      <small>⏰ Replies within 15 mins (business hours)</small>
+    </div>
   </div>
-  <div class="footer-motto">"Right the first time — Every time"</div>
-  <div class="footer-links">
-    <a href="https://sonicei.com/privacy-policy.html">Privacy Policy</a>
-    <span class="footer-links-dot"></span>
-    <a href="https://sonicei.com/terms-of-use.html">Terms of Use</a>
-    <span class="footer-links-dot"></span>
-    <a href="../index.html#contact">Contact</a>
-  </div>
-  <div class="footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</div>
-</footer>
+</div>
+
+<!-- PHONE FLOATING BUTTON -->
+<a id="phone-fab" href="tel:+84915460790" aria-label="Call SONIC E&I Solutions">
+  <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+    <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01z"/>
+  </svg>
+</a>
+
+<!-- FOOTER — load từ /blog/blog-footer.html -->
+<div id="blog-footer-mount"></div>
+
+<script>
+  // Footer loader
+  fetch('/blog/blog-footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('blog-footer-mount').innerHTML = html; })
+    .catch(() => {
+      document.getElementById('blog-footer-mount').innerHTML =
+        '<footer><div class="footer-copy">© 2026 SONIC E&amp;I Solutions</div></footer>';
+    });
+
+  // Zalo widget toggle
+  const btn   = document.getElementById('zalo-btn');
+  const box   = document.getElementById('zalo-box');
+  const close = document.getElementById('zalo-close');
+  if (btn && box && close) {
+    btn.addEventListener('click', () => box.classList.toggle('zalo-hidden'));
+    close.addEventListener('click', () => box.classList.add('zalo-hidden'));
+    document.addEventListener('click', e => {
+      if (!document.getElementById('zalo-widget').contains(e.target)) {
+        box.classList.add('zalo-hidden');
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
