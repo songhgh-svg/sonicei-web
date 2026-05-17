@@ -5184,3 +5184,97 @@
   border-top: 1px solid rgba(201,162,39,0.1);
   background: rgba(10,22,40,0.97);
 }
+
+
+/* ══════════════════════════════════════════
+   MOBILE OVERFLOW FIX — footer & pain bar
+   Prevents horizontal scroll on small screens
+══════════════════════════════════════════ */
+
+/* Global overflow guard */
+body, html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+
+  /* Footer wrapper */
+  footer {
+    padding: 28px 16px 24px !important;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Logo row — cho phép wrap, bỏ nowrap */
+  .footer-logo {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    justify-content: center !important;
+    text-align: center;
+    gap: 10px !important;
+    max-width: 100%;
+  }
+
+  /* Logo img */
+  .footer-logo img {
+    height: 44px !important;
+    width: auto !important;
+  }
+
+  /* Logo text span */
+  .footer-logo span {
+    font-size: 18px !important;
+    letter-spacing: 1.5px !important;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  /* Motto — thu nhỏ font & letter-spacing */
+  .footer-motto {
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    text-align: center;
+    padding: 0 8px;
+    word-break: break-word;
+  }
+
+  /* Footer links — canh giữa, xuống dòng */
+  .footer-links {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .footer-links a {
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    text-align: center;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  .footer-links-dot {
+    display: none !important;
+  }
+
+  /* Footer bottom info — MST, địa chỉ, email, phone */
+  footer > div:last-child {
+    font-size: 10px !important;
+    letter-spacing: 0.3px !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 0 4px;
+  }
+}
+
+/* Pain bar & sub-nav — tránh tràn */
+@media (max-width: 600px) {
+  .hero-pain-bar,
+  .sub-nav-wrap {
+    overflow: hidden;
+    max-width: 100vw;
+  }
+}
