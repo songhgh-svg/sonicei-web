@@ -494,6 +494,45 @@
     letter-spacing: 1px !important;
   }
 
+  /* ══════════════════════════════════════════
+     NAV OVERFLOW FIX
+     Nav có 9 items (Profile + 7 links + Blog)
+     + logo + CTA. Tổng ~1350-1450px → tràn
+     ở viewport trung bình nếu chỉ dùng 900px.
+     Fix: 3 tầng compression + sớm hamburger.
+  ══════════════════════════════════════════ */
+
+  /* Tầng 1: Thu nhỏ nhẹ từ 1400px */
+  @media (max-width: 1400px) {
+    .nav-links a {
+      padding: 0 7px !important;
+      font-size: 10.5px !important;
+      letter-spacing: 0.8px !important;
+    }
+    .nav-links a.profile-dl-btn {
+      padding: 5px 12px !important;
+      font-size: 10px !important;
+      letter-spacing: 1.5px !important;
+    }
+  }
+
+  /* Tầng 2: Thu nhỏ mạnh hơn + ẩn CTA từ 1200px */
+  @media (max-width: 1200px) {
+    .nav-links a {
+      padding: 0 5px !important;
+      font-size: 10px !important;
+      letter-spacing: 0.4px !important;
+    }
+    .nav-right { display: none !important; }
+  }
+
+  /* Tầng 3: Chuyển hamburger từ 1020px thay vì 900px */
+  @media (max-width: 1020px) {
+    .hamburger { display: flex !important; }
+    .nav-links  { display: none !important; }
+    .nav-right  { display: none !important; }
+  }
+
 
   /* ── SECTION BASE ── */
   section { padding: 100px 60px 100px; max-width: 100%; }
@@ -1640,20 +1679,21 @@
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .btn-gold { text-align: center; margin-top: 12px; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1020px) {
     /* ── Nav ── */
     nav { padding: 10px 16px; gap: 8px; }
     .nav-links { display: none; }
     .nav-right { gap: 8px; }
     .nav-right .btn-gold { display: none; }
     .hamburger { display: flex; }
+  }
 
+  @media (max-width: 900px) {
     /* ── Fixed sub-nav: ẩn (tránh overlay) ── */
     .sub-nav-wrap { display: none; }
     /* ── Mobile pain bar + ticker: static, dưới nav ── */
     .mobile-pain-bar { display: block; }
     .mobile-ticker-bar { display: block; }
-    /* ── Đẩy hero xuống = nav height saja (không có sub-nav) ── */
 
     /* ── Section: full width, padding nhỏ ── */
     section { padding: 60px 16px 56px !important; }
@@ -2892,19 +2932,25 @@
   }
   .sonic-play-btn svg { margin-left: 4px; }
 
-  /* Iframe — hidden until clicked */
+  /* Video — hidden until clicked */
   .sonic-video-frame video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; border: none;
+    position: absolute;
+    top: 50%; left: 50%;
+    /* Video file quay dọc (portrait) → xoay 90° để hiện đúng chiều trong container ngang */
+    /* Swap width/height: dùng height=100vw để fill sau khi rotate */
+    width: auto; height: 100%;
+    min-width: 100%; min-height: 100%;
+    border: none;
     display: none;
     z-index: 10;
-    object-fit: contain;
-    transform: none !important;
-    max-width: 100%;
-    max-height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) rotate(-90deg) !important;
+    max-width: none;
+    max-height: none;
   }
   .sonic-video-frame.sv-playing {
     cursor: default;
+    overflow: hidden;
   }
   .sonic-video-frame.sv-playing .sonic-video-thumb,
   .sonic-video-frame.sv-playing .sonic-video-grid,
