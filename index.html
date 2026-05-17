@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- cdn.jsdelivr, gtm, facebook — không preconnect, sẽ lazy-load -->
 
-  <link rel="preload" as="image" href="assets/images/img_33_mobile.webp" fetchpriority="high" media="(max-width: 768px)">
-  <link rel="preload" as="image" href="assets/images/img_33.webp" fetchpriority="high" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="assets/images/img_33_mobile.webp" fetchpriority="high" media="(max-width: 768px)" imagesrcset="assets/images/img_33_mobile.webp 768w" imagesizes="100vw">
+  <link rel="preload" as="image" href="assets/images/img_33.webp" fetchpriority="high" media="(min-width: 769px)" imagesrcset="assets/images/img_33.webp 1200w" imagesizes="100vw">
 
 <meta name="description" content="Vietnam's specialist E&I commissioning company — performance-backed with a zero-defect contractual guarantee. Founded and led by a 25-year E&I veteran with Siemens Energy & GE Power field experience. AI-Punch™ QA/QC. Serving offshore, power plants & industrial projects across Vietnam.">
 <meta name="keywords" content="E&I commissioning Vietnam, electrical instrumentation commissioning, zero defect commissioning, AI QA QC, SONIC E&I, offshore commissioning Vietnam, DCS upgrade Vietnam, power plant commissioning, E&I commissioning contractor Vietnam, electrical commissioning Ho Chi Minh City, instrumentation commissioning Vung Tau, punch list management, zero defect contractor Vietnam, gas turbine commissioning Vietnam, E&I contractor offshore Vietnam, loop check commissioning Vietnam">
@@ -200,7 +200,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
 .hero-lcp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(10,22,40,.92) 0%,rgba(10,22,40,.75) 55%,rgba(10,22,40,.65) 100%)}
 .hero-content{position:relative;z-index:2;max-width:780px;width:100%;text-align:center}
-.sub-nav-wrap{position:fixed;top:0;left:0;right:0;z-index:99;transform:translateY(46px)}
+.sub-nav-wrap{position:fixed;top:0;left:0;right:0;z-index:99;transform:translateY(46px);will-change:transform}
+.hero{min-height:100svh}
 @media(max-width:900px){.hamburger{display:flex}.nav-links{display:none}.nav-right{display:none}}
 </style>
 
@@ -393,9 +394,9 @@ window.addEventListener('load', function() {
   <!-- FIX LCP: img thật thay CSS background-image — browser preload hiệu quả hơn -->
   <img
     class="hero-lcp-img"
-    src="assets/images/img_33.webp"
+    src="assets/images/img_33_mobile.webp"
     srcset="assets/images/img_33_mobile.webp 768w, assets/images/img_33.webp 1200w"
-    sizes="100vw"
+    sizes="(max-width: 768px) 100vw, 100vw"
     width="1200"
     height="800"
     fetchpriority="high"
