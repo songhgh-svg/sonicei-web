@@ -2938,37 +2938,35 @@
     khiến browser render nằm ngang. Fix: xoay lại 90deg bằng CSS,
     đồng thời hoán đổi width/height để video vừa khớp khung dọc.
   */
+  /* Wrapper ẩn cho đến khi user bấm play */
   .sv-video-wrap {
     position: absolute !important;
     inset: 0 !important;
-    display: none;
+    display: none;          /* JS sẽ set display:block */
     z-index: 10;
     background: #000;
     overflow: hidden;
   }
-  /* Container dọc: aspect-ratio 9/16 thay vì 16/9 khi đang phát */
-  .sonic-video-frame.sv-playing {
-    padding-bottom: 177.78% !important; /* 16/9 * 100 = portrait 9:16 */
-  }
-  .sv-video-wrap video,
-  .sonic-video-frame > video {
+  /* Khi wrapper hiện, video bên trong phải hiện luôn */
+  .sv-video-wrap video {
+    display: block !important;
     position: absolute !important;
-    /* Xoay 90deg để trả video về đúng chiều dọc */
+    /* Video quay dọc (portrait) bị metadata sai -90°: xoay lại bằng CSS */
     top: 50% !important;
     left: 50% !important;
-    width: 177.78% !important;   /* chiều dài gốc = chiều rộng sau khi xoay */
-    height: 56.25% !important;   /* chiều rộng gốc = chiều cao sau khi xoay  */
+    width: 177.78% !important;
+    height: 56.25% !important;
     transform: translate(-50%, -50%) rotate(90deg) !important;
     border: none;
-    display: none;
     z-index: 10;
     object-fit: cover;
     background: #000;
   }
+  /* Khi đang phát: frame chuyển sang tỉ lệ dọc 9:16 */
   .sonic-video-frame.sv-playing {
     cursor: default;
     overflow: hidden;
-    padding-bottom: 177.78%; /* portrait 9:16 */
+    padding-bottom: 177.78%;
   }
   .sonic-video-frame.sv-playing .sonic-video-thumb,
   .sonic-video-frame.sv-playing .sonic-video-grid,
