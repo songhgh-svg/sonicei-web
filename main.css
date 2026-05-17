@@ -2252,6 +2252,21 @@
     line-height: 1.6;
   }
 
+
+  /* ── MOBILE FONT: Rajdhani để tránh TBT (đã cache sẵn) ── */
+  @media (max-width: 768px) {
+    body {
+      font-family: 'Rajdhani', sans-serif !important;
+    }
+    .card p, .service-card p, .supply-card p, .vision-card p,
+    .about-text p, .section-sub, .hero-sub, .download-desc,
+    .hiw-step-desc, .module-desc, .testimonial-text,
+    .case-study-desc, .investor-point-desc,
+    .supply-intro, .supply-card-desc, .amod-desc {
+      font-family: 'Rajdhani', sans-serif !important;
+    }
+  }
+
   /* ── VIETNAMESE FONT OVERRIDE ── */
   body.vi-font,
   body.vi-font p,
