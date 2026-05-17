@@ -4749,8 +4749,3 @@
   line-height: 1.3;
   word-break: break-word;
 }
-/* ── CONTENT VISIBILITY — giảm render cost cho sections dưới fold ── */
-#ai, #projects, #photo-gallery, #clients, #services, #supply, #academy, #investors, #about, #faq {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
-}
