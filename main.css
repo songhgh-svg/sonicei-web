@@ -2801,14 +2801,12 @@
     animation: pulse-dot 1.8s ease-in-out infinite;
   }
 
-  /* ── Video frame — portrait ratio (480×1088 = 226.7%) ── */
+  /* ── Thumbnail wrapper (16:9) ── */
   .sonic-video-frame {
     position: relative; width: 100%;
-    padding-bottom: 226.67%; height: 0;
+    padding-bottom: 56.25%; height: 0;
     background: #000; cursor: pointer;
     overflow: hidden;
-    max-width: 340px;   /* cap width để video không chiếm quá rộng */
-    margin: 0 auto;
   }
 
   /* Background gradient "image" */
@@ -2936,12 +2934,15 @@
 
   /* Video — hidden until clicked */
   /*
-    Video đã được encode đúng portrait 480×1088, không có rotation metadata.
-    Container cũng portrait → video fill 100% không cần transform.
+    File MP4 có Display Matrix rotation = -90°.
+    Browser tự xử lý đúng chiều dọc qua metadata.
+    KHÔNG dùng CSS rotate — sẽ xoay thêm lần nữa thành sai.
+    Chỉ cần center video trong container.
   */
   .sv-video-wrap {
     position: absolute !important;
     inset: 0 !important;
+    display: none;
     z-index: 10;
     background: #000;
     display: none;
@@ -2949,13 +2950,13 @@
   .sv-video-wrap video,
   .sonic-video-frame > video {
     position: absolute !important;
-    inset: 0 !important;
+    top: 0 !important; left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     border: none;
     display: none;
     z-index: 10;
-    object-fit: cover;
+    object-fit: contain;
     transform: none !important;
     background: #000;
   }
