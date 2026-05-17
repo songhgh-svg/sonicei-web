@@ -5187,39 +5187,41 @@
 
 
 /* ══════════════════════════════════════════
-   VIDEO BOX DESKTOP — căn đáy bằng cột text
+   VIDEO BOX DESKTOP — full height fix
 ══════════════════════════════════════════ */
 @media (min-width: 901px) {
 
-  /* Col 2 stretch full height của grid row */
   .ai-grid > .flex-col-gap {
     align-self: stretch;
-    justify-content: space-between;
   }
 
-  /* vb-wrap lấp đầy phần còn lại sau phone */
   .ai-grid .vb-wrap {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    width: 100%;
   }
 
-  /* Stage fill toàn bộ chiều cao còn lại của vb-wrap */
+  /* Set chiều cao stage đủ để hiện full video 16:9
+     width phone col ≈ 300px → 300 * (9/16) = 168px
+     Nhưng video dọc 9:16 → dùng 360px cho đủ nội dung */
   .ai-grid .vb-stage {
-    flex: 1;
     padding-bottom: 0 !important;
-    height: auto !important;
-    min-height: 160px;
+    height: 360px !important;
   }
 
-  /* Video + poster fill stage */
-  .ai-grid .vb-video,
-  .ai-grid .vb-poster {
+  /* Video fill stage */
+  .ai-grid .vb-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #000;
+  }
+
+  /* Poster fill stage */
+  .ai-grid .vb-poster {
+    position: absolute;
+    inset: 0;
   }
 }
