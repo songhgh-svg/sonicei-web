@@ -248,7 +248,7 @@ function requestSimilar(projectType, scope) {
 })();
 
 
-/* ── 4. PDF PREVIEW — PDF.js direct render (no fetch HEAD) ── */
+/* ── 4. PDF PREVIEW — lazy render, tránh Out of Memory ── */
 (function() {
   var iframe    = document.getElementById('pdf-iframe');
   var fallback  = document.getElementById('pdf-fallback');
@@ -258,12 +258,19 @@ function requestSimilar(projectType, scope) {
 
   if (!iframe || !container) return;
 
-  // Ẩn iframe, dùng PDF.js cho cả desktop lẫn mobile
   iframe.style.display = 'none';
   if (fallback) fallback.style.display = 'none';
   if (label) label.textContent = '● PREVIEW — SCROLL TO EXPLORE';
 
-  // Canvas wrap cuộn được
+  function showMissingFallback() {
+    var cw = document.getElementById('pdfjs-canvas-wrap');
+    if (cw) cw.remove();
+    if (fallback) fallback.style.display = 'flex';
+    if (label)    label.style.display    = 'none';
+    var cta = container.querySelector('.pdf-overlay-cta');
+    if (cta) cta.style.display = 'none';
+  }
+
   var canvasWrap = document.createElement('div');
   canvasWrap.id = 'pdfjs-canvas-wrap';
   canvasWrap.style.cssText =
@@ -272,54 +279,88 @@ function requestSimilar(projectType, scope) {
     'scrollbar-width:thin;scrollbar-color:rgba(201,162,39,0.4) transparent;';
   container.appendChild(canvasWrap);
 
-  function showMissingFallback() {
-    canvasWrap.remove();
-    if (fallback) fallback.style.display = 'flex';
-    if (label)    label.style.display    = 'none';
-    var cta = container.querySelector('.pdf-overlay-cta');
-    if (cta) cta.style.display = 'none';
-  }
-
   var script = document.createElement('script');
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+
   script.onload = function() {
     var pdfjsLib = window['pdfjs-dist/build/pdf'];
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
-      var totalPages = pdfDoc.numPages;
+    pdfjsLib.getDocument({ url: pdfUrl, disableRange: false, disableStream: false })
+      .promise.then(function(pdfDoc) {
 
-      function renderPage(pageNum) {
-        if (pageNum > totalPages) return;
-        pdfDoc.getPage(pageNum).then(function(page) {
-          var containerW = canvasWrap.clientWidth || container.clientWidth || 320;
-          var viewport0  = page.getViewport({ scale: 1 });
-          var scale      = (containerW - 2) / viewport0.width;
-          var viewport   = page.getViewport({ scale: scale });
+        var totalPages   = pdfDoc.numPages;
+        var rendered     = {};
+        var rendering    = {};
+        var placeholders = {};
+        var containerW   = canvasWrap.clientWidth || container.clientWidth || 360;
 
-          var canvas    = document.createElement('canvas');
-          canvas.width  = Math.floor(viewport.width);
-          canvas.height = Math.floor(viewport.height);
-          canvas.style.cssText =
-            'display:block;width:100%;height:auto;max-width:100%;' +
-            'border-bottom:1px solid rgba(201,162,39,0.1);box-sizing:border-box;';
+        // Tạo placeholder cho tất cả trang trước
+        pdfDoc.getPage(1).then(function(firstPage) {
+          var vp0  = firstPage.getViewport({ scale: 1 });
+          var sc   = (containerW - 2) / vp0.width;
+          var estH = Math.floor(vp0.height * sc);
+          firstPage.cleanup();
 
-          canvasWrap.appendChild(canvas);
+          for (var i = 1; i <= totalPages; i++) {
+            (function(pageNum) {
+              var ph = document.createElement('div');
+              ph.dataset.page = pageNum;
+              ph.style.cssText =
+                'width:100%;height:' + estH + 'px;background:#12203a;' +
+                'box-sizing:border-box;border-bottom:1px solid rgba(201,162,39,0.1);' +
+                'display:flex;align-items:center;justify-content:center;';
+              ph.innerHTML =
+                '<span style="font-family:monospace;font-size:10px;' +
+                'color:rgba(201,162,39,0.3);letter-spacing:2px;">' +
+                'PAGE ' + pageNum + ' / ' + totalPages + '</span>';
+              canvasWrap.appendChild(ph);
+              placeholders[pageNum] = ph;
+            })(i);
+          }
 
-          page.render({
-            canvasContext: canvas.getContext('2d'),
-            viewport: viewport
-          }).promise.then(function() {
-            renderPage(pageNum + 1);
-          });
+          // Chỉ render trang khi scroll đến
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (!entry.isIntersecting) return;
+              var pageNum = parseInt(entry.target.dataset.page);
+              if (rendered[pageNum] || rendering[pageNum]) return;
+              rendering[pageNum] = true;
+
+              pdfDoc.getPage(pageNum).then(function(page) {
+                var w   = canvasWrap.clientWidth || containerW;
+                var vp0 = page.getViewport({ scale: 1 });
+                var sc  = (w - 2) / vp0.width;
+                var vp  = page.getViewport({ scale: sc });
+
+                var canvas    = document.createElement('canvas');
+                canvas.width  = Math.floor(vp.width);
+                canvas.height = Math.floor(vp.height);
+                canvas.style.cssText =
+                  'display:block;width:100%;height:auto;max-width:100%;box-sizing:border-box;';
+
+                page.render({ canvasContext: canvas.getContext('2d'), viewport: vp })
+                  .promise.then(function() {
+                    var ph = placeholders[pageNum];
+                    if (ph && ph.parentNode) {
+                      ph.style.height = 'auto';
+                      ph.innerHTML = '';
+                      ph.appendChild(canvas);
+                    }
+                    rendered[pageNum] = true;
+                    page.cleanup(); // giải phóng RAM ngay sau khi render
+                  });
+              });
+            });
+          }, { root: canvasWrap, rootMargin: '300px', threshold: 0 });
+
+          Object.values(placeholders).forEach(function(ph) { observer.observe(ph); });
         });
-      }
 
-      renderPage(1);
-
-    }).catch(function() { showMissingFallback(); });
+      }).catch(function() { showMissingFallback(); });
   };
+
   script.onerror = function() { showMissingFallback(); };
   document.head.appendChild(script);
 })();
