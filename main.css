@@ -426,9 +426,9 @@
   .testimonial-text,
   .case-study-desc,
   .investor-point-desc {
-    font-family: 'Be Vietnam Pro', sans-serif !important;
-    font-size: 17px !important;
-    line-height: 1.85 !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.8 !important;
   }
 
   /* ── Cấp 6: List items trong card ── */
@@ -501,9 +501,9 @@
   body {
     background: var(--navy);
     color: var(--white);
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
     overflow-x: hidden;
   }
 
@@ -535,8 +535,8 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
   }
   .section-header .divider { margin-bottom: 0; }
 
@@ -1173,11 +1173,11 @@
     margin: 12px 0 20px;
   }
   .supply-intro {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
     color: rgba(240,244,255,0.6);
-    line-height: 1.8;
+    line-height: 1.7;
     margin-bottom: 28px;
   }
   .supply-values {
@@ -1240,11 +1240,11 @@
     margin-bottom: 12px;
   }
   .supply-card-desc {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
     color: rgba(240,244,255,0.6);
-    line-height: 1.8;
+    line-height: 1.7;
   }
   @media (max-width: 900px) {
     .supply-layout {
@@ -1300,8 +1300,8 @@
     font-family: 'Share Tech Mono', monospace;
   }
   .contact-item-value {
-    font-size: 17px; font-weight: 600; color: var(--white);
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 18px; font-weight: 700; color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
   }
   .contact-link {
     text-decoration: none;
@@ -1948,12 +1948,12 @@
     transition: color 0.2s;
   }
   .amod-desc {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
     color: rgba(240,244,255,0.5);
-    line-height: 1.8;
-    letter-spacing: 0;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
   }
 
 
@@ -2254,18 +2254,7 @@
 
 
   /* ── MOBILE FONT: Rajdhani để tránh TBT (đã cache sẵn) ── */
-  @media (max-width: 768px) {
-    body {
-      font-family: 'Rajdhani', sans-serif !important;
-    }
-    .card p, .service-card p, .supply-card p, .vision-card p,
-    .about-text p, .section-sub, .hero-sub, .download-desc,
-    .hiw-step-desc, .module-desc, .testimonial-text,
-    .case-study-desc, .investor-point-desc,
-    .supply-intro, .supply-card-desc, .amod-desc {
-      font-family: 'Rajdhani', sans-serif !important;
-    }
-  }
+
 
   /* ── VIETNAMESE FONT OVERRIDE ── */
   body.vi-font,
@@ -2287,7 +2276,7 @@
   body.vi-font .footer-copy,
   body.vi-font .footer-tagline,
   body.vi-font .download-desc {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
   }
 
   /* ── LANGUAGE SWITCHER ── */
@@ -2362,17 +2351,17 @@
   .vision-card:nth-child(2) .vision-divider { background: var(--cyan, #00d4ff); }
   .vision-card:nth-child(3) .vision-divider { background: #00c896; }
   .vision-card p {
-    font-size: 17px; line-height: 1.8;
+    font-size: 18px; line-height: 1.75;
     color: rgba(255,255,255,0.68);
-    font-family: 'Be Vietnam Pro', sans-serif; font-weight: 400;
+    font-family: 'Rajdhani', sans-serif; font-weight: 400;
   }
   .vision-values { list-style: none; padding: 0; margin: 0; }
   .vision-values li {
     padding: 14px 0;
     border-bottom: 1px solid rgba(255,255,255,0.07);
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 17px; color: rgba(255,255,255,0.75);
-    line-height: 1.8;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px; color: rgba(255,255,255,0.75);
+    line-height: 1.65;
   }
   .vision-values li:last-child { border-bottom: none; }
   .vision-values strong {

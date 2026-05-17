@@ -185,25 +185,23 @@
 <!-- ═══ FONTS — preconnect + preload + async load ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Be+Vietnam+Pro:wght@400;500&family=Share+Tech+Mono&display=optional" as="style">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Be+Vietnam+Pro:wght@400;500&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Be+Vietnam+Pro:wght@400;500&family=Share+Tech+Mono&display=optional"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional"></noscript>
 
-<!-- ═══ CSS — non-blocking, critical CSS đã inline ở trên ═══ -->
-<link rel="preload" href="shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="shared.css"><link rel="stylesheet" href="main.css"></noscript>
+<!-- ═══ CSS — blocking để tránh FOUC và CLS ═══ -->
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="main.css">
 
 <!-- ═══ FIX 5: CRITICAL CSS INLINE — chỉ giữ những gì cần cho hero paint, xoá duplicate với shared.css/main.css ═══ -->
 <style>
 @font-face{font-family:'Bebas Neue Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:92%;descent-override:24%;line-gap-override:0%;size-adjust:76%}
 @font-face{font-family:'Rajdhani Fallback';src:local('Arial'),local('Helvetica');size-adjust:104%;ascent-override:100%}
-@font-face{font-family:'Be Vietnam Pro Fallback';src:local('Arial'),local('Helvetica Neue'),local('sans-serif');size-adjust:105%;ascent-override:96%;descent-override:22%;line-gap-override:0%}
 :root{--navy:#0a1628;--navy-mid:#112040;--gold:#c9a227;--gold-light:#e8c347;--white:#f0f4ff;--gray:#8899bb;--accent:#1a4a8a}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:hidden;max-width:100%}
 html{scroll-behavior:smooth}
-body{background:var(--navy);color:var(--white);font-family:'Be Vietnam Pro','Be Vietnam Pro Fallback',system-ui,sans-serif;font-size:16px;line-height:1.8}
+body{background:var(--navy);color:var(--white);font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-size:17px;line-height:1.75}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;align-items:center;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,39,0.2);padding:0 16px}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;z-index:110}
 .hamburger span{display:block;width:22px;height:2px;background:#c9a227}
