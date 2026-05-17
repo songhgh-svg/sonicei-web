@@ -177,14 +177,13 @@
 }
 </script>
 
-<!-- ═══ FIX 3: FONTS — Bebas Neue + Rajdhani + Share Tech Mono (Be Vietnam Pro tách ra legal pages) ═══ -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<!-- ═══ FONTS — load async, không block render ═══ -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap"></noscript>
 
-<!-- ═══ FIX 4: CSS — non-blocking preload ═══ -->
-<link rel="preload" href="shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="shared.css"><link rel="stylesheet" href="main.css"></noscript>
+<!-- ═══ CSS — blocking để tránh FOUC và CLS ═══ -->
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="main.css">
 
 <!-- ═══ FIX 5: CRITICAL CSS INLINE — chỉ giữ những gì cần cho hero paint, xoá duplicate với shared.css/main.css ═══ -->
 <style>
