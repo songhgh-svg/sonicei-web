@@ -7,6 +7,10 @@
 /* ── GOOGLE FONTS (import if not loaded via <link>) ── */
 /* Font import moved to <link> tags in <head> for better performance */
 
+/* ── SELF-HOSTED FONTS ── */
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-regular.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2')}
+
 /* ── CSS CUSTOM PROPERTIES ── */
 :root {
   --navy:      #0a1628;
@@ -27,7 +31,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--navy);
   color: var(--white);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 /* ── NAVIGATION ── */
