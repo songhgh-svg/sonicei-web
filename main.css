@@ -165,7 +165,7 @@
 
   /* Hero headline override */
   .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
     line-height: 1;
     letter-spacing: 1px;
     opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
@@ -1480,11 +1480,20 @@
   .pdf-frame-container {
     position: relative;
     width: 100%; height: 480px;
+    min-height: 480px;
   }
   .pdf-frame {
+    position: absolute;
+    inset: 0;
     width: 100%; height: 100%;
     border: none; display: block;
     background: #1a1a2e;
+  }
+  #pdf-fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
   .pdf-overlay-cta {
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -4748,4 +4757,13 @@
   white-space: normal !important;
   line-height: 1.3;
   word-break: break-word;
+}
+
+/* ── PERFORMANCE: prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

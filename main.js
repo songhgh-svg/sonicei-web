@@ -57,26 +57,28 @@
 
   function showBar() {
     visible = true;
-    bar.style.height = bar.style.padding = bar.style.opacity = '';
-    bar.style.borderTopWidth = bar.style.borderBottomWidth = '';
+    bar.style.visibility = '';
+    bar.style.opacity = '';
+    bar.style.pointerEvents = '';
     if (toggle) toggle.textContent = '▲ HIDE';
     if (mob) {
-      mob.style.height = mob.style.padding = mob.style.opacity = '';
-      mob.style.borderTopWidth = mob.style.borderBottomWidth = '';
+      mob.style.visibility = '';
+      mob.style.opacity = '';
+      mob.style.pointerEvents = '';
     }
-    setTimeout(function(){ if (window.alignSubNav) window.alignSubNav(); }, 320);
   }
 
   function hideBar() {
     visible = false;
-    bar.style.height = bar.style.padding = bar.style.opacity = '0';
-    bar.style.borderTopWidth = bar.style.borderBottomWidth = '0';
+    bar.style.opacity = '0';
+    bar.style.pointerEvents = 'none';
+    setTimeout(function(){ bar.style.visibility = 'hidden'; }, 300);
     if (toggle) toggle.textContent = '▼ SHOW';
     if (mob) {
-      mob.style.height = mob.style.padding = mob.style.opacity = '0';
-      mob.style.borderTopWidth = mob.style.borderBottomWidth = '0';
+      mob.style.opacity = '0';
+      mob.style.pointerEvents = 'none';
+      setTimeout(function(){ mob.style.visibility = 'hidden'; }, 300);
     }
-    setTimeout(function(){ if (window.alignSubNav) window.alignSubNav(); }, 320);
   }
 
   function startCycle() {
@@ -371,16 +373,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var els = document.querySelectorAll(targets);
   els.forEach(function(el){ el.classList.add('in-view-boost'); });
 
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        entry.target.classList.toggle('is-visible', entry.isIntersecting);
-      });
-    }, { threshold: 0.08 });
-    els.forEach(function(el){ obs.observe(el); });
-  } else {
+  if (!('IntersectionObserver' in window)) {
     els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
   }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.08 });
+  els.forEach(function(el){ obs.observe(el); });
 })();
 
 
@@ -632,21 +634,7 @@ function gtag(){ dataLayer.push(arguments); }
 })();
 
 
-/* ── 13. IN-VIEW BRIGHTNESS BOOST — lazy IntersectionObserver ── */
-(function() {
-  if (!('IntersectionObserver' in window)) return;
-  var els = document.querySelectorAll('.in-view-boost');
-  if (!els.length) return;
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      e.target.classList.toggle('is-visible', e.isIntersecting);
-    });
-  }, { threshold: 0.15 });
-  els.forEach(function(el) { obs.observe(el); });
-})();
-
-
-/* ── 14. FADE-IN sections — lazy load với IntersectionObserver ── */
+/* ── 13 + 14. FADE-IN sections — merged IntersectionObserver ── */
 (function() {
   if (!('IntersectionObserver' in window)) {
     document.querySelectorAll('.fade-in').forEach(function(el) {
@@ -662,13 +650,13 @@ function gtag(){ dataLayer.push(arguments); }
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');
+        e.target.classList.add('visible', 'is-visible');
         obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.fade-in').forEach(function(el) {
+  document.querySelectorAll('.fade-in, .in-view-boost').forEach(function(el) {
     obs.observe(el);
   });
 })();
