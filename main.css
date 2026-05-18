@@ -2002,7 +2002,7 @@
   /* ── ACADEMY ── */
   .academy {
     background: linear-gradient(135deg, #0a1628 0%, #0f2040 60%, #0a1628 100%);
-    position: relative; overflow: hidden;
+    position: relative; overflow: clip;
     max-width: 100%; box-sizing: border-box;
   }
   .academy::before {
