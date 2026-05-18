@@ -321,6 +321,7 @@
     display: flex; align-items: center; gap: 16px;
     font-family: 'Rajdhani', sans-serif; font-size: 18px;
     letter-spacing: 1.5px; text-transform: uppercase;
+    flex-wrap: wrap; justify-content: center;
   }
   .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
@@ -343,7 +344,10 @@
     .filter-bar, .stats-bar { padding-left: 20px; padding-right: 20px; }
     .blog-grid { grid-template-columns: 1fr; padding: 32px 20px 64px; }
     .blog-card { border-right: none; padding: 28px 20px; }
-    footer { padding: 32px 20px; }
+    footer { padding: 32px 20px; width: 100%; overflow: hidden; }
+    .footer-links { gap: 12px; }
+    .footer-links-dot { display: none; }
+    .footer-logo-text { font-size: 18px; }
 
     /* ── MOBILE FONT SIZE FIXES ── */
     .card-title    { font-size: 28px; line-height: 1.15; }

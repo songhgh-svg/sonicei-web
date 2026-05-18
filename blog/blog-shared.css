@@ -288,6 +288,7 @@ footer {
   display: flex; align-items: center; gap: 16px;
   font-family: 'Rajdhani', sans-serif; font-size: 18px;
   letter-spacing: 1.5px; text-transform: uppercase;
+  flex-wrap: wrap; justify-content: center;
 }
 .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
@@ -332,5 +333,8 @@ footer {
 
   /* Back link & footer */
   .post-back { margin: 0 20px 40px; font-size: 18px; }
-  footer     { padding: 32px 20px; }
+  footer     { padding: 32px 20px; width: 100%; overflow: hidden; }
+  .footer-links { gap: 12px; }
+  .footer-links-dot { display: none; }
+  .footer-logo-text { font-size: 18px; }
 }

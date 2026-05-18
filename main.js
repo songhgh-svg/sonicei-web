@@ -9,6 +9,24 @@ document.addEventListener('DOMContentLoaded', function() {
   var mobileTrack  = document.getElementById('mobileTickerTrack');
   if (desktopTrack && mobileTrack) {
     mobileTrack.innerHTML = desktopTrack.innerHTML;
+    /* Force animation restart sau khi inject content
+       (một số Android/iOS browser không tự start nếu content được thêm sau) */
+    mobileTrack.style.animation = 'none';
+    mobileTrack.style.webkitAnimation = 'none';
+    /* Trigger reflow */
+    void mobileTrack.offsetWidth;
+    mobileTrack.style.animation = 'ticker 250s linear infinite';
+    mobileTrack.style.webkitAnimation = 'ticker 250s linear infinite';
+  }
+
+  /* Force restart pain bar animation */
+  var painTrack = document.getElementById('mobilePainTrack');
+  if (painTrack) {
+    painTrack.style.animation = 'none';
+    painTrack.style.webkitAnimation = 'none';
+    void painTrack.offsetWidth;
+    painTrack.style.animation = 'ticker 30s linear infinite';
+    painTrack.style.webkitAnimation = 'ticker 30s linear infinite';
   }
 });
 

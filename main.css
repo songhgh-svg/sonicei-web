@@ -338,8 +338,11 @@
   .mobile-ticker-bar .ticker-track {
     display: flex; width: max-content; white-space: nowrap;
     height: 100%; align-items: center;
-    animation: ticker 250s linear infinite;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     will-change: transform;
+    animation: ticker 250s linear infinite;
+    -webkit-animation: ticker 250s linear infinite;
   }
   .mobile-ticker-bar .ticker-item {
     padding: 0 24px; font-size: 9.5px; letter-spacing: 1.5px;
@@ -1632,6 +1635,22 @@
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 20px;
   }
+  @media (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 16px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    footer > * {
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  }
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 18px; letter-spacing: 3px; color: var(--gold);
@@ -2192,10 +2211,13 @@
     width: max-content;
     white-space: nowrap;
     will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     height: 100%; align-items: center;
     animation: ticker 250s linear infinite;
+    -webkit-animation: ticker 250s linear infinite;
   }
-  .ticker-track:hover { animation-play-state: paused; }
+  .ticker-track:hover { animation-play-state: paused; -webkit-animation-play-state: paused; }
   .ticker-item {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 0 40px;
@@ -2207,9 +2229,13 @@
   }
   .ticker-dot { color: #00c896; font-size: 8px; }
   .ticker-highlight { color: #00c896; font-weight: 700; }
+  @-webkit-keyframes ticker {
+    0%   { -webkit-transform: translateX(0) translateZ(0); }
+    100% { -webkit-transform: translateX(-50%) translateZ(0); }
+  }
   @keyframes ticker {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0%   { transform: translateX(0) translateZ(0); }
+    100% { transform: translateX(-50%) translateZ(0); }
   }
 
   /* ── SOCIAL PROOF ── */
