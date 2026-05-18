@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
 <!-- ═══ FAVICON ═══ -->
 <link rel="icon" type="image/png" href="SONICEI_LOGO.png">
@@ -184,11 +182,12 @@
 }
 </script>
 
-<!-- ═══ FONTS ═══ -->
+<!-- ═══ FONTS — self-hosted, không round trip Google ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional"></noscript>
 
 <!-- ═══ CSS — blocking để tránh FOUC và CLS ═══ -->
 <link rel="stylesheet" href="shared.css">
@@ -2656,47 +2655,36 @@ function vbPlay(id) {
   poster.style.display = 'none';
   video.style.display  = 'block';
 
-  function applyRotation() {
+  /* ── Fix video xoay 90° trên mobile ──
+     Nếu video là landscape (width > height) nhưng đang hiển thị trong
+     container dọc → xoay CSS. Đọc sau khi metadata load xong. */
+  function checkRotation() {
     var vw = video.videoWidth;
     var vh = video.videoHeight;
     if (!vw || !vh) return;
-
-    var stage = video.closest ? video.closest('.vb-stage') : video.parentElement;
-    var sw = stage ? stage.offsetWidth  : window.innerWidth;
-    var sh = stage ? stage.offsetHeight : window.innerHeight;
-
-    if (vw > vh && sw <= sh) {
-      /* Video landscape nhưng container dọc → xoay 90° */
-      var scale  = Math.min(sh / vw, sw / vh);
-      var rotW   = Math.round(vh * scale);
-      var rotH   = Math.round(vw * scale);
-      var offX   = Math.round((sw - rotW) / 2);
-      var offY   = Math.round((sh - rotH) / 2);
-
-      video.style.position        = 'absolute';
-      video.style.width           = vh + 'px';
-      video.style.height          = vw + 'px';
-      video.style.top             = offY + 'px';
-      video.style.left            = offX + 'px';
-      video.style.transformOrigin = 'top left';
-      video.style.transform       = 'rotate(90deg) translateY(-' + vh + 'px)';
-      video.style.webkitTransform = 'rotate(90deg) translateY(-' + vh + 'px)';
+    if (vw > vh) {
+      /* Video landscape (quay ngang) → xoay 90° để hiện đúng trong khung dọc */
+      var scale = vw / vh;
+      video.style.transform = 'rotate(90deg)';
+      video.style.width = (scale * 100) + '%';
+      video.style.height = (100 / scale) + '%';
+      video.style.top = ((1 - 1/scale) / 2 * 100) + '%';
+      video.style.left = (-(scale - 1) / 2 * 100) + '%';
+      video.style.position = 'absolute';
     } else {
-      video.style.transform       = '';
-      video.style.webkitTransform = '';
-      video.style.width           = '100%';
-      video.style.height          = '100%';
-      video.style.top             = '0';
-      video.style.left            = '0';
-      video.style.position        = 'absolute';
-      video.style.transformOrigin = '';
+      /* Video dọc → hiện bình thường */
+      video.style.transform = '';
+      video.style.width = '100%';
+      video.style.height = '100%';
+      video.style.top = '0';
+      video.style.left = '0';
     }
   }
 
   if (video.readyState >= 1) {
-    applyRotation();
+    checkRotation();
   } else {
-    video.addEventListener('loadedmetadata', applyRotation, { once: true });
+    video.addEventListener('loadedmetadata', checkRotation, { once: true });
   }
 
   video.play().catch(function(){});
