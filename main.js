@@ -777,10 +777,16 @@ function gtag(){ dataLayer.push(arguments); }
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
     document.querySelectorAll('.fade-in, .in-view-boost').forEach(function(el) {
-      obs.observe(el);
+      // Nếu element đã trong viewport khi init → show ngay
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible', 'is-visible');
+      } else {
+        obs.observe(el);
+      }
     });
   }
 
