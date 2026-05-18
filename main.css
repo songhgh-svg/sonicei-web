@@ -3,8 +3,8 @@
 
   /* ── CLIENTS LOGO STRIP ── */
   .clients-strip {
-    background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
-    padding: 40px 0 44px;
+    background: #ffffff;
+    padding: 20px 0 24px;
     overflow: hidden;
     border-top: 1px solid rgba(201,162,39,0.15);
     border-bottom: 1px solid rgba(201,162,39,0.15);
@@ -13,8 +13,8 @@
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px; letter-spacing: 3px;
-    color: var(--gray); text-transform: uppercase;
-    margin-bottom: 28px;
+    color: #8899bb; text-transform: uppercase;
+    margin-bottom: 16px;
     opacity: 0.7;
   }
   .clients-marquee-wrap {
@@ -49,17 +49,17 @@
     width: auto;
     max-width: 130px;
     object-fit: contain;
-    filter: grayscale(100%) brightness(1.8) contrast(0.75);
-    opacity: 0.55;
+    filter: none;
+    opacity: 0.85;
     transition: filter 0.35s ease, opacity 0.35s ease, transform 0.3s ease;
   }
   .client-logo-item img:hover {
-    filter: grayscale(0%) brightness(1) contrast(1);
+    filter: none;
     opacity: 1;
     transform: scale(1.08);
   }
   @media (max-width: 900px) {
-    .clients-strip { padding: 32px 0 36px; }
+    .clients-strip { padding: 16px 0 20px; }
     .client-logo-item { padding: 0 28px; }
     .client-logo-item img { height: 34px; max-width: 100px; }
     .clients-marquee-track { animation-duration: 24s; }
