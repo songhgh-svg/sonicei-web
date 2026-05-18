@@ -77,6 +77,7 @@
     padding: 8px 16px !important;
     letter-spacing: 1px !important;
     white-space: nowrap;
+    flex-shrink: 0;
     box-shadow: 0 0 16px rgba(201,162,39,0.35);
   }
   .nav-cta-btn:hover {
@@ -501,6 +502,17 @@
      ở viewport trung bình nếu chỉ dùng 900px.
      Fix: 3 tầng compression + sớm hamburger.
   ══════════════════════════════════════════ */
+
+  /* Giữ CTA và logo không bị co */
+  .nav-right {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .nav-links {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+  }
 
   /* Tầng 1: Thu nhỏ nhẹ từ 1400px */
   @media (max-width: 1400px) {
@@ -4724,8 +4736,7 @@
   display: flex;
   align-items: center;
   line-height: 1;
-}
-.logo-line {
+}.logo-line {
   white-space: nowrap;
   color: var(--gold);
   font-family: 'Bebas Neue', sans-serif;
