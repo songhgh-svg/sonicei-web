@@ -222,10 +222,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
 .acad-cards {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 1px !important;
+  gap: 20px !important;
   width: 100% !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
+  padding: 20px clamp(16px,5vw,60px) 60px !important;
 }
 /* Dưới 1200px: 2 cột */
 @media (max-width: 1200px) {
@@ -239,13 +240,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
     grid-template-columns: 1fr !important;
   }
 }
-/* Fix floating CTA không che card cuối trên desktop */
+/* Fix floating CTA */
 #fcta {
   z-index: 200 !important;
 }
-/* Padding phải cho section academy để card 04 không bị che */
+/* Academy section — KHÔNG override padding */
 .academy {
-  padding-right: 0 !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 .acad-card {
   min-width: 0 !important;

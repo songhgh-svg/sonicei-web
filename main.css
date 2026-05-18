@@ -2002,7 +2002,7 @@
   /* ── ACADEMY ── */
   .academy {
     background: linear-gradient(135deg, #0a1628 0%, #0f2040 60%, #0a1628 100%);
-    position: relative; overflow: clip;
+    position: relative; overflow: hidden;
     max-width: 100%; box-sizing: border-box;
   }
   .academy::before {
@@ -2012,6 +2012,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 240px; color: rgba(201,162,39,0.03);
     line-height: 1; pointer-events: none;
+    max-width: 100%; overflow: hidden;
   }
   .academy-grid {
     display: grid;
@@ -2160,12 +2161,15 @@
     width: 100%; max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+    /* Fix tràn phải: clip cứng cả hai phía */
+    contain: layout;
   }
   .academy-photo-item {
     position: relative; overflow: hidden;
     border: 1px solid rgba(201,162,39,0.15);
     width: 100%; max-width: 100%;
     box-sizing: border-box;
+    min-width: 0; /* Fix grid blowout */
   }
   .academy-photo-item img {
     width: 100%; height: 300px;
@@ -2248,7 +2252,10 @@
   }
 
   /* ── SOCIAL PROOF ── */
+  .social-proof {
     padding: 80px clamp(16px,5vw,60px);
+    position: relative; overflow: hidden;
+  }
   .proof-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2334,8 +2341,9 @@
   }
 
   /* ── MARKET OPPORTUNITY ── */
+  .market {
     padding: 80px clamp(16px,5vw,60px);
-    position: relative; overflow: visible;
+    position: relative; overflow: hidden;
   }
   .market::before {
     content: '$';
@@ -2572,6 +2580,7 @@
   }
 
   /* ── OUR PURPOSE / WHY SONIC SECTION ── */
+  .why-sonic-section {
     padding: 100px clamp(16px,5vw,60px);
     background: var(--navy-mid);
     overflow: hidden;
@@ -5334,11 +5343,15 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0;
-  padding: 20px clamp(16px,5vw,60px);
+  padding: 20px 0;
+  margin: 0 0 60px 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   background: rgba(201,162,39,0.05);
   border-top: 1px solid rgba(201,162,39,0.15);
   border-bottom: 1px solid rgba(201,162,39,0.15);
-  margin-bottom: 60px;
   position: relative; z-index: 2;
 }
 .acad-trust-item {
@@ -5346,7 +5359,9 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 8px 28px;
+  padding: 8px clamp(12px, 2.5vw, 28px);
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .acad-trust-num {
   font-family: 'Bebas Neue', sans-serif;
@@ -5378,6 +5393,10 @@
   gap: 20px;
   padding: 20px clamp(16px,5vw,60px) 60px; /* top 20px: chỗ cho MOST POPULAR tag */
   position: relative; z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .acad-card {
   background: rgba(255,255,255,0.025);
