@@ -503,7 +503,7 @@
      Fix: 3 tầng compression + sớm hamburger.
   ══════════════════════════════════════════ */
 
-  /* Giữ CTA và logo không bị co */
+  /* Base: logo không co, CTA không co, links lấp đầy khoảng giữa */
   .nav-right {
     flex-shrink: 0;
     margin-left: auto;
@@ -512,33 +512,50 @@
     flex: 1 1 0;
     min-width: 0;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
-  /* Tầng 1: Thu nhỏ nhẹ từ 1400px */
-  @media (max-width: 1400px) {
+  /* Tầng 1: Thu nhỏ nhẹ từ 1500px */
+  @media (max-width: 1500px) {
     .nav-links a {
       padding: 0 7px !important;
       font-size: 10.5px !important;
-      letter-spacing: 0.8px !important;
+      letter-spacing: 0.6px !important;
     }
     .nav-links a.profile-dl-btn {
-      padding: 5px 12px !important;
+      padding: 5px 11px !important;
       font-size: 10px !important;
-      letter-spacing: 1.5px !important;
+      letter-spacing: 1px !important;
+    }
+    .nav-cta-btn {
+      font-size: 10px !important;
+      padding: 7px 12px !important;
+      letter-spacing: 0.8px !important;
     }
   }
 
-  /* Tầng 2: Thu nhỏ mạnh hơn + ẩn CTA từ 1200px */
-  @media (max-width: 1200px) {
+  /* Tầng 2: Thu nhỏ mạnh + ẩn logo text từ 1280px */
+  @media (max-width: 1280px) {
     .nav-links a {
       padding: 0 5px !important;
       font-size: 10px !important;
-      letter-spacing: 0.4px !important;
+      letter-spacing: 0.3px !important;
     }
+    .logo-text { display: none !important; }
+    .nav-cta-btn {
+      font-size: 10px !important;
+      padding: 7px 10px !important;
+      letter-spacing: 0.5px !important;
+    }
+  }
+
+  /* Tầng 3: Ẩn CTA từ 1100px */
+  @media (max-width: 1100px) {
     .nav-right { display: none !important; }
   }
 
-  /* Tầng 3: Chuyển hamburger từ 1020px thay vì 900px */
+  /* Tầng 4: Chuyển sang hamburger từ 1020px */
   @media (max-width: 1020px) {
     .hamburger { display: flex !important; }
     .nav-links  { display: none !important; }
