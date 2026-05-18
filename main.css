@@ -100,7 +100,7 @@
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 0;
     position: relative; overflow: hidden;
-    padding: 90px 60px 80px;
+    padding: 90px clamp(16px,5vw,60px) 80px;
   }
 
   /* Pain bar */
@@ -567,7 +567,7 @@
 
 
   /* ── SECTION BASE ── */
-  section { padding: 100px 60px 100px; max-width: 100%; }
+  section { padding: 100px clamp(16px,5vw,60px) 100px; max-width: 100%; }
   /* ── GLOBAL TYPOGRAPHY SYSTEM ── */
   body {
     background: var(--navy);
@@ -833,7 +833,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 60px; align-items: start;
     position: relative; z-index: 2;
-    padding: 80px 60px 40px;
+    padding: 80px clamp(16px,5vw,60px) 40px;
   }
 
   /* ── HOW IT WORKS ── */
@@ -954,7 +954,7 @@
     flex-wrap: wrap; gap: 0;
     background: rgba(0,0,0,0.45);
     border-top: 1px solid rgba(201,162,39,0.3);
-    padding: 24px 60px;
+    padding: 24px clamp(16px,4vw,60px);
     position: relative; z-index: 2;
   }
   .ai-proof-item {
@@ -1628,7 +1628,7 @@
   footer {
     background: rgba(0,0,0,0.5);
     border-top: 1px solid rgba(201,162,39,0.15);
-    padding: 40px 60px;
+    padding: 40px clamp(16px,5vw,60px);
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 20px;
   }
@@ -2213,10 +2213,7 @@
   }
 
   /* ── SOCIAL PROOF ── */
-  .social-proof {
-    background: var(--navy-mid);
-    padding: 80px 60px;
-  }
+    padding: 80px clamp(16px,5vw,60px);
   .proof-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2302,9 +2299,7 @@
   }
 
   /* ── MARKET OPPORTUNITY ── */
-  .market {
-    background: linear-gradient(135deg, #071020 0%, #0a1628 50%, #071020 100%);
-    padding: 80px 60px;
+    padding: 80px clamp(16px,5vw,60px);
     position: relative; overflow: visible;
   }
   .market::before {
@@ -2542,9 +2537,7 @@
   }
 
   /* ── OUR PURPOSE / WHY SONIC SECTION ── */
-  .why-sonic-section {
-    position: relative;
-    padding: 100px 60px;
+    padding: 100px clamp(16px,5vw,60px);
     background: var(--navy-mid);
     overflow: hidden;
   }

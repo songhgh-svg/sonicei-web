@@ -201,13 +201,13 @@
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2')}
 :root{--navy:#0a1628;--navy-mid:#112040;--gold:#c9a227;--gold-light:#e8c347;--white:#f0f4ff;--gray:#8899bb;--accent:#1a4a8a}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{overflow-x:hidden;max-width:100%}
+html,body{overflow-x:hidden;max-width:100%;width:100%}*{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:16px;line-height:1.8}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;align-items:center;flex-wrap:nowrap;overflow:hidden;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,39,0.2);padding:0 16px}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;z-index:110}
 .hamburger span{display:block;width:22px;height:2px;background:#c9a227}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;overflow:hidden;padding:90px 60px 80px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;overflow:hidden;padding:90px clamp(16px,5vw,60px) 80px}
 .hero-lcp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(10,22,40,.92) 0%,rgba(10,22,40,.75) 55%,rgba(10,22,40,.65) 100%)}
 .hero-content{position:relative;z-index:2;max-width:780px;width:100%;text-align:center}
@@ -2655,23 +2655,29 @@ function vbPlay(id) {
   poster.style.display = 'none';
   video.style.display  = 'block';
 
-  /* ── Fix video bị xoay ngang 90° trên một số mobile browser ──
-     Browser đọc metadata rotation từ MP4 không nhất quán.
-     Dùng canvas để kiểm tra kích thước thực tế khi video load xong. */
+  /* ── Fix video xoay 90° trên mobile ──
+     Nếu video là landscape (width > height) nhưng đang hiển thị trong
+     container dọc → xoay CSS. Đọc sau khi metadata load xong. */
   function checkRotation() {
     var vw = video.videoWidth;
     var vh = video.videoHeight;
     if (!vw || !vh) return;
-    var stage = video.closest('.vb-stage') || video.parentElement;
-    var sw = stage ? stage.offsetWidth : window.innerWidth;
-    var sh = stage ? stage.offsetHeight : window.innerHeight;
-    /* Nếu video ngang (landscape) nhưng stage dọc → video bị xoay */
-    if (vw > vh && sw < sh) {
-      /* Kiểm tra hướng xoay: thử render 1 frame trên canvas */
-      video.classList.add('vb-video--rotated');
+    if (vw > vh) {
+      /* Video landscape (quay ngang) → xoay 90° để hiện đúng trong khung dọc */
+      var scale = vw / vh;
+      video.style.transform = 'rotate(90deg)';
+      video.style.width = (scale * 100) + '%';
+      video.style.height = (100 / scale) + '%';
+      video.style.top = ((1 - 1/scale) / 2 * 100) + '%';
+      video.style.left = (-(scale - 1) / 2 * 100) + '%';
+      video.style.position = 'absolute';
     } else {
-      video.classList.remove('vb-video--rotated');
-      video.classList.remove('vb-video--rotated-ccw');
+      /* Video dọc → hiện bình thường */
+      video.style.transform = '';
+      video.style.width = '100%';
+      video.style.height = '100%';
+      video.style.top = '0';
+      video.style.left = '0';
     }
   }
 
