@@ -216,6 +216,42 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:46px;display:flex;ali
 @media(max-width:900px){.hamburger{display:flex}.nav-links{display:none}.nav-right{display:none}}
 </style>
 
+
+<style>
+/* ── ACADEMY CARDS: fix tràn ngang ── */
+.acad-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 1px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+/* Dưới 1200px: 2 cột */
+@media (max-width: 1200px) {
+  .acad-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+/* Dưới 640px: 1 cột */
+@media (max-width: 640px) {
+  .acad-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* Fix floating CTA không che card cuối trên desktop */
+#fcta {
+  z-index: 200 !important;
+}
+/* Padding phải cho section academy để card 04 không bị che */
+.academy {
+  padding-right: 0 !important;
+}
+.acad-card {
+  min-width: 0 !important;
+  word-break: break-word !important;
+}
+</style>
 </head>
 <body>
 
@@ -1977,113 +2013,198 @@ window.addEventListener('load', function() {
 
 <div class="section-sep"></div>
 <!-- ACADEMY -->
-<section class="academy" id="academy">
-  <div class="academy-grid fade-in">
-    <div>
-      <div class="section-header">
-        <div class="section-label">// Professional Training</div>
-        <h2 class="section-title">SONIC <span class="gold">ACADEMY</span></h2>
-        <p class="section-sub">Professional E&amp;I training programs built on 25 years of field experience with Siemens Energy and GE Turbines. Bringing global standards to local engineers.</p>
-        <div class="divider"></div>
+<section class="academy" id="academy" style="overflow-x:hidden;">
+
+  <!-- ── HEADER ── -->
+  <div class="academy-hdr fade-in">
+    <div class="section-label">// Professional Training</div>
+    <h2 class="section-title">SONIC <span class="gold">ACADEMY</span></h2>
+    <p class="section-sub" style="max-width:640px;margin:0 auto;">
+      4 specialist E&amp;I training programs — built on 25 years of field experience with Siemens Energy &amp; GE Power. Engineers trained to international standards from session one.
+    </p>
+    <div class="divider" style="margin:24px auto 0;"></div>
+  </div>
+
+  <!-- ── TRUST BAR ── -->
+  <div class="acad-trust-bar fade-in">
+    <div class="acad-trust-item"><span class="acad-trust-num">25+</span><span class="acad-trust-label">Years Field Experience</span></div>
+    <div class="acad-trust-sep"></div>
+    <div class="acad-trust-item"><span class="acad-trust-num">15</span><span class="acad-trust-label">Sessions (Full Package)</span></div>
+    <div class="acad-trust-sep"></div>
+    <div class="acad-trust-item"><span class="acad-trust-num">30+</span><span class="acad-trust-label">International Standards</span></div>
+    <div class="acad-trust-sep"></div>
+    <div class="acad-trust-item"><span class="acad-trust-num">IEC</span><span class="acad-trust-label">Siemens · GE Spec</span></div>
+    <div class="acad-trust-sep"></div>
+    <div class="acad-trust-item"><span class="acad-trust-num">≤8</span><span class="acad-trust-label">Students / Class</span></div>
+  </div>
+
+  <!-- ── COURSE CARDS ── -->
+  <div class="acad-cards fade-in">
+
+    <!-- COURSE 01 -->
+    <div class="acad-card">
+      <div class="acad-card-top" style="background:linear-gradient(135deg,#1565C0,#0D47A1);">
+        <div class="acad-card-num">01</div>
+        <div class="acad-card-badge">0–2 yrs exp.</div>
       </div>
-      <div class="academy-modules">
-        <div class="academy-module-v2">
-          <div class="amod-num">01</div>
-          <div class="amod-body">
-            <div class="amod-rule"></div>
-            <div class="amod-title">E&amp;I FUNDAMENTALS</div>
-            <div class="amod-desc">Reading P&amp;ID, loop diagrams, instrument standards to international spec</div>
-          </div>
+      <div class="acad-card-body">
+        <div class="acad-card-title">E&amp;I FUNDAMENTALS</div>
+        <div class="acad-card-sub">E&amp;I Technical Foundations</div>
+        <ul class="acad-card-topics">
+          <li>P&amp;ID &amp; Loop Diagram reading (ISA S5.1)</li>
+          <li>Instrument tag system &amp; data sheet</li>
+          <li>IEC 60079 — Hazardous area zones</li>
+          <li>IEC 61511 — SIL / Functional safety</li>
+          <li>Cable routing &amp; tray sizing (IEC 61537)</li>
+        </ul>
+        <div class="acad-card-meta">
+          <span class="acad-meta-pill">⏱ 4 sessions</span>
+          <span class="acad-meta-pill">📍 Online &amp; Offline</span>
         </div>
-        <div class="academy-module-v2">
-          <div class="amod-num">02</div>
-          <div class="amod-body">
-            <div class="amod-rule"></div>
-            <div class="amod-title">WIRING &amp; TERMINATION</div>
-            <div class="amod-desc">IEC / Siemens standards — crimping, labeling, heat-shrink, torque marking</div>
-          </div>
-        </div>
-        <div class="academy-module-v2">
-          <div class="amod-num">03</div>
-          <div class="amod-body">
-            <div class="amod-rule"></div>
-            <div class="amod-title">COMMISSIONING &amp; LOOP CHECKING</div>
-            <div class="amod-desc">Real field procedures, instrument calibration, pre-startup safety review</div>
-          </div>
-        </div>
-        <div class="academy-module-v2">
-          <div class="amod-num">04</div>
-          <div class="amod-body">
-            <div class="amod-rule"></div>
-            <div class="amod-title">QA/QC &amp; AI-PUNCH™ INTEGRATION</div>
-            <div class="amod-desc">Digital punch workflows, defect tracking, real-time QA/QC reporting</div>
-          </div>
+        <div class="acad-card-footer">
+          <div class="acad-card-price-badge" data-usd-price="c01">10.000.000 VND</div>
+          <a href="/academy" class="acad-enroll-btn">Enroll →</a>
         </div>
       </div>
     </div>
-    <div class="academy-visual">
-      <div class="academy-screen">
-        <div class="academy-screen-header">
-          <span>▶</span> SONIC ACADEMY — TRAINING PORTAL
+
+    <!-- COURSE 02 -->
+    <div class="acad-card">
+      <div class="acad-card-top" style="background:linear-gradient(135deg,#00695C,#004D40);">
+        <div class="acad-card-num">02</div>
+        <div class="acad-card-badge">2–5 yrs exp.</div>
+      </div>
+      <div class="acad-card-body">
+        <div class="acad-card-title">WIRING &amp; TERMINATION</div>
+        <div class="acad-card-sub">International-Standard Wiring</div>
+        <ul class="acad-card-topics">
+          <li>Ferrule crimping (DIN 46228) + pull-force test</li>
+          <li>Cable labeling — Siemens 07TR30 standard</li>
+          <li>IEC 60446 color coding — mandatory</li>
+          <li>IS wiring rules (IEC 60079-14)</li>
+          <li>Panel wiring sequence + inspection checklist</li>
+        </ul>
+        <div class="acad-card-meta">
+          <span class="acad-meta-pill">⏱ 3 sessions</span>
+          <span class="acad-meta-pill">📍 Online &amp; Offline</span>
         </div>
-        <div class="academy-screen-body">
-          <div class="cert-badge">🎓 Certificate of Completion</div>
-          <p style="color:rgba(240,244,255,0.6); font-size:18px; line-height:1.8; margin-bottom:20px;">
-            Graduates of SONIC Academy are trained to meet the exact technical standards required on GE and Siemens energy projects — from offshore platforms to power plants.
-          </p>
-          <div style="border-left:3px solid var(--gold); padding-left:18px; font-style:italic; color:var(--gold-light); font-size:18px; line-height:1.8; margin-bottom:28px;">
-            "We don't just train technicians — we build engineers who pass every inspection."
-          </div>
-          <div class="academy-stat-row">
-            <div class="academy-stat">
-              <div class="academy-stat-num">4</div>
-              <div class="academy-stat-label">Core Modules</div>
-            </div>
-            <div class="academy-stat">
-              <div class="academy-stat-num">25+</div>
-              <div class="academy-stat-label">Yrs Field XP</div>
-            </div>
-            <div class="academy-stat">
-              <div class="academy-stat-num">IEC</div>
-              <div class="academy-stat-label">Standards</div>
-            </div>
-          </div>
-          <div style="margin-top:28px; padding:16px 20px; background:rgba(201,162,39,0.06); border:1px solid rgba(201,162,39,0.2); display:flex; flex-direction:column; gap:0;">
-
-            <!-- Row 1: Label -->
-            <div style="font-size:16px; color:rgba(240,244,255,0.5); letter-spacing:2px; text-transform:uppercase; padding-bottom:6px; border-bottom:1px solid rgba(201,162,39,0.1); margin-bottom:8px;">
-              Enroll via Call/Zalo/Whatsapp/Email:
-            </div>
-
-            <!-- Row 2: Phone -->
-            <a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:8px 0 12px;border-bottom:1px solid rgba(201,162,39,0.1);margin-bottom:8px;transition:text-shadow 0.2s;" onmouseover="this.style.textShadow='0 0 14px rgba(201,162,39,0.6)'" onmouseout="this.style.textShadow='none'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-              <strong style="color:var(--gold);font-weight:800;font-size:clamp(18px,4.5vw,26px);letter-spacing:2px;white-space:nowrap;">+84 915 460 790</strong>
-            </a>
-
-            <!-- Row 3: Email -->
-            <a href="mailto:contact@sonicei.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:8px 0;transition:text-shadow 0.2s;" onmouseover="this.style.textShadow='0 0 14px rgba(201,162,39,0.6)'" onmouseout="this.style.textShadow='none'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-              <strong style="color:var(--gold);font-weight:800;font-size:clamp(14px,3.8vw,22px);letter-spacing:0.5px;white-space:nowrap;">contact@sonicei.com</strong>
-            </a>
-
-          </div>
+        <div class="acad-card-footer">
+          <div class="acad-card-price-badge" data-usd-price="c02">12.000.000 VND</div>
+          <a href="/academy" class="acad-enroll-btn">Enroll →</a>
         </div>
+      </div>
+    </div>
+
+    <!-- COURSE 03 -->
+    <div class="acad-card acad-card--featured">
+      <div class="acad-card-featured-tag">⭐ MOST POPULAR</div>
+      <div class="acad-card-top" style="background:linear-gradient(135deg,#E65100,#BF360C);">
+        <div class="acad-card-num">03</div>
+        <div class="acad-card-badge">Senior / PM</div>
+      </div>
+      <div class="acad-card-body">
+        <div class="acad-card-title">COMMISSIONING &amp; LOOP CHECKING</div>
+        <div class="acad-card-sub">Field-Proven: Power Plant &amp; Offshore</div>
+        <ul class="acad-card-topics">
+          <li>PSSR + Punch list A/B/C classification</li>
+          <li>Loop check 6-step (HART protocol, DCS verify)</li>
+          <li>Instrument calibration — 5-point, ISO 17025</li>
+          <li>Control valve stroke test + smart positioner</li>
+          <li>SIS proof test (IEC 61511) + handover dossier</li>
+        </ul>
+        <div class="acad-card-meta">
+          <span class="acad-meta-pill">⏱ 6 sessions</span>
+          <span class="acad-meta-pill">📍 Online &amp; Offline</span>
+        </div>
+        <div class="acad-card-footer">
+          <div class="acad-card-price-badge acad-card-price-badge--featured" data-usd-price="c03">18.000.000 VND</div>
+          <a href="/academy" class="acad-enroll-btn">Enroll →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COURSE 04 -->
+    <div class="acad-card">
+      <div class="acad-card-top" style="background:linear-gradient(135deg,#4A148C,#311B92);">
+        <div class="acad-card-num">04</div>
+        <div class="acad-card-badge">PM / QA Eng.</div>
+      </div>
+      <div class="acad-card-body">
+        <div class="acad-card-title">QA/QC &amp; AI-PUNCH™</div>
+        <div class="acad-card-sub">Digital Quality Management System</div>
+        <ul class="acad-card-topics">
+          <li>AI-Punch™ platform — hands-on mobile workflow</li>
+          <li>Defect classification: Critical / Major / Minor</li>
+          <li>ITP, NCR, 8D problem solving</li>
+          <li>KPIs: FTQ, closure rate, defect density</li>
+          <li>Auto PDF report + ISO 9001:2015 integration</li>
+        </ul>
+        <div class="acad-card-meta">
+          <span class="acad-meta-pill">⏱ 2 sessions</span>
+          <span class="acad-meta-pill">📍 Online &amp; Offline</span>
+        </div>
+        <div class="acad-card-footer">
+          <div class="acad-card-price-badge" data-usd-price="c04">15.000.000 VND</div>
+          <a href="/academy" class="acad-enroll-btn">Enroll →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /acad-cards -->
+
+  <!-- ── FULL PACKAGE BANNER ── -->
+  <div class="acad-package-banner fade-in">
+    <div class="acad-pkg-left">
+      <div class="acad-pkg-tag">// COMPLETE E&amp;I MASTERY</div>
+      <div class="acad-pkg-title">FULL PACKAGE — ALL 4 COURSES</div>
+      <div class="acad-pkg-desc">15 sessions · Bilingual VI &amp; EN · Certificate of Completion · Priority scheduling · Private 1-on-1 Q&amp;A session</div>
+      <div class="acad-pkg-savings">💰 Save <strong data-usd-price="save">$382 USD</strong> vs individual courses</div>
+    </div>
+    <div class="acad-pkg-right">
+      <div class="acad-pkg-orig">Individual: <s data-usd-price="original">$2,100 USD</s></div>
+      <div class="acad-pkg-price" data-usd-price="pkg">45.000.000 <span>VND</span></div>
+      <a href="/academy" class="acad-pkg-btn">Enroll Full Package →</a>
+    </div>
+  </div>
+
+  <!-- ── WHAT YOU GET / DIFFERENTIATORS ── -->
+  <div class="acad-why fade-in">
+    <div class="acad-why-title">WHY SONIC ACADEMY?</div>
+    <div class="acad-why-grid">
+      <div class="acad-why-item">
+        <div class="acad-why-icon">🏗️</div>
+        <div class="acad-why-label">100% Field-Proven</div>
+        <div class="acad-why-desc">Every example from real Power Plant &amp; Offshore projects — Siemens, GE, VARD, Seaonics. No hypothetical case studies.</div>
+      </div>
+      <div class="acad-why-item">
+        <div class="acad-why-icon">📐</div>
+        <div class="acad-why-label">International Standards</div>
+        <div class="acad-why-desc">Content follows IEC, ISA, Siemens TI, GE EGS — exactly what PMC and Clients inspect on real projects.</div>
+      </div>
+      <div class="acad-why-item">
+        <div class="acad-why-icon">👥</div>
+        <div class="acad-why-label">Small Class — High Interaction</div>
+        <div class="acad-why-desc">Maximum 8 students per class. Direct Q&amp;A with an instructor who has 25 years of field experience.</div>
+      </div>
+      <div class="acad-why-item">
+        <div class="acad-why-icon">🎓</div>
+        <div class="acad-why-label">Certificate of Completion</div>
+        <div class="acad-why-desc">Completion certificate from SONIC E&amp;I Solutions — a recognised reference in technical portfolios.</div>
       </div>
     </div>
   </div>
 
-  <!-- Academy Photo Gallery -->
+  <!-- ── PHOTO GALLERY ── -->
   <div class="academy-photos fade-in">
     <div class="academy-photo-item">
-      <img loading="lazy" src="assets/images/img_31.jpg" alt="SONIC Academy — Classroom Training">
+      <img loading="lazy" src="assets/images/img_31.webp" alt="SONIC Academy — Classroom Training">
       <div class="academy-photo-caption">
         <span class="academy-photo-tag">// Classroom Training</span>
-        <div class="academy-photo-title">E&I Technical Diagrams & AI-Punch™ Integration</div>
+        <div class="academy-photo-title">E&I Technical Diagrams &amp; AI-Punch™ Integration</div>
       </div>
     </div>
     <div class="academy-photo-item">
-      <img loading="lazy" src="assets/images/img_32.jpg" alt="SONIC Academy — On-site Training">
+      <img loading="lazy" src="assets/images/img_32.webp" alt="SONIC Academy — On-site Training">
       <div class="academy-photo-caption">
         <span class="academy-photo-tag">// On-site Training</span>
         <div class="academy-photo-title">Hands-on Gas Turbine Field Instruction</div>
@@ -2091,18 +2212,19 @@ window.addEventListener('load', function() {
     </div>
   </div>
 
-  <!-- SECTION CTA -->
+  <!-- ── ENROLLMENT CTA ── -->
   <div class="section-cta-strip">
     <div class="section-cta-inner">
       <div class="section-cta-text">
-        <span class="section-cta-label">// UPSKILL YOUR TEAM</span>
-        <span class="section-cta-msg">Train your E&I engineers to OEM standard — Siemens & GE spec, real field methodology.</span>
+        <span class="section-cta-label">// ENROLL NOW</span>
+        <span class="section-cta-msg">Contact via Zalo / WhatsApp / Email to reserve your place — maximum 8 students, early booking recommended.</span>
       </div>
-      <a href="#contact" class="section-cta-btn">Enquire About Training →</a>
+      <a href="/academy" class="section-cta-btn">View Full Course Details →</a>
     </div>
   </div>
 
 </section>
+
 
 <div class="section-sep"></div>
 <!-- MARKET OPPORTUNITY -->
@@ -2692,5 +2814,47 @@ function vbPlay(id) {
 </script>
 
 <script src="main.js" defer></script>
+
+<!-- ── SONIC FX: Live USD price (index — USD only, no VND sub) ── -->
+<script>
+(function(){
+  var FALLBACK = 26198;
+  var VND = { c01:10000000, c02:12000000, c03:18000000, c04:15000000, pkg:45000000,
+              save:10000000, original:55000000 };
+  function fU(n){ return n.toLocaleString('en-US',{maximumFractionDigits:0}); }
+  function apply(rate){
+    document.querySelectorAll('[data-usd-price]').forEach(function(el){
+      var k = el.getAttribute('data-usd-price');
+      var vnd = VND[k]; if(!vnd) return;
+      var usd = Math.round(vnd/rate);
+
+      /* ── card price badge ── */
+      if(el.classList.contains('acad-card-price-badge')){
+        el.innerHTML = '<span class="cpb-num">$'+fU(usd)+'</span>'
+          +'<span class="cpb-lbl">USD</span>';
+        return;
+      }
+      /* ── save strong ── */
+      if(el.tagName==='STRONG'||el.tagName==='strong'){
+        el.textContent = '$'+fU(usd)+' USD';
+        return;
+      }
+      /* ── original strikethrough ── */
+      if(el.tagName==='S'||el.tagName==='s'){
+        el.textContent = '$'+fU(usd)+' USD';
+        return;
+      }
+      /* ── full package main price ── */
+      el.innerHTML = '<span class="price-usd-only">$'+fU(usd)
+        +' <span class="price-usd-unit">USD</span></span>';
+    });
+  }
+  function run(r){ if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',function(){apply(r);}); }else{ apply(r); } }
+  fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    .then(function(r){return r.json();})
+    .then(function(d){ run(Math.round(d.rates&&d.rates.VND)||FALLBACK); })
+    .catch(function(){ run(FALLBACK); });
+})();
+</script>
 </body>
 </html>

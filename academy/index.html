@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONIC Academy — E&I Engineering Training | SONIC E&I Solutions</title>
+<meta name="description" content="Professional E&I commissioning training by a 25-year Siemens Energy & GE Power veteran. P&ID, loop check, commissioning, AI-Punch™ QA/QC. Online & offline. Certificate upon completion. HCMC & Vũng Tàu.">
+<link rel="canonical" href="https://sonicei.com/academy">
+<link rel="icon" type="image/png" href="/SONICEI_LOGO.png">
+<link rel="stylesheet" href="/academy/academy.css">
+
+<!-- Schema.org: Course structured data for Google rich snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SONIC E&I Academy — Course Catalogue",
+  "description": "Professional E&I engineering training programs by a 25-year Siemens Energy and GE Power veteran.",
+  "url": "https://sonicei.com/academy",
+  "itemListElement": [
+    {
+      "@type": "ListItem", "position": 1,
+      "item": {
+        "@type": "Course",
+        "name": "E&I Fundamentals",
+        "description": "P&ID reading, instrument data sheet, IEC 60079 hazardous area, cable routing. 4 sessions.",
+        "provider": { "@type": "Organization", "name": "SONIC E&I Solutions", "url": "https://sonicei.com" },
+        "offers": { "@type": "Offer", "price": "10000000", "priceCurrency": "VND" }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 2,
+      "item": {
+        "@type": "Course",
+        "name": "Wiring & Termination",
+        "description": "Crimping, labeling, IS wiring per IEC 60446 & Siemens 07TR30. 3 sessions.",
+        "provider": { "@type": "Organization", "name": "SONIC E&I Solutions", "url": "https://sonicei.com" },
+        "offers": { "@type": "Offer", "price": "12000000", "priceCurrency": "VND" }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 3,
+      "item": {
+        "@type": "Course",
+        "name": "Commissioning & Loop Checking",
+        "description": "Full commissioning workflow: PSSR, loop check, calibration, DCS I/O, SIS proof test, handover. 6 sessions.",
+        "provider": { "@type": "Organization", "name": "SONIC E&I Solutions", "url": "https://sonicei.com" },
+        "offers": { "@type": "Offer", "price": "18000000", "priceCurrency": "VND" }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 4,
+      "item": {
+        "@type": "Course",
+        "name": "QA/QC & AI-Punch™",
+        "description": "Digital quality management with AI-Punch™: defect classification, ITP, NCR, auto PDF reporting. 2 sessions.",
+        "provider": { "@type": "Organization", "name": "SONIC E&I Solutions", "url": "https://sonicei.com" },
+        "offers": { "@type": "Offer", "price": "9200000", "priceCurrency": "VND" }
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-bar" role="group" aria-label="Language selector">
+  <button class="lang-btn" id="btn-vi" onclick="setLang('vi')">VI</button>
+  <div class="lang-sep"></div>
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+
+<!-- NAV -->
+<nav class="acad-nav">
+  <a href="https://sonicei.com/" class="acad-nav-logo">
+    <img src="/SONICEI_LOGO.png" alt="SONIC E&I Solutions" width="32" height="32">
+    <span class="acad-nav-logo-text">SONIC <span>E&I</span> SOLUTIONS</span>
+  </a>
+  <div class="acad-nav-right">
+    <a href="https://sonicei.com/" class="acad-nav-back" data-vi="← Trang chủ" data-en="← Main Site">← Trang chủ</a>
+    <a href="#enroll" class="acad-nav-cta" data-vi="Đăng ký ngay" data-en="Enroll Now">Đăng ký ngay</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="acad-hero">
+  <div class="acad-hero-label" data-vi="// SONIC E&I Academy — Đào tạo Chuyên nghiệp" data-en="// SONIC E&I Academy — Professional Training">// SONIC E&I Academy — Đào tạo Chuyên nghiệp</div>
+  <h1>E&I ENGINEERING<br><span>MASTERY</span></h1>
+  <p class="acad-hero-kicker" data-vi="Chương trình đào tạo E&amp;I duy nhất tại Việt Nam được xây dựng bởi kỹ sư có &lt;strong&gt;25 năm kinh nghiệm thực địa&lt;/strong&gt; tại Siemens Energy, GE Power và Offshore — đúng chuẩn mà PMC và Client kiểm tra ngoài dự án." data-en="Vietnam's only E&amp;I training program built by an engineer with &lt;strong&gt;25 years of field experience&lt;/strong&gt; at Siemens Energy, GE Power and Offshore — aligned with the exact standards PMC and Clients verify on real projects.">
+    Chương trình đào tạo E&I duy nhất tại Việt Nam được xây dựng bởi kỹ sư có
+    <strong>25 năm kinh nghiệm thực địa</strong> tại Siemens Energy, GE Power và Offshore —
+    đúng chuẩn mà PMC và Client kiểm tra ngoài dự án.
+  </p>
+
+  <div class="hero-proof-strip">
+    <div class="hps-item">
+      <div class="hps-num">25+</div>
+      <div class="hps-label" data-vi="Năm kinh nghiệm" data-en="Years field exp.">Năm kinh nghiệm</div>
+    </div>
+    <div class="hps-item">
+      <div class="hps-num">60K+</div>
+      <div class="hps-label" data-vi="Terminations / Zero defects" data-en="Terminations / Zero defects">Terminations / Zero defects</div>
+    </div>
+    <div class="hps-item">
+      <div class="hps-num">≤8</div>
+      <div class="hps-label" data-vi="Học viên / lớp" data-en="Students / class">Học viên / lớp</div>
+    </div>
+    <div class="hps-item">
+      <div class="hps-num">IEC</div>
+      <div class="hps-label" data-vi="Tiêu chuẩn Siemens · GE" data-en="Siemens · GE spec">Tiêu chuẩn Siemens · GE</div>
+    </div>
+  </div>
+
+  <a href="#courses" class="acad-hero-cta" data-vi="Xem tất cả khóa học →" data-en="View All Courses →">Xem tất cả khóa học →</a>
+  <div class="acad-hero-micro" data-vi="Certificate of Completion · Tiếng Việt & English · Online & Offline" data-en="Certificate of Completion · Vietnamese & English · Online & Offline">Certificate of Completion · Tiếng Việt & English · Online & Offline</div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor-section">
+  <div class="instructor-inner">
+    <div class="instructor-avatar">
+      <img src="/assets/images/founder.webp" alt="Hoàng Ngọc Sơn — Founder & Lead E&I Engineer" width="88" height="88" loading="eager">
+    </div>
+    <div>
+      <div class="instructor-label" data-vi="// Giảng viên" data-en="// Instructor">// Giảng viên</div>
+      <div class="instructor-name">Hoàng Ngọc Sơn</div>
+      <div class="instructor-title" data-vi="Người sáng lập & Kỹ sư E&I trưởng — SONIC E&I Solutions" data-en="Founder & Lead E&I Engineer — SONIC E&I Solutions">Người sáng lập & Kỹ sư E&I trưởng — SONIC E&I Solutions</div>
+      <div class="instructor-creds">
+        <span class="cred-pill">Siemens Energy — Official Staff</span>
+        <span class="cred-pill">GE Power — Owner's Engineer</span>
+        <span class="cred-pill">VARD Offshore</span>
+        <span class="cred-pill">Seaonics</span>
+        <span class="cred-pill">Vietsovpetro</span>
+      </div>
+      <p class="instructor-bio">
+        <span data-vi="25+ năm kinh nghiệm thực địa trên các dự án power plant và offshore lớn nhất Việt Nam — Phu My 2.1/2.2/3, Ca Mau 1&amp;2, Nhon Trach 2, Seaonics Gangway (2026). Đã thực hiện &lt;strong&gt;60,000+ đầu termination, zero defect at handover&lt;/strong&gt; — được PMC chấp nhận lần đầu. Toàn bộ nội dung SONIC Academy được xây dựng từ kinh nghiệm thực tế này." data-en="25+ years of field experience on Vietnam's largest power plant and offshore projects — Phu My 2.1/2.2/3, Ca Mau 1&amp;2, Nhon Trach 2, Seaonics Gangway (2026). Delivered &lt;strong&gt;60,000+ terminations, zero defect at handover&lt;/strong&gt; — accepted by PMC first time. All SONIC Academy content is built from this real-world experience.">25+ năm kinh nghiệm thực địa trên các dự án power plant và offshore lớn nhất Việt Nam — Phu My 2.1/2.2/3, Ca Mau 1&2, Nhon Trach 2, Seaonics Gangway (2026). Đã thực hiện <strong>60,000+ đầu termination, zero defect at handover</strong> — được PMC chấp nhận lần đầu. Toàn bộ nội dung SONIC Academy được xây dựng từ kinh nghiệm thực tế này.</span>
+      </p>
+      <div class="instructor-stat-row">
+        <div class="istat"><div class="istat-num">20+</div><div class="istat-lbl" data-vi="Dự án lớn" data-en="Major Projects">Dự án lớn</div></div>
+        <div class="istat"><div class="istat-num">60K+</div><div class="istat-lbl" data-vi="Đầu termination" data-en="Terminations">Đầu termination</div></div>
+        <div class="istat"><div class="istat-num">0</div><div class="istat-lbl" data-vi="Lỗi nghiêm trọng" data-en="Critical failures">Lỗi nghiêm trọng</div></div>
+        <div class="istat"><div class="istat-num">IEC/GE/SE</div><div class="istat-lbl" data-vi="Tiêu chuẩn áp dụng" data-en="Standards applied">Tiêu chuẩn áp dụng</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="audience-section">
+  <div class="audience-label" data-vi="// Khóa học phù hợp với ai?" data-en="// Who is this for?">// Khóa học phù hợp với ai?</div>
+  <div class="audience-tabs">
+    <button class="aud-tab active" onclick="setAudience(0)" data-vi="Kỹ sư mới" data-en="Junior Engineer">Kỹ sư mới</button>
+    <button class="aud-tab" onclick="setAudience(1)" data-vi="Senior Engineer" data-en="Senior Engineer">Senior Engineer</button>
+    <button class="aud-tab" onclick="setAudience(2)" data-vi="PM / EPC" data-en="PM / EPC">PM / EPC</button>
+  </div>
+  <div class="aud-content active">
+    <p data-vi="Bạn vừa ra trường hoặc có &lt;strong&gt;dưới 2 năm kinh nghiệm&lt;/strong&gt; trong ngành E&amp;I? SONIC Academy cung cấp nền tảng kỹ thuật thực tế — từ đọc bản vẽ P&amp;ID đến thực hiện loop check theo tiêu chuẩn IEC và Siemens. Không chỉ lý thuyết — tất cả đều dựa trên quy trình thực tế từ Power Plant và Offshore." data-en="Recently graduated or have &lt;strong&gt;less than 2 years experience&lt;/strong&gt; in E&amp;I? SONIC Academy delivers practical technical foundations — from reading P&amp;ID drawings to performing loop checks per IEC and Siemens standards. Not just theory — everything is based on real workflows from Power Plant and Offshore projects.">Bạn vừa ra trường hoặc có <strong>dưới 2 năm kinh nghiệm</strong> trong ngành E&I? SONIC Academy cung cấp nền tảng kỹ thuật thực tế — từ đọc bản vẽ P&ID đến thực hiện loop check theo tiêu chuẩn IEC và Siemens. Không chỉ lý thuyết — tất cả đều dựa trên quy trình thực tế từ Power Plant và Offshore.</p>
+    <div class="aud-courses">
+      <span class="aud-course-tag">→ Course 01: E&I Fundamentals</span>
+      <span class="aud-course-tag">→ Course 02: Wiring & Termination</span>
+    </div>
+  </div>
+  <div class="aud-content">
+    <p data-vi="Bạn có kinh nghiệm nhưng muốn &lt;strong&gt;nâng chuẩn lên tầm quốc tế&lt;/strong&gt;? Course 03 được thiết kế cho kỹ sư muốn thành thạo toàn bộ commissioning workflow — đúng chuẩn GE / Siemens Energy — chuẩn bị cho các dự án offshore, EPC lớn và handover zero-defect." data-en="Experienced but want to &lt;strong&gt;raise your standards to international level&lt;/strong&gt;? Course 03 is designed for engineers who want to master the full commissioning workflow — to GE / Siemens Energy standards — ready for offshore, major EPC projects and zero-defect handovers.">Bạn có kinh nghiệm nhưng muốn <strong>nâng chuẩn lên tầm quốc tế</strong>? Course 03 được thiết kế cho kỹ sư muốn thành thạo toàn bộ commissioning workflow — đúng chuẩn GE / Siemens Energy — chuẩn bị cho các dự án offshore, EPC lớn và handover zero-defect.</p>
+    <div class="aud-courses">
+      <span class="aud-course-tag">→ Course 03: Commissioning & Loop Checking</span>
+      <span class="aud-course-tag">→ Course 04: QA/QC & AI-Punch™</span>
+    </div>
+  </div>
+  <div class="aud-content">
+    <p data-vi="Bạn quản lý dự án và cần &lt;strong&gt;kiểm soát chất lượng E&amp;I scope&lt;/strong&gt; để tránh rework và đạt handover đúng hạn? Course 04 cung cấp framework quản lý punch list, defect tracking và reporting theo chuẩn PMC/EPC — áp dụng ngay bằng AI-Punch™ trên dự án thực tế." data-en="Managing a project and need to &lt;strong&gt;control E&amp;I scope quality&lt;/strong&gt; to avoid rework and meet handover deadlines? Course 04 provides a punch list management, defect tracking and reporting framework to PMC/EPC standards — apply it immediately with AI-Punch™ on a real project.">Bạn quản lý dự án và cần <strong>kiểm soát chất lượng E&I scope</strong> để tránh rework và đạt handover đúng hạn? Course 04 cung cấp framework quản lý punch list, defect tracking và reporting theo chuẩn PMC/EPC — áp dụng ngay bằng AI-Punch™ trên dự án thực tế.</p>
+    <div class="aud-courses">
+      <span class="aud-course-tag">→ Course 04: QA/QC & AI-Punch™</span>
+      <span class="aud-course-tag" data-vi="→ Full Package — đầy đủ nhất" data-en="→ Full Package — most complete">→ Full Package — đầy đủ nhất</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SONIC ACADEMY -->
+<section class="why-section">
+  <div class="why-header">
+    <h2 data-vi="TẠI SAO CHỌN SONIC ACADEMY" data-en="WHY CHOOSE SONIC ACADEMY">TẠI SAO CHỌN <span>SONIC ACADEMY</span></h2>
+    <p data-vi="Không phải khóa học lý thuyết — đây là kiến thức bạn dùng ngay ngày mai trên dự án." data-en="Not a theory course — this is knowledge you apply on-site tomorrow.">Không phải khóa học lý thuyết — đây là kiến thức bạn dùng ngay ngày mai trên dự án.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏗️</div>
+      <div class="why-rule"></div>
+      <div class="why-title" data-vi="100% Thực chiến" data-en="100% Field-Proven">100% Thực chiến</div>
+      <div class="why-desc" data-vi="Mọi ví dụ đều từ Power Plant và Offshore thực tế — Siemens SPPA-T3000, GE Mark VIe, VARD offshore vessel. Không học case study giả định." data-en="Every example comes from real Power Plant and Offshore projects — Siemens SPPA-T3000, GE Mark VIe, VARD offshore vessel. No hypothetical case studies.">Mọi ví dụ đều từ Power Plant và Offshore thực tế — Siemens SPPA-T3000, GE Mark VIe, VARD offshore vessel. Không học case study giả định.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📐</div>
+      <div class="why-rule"></div>
+      <div class="why-title" data-vi="Đúng chuẩn quốc tế" data-en="International Standards">Đúng chuẩn quốc tế</div>
+      <div class="why-desc" data-vi="Nội dung bám sát IEC, ISA, Siemens TI, GE EGS — đúng những gì PMC và Client kiểm tra. Học viên pass inspection lần đầu." data-en="Content follows IEC, ISA, Siemens TI, GE EGS — exactly what PMC and Clients inspect. Students pass first-time inspections.">Nội dung bám sát IEC, ISA, Siemens TI, GE EGS — đúng những gì PMC và Client kiểm tra. Học viên pass inspection lần đầu.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👥</div>
+      <div class="why-rule"></div>
+      <div class="why-title" data-vi="Lớp nhỏ — tương tác cao" data-en="Small Class — High Interaction">Lớp nhỏ — tương tác cao</div>
+      <div class="why-desc" data-vi="Tối đa 8 học viên. Mỗi người được đặt câu hỏi thực tế từ dự án của mình. Giảng viên trả lời từ 25 năm kinh nghiệm thực địa." data-en="Maximum 8 students. Each person can ask real questions from their own projects. Instructor answers from 25 years of field experience.">Tối đa 8 học viên. Mỗi người được đặt câu hỏi thực tế từ dự án của mình. Giảng viên trả lời từ 25 năm kinh nghiệm thực địa.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤖</div>
+      <div class="why-rule"></div>
+      <div class="why-title">AI-Punch™ Demo</div>
+      <div class="why-desc" data-vi="Course 04 bao gồm thực hành trực tiếp trên AI-Punch™ — nền tảng QA/QC độc quyền của SONIC đang được triển khai trên dự án offshore thực tế." data-en="Course 04 includes hands-on practice on AI-Punch™ — SONIC's proprietary QA/QC platform currently deployed on live offshore projects.">Course 04 bao gồm thực hành trực tiếp trên AI-Punch™ — nền tảng QA/QC độc quyền của SONIC đang được triển khai trên dự án offshore thực tế.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses-section" id="courses">
+  <div class="courses-header">
+    <h2 data-vi="CÁC KHÓA HỌC" data-en="COURSES">CÁC KHÓA <span>HỌC</span></h2>
+    <p data-vi="4 chuyên đề độc lập — hoặc đăng ký Full Package để tiết kiệm tối đa và học trọn lộ trình." data-en="4 standalone modules — or enroll in the Full Package for maximum savings and a complete learning path.">4 chuyên đề độc lập — hoặc đăng ký Full Package để tiết kiệm tối đa và học trọn lộ trình.</p>
+  </div>
+
+  <div class="courses-grid">
+
+    <!-- Course 01 -->
+    <div class="course-card">
+      <div class="course-num">// 01</div>
+      <div class="course-accent" style="background:#1565C0;"></div>
+      <div class="course-title">E&I FUNDAMENTALS</div>
+      <div class="course-audience" data-vi="Kỹ sư mới · 0–2 năm kinh nghiệm" data-en="Junior Engineer · 0–2 years experience">Kỹ sư mới · 0–2 năm kinh nghiệm</div>
+      <div class="course-desc" data-vi="Nền tảng kỹ thuật E&amp;I từ đọc P&amp;ID, loop diagram đến các tiêu chuẩn IEC quốc tế. Tự tin bước vào môi trường dự án thực tế ngay sau khóa học." data-en="E&amp;I technical foundation — from reading P&amp;ID and loop diagrams to international IEC standards. Walk into a real project environment with confidence after this course.">Nền tảng kỹ thuật E&I từ đọc P&ID, loop diagram đến các tiêu chuẩn IEC quốc tế. Tự tin bước vào môi trường dự án thực tế ngay sau khóa học.</div>
+      <div class="course-meta">
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Thời lượng" data-en="Duration">Thời lượng</span><span class="course-meta-val" data-vi="4 buổi" data-en="4 sessions">4 buổi</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Hình thức" data-en="Format">Hình thức</span><span class="course-meta-val">Online / Offline</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Ngôn ngữ" data-en="Language">Ngôn ngữ</span><span class="course-meta-val">VI / EN</span></div>
+      </div>
+      <ul class="course-features">
+        <li data-vi="Đọc P&ID (ISA S5.1) & sơ đồ loop" data-en="P&ID reading (ISA S5.1) & loop diagrams">Đọc P&ID (ISA S5.1) & sơ đồ loop</li>
+        <li>Instrument data sheet & tag numbering</li>
+        <li>IEC 60079 — Hazardous area zones & ATEX</li>
+        <li data-vi="IEC 61511 — SIL / Tổng quan an toàn chức năng" data-en="IEC 61511 — SIL / Functional safety overview">IEC 61511 — SIL / Tổng quan an toàn chức năng</li>
+        <li data-vi="Đi dây & định cỡ máng cáp (IEC 61537)" data-en="Cable routing & tray sizing (IEC 61537)">Đi dây & định cỡ máng cáp (IEC 61537)</li>
+        <li data-vi="Chứng chỉ hoàn thành khóa học" data-en="Certificate of Completion">Chứng chỉ hoàn thành khóa học</li>
+      </ul>
+      <div class="course-price-row">
+        <div class="course-price-badge" data-usd-price="c01">10.000.000 VNĐ</div>
+        <a href="#enroll" class="course-btn course-btn-outline" data-vi="Đăng ký →" data-en="Enroll →">Đăng ký →</a>
+      </div>
+    </div>
+
+    <!-- Course 02 -->
+    <div class="course-card">
+      <div class="course-num">// 02</div>
+      <div class="course-accent" style="background:#00695C;"></div>
+      <div class="course-title">WIRING & TERMINATION</div>
+      <div class="course-audience" data-vi="Kỹ sư · 2–5 năm kinh nghiệm" data-en="Engineer · 2–5 years experience">Kỹ sư · 2–5 năm kinh nghiệm</div>
+      <div class="course-desc" data-vi="Tiêu chuẩn đấu nối dây theo IEC và Siemens Energy spec 07TR30. Crimping, labeling, IS wiring — đúng chuẩn để pass mọi inspection lần đầu." data-en="Wiring standards per IEC and Siemens Energy spec 07TR30. Crimping, labeling, IS wiring — done right to pass every inspection first time.">Tiêu chuẩn đấu nối dây theo IEC và Siemens Energy spec 07TR30. Crimping, labeling, IS wiring — đúng chuẩn để pass mọi inspection lần đầu.</div>
+      <div class="course-meta">
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Thời lượng" data-en="Duration">Thời lượng</span><span class="course-meta-val" data-vi="3 buổi" data-en="3 sessions">3 buổi</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Hình thức" data-en="Format">Hình thức</span><span class="course-meta-val">Online / Offline</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Ngôn ngữ" data-en="Language">Ngôn ngữ</span><span class="course-meta-val">VI / EN</span></div>
+      </div>
+      <ul class="course-features">
+        <li data-vi="Bấm cos & ferrule (DIN 46228) — kiểm tra lực kéo" data-en="Crimping & ferrule (DIN 46228) — pull-force test">Bấm cos & ferrule (DIN 46228) — kiểm tra lực kéo</li>
+        <li data-vi="Đánh nhãn cáp theo Siemens 07TR30" data-en="Cable labeling per Siemens 07TR30">Đánh nhãn cáp theo Siemens 07TR30</li>
+        <li data-vi="Màu dây IEC 60446 — bắt buộc" data-en="IEC 60446 color coding — mandatory">Màu dây IEC 60446 — bắt buộc</li>
+        <li data-vi="Quy tắc đấu nối IS (IEC 60079-14)" data-en="IS wiring rules (IEC 60079-14)">Quy tắc đấu nối IS (IEC 60079-14)</li>
+        <li data-vi="Trình tự đi dây tủ điện & checklist nghiệm thu" data-en="Panel wiring sequence & inspection checklist">Trình tự đi dây tủ điện & checklist nghiệm thu</li>
+        <li data-vi="Chứng chỉ hoàn thành khóa học" data-en="Certificate of Completion">Chứng chỉ hoàn thành khóa học</li>
+      </ul>
+      <div class="course-price-row">
+        <div class="course-price-badge" data-usd-price="c02">12.000.000 VNĐ</div>
+        <a href="#enroll" class="course-btn course-btn-outline" data-vi="Đăng ký →" data-en="Enroll →">Đăng ký →</a>
+      </div>
+    </div>
+
+    <!-- Course 03 — FLAGSHIP -->
+    <div class="course-card featured">
+      <div class="course-num">// 03</div>
+      <div class="course-accent" style="background:#E65100;"></div>
+      <div class="course-title">COMMISSIONING & LOOP CHECKING</div>
+      <div class="course-audience" data-vi="Senior Engineer · PM" data-en="Senior Engineer · PM">Senior Engineer · PM</div>
+      <div class="course-desc" data-vi="Quy trình commissioning thực địa từ PSSR đến handover — dựa trên kinh nghiệm Power Plant (Siemens, GE) và Offshore (VARD, Seaonics). Khóa học đầy đủ nhất trong chương trình." data-en="Field commissioning workflow from PSSR to handover — based on Power Plant (Siemens, GE) and Offshore (VARD, Seaonics) experience. The most comprehensive course in the program.">Quy trình commissioning thực địa từ PSSR đến handover — dựa trên kinh nghiệm Power Plant (Siemens, GE) và Offshore (VARD, Seaonics). Khóa học đầy đủ nhất trong chương trình.</div>
+      <div class="course-meta">
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Thời lượng" data-en="Duration">Thời lượng</span><span class="course-meta-val" data-vi="6 buổi" data-en="6 sessions">6 buổi</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Hình thức" data-en="Format">Hình thức</span><span class="course-meta-val">Online / Offline</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Ngôn ngữ" data-en="Language">Ngôn ngữ</span><span class="course-meta-val">VI / EN</span></div>
+      </div>
+      <ul class="course-features">
+        <li data-vi="PSSR (OSHA 1910.119) & phân loại punch list A/B/C" data-en="PSSR (OSHA 1910.119) & punch list A/B/C">PSSR (OSHA 1910.119) & phân loại punch list A/B/C</li>
+        <li data-vi="Quy trình loop check 6 bước & giao thức HART" data-en="Loop check 6-step procedure & HART protocol">Quy trình loop check 6 bước & giao thức HART</li>
+        <li data-vi="Hiệu chuẩn thiết bị — 5 điểm, ISO 17025" data-en="Instrument calibration — 5-point, ISO 17025">Hiệu chuẩn thiết bị — 5 điểm, ISO 17025</li>
+        <li data-vi="Kiểm tra hành trình van & smart positioner" data-en="Control valve stroke test & smart positioner">Kiểm tra hành trình van & smart positioner</li>
+        <li data-vi="Kiểm tra I/O DCS/PLC & SIS proof test (IEC 61511)" data-en="DCS/PLC I/O checkout & SIS proof test (IEC 61511)">Kiểm tra I/O DCS/PLC & SIS proof test (IEC 61511)</li>
+        <li data-vi="Hồ sơ bàn giao — 4 phần, đầy đủ tài liệu" data-en="Handover dossier — 4 parts, full documentation">Hồ sơ bàn giao — 4 phần, đầy đủ tài liệu</li>
+        <li data-vi="Chứng chỉ hoàn thành khóa học" data-en="Certificate of Completion">Chứng chỉ hoàn thành khóa học</li>
+      </ul>
+      <div class="course-price-row">
+        <div class="course-price-badge course-price-badge--featured" data-usd-price="c03">18.000.000 VNĐ</div>
+        <a href="#enroll" class="course-btn course-btn-primary" data-vi="Đăng ký →" data-en="Enroll →">Đăng ký →</a>
+      </div>
+    </div>
+
+    <!-- Course 04 -->
+    <div class="course-card">
+      <div class="course-num">// 04</div>
+      <div class="course-accent" style="background:#4A148C;"></div>
+      <div class="course-title">QA/QC & AI-PUNCH™</div>
+      <div class="course-audience" data-vi="PM · EPC · QA Engineer" data-en="PM · EPC · QA Engineer">PM · EPC · QA Engineer</div>
+      <div class="course-desc" data-vi="Hệ thống quản lý chất lượng số với AI-Punch™ — defect tracking, punch list management và real-time reporting. Thực hành trực tiếp trên nền tảng đang dùng trong dự án offshore thực tế." data-en="Digital quality management system with AI-Punch™ — defect tracking, punch list management and real-time reporting. Hands-on practice on the platform currently used in real offshore projects.">Hệ thống quản lý chất lượng số với AI-Punch™ — defect tracking, punch list management và real-time reporting. Thực hành trực tiếp trên nền tảng đang dùng trong dự án offshore thực tế.</div>
+      <div class="course-meta">
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Thời lượng" data-en="Duration">Thời lượng</span><span class="course-meta-val" data-vi="2 buổi" data-en="2 sessions">2 buổi</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Hình thức" data-en="Format">Hình thức</span><span class="course-meta-val">Online / Offline</span></div>
+        <div class="course-meta-item"><span class="course-meta-label" data-vi="Ngôn ngữ" data-en="Language">Ngôn ngữ</span><span class="course-meta-val">VI / EN</span></div>
+      </div>
+      <ul class="course-features">
+        <li data-vi="Nền tảng AI-Punch™ — thực hành trực tiếp" data-en="AI-Punch™ platform — hands-on workflow">Nền tảng AI-Punch™ — thực hành trực tiếp</li>
+        <li data-vi="Phân loại lỗi: Critical / Major / Minor" data-en="Defect classification: Critical / Major / Minor">Phân loại lỗi: Critical / Major / Minor</li>
+        <li data-vi="ITP, NCR & xử lý vấn đề 8D" data-en="ITP, NCR & 8D problem solving">ITP, NCR & xử lý vấn đề 8D</li>
+        <li data-vi="KPIs: FTQ, tỷ lệ đóng lỗi, mật độ defect" data-en="KPIs: FTQ, closure rate, defect density">KPIs: FTQ, tỷ lệ đóng lỗi, mật độ defect</li>
+        <li data-vi="Báo cáo close-out PDF tự động" data-en="Auto-generated PDF close-out report">Báo cáo close-out PDF tự động</li>
+        <li data-vi="Chứng chỉ hoàn thành khóa học" data-en="Certificate of Completion">Chứng chỉ hoàn thành khóa học</li>
+      </ul>
+      <div class="course-price-row">
+        <div class="course-price-badge" data-usd-price="c04">9.200.000 VNĐ</div>
+        <a href="#enroll" class="course-btn course-btn-outline" data-vi="Đăng ký →" data-en="Enroll →">Đăng ký →</a>
+      </div>
+    </div>
+
+    <!-- Full Package -->
+    <div class="course-card full-pkg">
+      <div class="course-num">// 05 — FULL PACKAGE</div>
+      <div class="full-pkg-inner">
+        <div>
+          <div class="course-title">COMPLETE E&I MASTERY</div>
+          <div class="course-audience" data-vi="Tất cả đối tượng · Tiết kiệm tối đa" data-en="All levels · Maximum savings">Tất cả đối tượng · Tiết kiệm tối đa</div>
+          <div class="course-desc" style="margin-top:10px;" data-vi="Toàn bộ 4 khóa học — từ E&amp;I Fundamentals đến QA/QC &amp; AI-Punch™. Lộ trình đầy đủ từ kỹ sư mới đến chuyên gia đạt chuẩn quốc tế. 15 buổi học." data-en="All 4 courses — from E&amp;I Fundamentals to QA/QC &amp; AI-Punch™. A complete learning path from junior engineer to internationally certified specialist. 15 sessions.">Toàn bộ 4 khóa học — từ E&I Fundamentals đến QA/QC & AI-Punch™. Lộ trình đầy đủ từ kỹ sư mới đến chuyên gia đạt chuẩn quốc tế. 15 buổi học.</div>
+          <div class="full-pkg-modules">
+            <span class="full-pkg-tag">01 E&I Fundamentals</span>
+            <span class="full-pkg-tag">02 Wiring & Termination</span>
+            <span class="full-pkg-tag">03 Commissioning & Loop Checking</span>
+            <span class="full-pkg-tag">04 QA/QC & AI-Punch™</span>
+          </div>
+          <ul class="course-features" style="columns:2;gap:12px;">
+            <li data-vi="15 buổi học toàn diện" data-en="15 comprehensive sessions">15 buổi học toàn diện</li>
+            <li data-vi="Ưu tiên sắp lịch học" data-en="Priority scheduling">Ưu tiên sắp lịch học</li>
+            <li data-vi="4 Chứng chỉ hoàn thành khóa học" data-en="4 Certificates of Completion">4 Chứng chỉ hoàn thành khóa học</li>
+            <li data-vi="1-on-1 Q&amp;A session riêng" data-en="Private 1-on-1 Q&amp;A session">1-on-1 Q&A session riêng</li>
+            <li data-vi="Toàn bộ tài liệu PDF khóa học" data-en="Full course materials PDF">Toàn bộ tài liệu PDF khóa học</li>
+            <li data-vi="Quyền truy cập demo AI-Punch™" data-en="AI-Punch™ demo access">Quyền truy cập demo AI-Punch™</li>
+          </ul>
+        </div>
+        <div class="full-pkg-price-wrap">
+          <div class="full-pkg-save" data-usd-price="save">✓ Tiết kiệm 7.200.000 VNĐ</div>
+          <div class="full-pkg-original" data-usd-price="original">49.200.000 VNĐ</div>
+          <div class="full-pkg-price" data-usd-price="pkg">42.000.000</div>
+          <div class="full-pkg-price-unit">VNĐ</div>
+          <a href="#enroll" class="course-btn course-btn-primary" style="white-space:nowrap;min-width:200px;" data-vi="Đăng ký Full Package" data-en="Enroll Full Package">Đăng ký Full Package</a>
+          <div class="full-pkg-rate-info">
+            <span class="rate-icon">💱</span>
+            <span class="sonic-rate-note">Loading exchange rate...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="format-section">
+  <div class="courses-header">
+    <h2 data-vi="HÌNH THỨC HỌC" data-en="LEARNING FORMAT">HÌNH THỨC <span>HỌC</span></h2>
+    <p data-vi="Linh hoạt theo lịch làm việc của bạn" data-en="Flexible around your work schedule">Linh hoạt theo lịch làm việc của bạn</p>
+  </div>
+  <div class="format-grid">
+    <div class="format-card">
+      <div class="format-icon">💻</div>
+      <div class="format-title"><span>ONLINE</span></div>
+      <div class="format-desc" data-vi="Học qua Zoom — tài liệu PDF gửi trước. Buổi học được ghi hình để xem lại. Phù hợp với kỹ sư đang làm dự án xa." data-en="Learn via Zoom — PDF materials sent in advance. Sessions are recorded for replay. Ideal for engineers working on remote projects.">Học qua Zoom — tài liệu PDF gửi trước. Buổi học được ghi hình để xem lại. Phù hợp với kỹ sư đang làm dự án xa.</div>
+      <div class="format-details">
+        <span class="format-detail" data-vi="▸ Zoom / Google Meet" data-en="▸ Zoom / Google Meet">▸ Zoom / Google Meet</span>
+        <span class="format-detail" data-vi="▸ Tài liệu PDF gửi trước mỗi buổi" data-en="▸ PDF materials sent before each session">▸ Tài liệu PDF gửi trước mỗi buổi</span>
+        <span class="format-detail" data-vi="▸ Có ghi hình — xem lại 30 ngày" data-en="▸ Recorded — replay for 30 days">▸ Có ghi hình — xem lại 30 ngày</span>
+        <span class="format-detail" data-vi="▸ Lịch học linh hoạt theo thỏa thuận" data-en="▸ Flexible schedule by arrangement">▸ Lịch học linh hoạt theo thỏa thuận</span>
+      </div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">🏭</div>
+      <div class="format-title"><span>OFFLINE</span></div>
+      <div class="format-desc" data-vi="Học trực tiếp tại HCMC hoặc Vũng Tàu. Thực hành với thiết bị thực tế. Lớp nhỏ tối đa 8 học viên." data-en="In-person at HCMC or Vũng Tàu. Hands-on with real equipment. Small class, maximum 8 students.">Học trực tiếp tại HCMC hoặc Vũng Tàu. Thực hành với thiết bị thực tế. Lớp nhỏ tối đa 8 học viên.</div>
+      <div class="format-details">
+        <span class="format-detail" data-vi="▸ HCMC &amp; Vũng Tàu" data-en="▸ HCMC &amp; Vũng Tàu">▸ HCMC & Vũng Tàu</span>
+        <span class="format-detail" data-vi="▸ Tối đa 8 học viên / lớp" data-en="▸ Maximum 8 students / class">▸ Tối đa 8 học viên / lớp</span>
+        <span class="format-detail" data-vi="▸ Thực hành thiết bị thật" data-en="▸ Hands-on with real equipment">▸ Thực hành thiết bị thật</span>
+        <span class="format-detail" data-vi="▸ Lịch cố định — đặt chỗ sớm" data-en="▸ Fixed schedule — book early">▸ Lịch cố định — đặt chỗ sớm</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="courses-header">
+    <h2 data-vi="CÂU HỎI THƯỜNG GẶP" data-en="FREQUENTLY ASKED QUESTIONS">CÂU HỎI <span>THƯỜNG GẶP</span></h2>
+    <p data-vi="Những gì học viên thường hỏi trước khi đăng ký" data-en="What students usually ask before enrolling">Những gì học viên thường hỏi trước khi đăng ký</p>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Tôi cần nền tảng gì để học được?" data-en="What background do I need to enroll?">Tôi cần nền tảng gì để học được?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Course 01 không yêu cầu kinh nghiệm — phù hợp cho kỹ sư mới ra trường hoặc đang chuyển ngành sang E&amp;I. Course 02 và 03 phù hợp hơn nếu bạn đã có ít nhất 1–2 năm làm việc trong môi trường công nghiệp. Course 04 phù hợp với tất cả cấp độ." data-en="Course 01 requires no prior experience — suitable for fresh graduates or engineers transitioning into E&amp;I. Courses 02 and 03 are better suited if you have at least 1–2 years in an industrial environment. Course 04 is suitable for all levels.">Course 01 không yêu cầu kinh nghiệm — phù hợp cho kỹ sư mới ra trường hoặc đang chuyển ngành sang E&amp;I. Course 02 và 03 phù hợp hơn nếu bạn đã có ít nhất 1–2 năm làm việc trong môi trường công nghiệp. Course 04 phù hợp với tất cả cấp độ.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Mỗi buổi học kéo dài bao lâu? Lịch như thế nào?" data-en="How long is each session? What is the schedule?">Mỗi buổi học kéo dài bao lâu? Lịch như thế nào?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Mỗi buổi kéo dài 3–4 giờ. Lịch học được thỏa thuận linh hoạt giữa học viên và giảng viên — thường vào buổi tối hoặc cuối tuần để phù hợp với lịch làm việc. Offline tại HCMC hoặc Vũng Tàu theo lịch cố định." data-en="Each session runs 3–4 hours. The schedule is arranged flexibly between the student and instructor — typically evenings or weekends to fit work schedules. Offline sessions in HCMC or Vũng Tàu follow a fixed timetable.">Mỗi buổi kéo dài 3–4 giờ. Lịch học được thỏa thuận linh hoạt giữa học viên và giảng viên — thường vào buổi tối hoặc cuối tuần để phù hợp với lịch làm việc. Offline tại HCMC hoặc Vũng Tàu theo lịch cố định.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Certificate của SONIC Academy có giá trị không?" data-en="Is the SONIC Academy certificate recognised?">Certificate của SONIC Academy có giá trị không?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Certificate do SONIC E&amp;I Solutions cấp — có giá trị như một chứng chỉ đào tạo chuyên ngành từ người có 25 năm kinh nghiệm thực địa tại Siemens Energy và GE Power. Đây không phải bằng cấp nhà nước, nhưng là bằng chứng cụ thể về năng lực kỹ thuật — được sử dụng trong hồ sơ xin việc và portfolio kỹ thuật." data-en="The certificate is issued by SONIC E&amp;I Solutions — it carries the weight of specialist training from an engineer with 25 years of field experience at Siemens Energy and GE Power. It is not a government-accredited qualification, but serves as concrete evidence of technical competence — used in job applications and technical portfolios.">Certificate do SONIC E&amp;I Solutions cấp — có giá trị như một chứng chỉ đào tạo chuyên ngành từ người có 25 năm kinh nghiệm thực địa tại Siemens Energy và GE Power. Đây không phải bằng cấp nhà nước, nhưng là bằng chứng cụ thể về năng lực kỹ thuật — được sử dụng trong hồ sơ xin việc và portfolio kỹ thuật.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Tôi có thể học online nếu đang ở công trường xa không?" data-en="Can I attend online if I'm working on a remote site?">Tôi có thể học online nếu đang ở công trường xa không?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Có — tất cả các khóa đều có hình thức online qua Zoom. Buổi học được ghi hình và lưu trữ 30 ngày để xem lại nếu bạn bị lệch múi giờ hoặc bận đột xuất. Tài liệu PDF được gửi trước mỗi buổi." data-en="Yes — all courses are available online via Zoom. Sessions are recorded and available for 30 days in case of time zone differences or unexpected schedule conflicts. PDF materials are sent before each session.">Có — tất cả các khóa đều có hình thức online qua Zoom. Buổi học được ghi hình và lưu trữ 30 ngày để xem lại nếu bạn bị lệch múi giờ hoặc bận đột xuất. Tài liệu PDF được gửi trước mỗi buổi.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Nếu tôi bỏ lỡ một buổi thì sao?" data-en="What if I miss a session?">Nếu tôi bỏ lỡ một buổi thì sao?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Buổi online được ghi hình — bạn có thể xem lại trong 30 ngày. Buổi offline có thể bù lịch theo thỏa thuận nếu thông báo trước ít nhất 24 giờ. SONIC Academy ưu tiên việc học viên thực sự nắm được nội dung hơn là chỉ hoàn thành số buổi." data-en="Online sessions are recorded — you can replay within 30 days. Offline sessions can be rescheduled by agreement with at least 24 hours' notice. SONIC Academy prioritises students genuinely mastering the content over simply completing the session count.">Buổi online được ghi hình — bạn có thể xem lại trong 30 ngày. Buổi offline có thể bù lịch theo thỏa thuận nếu thông báo trước ít nhất 24 giờ. SONIC Academy ưu tiên việc học viên thực sự nắm được nội dung hơn là chỉ hoàn thành số buổi.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Có thể đăng ký lẻ từng khóa hay phải mua Full Package?" data-en="Can I enrol in individual courses or do I need the Full Package?">Có thể đăng ký lẻ từng khóa hay phải mua Full Package?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Bạn hoàn toàn có thể đăng ký lẻ từng khóa theo nhu cầu. Full Package chỉ là lựa chọn tiết kiệm hơn nếu bạn muốn học toàn bộ lộ trình — kèm theo 1-on-1 Q&amp;A session riêng và ưu tiên sắp lịch." data-en="You can absolutely enrol in individual courses based on your needs. The Full Package is simply a more cost-effective option if you want the complete learning path — plus a private 1-on-1 Q&amp;A session and priority scheduling.">Bạn hoàn toàn có thể đăng ký lẻ từng khóa theo nhu cầu. Full Package chỉ là lựa chọn tiết kiệm hơn nếu bạn muốn học toàn bộ lộ trình — kèm theo 1-on-1 Q&amp;A session riêng và ưu tiên sắp lịch.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-vi="Chính sách hoàn tiền như thế nào?" data-en="What is the refund policy?">Chính sách hoàn tiền như thế nào?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p data-vi="Hoàn tiền 100% nếu hủy trước 48 giờ so với buổi học đầu tiên. Sau thời điểm đó, học phí đã đóng sẽ được chuyển sang lớp kế tiếp — không hoàn tiền mặt. Mọi thắc mắc liên hệ qua Zalo hoặc email." data-en="Full refund if cancelled more than 48 hours before the first session. After that point, fees paid are transferred to the next available class — no cash refund. For any questions, contact us via Zalo or email.">Hoàn tiền 100% nếu hủy trước 48 giờ so với buổi học đầu tiên. Sau thời điểm đó, học phí đã đóng sẽ được chuyển sang lớp kế tiếp — không hoàn tiền mặt. Mọi thắc mắc liên hệ qua Zalo hoặc email.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment-section" id="payment">
+  <div class="payment-header">
+    <h2 data-vi="THANH TOÁN" data-en="PAYMENT">THANH <span>TOÁN</span></h2>
+    <p data-vi="Xác nhận đăng ký qua Zalo/WhatsApp trước — chúng tôi sẽ gửi hướng dẫn thanh toán." data-en="Confirm enrolment via Zalo/WhatsApp first — we will send full payment instructions.">Xác nhận đăng ký qua Zalo/WhatsApp trước — chúng tôi sẽ gửi hướng dẫn thanh toán.</p>
+  </div>
+  <div class="payment-methods">
+    <div class="payment-card">
+      <div class="payment-card-title" data-vi="Chuyển khoản ngân hàng" data-en="Bank Transfer"><span class="pay-dot"></span>Chuyển khoản ngân hàng</div>
+      <div class="payment-info">
+        <div class="pay-row"><span class="pay-label" data-vi="Ngân hàng" data-en="Bank">Ngân hàng</span><span class="pay-val">Vietcombank (VCB)</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Số tài khoản" data-en="Account No.">Số tài khoản</span><span class="pay-val gold" data-vi="Gửi qua Zalo/WhatsApp khi đăng ký" data-en="Sent via Zalo/WhatsApp upon enrollment">Gửi qua Zalo/WhatsApp khi đăng ký</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Nội dung CK" data-en="Reference">Nội dung CK</span><span class="pay-val" data-vi="ACADEMY + Họ tên + Tên khóa" data-en="ACADEMY + Full name + Course name">ACADEMY + Họ tên + Tên khóa</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Đặt cọc" data-en="Deposit">Đặt cọc</span><span class="pay-val" data-vi="50% để giữ chỗ · số dư trước buổi 1" data-en="50% to reserve your place · balance due before session 1">50% để giữ chỗ · số dư trước buổi 1</span></div>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-card-title"><span class="pay-dot"></span>Zalo Pay / MoMo</div>
+      <div class="payment-info">
+        <div class="pay-row"><span class="pay-label" data-vi="Số điện thoại" data-en="Phone No.">Số điện thoại</span><span class="pay-val gold">+84 915 460 790</span></div>
+        <div class="pay-row"><span class="pay-label">Zalo Pay</span><span class="pay-val" data-vi="Liên kết số điện thoại trên" data-en="Linked to above phone number">Liên kết số điện thoại trên</span></div>
+        <div class="pay-row"><span class="pay-label">MoMo</span><span class="pay-val" data-vi="Liên kết số điện thoại trên" data-en="Linked to above phone number">Liên kết số điện thoại trên</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Nội dung" data-en="Reference">Nội dung</span><span class="pay-val" data-vi="ACADEMY + Tên khóa" data-en="ACADEMY + Course name">ACADEMY + Tên khóa</span></div>
+      </div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-card-title"><span class="pay-dot"></span>Stripe / PayPal</div>
+      <div class="payment-info">
+        <div class="pay-row"><span class="pay-label" data-vi="Phương thức" data-en="Method">Phương thức</span><span class="pay-val">Card / PayPal (USD)</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Link thanh toán" data-en="Payment link">Link thanh toán</span><span class="pay-val gold" data-vi="Gửi qua Zalo / Email khi đăng ký" data-en="Sent via Zalo / Email upon enrollment">Gửi qua Zalo / Email khi đăng ký</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Phí giao dịch" data-en="Transaction fee">Phí giao dịch</span><span class="pay-val" data-vi="+2.9% (Stripe) · cộng vào tổng" data-en="+2.9% (Stripe) · added to total">+2.9% (Stripe) · cộng vào tổng</span></div>
+        <div class="pay-row"><span class="pay-label" data-vi="Tiền tệ" data-en="Currency">Tiền tệ</span><span class="pay-val" data-vi="USD — quy đổi tỷ giá ngày TT" data-en="USD — converted at exchange rate on payment date">USD — quy đổi tỷ giá ngày TT</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="payment-note">
+    <span data-vi="Sau khi chuyển khoản, gửi ảnh xác nhận qua Zalo/WhatsApp:" data-en="After payment, send a confirmation screenshot via Zalo/WhatsApp:">Sau khi chuyển khoản, gửi ảnh xác nhận qua Zalo/WhatsApp:</span> <strong style="color:var(--gold);">+84 915 460 790</strong>
+    &nbsp;·&nbsp; <span data-vi="Xác nhận đăng ký trong vòng 24 giờ làm việc" data-en="Enrollment confirmed within 24 business hours">Xác nhận đăng ký trong vòng 24 giờ làm việc</span> &nbsp;·&nbsp; <span data-vi="Hoàn tiền 100% nếu hủy trước 48h" data-en="100% refund if cancelled 48h in advance">Hoàn tiền 100% nếu hủy trước 48h</span>
+  </div>
+</section>
+
+<!-- ENROLL CTA -->
+<section class="enroll-section" id="enroll">
+  <h2 data-vi="ĐĂNG KÝ NGAY HÔM NAY" data-en="ENROLL TODAY">ĐĂNG KÝ<br><span>NGAY HÔM NAY</span></h2>
+  <p data-vi="Liên hệ trực tiếp để đặt lịch học và nhận tư vấn chọn khóa phù hợp. Lớp tối đa 8 học viên — đặt sớm để giữ chỗ." data-en="Contact us directly to schedule your sessions and get advice on the right course. Maximum 8 students — book early to secure your place.">Liên hệ trực tiếp để đặt lịch học và nhận tư vấn chọn khóa phù hợp. Lớp tối đa 8 học viên — đặt sớm để giữ chỗ.</p>
+  <div class="enroll-contacts">
+    <a href="https://zalo.me/84915460790" target="_blank" rel="noopener" class="enroll-contact-btn enroll-btn-zalo">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24-.01.34z"/></svg>
+      Zalo
+    </a>
+    <a href="https://wa.me/84915460790" target="_blank" rel="noopener" class="enroll-contact-btn enroll-btn-wa">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="mailto:contact@sonicei.com?subject=Academy Enrollment — SONIC E%26I" class="enroll-contact-btn enroll-btn-email">
+      ✉ Email
+    </a>
+  </div>
+  <div class="enroll-phone">+84 915 460 790</div>
+  <div class="enroll-micro" data-vi="Phản hồi trong 15 phút · Giờ hành chính · contact@sonicei.com" data-en="Reply within 15 min · Business hours · contact@sonicei.com">Phản hồi trong 15 phút · Giờ hành chính · contact@sonicei.com</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="acad-footer">
+  <div class="acad-footer-logo">
+    <img src="/SONICEI_LOGO.png" alt="SONIC E&amp;I Solutions" width="56" height="56" loading="lazy" decoding="async">
+    <span class="acad-footer-logo-text">SONIC <span>E&amp;I</span> SOLUTIONS</span>
+  </div>
+  <div class="acad-footer-motto" data-vi='"Đúng ngay từ lần đầu — Mỗi lần đều đúng"' data-en='"Right the first time — Every time"'>"Right the first time — Every time"</div>
+  <div class="acad-footer-links">
+    <a href="/services.html">Dịch Vụ / Services</a>
+    <span class="acad-footer-dot"></span>
+    <a href="/payment.html">Thanh Toán / Payment</a>
+    <span class="acad-footer-dot"></span>
+    <a href="/privacy-policy.html">Bảo Mật / Privacy Policy</a>
+    <span class="acad-footer-dot"></span>
+    <a href="/terms-of-use.html">Điều Khoản / Terms of Use</a>
+    <span class="acad-footer-dot"></span>
+    <a href="#enroll" data-vi="Liên hệ / Đăng ký" data-en="Contact / Enroll">Liên hệ / Đăng ký</a>
+  </div>
+  <div class="acad-footer-legal">
+    <strong class="acad-footer-company">CÔNG TY TNHH SONIC <span>E&amp;I</span> SOLUTIONS</strong>
+    <span>MST: [cập nhật sau] &nbsp;·&nbsp; 65B Hàn Thuyên, Phường Rạch Dừa, TP. HCM, Việt Nam</span>
+    <span>Email: <a href="mailto:contact@sonicei.com">contact@sonicei.com</a> &nbsp;·&nbsp; Phone: <a href="tel:+84915460790">+84 915 460 790</a></span>
+    <span class="acad-footer-copy">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-icon').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.querySelector('.faq-icon').textContent = '−';
+  }
+}
+</script>
+
+<script>
+function setAudience(idx) {
+  document.querySelectorAll('.aud-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.aud-content').forEach((c,i) => c.classList.toggle('active', i===idx));
+}
+</script>
+
+
+<script>
+var _L = localStorage.getItem('sonicLang') || 'en';
+function setLang(lang) {
+  _L = lang;
+  localStorage.setItem('sonicLang', lang);
+  document.documentElement.lang = lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang==='vi');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.querySelectorAll('[data-vi][data-en]').forEach(function(el) {
+    var t = lang==='en' ? el.getAttribute('data-en') : el.getAttribute('data-vi');
+    if (!t) return;
+    if (t.indexOf('<')!==-1) { el.innerHTML = t; } else { el.textContent = t; }
+  });
+  if (lang==='en') {
+    document.title = 'SONIC Academy — E&I Engineering Training | SONIC E&I Solutions';
+    var m = document.querySelector('meta[name="description"]');
+    if (m) m.content = 'Professional E&I commissioning training by a 25-year Siemens Energy & GE Power veteran. P&ID, loop check, commissioning, AI-Punch™. Online & offline. Certificate included.';
+  } else {
+    document.title = 'SONIC Academy — Đào tạo Kỹ thuật E&I | SONIC E&I Solutions';
+    var m = document.querySelector('meta[name="description"]');
+    if (m) m.content = 'Chương trình đào tạo E&I chuyên nghiệp bởi kỹ sư 25 năm Siemens Energy & GE Power. Online & offline. Certificate.';
+  }
+}
+document.addEventListener('DOMContentLoaded', function() { setLang(_L); });
+// Re-apply prices after lang change so full-pkg-save stays in sync
+var _lastRate = 0;
+var _origSetLang = setLang;
+setLang = function(lang) {
+  _origSetLang(lang);
+  if (_lastRate) apply(_lastRate);
+};
+</script>
+
+<!-- ── SONIC FX: Live USD/VND price conversion ── -->
+<script>
+(function(){
+  var FALLBACK = 26198;
+  var VND = { c01:10000000, c02:12000000, c03:18000000, c04:9200000, pkg:42000000,
+              save:7200000, original:49200000 };
+  function fU(n){ return n.toLocaleString('en-US',{maximumFractionDigits:0}); }
+  function fV(n){ return n.toLocaleString('vi-VN'); }
+  function apply(rate){
+    document.querySelectorAll('[data-usd-price]').forEach(function(el){
+      var k = el.getAttribute('data-usd-price');
+      var vnd = VND[k]; if(!vnd) return;
+      var usd = Math.round(vnd/rate);
+
+      /* ── full-pkg main price ── */
+      if(el.classList.contains('full-pkg-price')){
+        el.innerHTML = '<span class="price-usd" style="font-size:44px">$'+fU(usd)
+          +' <span class="price-usd-unit">USD</span></span>'
+          +'<span class="price-vnd-sub">'+fV(vnd)+' VNĐ</span>';
+        return;
+      }
+      /* ── full-pkg original (strikethrough) ── */
+      if(el.classList.contains('full-pkg-original')){
+        el.textContent = '$'+fU(usd)+' USD';
+        return;
+      }
+      /* ── full-pkg save label ── */
+      if(el.classList.contains('full-pkg-save')){
+        var lang = document.documentElement.lang || 'vi';
+        if(lang==='en'){
+          el.textContent = '✓ Save $'+fU(usd)+' USD vs individual courses';
+        } else {
+          el.textContent = '✓ Tiết kiệm $'+fU(usd)+' USD so với mua lẻ';
+        }
+        return;
+      }
+      /* ── individual course price badge ── */
+      if(el.classList.contains('course-price-badge')){
+        el.innerHTML = '<span class="cpb-usd">$'+fU(usd)+'</span>'
+          +'<span class="cpb-unit">USD</span>'
+          +'<span class="cpb-vnd">'+fV(vnd)+' VNĐ</span>';
+        return;
+      }
+    });
+    document.querySelectorAll('.sonic-rate-note').forEach(function(el){
+      el.textContent = '1 USD ≈ '+fV(rate)+' VND (live rate)';
+    });
+  }
+  function run(r){ _lastRate = r; if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',function(){apply(r);}); }else{ apply(r); } }
+  // Apply fallback immediately so badges show USD format without waiting for API
+  run(FALLBACK);
+  // Then override with live rate when API responds
+  fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    .then(function(r){return r.json();})
+    .then(function(d){ run(Math.round(d.rates&&d.rates.VND)||FALLBACK); })
+    .catch(function(){ /* already applied fallback above */ });
+})();
+</script>
+</body>
+</html>

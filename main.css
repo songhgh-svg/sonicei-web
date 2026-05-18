@@ -493,9 +493,9 @@
   /* ── Nav links ── */
   .nav-links a, .mobile-menu a {
     font-family: 'Rajdhani', sans-serif !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    letter-spacing: 1.5px !important;
   }
 
   /* ══════════════════════════════════════════
@@ -523,8 +523,8 @@
   @media (max-width: 1500px) {
     .nav-links a {
       padding: 0 7px !important;
-      font-size: 10.5px !important;
-      letter-spacing: 0.6px !important;
+      font-size: 12px !important;
+      letter-spacing: 1px !important;
     }
     .nav-links a.profile-dl-btn {
       padding: 5px 11px !important;
@@ -542,7 +542,7 @@
   @media (max-width: 1280px) {
     .nav-links a {
       padding: 0 5px !important;
-      font-size: 10px !important;
+      font-size: 10.5px !important;
       letter-spacing: 0.3px !important;
     }
     .logo-line {
@@ -5305,4 +5305,542 @@
   text-transform: uppercase; text-align: center;
   border-top: 1px solid rgba(201,162,39,0.1);
   background: rgba(10,22,40,0.97);
+}
+
+/* ══════════════════════════════════════════════
+   SONIC ACADEMY — UPGRADED SECTION
+   ══════════════════════════════════════════════ */
+
+/* Header */
+.academy-hdr {
+  text-align: center;
+  padding: clamp(60px,8vw,100px) clamp(16px,5vw,60px) 40px;
+  position: relative; z-index: 2;
+}
+
+/* Trust bar */
+.acad-trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 20px clamp(16px,5vw,60px);
+  background: rgba(201,162,39,0.05);
+  border-top: 1px solid rgba(201,162,39,0.15);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+  margin-bottom: 60px;
+  position: relative; z-index: 2;
+}
+.acad-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 28px;
+}
+.acad-trust-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.acad-trust-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(200,215,245,0.5);
+  text-align: center;
+}
+.acad-trust-sep {
+  width: 1px;
+  height: 36px;
+  background: rgba(201,162,39,0.18);
+  flex-shrink: 0;
+}
+
+/* Course cards grid */
+.acad-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px clamp(16px,5vw,60px) 60px; /* top 20px: chỗ cho MOST POPULAR tag */
+  position: relative; z-index: 2;
+}
+.acad-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(201,162,39,0.15);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.acad-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,162,39,0.45);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+.acad-card--featured {
+  border-color: rgba(201,162,39,0.5);
+  box-shadow: 0 0 0 1px rgba(201,162,39,0.3), 0 8px 32px rgba(0,0,0,0.3);
+}
+.acad-card-featured-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  white-space: nowrap;
+  clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+  z-index: 3;
+}
+.acad-card-top {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+.acad-card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.acad-card-badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.65);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+.acad-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 0;
+}
+.acad-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.acad-card-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  color: rgba(200,215,245,0.45);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.acad-card-topics {
+  list-style: none;
+  padding: 0; margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+.acad-card-topics li {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: rgba(200,215,245,0.75);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+.acad-card-topics li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: rgba(201,162,39,0.5);
+  font-size: 10px;
+}
+.acad-card-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.acad-meta-pill {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(201,162,39,0.7);
+  background: rgba(201,162,39,0.07);
+  border: 1px solid rgba(201,162,39,0.2);
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.acad-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;           /* wrap khi không đủ chỗ */
+  padding: 14px 0 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: auto;
+  gap: 10px;
+}
+.acad-card-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  line-height: 1;
+  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 1;
+}
+.acad-card-price span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(201,162,39,0.6);
+}
+
+/* ── Price badge: gold block, same height as Enroll button ── */
+.acad-card-price-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  background: var(--gold);
+  color: var(--navy);
+  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  min-width: 80px;
+  text-align: center;
+}
+.acad-card-price-badge--featured {
+  background: var(--gold-light);
+  box-shadow: 0 0 16px rgba(232,195,71,0.3);
+}
+.acad-card-price-badge .cpb-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--navy);
+  line-height: 1;
+}
+.acad-card-price-badge .cpb-lbl {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(10,22,40,0.6);
+  margin-top: 1px;
+  text-transform: uppercase;
+}
+.acad-enroll-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.4);
+  color: var(--gold);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;            /* button không bị bóp méo */
+}
+.acad-enroll-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+.acad-card--featured .acad-enroll-btn {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.acad-card--featured .acad-enroll-btn:hover {
+  background: var(--gold-light);
+}
+
+/* Full package banner */
+.acad-package-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 0 clamp(16px,5vw,60px) 60px;
+  padding: 36px 40px;
+  background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(201,162,39,0.04) 100%);
+  border: 1.5px solid rgba(201,162,39,0.4);
+  position: relative; z-index: 2;
+}
+.acad-pkg-left { flex: 1; min-width: 260px; }
+.acad-pkg-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(201,162,39,0.6);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.acad-pkg-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.acad-pkg-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  color: rgba(200,215,245,0.7);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.acad-pkg-savings {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(201,162,39,0.85);
+  letter-spacing: 0.5px;
+}
+.acad-pkg-savings strong { color: var(--gold-light); }
+.acad-pkg-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.acad-pkg-orig {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: rgba(200,215,245,0.4);
+  letter-spacing: 0.5px;
+}
+.acad-pkg-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(201,162,39,0.4);
+}
+.acad-pkg-price span {
+  font-size: 16px;
+  color: rgba(201,162,39,0.7);
+  letter-spacing: 2px;
+}
+.acad-pkg-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.acad-pkg-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* Why section */
+.acad-why {
+  padding: 0 clamp(16px,5vw,60px) 60px;
+  position: relative; z-index: 2;
+}
+.acad-why-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: rgba(201,162,39,0.7);
+  text-align: center;
+  margin-bottom: 28px;
+}
+.acad-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.acad-why-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,162,39,0.1);
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.acad-why-item:hover {
+  border-color: rgba(201,162,39,0.3);
+  background: rgba(201,162,39,0.04);
+}
+.acad-why-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.acad-why-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.acad-why-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(200,215,245,0.55);
+  line-height: 1.65;
+}
+
+/* ── ACADEMY RESPONSIVE ── */
+
+/* Tablet: 2 cột */
+@media (max-width: 1100px) {
+  .acad-cards { grid-template-columns: repeat(2, 1fr); }
+  .acad-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile landscape / small tablet: 1 cột, giảm padding */
+@media (max-width: 700px) {
+  /* Cards grid */
+  .acad-cards {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 16px; /* giảm vì 1 cột, tag không bị che */
+  }
+  /* MOST POPULAR tag: dưới 1 cột không cần absolute top âm */
+  .acad-card-featured-tag {
+    top: -12px;
+  }
+  /* Card body */
+  .acad-card-body { padding: 16px 16px 0; }
+  .acad-card-top  { padding: 16px 16px 12px; }
+
+  /* Footer: stack giá + button dọc */
+  .acad-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0 16px;
+  }
+  .acad-enroll-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Trust bar */
+  .acad-trust-sep  { display: none; }
+  .acad-trust-item { padding: 8px 14px; }
+
+  /* Full package banner */
+  .acad-package-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+  .acad-pkg-right   { align-items: flex-start; }
+  .acad-pkg-btn     { width: 100%; justify-content: center; }
+  .acad-pkg-title   { font-size: 26px; }
+
+  /* Why grid */
+  .acad-why-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile portrait: bỏ 2 cột why, text lớn hơn */
+@media (max-width: 480px) {
+  .acad-why-grid { grid-template-columns: 1fr; }
+
+  /* Card số: nhỏ lại 1 chút cho vừa */
+  .acad-card-num  { font-size: 42px; }
+  .acad-card-title { font-size: 20px; }
+
+  /* Price + button: full width */
+  .acad-card-price { font-size: 18px; }
+  .acad-card-price-badge { width: 100%; clip-path: none; }
+  .acad-card-price-badge .cpb-num { font-size: 20px; }
+
+  /* Trust bar: 2 cột */
+  .acad-trust-bar  { gap: 0; }
+  .acad-trust-item { padding: 6px 10px; flex: 1 1 45%; }
+  .acad-trust-num  { font-size: 26px; }
+  .acad-trust-label { font-size: 9px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   USD PRICE  —  index.html Professional Training section
+   Chỉ hiển thị USD (không VND). VND+tỷ giá chỉ có ở academy.
+   ═══════════════════════════════════════════════════════ */
+
+/* Giá USD trong acad-card-footer */
+.acad-card-price[data-usd-price] {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  white-space: nowrap;
+}
+
+/* Giá USD trong full package banner */
+.acad-pkg-price[data-usd-price] {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+/* Số USD lớn */
+.price-usd-only {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  line-height: 1;
+  white-space: nowrap;
+}
+.acad-pkg-price .price-usd-only {
+  font-size: 40px;
+  text-shadow: 0 0 30px rgba(201,162,39,0.4);
+}
+
+/* "USD" unit nhỏ */
+.price-usd-unit {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(201,162,39,0.6);
+  margin-left: 4px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .price-usd-only        { font-size: 18px; }
+  .acad-pkg-price .price-usd-only { font-size: 30px; }
 }
