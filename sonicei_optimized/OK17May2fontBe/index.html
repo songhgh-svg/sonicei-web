@@ -2654,33 +2654,6 @@ function vbPlay(id) {
   if (!poster || !video) return;
   poster.style.display = 'none';
   video.style.display  = 'block';
-
-  /* ── Fix video bị xoay ngang 90° trên một số mobile browser ──
-     Browser đọc metadata rotation từ MP4 không nhất quán.
-     Dùng canvas để kiểm tra kích thước thực tế khi video load xong. */
-  function checkRotation() {
-    var vw = video.videoWidth;
-    var vh = video.videoHeight;
-    if (!vw || !vh) return;
-    var stage = video.closest('.vb-stage') || video.parentElement;
-    var sw = stage ? stage.offsetWidth : window.innerWidth;
-    var sh = stage ? stage.offsetHeight : window.innerHeight;
-    /* Nếu video ngang (landscape) nhưng stage dọc → video bị xoay */
-    if (vw > vh && sw < sh) {
-      /* Kiểm tra hướng xoay: thử render 1 frame trên canvas */
-      video.classList.add('vb-video--rotated');
-    } else {
-      video.classList.remove('vb-video--rotated');
-      video.classList.remove('vb-video--rotated-ccw');
-    }
-  }
-
-  if (video.readyState >= 1) {
-    checkRotation();
-  } else {
-    video.addEventListener('loadedmetadata', checkRotation, { once: true });
-  }
-
   video.play().catch(function(){});
 }
 </script>

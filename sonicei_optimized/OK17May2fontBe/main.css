@@ -5112,23 +5112,6 @@
   background: #000;
   overflow: hidden;
 }
-
-/* ── Desktop: giới hạn chiều cao vb-wrap trong ai-grid ── */
-@media (min-width: 901px) {
-  .ai-grid .vb-wrap {
-    max-width: 280px;
-    margin: 0 auto;
-  }
-}
-
-/* ── Mobile: giới hạn chiều cao video hero ── */
-@media (max-width: 900px) {
-  .sonic-video-hero-mobile {
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 /* Poster overlay — hiện mặc định */
 .vb-poster {
   position: absolute;
@@ -5225,26 +5208,6 @@
   object-fit: contain;
   background: #000;
   z-index: 10;
-  transform: none;
-  -webkit-transform: none;
-}
-/* Class được thêm qua JS khi phát hiện video bị xoay 90° (CW) */
-.vb-video--rotated {
-  transform: rotate(90deg) !important;
-  -webkit-transform: rotate(90deg) !important;
-  width: 177.78% !important;
-  height: 56.25% !important;
-  top: 21.875% !important;
-  left: -38.89% !important;
-}
-/* Class cho video bị xoay 90° ngược chiều (CCW) */
-.vb-video--rotated-ccw {
-  transform: rotate(-90deg) !important;
-  -webkit-transform: rotate(-90deg) !important;
-  width: 177.78% !important;
-  height: 56.25% !important;
-  top: 21.875% !important;
-  left: -38.89% !important;
 }
 /* Caption bar */
 .vb-caption {
