@@ -523,7 +523,7 @@
   @media (max-width: 1500px) {
     .nav-links a {
       padding: 0 7px !important;
-      font-size: 12px !important;
+      font-size: 14px !important;
       letter-spacing: 1px !important;
     }
     .nav-links a.profile-dl-btn {
@@ -542,7 +542,7 @@
   @media (max-width: 1280px) {
     .nav-links a {
       padding: 0 5px !important;
-      font-size: 10.5px !important;
+      font-size: 13px !important;
       letter-spacing: 0.3px !important;
     }
     .logo-line {
