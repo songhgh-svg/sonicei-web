@@ -2144,7 +2144,7 @@ window.addEventListener('load', function() {
           <span class="acad-meta-pill">📍 Online &amp; Offline</span>
         </div>
         <div class="acad-card-footer">
-          <div class="acad-card-price-badge" data-usd-price="c04">15.000.000 VND</div>
+          <div class="acad-card-price-badge" data-usd-price="c04">9.200.000 VND</div>
           <a href="/academy" class="acad-enroll-btn">Enroll →</a>
         </div>
       </div>
@@ -2158,11 +2158,11 @@ window.addEventListener('load', function() {
       <div class="acad-pkg-tag">// COMPLETE E&amp;I MASTERY</div>
       <div class="acad-pkg-title">FULL PACKAGE — ALL 4 COURSES</div>
       <div class="acad-pkg-desc">15 sessions · Bilingual VI &amp; EN · Certificate of Completion · Priority scheduling · Private 1-on-1 Q&amp;A session</div>
-      <div class="acad-pkg-savings">💰 Save <strong data-usd-price="save">$382 USD</strong> vs individual courses</div>
+      <div class="acad-pkg-savings">💰 Save <strong data-usd-price="save">$275 USD</strong> vs individual courses</div>
     </div>
     <div class="acad-pkg-right">
-      <div class="acad-pkg-orig">Individual: <s data-usd-price="original">$2,100 USD</s></div>
-      <div class="acad-pkg-price" data-usd-price="pkg">45.000.000 <span>VND</span></div>
+      <div class="acad-pkg-orig">Individual: <s data-usd-price="original">$1,878 USD</s></div>
+      <div class="acad-pkg-price" data-usd-price="pkg">42.000.000 <span>VND</span></div>
       <a href="/academy" class="acad-pkg-btn">Enroll Full Package →</a>
     </div>
   </div>
@@ -2819,8 +2819,8 @@ function vbPlay(id) {
 <script>
 (function(){
   var FALLBACK = 26198;
-  var VND = { c01:10000000, c02:12000000, c03:18000000, c04:15000000, pkg:45000000,
-              save:10000000, original:55000000 };
+  var VND = { c01:10000000, c02:12000000, c03:18000000, c04:9200000, pkg:42000000,
+              save:7200000, original:49200000 };
   function fU(n){ return n.toLocaleString('en-US',{maximumFractionDigits:0}); }
   function apply(rate){
     document.querySelectorAll('[data-usd-price]').forEach(function(el){
@@ -2855,6 +2855,13 @@ function vbPlay(id) {
     .then(function(d){ run(Math.round(d.rates&&d.rates.VND)||FALLBACK); })
     .catch(function(){ run(FALLBACK); });
 })();
+</script>
+<script>
+// Force reload if restored from bfcache (back/forward navigation)
+// Prevents stale CSS from blog/legal pages affecting nav styles
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) { window.location.reload(); }
+});
 </script>
 </body>
 </html>
