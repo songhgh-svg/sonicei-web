@@ -5,12 +5,28 @@
   <!-- ═══ TRANG CHÍNH ═══ -->
   <url>
     <loc>https://sonicei.com/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- ═══ TRANG TĨNH (Legal & Policy) ═══ -->
+  <!-- ═══ AI-PUNCH™ ═══ -->
+  <url>
+    <loc>https://sonicei.com/ai-punch</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══ SONIC ACADEMY ═══ -->
+  <url>
+    <loc>https://sonicei.com/academy</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══ TRANG TĨNH ═══ -->
   <url>
     <loc>https://sonicei.com/services.html</loc>
     <lastmod>2026-05-16</lastmod>
@@ -42,7 +58,7 @@
   <!-- ═══ BLOG INDEX ═══ -->
   <url>
     <loc>https://sonicei.com/blog/blog-index</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
