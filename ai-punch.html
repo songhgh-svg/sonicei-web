@@ -275,7 +275,7 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
     <a href="/#services">Services</a>
     <a href="/#about">About</a>
     <a href="/ai-punch" class="active">AI-Punch™</a>
-    <a href="/#academy">Academy</a>
+    <a href="#try-it" style="color:var(--green);border:1px solid rgba(0,200,150,0.35);padding:4px 12px;border-radius:3px;font-size:13px;letter-spacing:1px;transition:all .2s" onmouseover="this.style.background='rgba(0,200,150,0.1)'" onmouseout="this.style.background='transparent'">⚡ Try Live</a>
     <a href="/#contact">Contact</a>
   </div>
   <div class="nav-right">
@@ -295,7 +295,7 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
   <a href="/#services" onclick="closeMenu()">Services</a>
   <a href="/#about" onclick="closeMenu()">About</a>
   <a href="/ai-punch" onclick="closeMenu()">AI-Punch™</a>
-  <a href="/#academy" onclick="closeMenu()">Academy</a>
+  <a href="#try-it" onclick="closeMenu()" style="color:var(--green);border-bottom-color:rgba(0,200,150,0.15)">⚡ Try It Live</a>
   <a href="/#contact" onclick="closeMenu()">Contact</a>
   <a href="#get-access" class="btn-gold" onclick="closeMenu()" style="margin-top:20px;text-align:center;border-bottom:none" data-i18n="nav_cta">Get Access</a>
 </div>
@@ -336,8 +336,8 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
   </div>
 
   <div class="hero-cta">
-    <a href="#get-access" class="btn-primary" data-i18n="hero_cta1">Request Early Access</a>
-    <a href="#how-it-works" class="btn-ghost" data-i18n="hero_cta2">See How It Works</a>
+    <a href="#try-it" class="btn-primary" style="background:var(--green);box-shadow:0 0 30px rgba(0,200,150,0.3)" data-i18n="hero_cta_try">⚡ Try It Live — Free</a>
+    <a href="#get-access" class="btn-ghost" data-i18n="hero_cta1">Request Early Access</a>
   </div>
 
   <div class="hero-stats">
@@ -897,6 +897,599 @@ function vbPlayAI() {
     </div>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     LIVE WEB DEMO — Real Gemini AI, no app install needed
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="try-it" style="background:linear-gradient(180deg,#060f1e 0%,#0a1628 60%,#060f1e 100%);padding:clamp(60px,8vw,110px) clamp(16px,5vw,80px);">
+<style>
+.demo-wrap{max-width:860px;margin:0 auto}
+.demo-header{text-align:center;margin-bottom:44px}
+.demo-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.35);padding:7px 18px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2.5px;color:#00c896;text-transform:uppercase;margin-bottom:20px}
+.demo-badge-dot{width:7px;height:7px;border-radius:50%;background:#00c896;animation:pulse-dot 1.6s ease-in-out infinite}
+.demo-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:720px){.demo-cols{grid-template-columns:1fr}}
+.demo-upload-zone{border:2px dashed rgba(0,200,150,0.3);border-radius:16px;background:rgba(0,200,150,0.03);padding:32px 20px;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.demo-upload-zone:hover,.demo-upload-zone.drag-over{border-color:rgba(0,200,150,0.7);background:rgba(0,200,150,0.06)}
+.demo-upload-zone.has-image{border-color:rgba(0,87,255,0.4);background:transparent;padding:0}
+.demo-upload-icon{font-size:44px;margin-bottom:12px}
+.demo-upload-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#f0f4ff;margin-bottom:6px}
+.demo-upload-sub{font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(240,244,255,0.4);line-height:1.6}
+.demo-preview-img{width:100%;border-radius:14px;display:block;max-height:300px;object-fit:cover}
+.demo-change-btn{position:absolute;top:10px;right:10px;background:rgba(10,22,40,0.85);border:1px solid rgba(255,255,255,0.15);color:#f0f4ff;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:5px 10px;cursor:pointer;border-radius:6px;transition:all .2s;z-index:2}
+.demo-change-btn:hover{border-color:var(--gold);color:var(--gold)}
+.demo-scan-btn{width:100%;margin-top:14px;padding:15px;background:var(--gold);color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;border:none;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);box-shadow:0 0 28px rgba(201,162,39,0.3);transition:all .25s;position:relative;overflow:hidden}
+.demo-scan-btn:hover:not(:disabled){background:var(--gold-light);transform:translateY(-1px)}
+.demo-scan-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.demo-scan-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transform:translateX(-100%);animation:shimmer 2.5s ease-in-out infinite 1s}
+.demo-quota{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(136,153,187,0.6)}
+.demo-quota-dots{display:flex;gap:4px}
+.demo-quota-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,200,150,0.2);border:1px solid rgba(0,200,150,0.3);transition:all .3s}
+.demo-quota-dot.used{background:#ff4444;border-color:#ff4444}
+.demo-samples{margin-top:16px}
+.demo-samples-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(136,153,187,0.5);text-transform:uppercase;margin-bottom:8px;text-align:center}
+.demo-samples-grid{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.demo-sample-thumb{width:56px;height:56px;border-radius:8px;cursor:pointer;border:2px solid rgba(255,255,255,0.08);transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:22px}
+.demo-sample-thumb:hover{transform:scale(1.08)}
+.demo-result{background:#0d1e35;border-radius:16px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;min-height:340px;display:flex;flex-direction:column}
+.demo-result-topbar{background:#0a1628;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
+.demo-result-appname{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:#c9a227}
+.demo-result-body{flex:1;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.demo-state{display:none;animation:fadeUp .35s both}
+.demo-state.active{display:flex;flex-direction:column}
+.demo-idle{align-items:center;justify-content:center;gap:12px;text-align:center;opacity:.4}
+.demo-idle-icon{font-size:48px}
+.demo-idle-text{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray)}
+.demo-scanning-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:14px}
+.demo-scan-progress{background:rgba(96,165,250,0.08);border-radius:4px;height:4px;overflow:hidden;margin-bottom:8px}
+.demo-scan-fill{height:100%;width:0%;background:linear-gradient(to right,#0057ff,#60a5fa);border-radius:4px;transition:width .15s ease}
+.demo-scan-step{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(96,165,250,0.7);letter-spacing:1px;min-height:16px}
+.demo-scan-visual{flex:1;background:#060f1e;border-radius:10px;border:1px solid rgba(96,165,250,0.12);margin:12px 0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:100px}
+.demo-scan-bar{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,#60a5fa,transparent);animation:scanAnim 1.1s linear infinite}
+.demo-scan-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;padding:12px}
+.demo-scan-chip{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.12);padding:8px;border-radius:6px;text-align:center}
+.demo-scan-chip-label{font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(96,165,250,0.4);letter-spacing:1px}
+.demo-scan-chip-val{font-family:'Bebas Neue',sans-serif;font-size:14px;color:rgba(96,165,250,0.6);letter-spacing:1px;margin-top:2px}
+.demo-res-status{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.demo-res-status.failed{background:rgba(255,68,68,0.08);border:1px solid rgba(255,68,68,0.25)}
+.demo-res-status.passed{background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.25)}
+.demo-res-icon{font-size:28px}
+.demo-res-label{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px}
+.demo-res-status.failed .demo-res-label{color:#ff4444}
+.demo-res-status.passed .demo-res-label{color:#00c896}
+.demo-res-sub{font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.4)}
+.demo-defect-card{background:#151b2e;border-radius:10px;border:1px solid rgba(255,68,68,0.2);overflow:hidden;margin-bottom:8px}
+.demo-defect-head{background:rgba(255,68,68,0.07);padding:9px 12px;display:flex;align-items:center;gap:8px}
+.demo-defect-dot{width:6px;height:6px;border-radius:50%;background:#ff4444;flex-shrink:0}
+.demo-defect-code{font-family:'Share Tech Mono',monospace;font-size:8px;color:#ff7070;letter-spacing:1px}
+.demo-defect-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff}
+.demo-defect-sev{font-family:'Share Tech Mono',monospace;font-size:8px;padding:2px 6px;border-radius:3px;font-weight:700;margin-left:auto;flex-shrink:0}
+.demo-defect-sev.A{background:rgba(255,68,68,0.15);color:#ff4444}
+.demo-defect-sev.B{background:rgba(255,153,0,0.15);color:#ff9500}
+.demo-defect-sev.C{background:rgba(200,200,200,0.1);color:#aaa}
+.demo-defect-body{padding:9px 12px;font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.55}
+.demo-oos{align-items:center;justify-content:center;gap:10px;text-align:center}
+.demo-oos-icon{font-size:42px}
+.demo-cta-strip{margin-top:14px;padding:12px 14px;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.2);border-radius:10px;text-align:center}
+.demo-cta-strip p{font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(240,244,255,0.55);margin-bottom:10px;line-height:1.5}
+.demo-cta-strip a{display:inline-block;padding:10px 28px;background:var(--gold);color:#0a1628;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .2s}
+.demo-cta-strip a:hover{background:var(--gold-light)}
+.demo-disclaimer{margin-top:20px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(136,153,187,0.3);line-height:1.8}
+.demo-error-msg{background:rgba(255,68,68,0.06);border:1px solid rgba(255,68,68,0.2);border-radius:8px;padding:14px;font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,130,130,0.9);text-align:center;line-height:1.6}
+</style>
+
+<div class="demo-wrap">
+  <div class="demo-header reveal">
+    <div class="demo-badge"><span class="demo-badge-dot"></span><span id="demoBadgeTxt">LIVE AI DEMO — NO APP NEEDED</span></div>
+    <h2 class="section-title" style="text-align:center">TRY <span class="gold">AI&#8209;PUNCH&#8482;</span> NOW</h2>
+    <div class="divider" style="margin:14px auto 16px"></div>
+    <p class="section-sub" style="margin:0 auto;text-align:center" id="demoSubTxt">Upload any E&amp;I equipment photo. Real Gemini AI — same engine as the app. <strong>3 free scans.</strong></p>
+  </div>
+
+  <div class="demo-cols reveal reveal-delay-1">
+    <!-- LEFT -->
+    <div>
+      <div class="demo-upload-zone" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+        <div id="uploadPrompt">
+          <div class="demo-upload-icon">&#128247;</div>
+          <div class="demo-upload-title" id="uploadTitle">DROP PHOTO HERE</div>
+          <div class="demo-upload-sub" id="uploadSub">or click to browse &middot; JPEG / PNG &middot; max 10MB</div>
+        </div>
+        <img id="previewImg" class="demo-preview-img" style="display:none" alt="Preview">
+        <button class="demo-change-btn" id="changeBtn" style="display:none" onclick="resetUpload(event)">&#10005; Change</button>
+      </div>
+
+      <div class="demo-samples" id="samplesRow">
+        <div class="demo-samples-label" id="samplesLabel">or try a sample &rarr;</div>
+        <div class="demo-samples-grid">
+          <div class="demo-sample-thumb" onclick="loadSample('crimping')" title="Crimp terminal defect" style="background:#0d1e35;border-color:rgba(255,68,68,0.4)">&#128268;</div>
+          <div class="demo-sample-thumb" onclick="loadSample('cable')" title="Cable tie / gland defect" style="background:#0d1e35;border-color:rgba(255,153,0,0.4)">&#128295;</div>
+          <div class="demo-sample-thumb" onclick="loadSample('grounding')" title="Grounding issue" style="background:#0d1e35;border-color:rgba(201,162,39,0.4)">&#9889;</div>
+          <div class="demo-sample-thumb" onclick="loadSample('passed')" title="Clean install — PASS" style="background:#0d1e35;border-color:rgba(0,200,150,0.4)">&#9989;</div>
+        </div>
+      </div>
+
+      <button class="demo-scan-btn" id="scanBtn" disabled onclick="runLiveScan()">&#9889; SCAN WITH GEMINI AI</button>
+
+      <div class="demo-quota">
+        <span id="quotaTxt">3 FREE SCANS LEFT</span>
+        <div class="demo-quota-dots">
+          <div class="demo-quota-dot" id="qd0"></div>
+          <div class="demo-quota-dot" id="qd1"></div>
+          <div class="demo-quota-dot" id="qd2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Result panel -->
+    <div class="demo-result" id="resultPanel">
+      <div class="demo-result-topbar">
+        <span class="demo-result-appname">SONIC AI&#8209;PUNCH&#8482;</span>
+        <span id="resultBadge" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(136,153,187,0.5);letter-spacing:1px;">RESULT</span>
+      </div>
+      <div class="demo-result-body" id="resultBody">
+
+        <div class="demo-state active demo-idle" id="stateIdle">
+          <div class="demo-idle-icon">&#128269;</div>
+          <div class="demo-idle-text" id="idleTxt">UPLOAD A PHOTO<br>TO BEGIN AI SCAN</div>
+        </div>
+
+        <div class="demo-state" id="stateScanning">
+          <div class="demo-scanning-label" id="scanPhaseLabel">STEP 1 / 2 &middot; SCREENING</div>
+          <div class="demo-scan-progress"><div class="demo-scan-fill" id="scanFill"></div></div>
+          <div class="demo-scan-step" id="scanStepTxt">Initializing Gemini AI...</div>
+          <div class="demo-scan-visual">
+            <div class="demo-scan-bar"></div>
+            <div class="demo-scan-grid">
+              <div class="demo-scan-chip"><div class="demo-scan-chip-label">MODEL</div><div class="demo-scan-chip-val">GEMINI</div></div>
+              <div class="demo-scan-chip"><div class="demo-scan-chip-label">CODES</div><div class="demo-scan-chip-val">22+</div></div>
+              <div class="demo-scan-chip"><div class="demo-scan-chip-label">STANDARD</div><div class="demo-scan-chip-val">IEC</div></div>
+              <div class="demo-scan-chip"><div class="demo-scan-chip-label">STATUS</div><div class="demo-scan-chip-val" id="scanStatusChip">LIVE</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-state" id="stateFailed">
+          <div class="demo-res-status failed">
+            <span class="demo-res-icon">&#9888;&#65039;</span>
+            <div><div class="demo-res-label">FAILED</div><div class="demo-res-sub" id="failedSubTxt">defects detected</div></div>
+          </div>
+          <div id="defectList"></div>
+          <div class="demo-cta-strip">
+            <p id="ctaTxt">Get the full app to mark FIXED, export PDF, and sync to your project.</p>
+            <a href="#get-access" id="ctaBtn">Get Full Access &rarr;</a>
+          </div>
+        </div>
+
+        <div class="demo-state" id="statePassed">
+          <div class="demo-res-status passed">
+            <span class="demo-res-icon">&#9989;</span>
+            <div><div class="demo-res-label">PASSED</div><div class="demo-res-sub" id="passedSubTxt">No defects detected</div></div>
+          </div>
+          <div style="text-align:center;padding:20px 0 12px">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#00c896;letter-spacing:2px;margin-bottom:8px" id="passedMsg">Equipment meets E&amp;I standard</div>
+            <div style="font-size:32px">&#127919;</div>
+          </div>
+          <div class="demo-cta-strip">
+            <p id="ctaPassedTxt">Save to cloud, export PDF report, and build your audit trail.</p>
+            <a href="#get-access" id="ctaPassedBtn">Get Full Access &rarr;</a>
+          </div>
+        </div>
+
+        <div class="demo-state demo-oos" id="stateOOS">
+          <div class="demo-oos-icon">&#128301;</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:rgba(255,153,0,0.9);margin-bottom:8px" id="oosTitleTxt">OUT OF SCOPE</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(240,244,255,0.45);line-height:1.6;max-width:240px;text-align:center" id="oosSubTxt">Image doesn't appear to be industrial E&amp;I equipment. Try a terminal block, cable tray, or junction box.</div>
+        </div>
+
+        <div class="demo-state" id="stateError">
+          <div id="errorMsgTxt" style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(240,244,255,0.8);text-align:center;line-height:1.7;padding:0 4px 14px"></div>
+          <div id="errorEmailBox" style="display:none;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.25);border-radius:10px;padding:16px;text-align:center">
+            <div id="errorEmailLabel" style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:10px">LEAVE YOUR EMAIL — WE'LL REACH OUT</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+              <input id="errorEmailInput" type="email" placeholder="your@email.com"
+                style="flex:1;min-width:160px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.3);color:#f0f4ff;font-family:'Rajdhani',sans-serif;font-size:13px;padding:9px 12px;outline:none;border-radius:4px">
+              <button onclick="submitErrorEmail()" id="errorEmailBtn"
+                style="padding:9px 18px;background:var(--gold);color:#0a1628;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;border:none;cursor:pointer;border-radius:4px;white-space:nowrap">
+                Send &rarr;
+              </button>
+            </div>
+            <div id="errorEmailDone" style="display:none;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1.5px;margin-top:10px">&#10003; RECEIVED — WE'LL BE IN TOUCH</div>
+          </div>
+          <div id="errorFallbackCta" style="display:none;margin-top:12px;text-align:center">
+            <a href="#get-access" style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--gold);text-decoration:none;letter-spacing:1px" id="errorCtaLink">Contact SONIC E&amp;I &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-disclaimer reveal reveal-delay-2" id="disclaimerTxt">
+    LIVE GEMINI AI &middot; SAME ENGINE AS THE APP &middot; 3 FREE SCANS PER BROWSER &middot; NO SIGN-IN REQUIRED &middot; IMAGES NOT STORED
+  </div>
+</div>
+</section>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   SONIC AI-Punch™ — Live Web Demo JS
+   
+   HOW TO ACTIVATE:
+   1. Deploy supabase/functions/demo-scan/ (Edge Function code below)
+   2. Replace DEMO_CONFIG values with your real Supabase URL + anon key
+   3. Done — the demo will call real Gemini AI
+   
+   Until configured, the demo runs in MOCK mode (simulated results).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const DEMO_CONFIG = {
+  supabaseUrl: 'https://YOUR_PROJECT_REF.supabase.co',
+  anonKey:     'YOUR_ANON_KEY',
+  endpoint:    '/functions/v1/demo-scan',
+  maxScans:    3,
+  storageKey:  'aipunch_demo_v1',
+  // Set to true after deploying Edge Function
+  liveMode:    false,
+};
+
+const demoT = {
+  en: {
+    badge:'LIVE AI DEMO — NO APP NEEDED',
+    sub:'Upload any E&I equipment photo. Real Gemini AI — same engine as the app. <strong>3 free scans.</strong>',
+    uploadTitle:'DROP PHOTO HERE',
+    uploadSub:'or click to browse · JPEG / PNG · max 10MB',
+    samplesLabel:'or try a sample &rarr;',
+    scanBtn:'&#9889; SCAN WITH GEMINI AI',
+    scanBtnBusy:'&#128260; SCANNING...',
+    quotaLeft: n => n + ' FREE SCAN' + (n===1?'':'S') + ' LEFT',
+    quotaZero:'NO SCANS LEFT — SIGN UP FOR FULL ACCESS',
+    failedSub: n => n + ' defect' + (n===1?'':'s') + ' detected',
+    passedSub:'No defects detected',
+    passedMsg:'Equipment meets E&I standard',
+    ctaTxt:'Get the full app to mark FIXED, export PDF, and sync to your project.',
+    ctaBtn:'Get Full Access &rarr;',
+    ctaPassedTxt:'Save to cloud, export PDF report, and build your audit trail.',
+    ctaPassedBtn:'Get Full Access &rarr;',
+    oosTitleTxt:'OUT OF SCOPE',
+    oosSubTxt:"Image doesn't appear to be industrial E&I equipment. Try a terminal block, cable tray, or junction box.",
+    disclaimer:'LIVE GEMINI AI &middot; SAME ENGINE AS THE APP &middot; 3 FREE SCANS PER BROWSER &middot; NO SIGN-IN REQUIRED &middot; IMAGES NOT STORED',
+    idleTxt:'UPLOAD A PHOTO<br>TO BEGIN AI SCAN',
+    scanSteps:['Initializing Gemini AI...','Screening image...','Checking defect library...','Analyzing connections...','Classifying defect type...','Generating result...'],
+    quotaExTitle:'Demo Limit Reached',
+    quotaExSub:'Sign up for full access to keep scanning.',
+    errNetwork:'No network connection. Check your internet and try again.',
+    errGeneric:'Analysis failed. Try a clearer photo of E&I equipment.',
+    errBusy:'Our AI is currently serving many users. Please try again in a moment, or leave your email and we\'ll reach out.',
+    errBusyEmailLabel:'LEAVE YOUR EMAIL — WE\'LL REACH OUT',
+    errEmailBtn:'Send →',
+    errEmailDone:'✓ RECEIVED — WE\'LL BE IN TOUCH',
+  },
+  vi: {
+    badge:'DEMO AI TRỰC TIẾP — KHÔNG CẦN CÀI APP',
+    sub:'Tải lên ảnh thiết bị E&I. AI Gemini thật — cùng engine với app. <strong>3 lượt scan miễn phí.</strong>',
+    uploadTitle:'KÉO ẢNH VÀO ĐÂY',
+    uploadSub:'hoặc nhấn để chọn · JPEG / PNG · tối đa 10MB',
+    samplesLabel:'hoặc thử ảnh mẫu &rarr;',
+    scanBtn:'&#9889; SCAN BẰNG GEMINI AI',
+    scanBtnBusy:'&#128260; ĐANG PHÂN TÍCH...',
+    quotaLeft: n => 'CÒN ' + n + ' LƯỢT SCAN',
+    quotaZero:'HẾT LƯỢT — ĐĂNG KÝ ĐỂ TIẾP TỤC',
+    failedSub: n => 'Phát hiện ' + n + ' lỗi',
+    passedSub:'Không phát hiện lỗi',
+    passedMsg:'Thiết bị đạt chuẩn E&I',
+    ctaTxt:'Tải app đầy đủ để đánh dấu FIXED, xuất PDF và lưu vào dự án.',
+    ctaBtn:'Đăng Ký Truy Cập &rarr;',
+    ctaPassedTxt:'Lưu cloud, xuất báo cáo PDF và xây dựng audit trail.',
+    ctaPassedBtn:'Đăng Ký Truy Cập &rarr;',
+    oosTitleTxt:'NGOÀI PHẠM VI',
+    oosSubTxt:'Ảnh không phải thiết bị E&I công nghiệp. Thử ảnh tủ điện, hộp đấu dây hoặc máng cáp.',
+    disclaimer:'AI GEMINI TRỰC TIẾP &middot; CÙNG ENGINE VỚI APP &middot; 3 LƯỢT MIỄN PHÍ &middot; KHÔNG CẦN ĐĂNG KÝ &middot; KHÔNG LƯU ẢNH',
+    idleTxt:'TẢI ẢNH LÊN<br>ĐỂ BẮT ĐẦU SCAN AI',
+    scanSteps:['Khởi động Gemini AI...','Đang quét ảnh...','Tra cứu thư viện lỗi...','Phân tích kết nối...','Phân loại loại lỗi...','Tạo kết quả...'],
+    quotaExTitle:'Hết lượt demo',
+    quotaExSub:'Đăng ký để tiếp tục scan không giới hạn.',
+    errNetwork:'Không có mạng. Kiểm tra internet và thử lại.',
+    errGeneric:'Phân tích thất bại. Thử ảnh rõ hơn của thiết bị E&I.',
+    errBusy:'Hiện đang có nhiều người trải nghiệm phần mềm, bạn vui lòng thử lại sau, hoặc để lại email để chúng tôi liên hệ.',
+    errBusyEmailLabel:'ĐỂ LẠI EMAIL — CHÚNG TÔI SẼ LIÊN HỆ',
+    errEmailBtn:'Gửi →',
+    errEmailDone:'✓ ĐÃ NHẬN — CHÚNG TÔI SẼ LIÊN HỆ SỚM',
+  }
+};
+
+// Mock results for when liveMode = false
+const MOCK_RESULTS = {
+  crimping:  {status:'failed',  defects:[{code:'CRIMPING',name:'Crimp Terminal Defect',severity:'A',instruction:'Re-crimp with correct ferrule size. Perform pull test per IEC 60947-1 §8.2. Minimum 20N pull force required.'},{code:'MARKING_MISSING',name:'Missing Terminal Label',severity:'C',instruction:'Apply cable tag per P&ID reference. Use heat-shrink sleeve label, min 10mm width.'}]},
+  cable:     {status:'failed',  defects:[{code:'CABLE_TIE',name:'Cable Management Defect',severity:'B',instruction:'Install SS316 cable ties at max 300mm intervals. Ensure cables are not touching sharp edges.'},{code:'CABLE_GLAND',name:'Cable Gland Missing',severity:'A',instruction:'Install correct IP68-rated cable gland. Verify size matches cable OD. Torque to manufacturer spec.'}]},
+  grounding: {status:'failed',  defects:[{code:'GROUNDING',name:'Grounding Defect',severity:'A',instruction:'Replace with green/yellow insulated conductor per IEC 60364-5-54. Install crimped lug at both termination points. Verify continuity < 0.1Ω.'}]},
+  passed:    {status:'passed',  defects:[]},
+};
+
+// State
+let demoImg64 = null, demoMime = 'image/jpeg', demoSampleKey = null;
+let demoRunning = false;
+
+function getDemoUsed(){ try{return parseInt(localStorage.getItem(DEMO_CONFIG.storageKey)||'0',10);}catch{return 0;} }
+function incDemoUsed(){ try{localStorage.setItem(DEMO_CONFIG.storageKey, getDemoUsed()+1);}catch{} }
+function getDemoLeft(){ return Math.max(0, DEMO_CONFIG.maxScans - getDemoUsed()); }
+
+function updateQuota(){
+  const left = getDemoLeft(), used = getDemoUsed();
+  const t = demoT[currentLang]||demoT.en;
+  const el = document.getElementById('quotaTxt');
+  if(el) el.innerHTML = left>0 ? t.quotaLeft(left) : t.quotaZero;
+  for(let i=0;i<DEMO_CONFIG.maxScans;i++){
+    const d=document.getElementById('qd'+i);
+    if(!d) continue;
+    d.classList.toggle('used', i<used);
+  }
+  const btn=document.getElementById('scanBtn');
+  if(btn && left===0 && !demoImg64) btn.disabled=true;
+}
+
+function syncDemoLang(lang){
+  const t=demoT[lang]||demoT.en;
+  const map={demoBadgeTxt:'badge',demoSubTxt:'sub',uploadTitle:'uploadTitle',
+    uploadSub:'uploadSub',samplesLabel:'samplesLabel',
+    disclaimerTxt:'disclaimer',idleTxt:'idleTxt'};
+  Object.entries(map).forEach(([id,key])=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML=t[key]||'';
+  });
+  const btn=document.getElementById('scanBtn');
+  if(btn && !demoRunning) btn.innerHTML=t.scanBtn;
+  updateQuota();
+}
+
+// Intercept setLang
+const _sl=window.setLang; window.setLang=function(l){_sl(l);syncDemoLang(l);};
+
+// Upload / drop
+const dz=document.getElementById('dropZone');
+const fi=document.getElementById('fileInput');
+if(dz){ dz.addEventListener('click',e=>{if(e.target.id!=='changeBtn')fi.click();}); }
+if(fi){ fi.addEventListener('change',e=>{if(e.target.files[0])handleDemoFile(e.target.files[0]);}); }
+if(dz){
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');if(e.dataTransfer.files[0])handleDemoFile(e.dataTransfer.files[0]);});
+}
+
+function handleDemoFile(file){
+  if(!file.type.startsWith('image/')) return;
+  if(file.size>10*1024*1024){alert('Max 10MB.');return;}
+  demoSampleKey=null;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const[,b64]=ev.target.result.split(',');
+    demoImg64=b64; demoMime=file.type||'image/jpeg';
+    showPreview(ev.target.result);
+    if(getDemoLeft()>0) document.getElementById('scanBtn').disabled=false;
+    showDemoSt('stateIdle');
+  };
+  r.readAsDataURL(file);
+}
+
+function showPreview(src){
+  const p=document.getElementById('previewImg');
+  p.src=src; p.style.display='block';
+  document.getElementById('uploadPrompt').style.display='none';
+  document.getElementById('changeBtn').style.display='block';
+  document.getElementById('dropZone').classList.add('has-image');
+}
+
+function resetUpload(e){
+  if(e) e.stopPropagation();
+  demoImg64=null; demoSampleKey=null;
+  const p=document.getElementById('previewImg');
+  p.src=''; p.style.display='none';
+  document.getElementById('uploadPrompt').style.display='block';
+  document.getElementById('changeBtn').style.display='none';
+  document.getElementById('dropZone').classList.remove('has-image');
+  document.getElementById('fileInput').value='';
+  document.getElementById('scanBtn').disabled=true;
+  showDemoSt('stateIdle');
+}
+
+// Sample SVG images (programmatically drawn, represent real E&I scenarios)
+const SVGS={
+  crimping:`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#1a1a2e"/><rect x="60" y="40" width="280" height="30" rx="2" fill="#444" stroke="#666" stroke-width="1"/><g fill="#222" stroke="#555" stroke-width="1"><rect x="70" y="70" width="36" height="120" rx="2"/><rect x="116" y="70" width="36" height="120" rx="2"/><rect x="162" y="70" width="36" height="120" rx="2"/><rect x="208" y="70" width="36" height="120" rx="2"/><rect x="254" y="70" width="36" height="120" rx="2"/></g><g><circle cx="88" cy="90" r="7" fill="#777"/><circle cx="134" cy="90" r="7" fill="#777"/><circle cx="180" cy="90" r="7" fill="#777"/><circle cx="226" cy="90" r="7" fill="#777"/><circle cx="272" cy="90" r="7" fill="#777"/></g><g stroke-width="5" fill="none"><path d="M88,190 Q88,220 78,240" stroke="#e53935"/><path d="M134,190 Q134,220 130,240" stroke="#1e88e5"/><path d="M180,190 Q182,220 176,240" stroke="#43a047"/><path d="M226,190 Q228,220 232,240" stroke="#fb8c00"/><path d="M272,190 Q272,220 278,240" stroke="#8e24aa"/></g><g stroke="#e63946" fill="none" stroke-width="1.5"><path d="M83,174 Q76,164 70,160"/><path d="M86,174 Q83,162 81,157"/><path d="M88,174 Q88,162 91,157"/><path d="M92,174 Q97,164 103,160"/></g><circle cx="88" cy="172" r="13" stroke="#ff0000" stroke-width="2.5" fill="rgba(255,0,0,0.07)" stroke-dasharray="4,2"/><text x="200" y="280" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">TERMINAL BLOCK TB-01 · CRIMPING DEFECT</text></svg>`,
+  cable:`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#111"/><rect x="30" y="30" width="340" height="240" rx="3" fill="#1a1a1a" stroke="#333"/><rect x="30" y="30" width="12" height="240" fill="#2a2a2a"/><rect x="358" y="30" width="12" height="240" fill="#2a2a2a"/><line x1="30" y1="90" x2="370" y2="90" stroke="#2a2a2a" stroke-width="2"/><line x1="30" y1="160" x2="370" y2="160" stroke="#2a2a2a" stroke-width="2"/><line x1="30" y1="230" x2="370" y2="230" stroke="#2a2a2a" stroke-width="2"/><g stroke-width="7" fill="none"><path d="M42,55 L358,55" stroke="#1565c0"/><path d="M42,68 L358,68" stroke="#b71c1c"/><path d="M42,81 L358,81" stroke="#2e7d32"/><path d="M42,105 L200,105 Q215,105 220,115 L358,115" stroke="#e65100"/><path d="M42,125 L358,125" stroke="#4a148c"/><path d="M42,175 L358,175" stroke="#006064"/></g><path d="M180,75 Q195,90 210,75 Q225,60 240,75" stroke="#ff4444" stroke-width="3" fill="none"/><rect x="330" y="40" width="28" height="10" rx="1" fill="#e63946" opacity="0.8"/><circle cx="200" cy="78" r="20" stroke="#ff0000" stroke-width="2" fill="none" stroke-dasharray="5,3"/><circle cx="344" cy="45" r="16" stroke="#ff9500" stroke-width="2" fill="none" stroke-dasharray="4,2"/><text x="200" y="272" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">CABLE TRAY · MISSING TIE + GLAND</text></svg>`,
+  grounding:`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#0a1628"/><rect x="50" y="20" width="300" height="260" rx="4" fill="#0d1e35" stroke="#1e3a5f" stroke-width="2"/><rect x="80" y="200" width="240" height="14" rx="2" fill="#3a6b4a" stroke="#4a7b5a" stroke-width="1"/><text x="200" y="211" text-anchor="middle" font-family="monospace" font-size="8" fill="#5a9b6a">GROUND BUS BAR</text><path d="M120,200 L120,130 Q120,110 130,100 L175,70" stroke="#c8c820" stroke-width="5" fill="none"/><path d="M180,200 L180,150 Q180,130 192,118 L225,90" stroke="#111" stroke-width="5" fill="none" stroke-dasharray="10,3"/><circle cx="225" cy="88" r="12" fill="none" stroke="#ff0000" stroke-width="2.5"/><line x1="217" y1="80" x2="233" y2="96" stroke="#ff0000" stroke-width="2.5"/><line x1="233" y1="80" x2="217" y2="96" stroke="#ff0000" stroke-width="2.5"/><circle cx="180" cy="165" r="26" stroke="#ff9500" stroke-width="2" fill="rgba(255,149,0,0.05)" stroke-dasharray="6,3"/><g transform="translate(200,232)" stroke="#3a6b4a" stroke-width="2" fill="none"><line x1="0" y1="0" x2="0" y2="14"/><line x1="-16" y1="14" x2="16" y2="14"/><line x1="-10" y1="20" x2="10" y2="20"/><line x1="-5" y1="26" x2="5" y2="26"/></g><text x="200" y="282" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">GROUNDING ISSUE · WRONG COLOR · NO LUG</text></svg>`,
+  passed:`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#0a1a0a"/><rect x="40" y="20" width="320" height="260" rx="5" fill="#0d1e0d" stroke="#1a3a1a" stroke-width="2"/><rect x="80" y="60" width="240" height="180" rx="3" fill="#091209" stroke="#153015" stroke-width="1"/><g fill="#0f2a0f" stroke="#1e4a1e" stroke-width="1"><rect x="90" y="75" width="32" height="120" rx="2"/><rect x="132" y="75" width="32" height="120" rx="2"/><rect x="174" y="75" width="32" height="120" rx="2"/><rect x="216" y="75" width="32" height="120" rx="2"/><rect x="258" y="75" width="32" height="120" rx="2"/></g><g font-family="monospace" font-size="7" fill="#3a8a3a" text-anchor="middle"><text x="106" y="90">L1</text><text x="148" y="90">L2</text><text x="190" y="90">L3</text><text x="232" y="90">N</text><text x="274" y="90">PE</text></g><g stroke-width="5" fill="none"><path d="M106,195 L106,235 Q106,250 96,262" stroke="#e53935"/><path d="M148,195 L148,235 Q148,250 143,262" stroke="#1e88e5"/><path d="M190,195 L190,235 Q190,250 187,262" stroke="#43a047"/><path d="M232,195 L232,235 Q232,250 237,262" stroke="#fb8c00"/><path d="M274,195 L274,235 Q274,250 280,262" stroke="#8e24aa"/></g><g fill="#3a5a3a"><rect x="102" y="192" width="8" height="5" rx="1"/><rect x="144" y="192" width="8" height="5" rx="1"/><rect x="186" y="192" width="8" height="5" rx="1"/><rect x="228" y="192" width="8" height="5" rx="1"/><rect x="270" y="192" width="8" height="5" rx="1"/></g><g stroke="#4caf50" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="55,35 63,45 78,25"/><polyline points="322,35 330,45 345,25"/></g><text x="200" y="285" text-anchor="middle" font-family="monospace" font-size="10" fill="#2a5a2a">CLEAN INSTALL · IEC 60947 COMPLIANT · PASS</text></svg>`
+};
+
+function loadSample(key){
+  demoSampleKey=key;
+  const svg=SVGS[key]; if(!svg) return;
+  const b64=btoa(unescape(encodeURIComponent(svg)));
+  demoImg64=b64; demoMime='image/svg+xml';
+  showPreview('data:image/svg+xml;base64,'+b64);
+  if(getDemoLeft()>0) document.getElementById('scanBtn').disabled=false;
+  showDemoSt('stateIdle');
+}
+
+function showDemoSt(id){
+  ['stateIdle','stateScanning','stateFailed','statePassed','stateOOS','stateError']
+    .forEach(s=>{const el=document.getElementById(s);if(el)el.classList.toggle('active',s===id);});
+}
+
+let scanIv=null;
+function startScanProgress(lang){
+  const t=demoT[lang]||demoT.en;
+  const steps=t.scanSteps;
+  const fill=document.getElementById('scanFill');
+  const txt=document.getElementById('scanStepTxt');
+  const phase=document.getElementById('scanPhaseLabel');
+  let p=0;
+  if(fill) fill.style.width='3%';
+  if(txt) txt.textContent=steps[0]||'';
+  scanIv=setInterval(()=>{
+    p++; if(p>=steps.length){clearInterval(scanIv);return;}
+    const pct=Math.min(90, Math.round(p/steps.length*90));
+    if(fill) fill.style.width=pct+'%';
+    if(txt && steps[p]) txt.textContent=steps[p];
+    if(phase) phase.innerHTML=p<steps.length/2?'STEP 1 / 2 &middot; SCREENING':'STEP 2 / 2 &middot; CONFIRMING';
+  },800);
+}
+function stopScanProgress(){
+  if(scanIv) clearInterval(scanIv);
+  const f=document.getElementById('scanFill');
+  if(f) f.style.width='100%';
+}
+
+async function runLiveScan(){
+  if(!demoImg64||demoRunning) return;
+  const t=demoT[currentLang]||demoT.en;
+  if(getDemoLeft()<=0){
+    showDemoSt('stateError');
+    const e=document.getElementById('errorMsgTxt');
+    if(e) e.innerHTML='<strong>'+t.quotaExTitle+'</strong><br>'+t.quotaExSub;
+    return;
+  }
+  demoRunning=true;
+  const btn=document.getElementById('scanBtn');
+  if(btn){btn.disabled=true;btn.innerHTML=t.scanBtnBusy;}
+  showDemoSt('stateScanning');
+  startScanProgress(currentLang);
+
+  try{
+    let data;
+    if(DEMO_CONFIG.liveMode){
+      // Real API call
+      const res=await fetch(DEMO_CONFIG.supabaseUrl+DEMO_CONFIG.endpoint,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+DEMO_CONFIG.anonKey,'apikey':DEMO_CONFIG.anonKey},
+        body:JSON.stringify({image:demoImg64,mimeType:demoMime,lang:currentLang}),
+        signal:AbortSignal.timeout(45000)
+      });
+      // 429 = rate limit / AI quota, 503 = AI busy — show social proof message
+      if(res.status===429||res.status===503) throw new Error('busy_'+res.status);
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      data=await res.json();
+      // Edge function may return error field even on 200
+      if(data.error==='rate_limit'||data.error==='ai_quota') throw new Error('busy_quota');
+    } else {
+      // Mock mode — simulate network delay then return preset result
+      await new Promise(r=>setTimeout(r, 3000+Math.random()*2000));
+      data=demoSampleKey && MOCK_RESULTS[demoSampleKey]
+        ? MOCK_RESULTS[demoSampleKey]
+        : MOCK_RESULTS.crimping; // default mock for user-uploaded images
+    }
+
+    stopScanProgress();
+    incDemoUsed();
+    updateQuota();
+    renderDemoResult(data, t);
+
+  } catch(err){
+    stopScanProgress();
+    const msg = (err.message||'');
+    const isBusy = msg.includes('busy') || msg.includes('429') || msg.includes('503') || msg.includes('quota') || msg.includes('rate_limit');
+    const isNetwork = msg.includes('fetch') || msg.includes('network') || msg.includes('Failed');
+    showErrorState(isBusy ? 'busy' : isNetwork ? 'network' : 'generic', t);
+  } finally{
+    demoRunning=false;
+    const b=document.getElementById('scanBtn');
+    if(b){b.innerHTML=t.scanBtn;b.disabled=getDemoLeft()<=0;}
+  }
+}
+
+function showErrorState(type, t){
+  showDemoSt('stateError');
+  const msg   = document.getElementById('errorMsgTxt');
+  const box   = document.getElementById('errorEmailBox');
+  const label = document.getElementById('errorEmailLabel');
+  const cta   = document.getElementById('errorFallbackCta');
+  if(!msg) return;
+
+  if(type==='busy'){
+    // Social proof message + email capture
+    msg.innerHTML = '<span style="font-size:20px">&#128101;</span><br>' + (t.errBusy||t.errGeneric);
+    if(box){box.style.display='block';}
+    if(label && t.errBusyEmailLabel) label.textContent = t.errBusyEmailLabel;
+    if(cta) cta.style.display='none';
+  } else {
+    // Real error — simpler message + contact link
+    msg.textContent = type==='network' ? t.errNetwork : t.errGeneric;
+    if(box){box.style.display='none';}
+    if(cta){cta.style.display='block';}
+  }
+
+  // Sync email button label
+  const btn = document.getElementById('errorEmailBtn');
+  if(btn && t.errEmailBtn) btn.innerHTML = t.errEmailBtn;
+}
+
+// Also update syncDemoLang to re-sync error state if visible
+function submitErrorEmail(){
+  const input = document.getElementById('errorEmailInput');
+  const done  = document.getElementById('errorEmailDone');
+  const btn   = document.getElementById('errorEmailBtn');
+  if(!input || !input.value.trim().includes('@')) {
+    input.style.borderColor='#ff4444';
+    setTimeout(()=>input.style.borderColor='rgba(201,162,39,0.3)',1500);
+    return;
+  }
+  // Submit to lead form — reuse the same #get-access form endpoint
+  const email = input.value.trim();
+  if(btn) btn.disabled=true;
+  // Store in localStorage as a micro-lead
+  try{
+    const leads = JSON.parse(localStorage.getItem('aipunch_leads')||'[]');
+    leads.push({email, ts: new Date().toISOString(), src:'demo_busy'});
+    localStorage.setItem('aipunch_leads', JSON.stringify(leads));
+  }catch{}
+  // Scroll to form and pre-fill email
+  const emailField = document.getElementById('femail');
+  if(emailField){ emailField.value=email; }
+  // Show confirmation
+  if(done){ done.style.display='block'; }
+  if(input){ input.style.display='none'; }
+  if(btn){ btn.style.display='none'; }
+  // Auto-scroll to lead form after 1.5s
+  setTimeout(()=>{
+    const form = document.getElementById('get-access');
+    if(form) form.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 1500);
+}
+
+function renderDemoResult(data,t){
+  const status=data.status||'outOfScope';
+  if(status==='failed'){
+    const defects=Array.isArray(data.defects)?data.defects:[];
+    document.getElementById('failedSubTxt').textContent=t.failedSub(defects.length);
+    document.getElementById('ctaTxt').textContent=t.ctaTxt;
+    document.getElementById('ctaBtn').innerHTML=t.ctaBtn;
+    document.getElementById('defectList').innerHTML=defects.map(d=>`
+      <div class="demo-defect-card">
+        <div class="demo-defect-head">
+          <div class="demo-defect-dot"></div>
+          <div style="flex:1"><div class="demo-defect-code">${d.code||'—'}</div><div class="demo-defect-name">${d.name||'Defect'}</div></div>
+          <div class="demo-defect-sev ${d.severity||'B'}">${d.severity||'B'}</div>
+        </div>
+        <div class="demo-defect-body">${d.instruction||''}</div>
+      </div>`).join('');
+    showDemoSt('stateFailed');
+  } else if(status==='passed'){
+    document.getElementById('passedSubTxt').textContent=t.passedSub;
+    document.getElementById('passedMsg').textContent=t.passedMsg;
+    document.getElementById('ctaPassedTxt').textContent=t.ctaPassedTxt;
+    document.getElementById('ctaPassedBtn').innerHTML=t.ctaPassedBtn;
+    showDemoSt('statePassed');
+  } else {
+    document.getElementById('oosTitleTxt').textContent=t.oosTitleTxt;
+    document.getElementById('oosSubTxt').textContent=t.oosSubTxt;
+    showDemoSt('stateOOS');
+  }
+}
+
+// Init
+updateQuota();
+syncDemoLang(currentLang);
+</script>
 
 <!-- LEAD CAPTURE -->
 <section class="lead-section" id="get-access">
