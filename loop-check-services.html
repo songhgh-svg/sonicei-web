@@ -49,7 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 /* HERO */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
-.hero{min-height:80vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:120px clamp(16px,5vw,80px) 80px;position:relative;overflow:hidden;text-align:center}
+.hero{min-height:auto;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:100px clamp(16px,5vw,80px) 48px;position:relative;overflow:hidden;text-align:center}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(0,87,255,0.1) 0%,transparent 70%),linear-gradient(180deg,#0a1628 0%,#060f1e 100%)}
 .hero-bg::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.012) 2px,rgba(255,255,255,0.012) 4px);pointer-events:none}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.3);padding:7px 18px;margin-bottom:28px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;position:relative;z-index:1;opacity:0;animation:fadeUp .6s .2s forwards}
@@ -69,7 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .breadcrumb a{color:var(--gold);text-decoration:none}
 .breadcrumb a:hover{color:var(--gold-light)}
 /* SECTIONS */
-.section{padding:clamp(60px,7vw,100px) clamp(16px,5vw,80px)}
+.section{padding:clamp(40px,5vw,72px) clamp(16px,5vw,80px)}
 .section-inner{max-width:1100px;margin:0 auto}
 .section-label{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;opacity:.8;margin-bottom:12px}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4.5vw,58px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:14px}
@@ -118,6 +118,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
@@ -503,7 +504,7 @@ footer{background:linear-gradient(180deg,var(--navy-mid,#112040) 0%,#060f1e 100%
 function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open');}
 function closeMenu(){document.getElementById('hamburger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('open');}
 // Reveal
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}})},{threshold:.1});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}})},{threshold:0,rootMargin:'0px 0px -20px 0px'});setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible'));},800);
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}})});
