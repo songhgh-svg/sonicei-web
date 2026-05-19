@@ -1916,14 +1916,210 @@ window.addEventListener('load', function() {
     <div class="section-cta-inner">
       <div class="section-cta-text">
         <span class="section-cta-label">// SCOPE YOUR PROJECT</span>
-        <span class="section-cta-msg">Not sure which service fits? Book a 30-min technical call — we'll map the right scope for you.</span>
+        <span class="section-cta-msg">Not sure which service fits? Let's walk through your project scope together.</span>
       </div>
-      <a href="#contact" class="section-cta-btn">Book Technical Call →</a>
+      <a href="project-management.html" class="section-cta-btn">Discuss Your Project →</a>
     </div>
   </div>
 
 </section>
 
+
+<div class="section-sep"></div>
+
+<!-- ═══ PROJECT DELIVERY & MANAGEMENT ═══ -->
+<section id="project-delivery" style="background:linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%); padding: 80px 0;">
+  <style>
+    .pdm-wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(16px,5vw,60px); }
+    .pdm-header { text-align: center; margin-bottom: 56px; }
+    .pdm-intro { font-family:'Rajdhani',sans-serif; font-size:16px; color:var(--gray); max-width:640px; margin:16px auto 0; line-height:1.8; }
+    .pdm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 2px; }
+    @media(max-width:768px){ .pdm-grid { grid-template-columns: 1fr; } }
+    .pdm-card {
+      background: rgba(17,32,64,0.6);
+      border: 1px solid rgba(201,162,39,0.12);
+      padding: 36px 32px;
+      position: relative;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .pdm-card:hover {
+      border-color: rgba(201,162,39,0.35);
+      background: rgba(17,32,64,0.9);
+    }
+    .pdm-card-icon { font-size: 22px; margin-bottom: 14px; display:block; }
+    .pdm-card-title {
+      font-family:'Bebas Neue',sans-serif;
+      font-size: 20px;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .pdm-card-list { list-style: none; padding: 0; margin: 0; }
+    .pdm-card-list li {
+      font-family:'Rajdhani',sans-serif;
+      font-size: 14px;
+      color: rgba(240,244,255,0.75);
+      letter-spacing: 0.5px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(201,162,39,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pdm-card-list li:last-child { border-bottom: none; }
+    .pdm-card-list li::before { content:'—'; color:var(--gold); opacity:0.5; flex-shrink:0; margin-top:1px; }
+    .pdm-key-msg {
+      background: rgba(201,162,39,0.06);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-left: 3px solid var(--gold);
+      padding: 32px 40px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    @media(max-width:768px){ .pdm-key-msg { flex-direction:column; gap:20px; padding:24px 20px; } }
+    .pdm-key-msg-icon { font-size:36px; flex-shrink:0; }
+    .pdm-key-msg-text { }
+    .pdm-key-msg-label {
+      font-family:'Share Tech Mono',monospace;
+      font-size:11px;
+      letter-spacing:2px;
+      color:var(--gold);
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .pdm-key-msg-body {
+      font-family:'Rajdhani',sans-serif;
+      font-size:18px;
+      font-weight:700;
+      color:var(--white);
+      line-height:1.5;
+    }
+    .pdm-key-msg-body em {
+      color:var(--gold);
+      font-style:normal;
+    }
+    .pdm-cta-row {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      margin-top:44px;
+      flex-wrap:wrap;
+    }
+    .pdm-cta-primary {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:15px 38px;
+      background:var(--gold);
+      color:#0a1628;
+      font-family:'Rajdhani',sans-serif;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      text-decoration:none;
+      clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+      transition:background 0.2s, transform 0.2s;
+    }
+    .pdm-cta-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+    .pdm-cta-secondary {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:14px 32px;
+      background:transparent;
+      border:1.5px solid rgba(201,162,39,0.4);
+      color:var(--gold);
+      font-family:'Rajdhani',sans-serif;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      text-decoration:none;
+      clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+      transition:all 0.2s;
+    }
+    .pdm-cta-secondary:hover { border-color:var(--gold); background:rgba(201,162,39,0.08); }
+  </style>
+
+  <div class="pdm-wrap fade-in">
+
+    <!-- HEADER -->
+    <div class="pdm-header section-header">
+      <div class="section-label">// Full-Scope Delivery</div>
+      <h2 class="section-title">PROJECT DELIVERY <span class="gold">&amp;</span> MANAGEMENT</h2>
+      <p class="pdm-intro">Beyond execution, we support full project delivery — aligning schedule, cost, quality, and stakeholders to ensure successful outcomes.</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- 4-CARD GRID -->
+    <div class="pdm-grid">
+
+      <div class="pdm-card">
+        <span class="pdm-card-icon">📅</span>
+        <div class="pdm-card-title">Planning &amp; Scheduling</div>
+        <ul class="pdm-card-list">
+          <li>Project timeline development</li>
+          <li>Milestone tracking</li>
+          <li>Resource allocation</li>
+        </ul>
+      </div>
+
+      <div class="pdm-card">
+        <span class="pdm-card-icon">🤝</span>
+        <div class="pdm-card-title">Coordination</div>
+        <ul class="pdm-card-list">
+          <li>Contractor &amp; vendor management</li>
+          <li>Site activity synchronization</li>
+          <li>Interface management</li>
+        </ul>
+      </div>
+
+      <div class="pdm-card">
+        <span class="pdm-card-icon">📊</span>
+        <div class="pdm-card-title">Project Control</div>
+        <ul class="pdm-card-list">
+          <li>Progress tracking</li>
+          <li>Cost monitoring</li>
+          <li>Risk &amp; issue management</li>
+        </ul>
+      </div>
+
+      <div class="pdm-card">
+        <span class="pdm-card-icon">📑</span>
+        <div class="pdm-card-title">Reporting</div>
+        <ul class="pdm-card-list">
+          <li>Client reporting dashboards</li>
+          <li>Daily / weekly progress updates</li>
+          <li>Documentation management</li>
+        </ul>
+      </div>
+
+    </div><!-- /pdm-grid -->
+
+    <!-- KEY MESSAGE BANNER -->
+    <div class="pdm-key-msg">
+      <div class="pdm-key-msg-icon">🎯</div>
+      <div class="pdm-key-msg-text">
+        <div class="pdm-key-msg-label">// Extended Project Team</div>
+        <div class="pdm-key-msg-body">
+          Act as your <em>extended project team</em> — bridging engineering, construction, and commissioning
+          into <em>one seamless delivery pipeline</em>.
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA ROW -->
+    <div class="pdm-cta-row">
+      <a href="project-management.html" class="pdm-cta-primary">Discuss Your Project →</a>
+      <a href="#contact" class="pdm-cta-secondary">Contact Us</a>
+    </div>
+
+  </div>
+</section>
 
 <div class="section-sep"></div>
 <!-- SUPPLY -->
@@ -2740,8 +2936,8 @@ window.addEventListener('load', function() {
   </div>
   <div style="padding-top:14px;border-top:1px solid rgba(201,162,39,0.15);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:0.8px;color:rgba(136,153,187,0.75);text-align:center;line-height:2;width:100%;">
     <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
-    MST: 3502583632 &nbsp;·&nbsp; 65B Hàn Thuyên, Phường Rạch Dừa, TP. HCM, Việt Nam<br>
-    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
+    MST: 3502583632 &nbsp;·&nbsp; 65B, đường Hàn Thuyên, tổ 5, khu phố 18, Phường Rạch Dừa, Thành phố Hồ Chí Minh, Việt Nam<br>
+    Người đại diện: Hoàng Ngọc Sơn &nbsp;·&nbsp; Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
     &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
     <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
   </div>
