@@ -24,6 +24,14 @@
     <priority>0.95</priority>
   </url>
 
+
+  <url>
+    <loc>https://sonicei.com/project-delivery</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <url>
     <loc>https://sonicei.com/academy</loc>
     <lastmod>2026-05-19</lastmod>
