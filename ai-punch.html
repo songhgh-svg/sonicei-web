@@ -1125,13 +1125,12 @@ function vbPlayAI() {
    ═══════════════════════════════════════════════════════════════════════ */
 
 const DEMO_CONFIG = {
-  supabaseUrl: 'https://YOUR_PROJECT_REF.supabase.co',
-  anonKey:     'YOUR_ANON_KEY',
+  supabaseUrl: 'https://dvkyufhmsydremrvlhas.supabase.co',
+  anonKey:     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2a3l1Zmhtc3lkcmVtcnZsaGFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1MjcxODUsImV4cCI6MjA5MzEwMzE4NX0.6gjKHTMAegaB310hWjY3RE6SdDxuaxo5ncwBgHhO3xs',
   endpoint:    '/functions/v1/demo-scan',
   maxScans:    3,
   storageKey:  'aipunch_demo_v1',
-  // Set to true after deploying Edge Function
-  liveMode:    false,
+  liveMode:    true,
 };
 
 const demoT = {
