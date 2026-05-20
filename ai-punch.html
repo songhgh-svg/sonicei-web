@@ -1225,7 +1225,7 @@ function updateQuota(){
     d.classList.toggle('used', i<used);
   }
   const btn=document.getElementById('scanBtn');
-  if(btn && left===0 && !demoImg64) btn.disabled=true;
+  if(btn && !demoRunning) btn.disabled = (left<=0 || !demoImg64);
 }
 
 function syncDemoLang(lang){
@@ -1265,8 +1265,8 @@ function handleDemoFile(file){
     const[,b64]=ev.target.result.split(',');
     demoImg64=b64; demoMime=file.type||'image/jpeg';
     showPreview(ev.target.result);
-    if(getDemoLeft()>0) document.getElementById('scanBtn').disabled=false;
     showDemoSt('stateIdle');
+    updateQuota();
   };
   r.readAsDataURL(file);
 }
@@ -1288,8 +1288,9 @@ function resetUpload(e){
   document.getElementById('changeBtn').style.display='none';
   document.getElementById('dropZone').classList.remove('has-image');
   document.getElementById('fileInput').value='';
-  document.getElementById('scanBtn').disabled=true;
+  demoRunning=false;
   showDemoSt('stateIdle');
+  updateQuota();
 }
 
 // Sample SVG images (programmatically drawn, represent real E&I scenarios)
@@ -1306,8 +1307,8 @@ function loadSample(key){
   const b64=btoa(unescape(encodeURIComponent(svg)));
   demoImg64=b64; demoMime='image/svg+xml';
   showPreview('data:image/svg+xml;base64,'+b64);
-  if(getDemoLeft()>0) document.getElementById('scanBtn').disabled=false;
   showDemoSt('stateIdle');
+  updateQuota();
 }
 
 function showDemoSt(id){
@@ -1362,7 +1363,7 @@ async function runLiveScan(){
         method:'POST',
         headers:{'Content-Type':'application/json','Authorization':'Bearer '+DEMO_CONFIG.anonKey,'apikey':DEMO_CONFIG.anonKey},
         body:JSON.stringify({image:demoImg64,mimeType:demoMime,lang:currentLang}),
-        signal:AbortSignal.timeout(45000)
+        signal:(()=>{const c=new AbortController();setTimeout(()=>c.abort(),45000);return c.signal;})()
       });
       // 429 = rate limit / AI quota, 503 = AI busy — show social proof message
       if(res.status===429||res.status===503) throw new Error('busy_'+res.status);
@@ -1392,7 +1393,8 @@ async function runLiveScan(){
   } finally{
     demoRunning=false;
     const b=document.getElementById('scanBtn');
-    if(b){b.innerHTML=t.scanBtn;b.disabled=getDemoLeft()<=0;}
+    if(b){ b.innerHTML=t.scanBtn; }
+    updateQuota();
   }
 }
 
