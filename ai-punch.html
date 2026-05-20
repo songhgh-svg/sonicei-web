@@ -1210,8 +1210,17 @@ const MOCK_RESULTS = {
 let demoImg64 = null, demoMime = 'image/jpeg', demoSampleKey = null;
 let demoRunning = false;
 
-function getDemoUsed(){ try{return parseInt(localStorage.getItem(DEMO_CONFIG.storageKey)||'0',10);}catch{return 0;} }
-function incDemoUsed(){ try{localStorage.setItem(DEMO_CONFIG.storageKey, getDemoUsed()+1);}catch{} }
+// Quota lưu kèm ngày — tự reset sang ngày mới
+function _todayKey(){ return DEMO_CONFIG.storageKey + '_' + new Date().toISOString().slice(0,10); }
+function getDemoUsed(){
+  try{
+    localStorage.removeItem(DEMO_CONFIG.storageKey); // xóa key cũ không có date
+    return parseInt(localStorage.getItem(_todayKey())||'0',10);
+  }catch{return 0;}
+}
+function incDemoUsed(){
+  try{ localStorage.setItem(_todayKey(), getDemoUsed()+1); }catch{}
+}
 function getDemoLeft(){ return Math.max(0, DEMO_CONFIG.maxScans - getDemoUsed()); }
 
 function updateQuota(){
@@ -1550,6 +1559,10 @@ syncDemoLang(currentLang);
         <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
     MST: 3502583632 &nbsp;·&nbsp; 65B, đường Hàn Thuyên, tổ 5, khu phố 18, Phường Rạch Dừa, Thành phố Hồ Chí Minh, Việt Nam<br>
     Người đại diện: Hoàng Ngọc Sơn &nbsp;·&nbsp; Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
+    &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
+    <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span> SOLUTIONS</strong>
+    MST: 3502583632 &nbsp;·&nbsp; 65B Hàn Thuyên, Phường Rạch Dừa, TP. HCM, Việt Nam<br>
+    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
     &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
     <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
   </div>
