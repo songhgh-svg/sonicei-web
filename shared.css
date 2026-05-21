@@ -38,47 +38,93 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 0 16px;
-  height: 46px;
-  display: flex; align-items: center;
-  background: rgba(10,22,40,0.92);
+  height: 48px;
+  display: grid;
+  grid-template-columns: max-content 1fr auto;
+  align-items: center;
+  gap: 0;
+  background: rgba(10,22,40,0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201,162,39,0.2);
 }
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px; letter-spacing: 3px;
-  color: var(--gold); line-height: 1;
+/* Logo */
+.logo-wrap {
+  display: flex; align-items: center; gap: 8px;
   text-decoration: none;
+  grid-column: 1;
+  padding-right: 12px;
+}
+.logo-line {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-size: 10px; font-weight: 700; line-height: 1;
+  letter-spacing: 1px; color: var(--gold);
+  white-space: nowrap; text-transform: uppercase;
+}
+.logo-line-ei { color: var(--white); }
+/* Legacy .logo class (other pages) */
+.logo {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-size: 10px; letter-spacing: 1px;
+  color: var(--gold); line-height: 1;
+  text-decoration: none; white-space: nowrap;
 }
 .logo span { color: var(--white); }
+/* Nav links */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex: 1;
+  display: flex; align-items: center;
+  gap: 0; flex: unset;
   justify-content: center;
+  grid-column: 2;
+  overflow: hidden;   /* CRITICAL: ngăn content tràn ra cột auto (nav-right) */
+  min-width: 0;       /* CRITICAL: cho phép 1fr co lại đúng trong grid */
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--gray);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 14px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  transition: color 0.3s;
+  color: rgba(136,153,187,0.85);
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  transition: color 0.25s;
   white-space: nowrap;
-  padding: 0 10px;
+  padding: 0 6px;
 }
-.nav-links a:hover { color: var(--gold); }
-.nav-links a.profile-dl-btn { padding: 0; margin-right: 8px; }
-.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+/* Nav right */
+.nav-right {
+  display: flex; align-items: center;
+  gap: 8px; flex-shrink: 0;
+  grid-column: 3;
+}
+/* Profile button — ghost nhỏ */
+.profile-dl-btn {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif !important;
+  font-size: 10px !important; font-weight: 700 !important;
+  letter-spacing: 1px !important; text-transform: uppercase !important;
+  color: var(--navy) !important;
+  background: var(--gold) !important;
+  padding: 9px 14px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%) !important;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+  box-shadow: 0 0 14px rgba(201,162,39,0.25);
+}
+.profile-dl-btn:hover {
+  color: var(--navy) !important;
+  background: var(--gold-light) !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 22px rgba(201,162,39,0.5);
+}
+/* btn-gold chung */
 .btn-gold {
   display: inline-block;
   padding: 8px 18px;
   background: var(--gold);
   color: var(--navy);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 13px; font-weight: 700;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-size: 11px; font-weight: 700;
   letter-spacing: 1.5px; text-transform: uppercase;
   text-decoration: none;
   border: none; cursor: pointer;
@@ -87,20 +133,17 @@ nav {
   white-space: nowrap;
 }
 .btn-gold:hover { background: var(--gold-light); color: var(--navy); }
-
-.profile-dl-btn {
-  padding: 6px 16px !important;
-  background: var(--gold) !important;
-  color: var(--navy) !important;
-  font-size: 11px !important; font-weight: 700 !important;
-  letter-spacing: 2px !important; text-transform: uppercase !important;
-  border-radius: 1px;
-  text-decoration: none;
-  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  transition: background 0.2s;
-  white-space: nowrap;
+/* CTA nav button */
+.btn-gold.nav-cta-btn {
+  font-size: 10px !important;
+  letter-spacing: 1.5px !important;
+  padding: 9px 14px !important;
+  box-shadow: 0 0 14px rgba(201,162,39,0.35);
 }
-.profile-dl-btn:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+.btn-gold.nav-cta-btn:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 24px rgba(201,162,39,0.6);
+}
 
 /* ── HAMBURGER (mobile) ── */
 .hamburger {

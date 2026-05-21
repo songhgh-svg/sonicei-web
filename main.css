@@ -464,17 +464,21 @@
     text-transform: uppercase !important;
   }
 
-  /* ── Button text ── */
+  /* ── Button text (non-nav) ── */
   .btn-gold, .btn-outline, .btn-gold-pulse,
-  .profile-dl-btn, .scan-btn {
+  .scan-btn {
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     letter-spacing: 1px !important;
   }
+  /* profile-dl-btn stays Be Vietnam Pro (nav element, local woff2, no FOUT) */
 
   /* ── Nav links ── */
-  .nav-links a, .mobile-menu a {
+  /* NOTE: font kept as 'Be Vietnam Pro' (local woff2, no FOUT).
+     Rajdhani removed here — it loaded async and caused layout shift on refresh.
+     mobile-menu can still use Rajdhani since it's off-screen. */
+  .mobile-menu a {
     font-family: 'Rajdhani', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -482,69 +486,83 @@
   }
 
   /* ══════════════════════════════════════════
-     NAV OVERFLOW FIX
-     Nav có 9 items (Profile + 7 links + Blog)
-     + logo + CTA. Tổng ~1350-1450px → tràn
-     ở viewport trung bình nếu chỉ dùng 900px.
-     Fix: 3 tầng compression + sớm hamburger.
+     NAV OVERFLOW FIX — v2
+     Root cause của bug cũ:
+       1. main.css set flex logic (margin-left:auto, flex:1 1 0)
+          nhưng shared.css dùng display:grid 3 cột → flex props bị ignore
+          → nav-right đè lên logo khi grid không được tôn trọng
+       2. Rajdhani (async) được set lên nav-links a → FOUT
+          → khi font load xong chữ to hơn → layout shift / nav resize on refresh
+     Fix:
+       - KHÔNG override display hay flex/grid — để shared.css grid hoàn toàn kiểm soát
+       - Chỉ dùng Be Vietnam Pro (local woff2) trong nav — zero FOUT
+       - Chỉ điều chỉnh font-size / padding / letter-spacing qua media query
+       - Hamburger breakpoint giữ ở 820px (shared.css đã xử lý)
   ══════════════════════════════════════════ */
 
-  /* Base: logo không co, CTA không co, links lấp đầy khoảng giữa */
-  .nav-right {
-    flex-shrink: 0;
-    margin-left: auto;
-  }
+  /* Base nav: shared.css grid layout = source of truth.
+     Chỉ bổ sung những gì shared.css chưa có.
+
+     CRITICAL: .nav-links là cột 1fr → PHẢI có overflow:hidden + min-width:0
+     để không tràn ra cột auto (nav-right) khi nội dung quá rộng.
+     Đây là lý do "Talk to Engineer" che "Blog". */
   .nav-links {
-    flex: 1 1 0;
-    min-width: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
+    min-width: 0;
+  }
+  .nav-links a {
+    /* Be Vietnam Pro đã load từ local woff2 → zero FOUT */
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 5px;
+    white-space: nowrap;
+    flex-shrink: 0; /* link không bị bóp méo — grid/overflow xử lý clipping */
   }
 
-  /* Tầng 1: Thu nhỏ nhẹ từ 1500px */
-  @media (max-width: 1500px) {
+  /* Tầng 1: Nén nhẹ letter-spacing từ 1380px */
+  @media (max-width: 1380px) {
     .nav-links a {
-      padding: 0 7px !important;
-      font-size: 14px !important;
-      letter-spacing: 1px !important;
-    }
-    .nav-links a.profile-dl-btn {
-      padding: 5px 11px !important;
-      font-size: 13px !important;
-      letter-spacing: 1px !important;
-    }
-    .nav-cta-btn {
-      font-size: 10px !important;
-      padding: 7px 12px !important;
-      letter-spacing: 0.8px !important;
-    }
-  }
-
-  /* Tầng 2: Thu nhỏ mạnh từ 1280px */
-  @media (max-width: 1280px) {
-    .nav-links a {
-      padding: 0 5px !important;
-      font-size: 13px !important;
+      padding: 0 4px !important;
       letter-spacing: 0.3px !important;
     }
-    .logo-line {
-      font-size: 13px !important;
-      letter-spacing: 1px !important;
-    }
     .nav-cta-btn {
       font-size: 10px !important;
-      padding: 7px 10px !important;
+      padding: 8px 11px !important;
+      letter-spacing: 0.8px !important;
+    }
+    .profile-dl-btn {
+      padding: 4px 7px !important;
       letter-spacing: 0.5px !important;
     }
   }
 
-  /* Tầng 3: Ẩn CTA từ 1100px */
-  @media (max-width: 1100px) {
-    .nav-right { display: none !important; }
+  /* Tầng 2: Ẩn "⬇ Profile" button từ 1200px — giải phóng chỗ cho links */
+  @media (max-width: 1200px) {
+    .profile-dl-btn {
+      display: none !important;
+    }
+    .nav-links a {
+      padding: 0 4px !important;
+      font-size: 9.5px !important;
+      letter-spacing: 0.2px !important;
+    }
   }
 
-  /* Tầng 4: Chuyển sang hamburger từ 1020px */
+  /* Tầng 3: Ẩn toàn bộ nav-right (Profile + CTA) từ 1050px */
+  @media (max-width: 1050px) {
+    .nav-right { display: none !important; }
+    .nav-links a {
+      padding: 0 4px !important;
+      font-size: 9px !important;
+      letter-spacing: 0 !important;
+    }
+  }
+
+  /* Tầng 4: Hamburger từ 820px — shared.css đã xử lý,
+     giữ lại đây để đảm bảo specificity */
   @media (max-width: 820px) {
     .hamburger { display: flex !important; }
     .nav-links  { display: none !important; }
@@ -4777,10 +4795,12 @@
 }.logo-line {
   white-space: nowrap;
   color: var(--gold);
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  letter-spacing: 2px;
+  /* Be Vietnam Pro: local woff2, zero FOUT — consistent với shared.css */
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .logo-line-ei {
   color: var(--white);
