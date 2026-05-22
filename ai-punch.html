@@ -265,16 +265,59 @@ html[lang="vi"] h1, html[lang="vi"] h2, html[lang="vi"] h3,
 html[lang="vi"] .section-title, html[lang="vi"] .lead-title,
 html[lang="vi"] .hstat-num, html[lang="vi"] .feat-card-title,
 html[lang="vi"] .uc-card-title, html[lang="vi"] .step-title,
-html[lang="vi"] .hero h1, html[lang="vi"] .hero h1 span {
+html[lang="vi"] .hero h1, html[lang="vi"] .hero h1 span,
+html[lang="vi"] .feat-title, html[lang="vi"] .uc-title,
+html[lang="vi"] .ol-title, html[lang="vi"] .bb-text,
+html[lang="vi"] .how-big-label, html[lang="vi"] .how-big-num,
+html[lang="vi"] .lead-title, html[lang="vi"] .success-title,
+html[lang="vi"] .footer-logo, html[lang="vi"] .mock-status-label,
+html[lang="vi"] .demo-res-label, html[lang="vi"] .demo-upload-title,
+html[lang="vi"] .demo-result-appname, html[lang="vi"] .phone-appname,
+html[lang="vi"] .demo-scan-chip-val, html[lang="vi"] .vb-poster-title,
+html[lang="vi"] .step-num {
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-weight: 700 !important;
 }
 html[lang="vi"] .section-label, html[lang="vi"] .hero-badge,
 html[lang="vi"] .hstat-label, html[lang="vi"] .flow-step,
-html[lang="vi"] [style*="Share Tech Mono"] {
+html[lang="vi"] .feat-chip, html[lang="vi"] .demo-badge,
+html[lang="vi"] .demo-scanning-label, html[lang="vi"] .demo-quota,
+html[lang="vi"] .demo-idle-text, html[lang="vi"] .demo-samples-label,
+html[lang="vi"] .step-sub, html[lang="vi"] .bb-sub,
+html[lang="vi"] .built-attr, html[lang="vi"] .footer-motto,
+html[lang="vi"] .footer-copy, html[lang="vi"] .vb-topbar,
+html[lang="vi"] .vb-poster-sub, html[lang="vi"] .vb-caption,
+html[lang="vi"] .mock-status-sub, html[lang="vi"] .mock-defect-code,
+html[lang="vi"] .demo-scan-chip-label, html[lang="vi"] .demo-defect-code,
+html[lang="vi"] [style*="Share Tech Mono"],
+html[lang="vi"] [style*="Bebas Neue"] {
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-weight: 500 !important;
   letter-spacing: 1px !important;
+}
+html[lang="vi"] .built-quote {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+
+/* ══ VI SIZE FIXES — prevent text overflow for wider Vietnamese glyphs ══ */
+html[lang="vi"] .lead-title {
+  font-size: clamp(26px, 3.8vw, 52px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.5px !important;
+}
+html[lang="vi"] .section-title {
+  font-size: clamp(26px, 3.2vw, 48px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.5px !important;
+}
+html[lang="vi"] .how-big-label {
+  font-size: clamp(44px, 6.5vw, 88px) !important;
+  line-height: .9 !important;
+}
+html[lang="vi"] .how-big-num {
+  font-size: clamp(60px, 9vw, 120px) !important;
 }
 </style>
 </head>
@@ -289,13 +332,13 @@ html[lang="vi"] [style*="Share Tech Mono"] {
     </div>
   </a>
   <div class="nav-links">
-    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn">⬇ Profile</a>
-    <a href="/">Home</a>
-    <a href="/#services">Services</a>
-    <a href="/#about">About</a>
+    <a href="SONIC_E_I_Solutions_Profile_2026_NEW.pdf" download class="profile-dl-btn" data-i18n="nav_profile">⬇ Profile</a>
+    <a href="/" data-i18n="nav_home">Home</a>
+    <a href="/#services" data-i18n="nav_services">Services</a>
+    <a href="/#about" data-i18n="nav_about">About</a>
     <a href="/ai-punch" class="active">AI-Punch™</a>
-    <a href="#try-it" style="color:var(--green);border:1px solid rgba(0,200,150,0.35);padding:4px 12px;border-radius:3px;font-size:13px;letter-spacing:1px;transition:all .2s" onmouseover="this.style.background='rgba(0,200,150,0.1)'" onmouseout="this.style.background='transparent'">⚡ Try Live</a>
-    <a href="/#contact">Contact</a>
+    <a href="#try-it" style="color:var(--green);border:1px solid rgba(0,200,150,0.35);padding:4px 12px;border-radius:3px;font-size:13px;letter-spacing:1px;transition:all .2s" onmouseover="this.style.background='rgba(0,200,150,0.1)'" onmouseout="this.style.background='transparent'" data-i18n="nav_try">⚡ Try Live</a>
+    <a href="/#contact" data-i18n="nav_contact">Contact</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -303,11 +346,6 @@ html[lang="vi"] [style*="Share Tech Mono"] {
       <span class="lang-sep">|</span>
       <button class="lang-btn" id="btnVI" onclick="setLang('vi')">VI</button>
     </div>
-    <div id="sonic-lang-toggle" style="display:flex;align-items:center;gap:0;flex-shrink:0;margin-right:6px;">
-  <button id="sonic-lang-en" onclick="sonicSetLang('en')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#c9a227;padding:4px 6px;text-transform:uppercase;transition:color .2s;">EN</button>
-  <span style="color:rgba(136,153,187,0.3);font-size:11px;line-height:1;">|</span>
-  <button id="sonic-lang-vi" onclick="sonicSetLang('vi')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(136,153,187,0.85);padding:4px 6px;text-transform:uppercase;transition:color .2s;">VI</button>
-</div>
 <a href="#get-access" class="btn-gold nav-cta-btn" data-i18n="nav_cta">Get Access</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -315,12 +353,12 @@ html[lang="vi"] [style*="Share Tech Mono"] {
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/" onclick="closeMenu()">Home</a>
-  <a href="/#services" onclick="closeMenu()">Services</a>
-  <a href="/#about" onclick="closeMenu()">About</a>
+  <a href="/" onclick="closeMenu()" data-i18n="nav_home">Home</a>
+  <a href="/#services" onclick="closeMenu()" data-i18n="nav_services">Services</a>
+  <a href="/#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
   <a href="/ai-punch" onclick="closeMenu()">AI-Punch™</a>
-  <a href="#try-it" onclick="closeMenu()" style="color:var(--green);border-bottom-color:rgba(0,200,150,0.15)">⚡ Try It Live</a>
-  <a href="/#contact" onclick="closeMenu()">Contact</a>
+  <a href="#try-it" onclick="closeMenu()" style="color:var(--green);border-bottom-color:rgba(0,200,150,0.15)" data-i18n="nav_try_mobile">⚡ Try It Live</a>
+  <a href="/#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
   <a href="#get-access" class="btn-gold" onclick="closeMenu()" style="margin-top:20px;text-align:center;border-bottom:none" data-i18n="nav_cta">Get Access</a>
 </div>
 
@@ -346,17 +384,17 @@ html[lang="vi"] [style*="Share Tech Mono"] {
   </p>
 
   <div class="hero-flow">
-    <div class="flow-step">📸 Capture</div>
+    <div class="flow-step" data-i18n="flow1">📸 Capture</div>
     <span class="flow-arrow">→</span>
-    <div class="flow-step">🤖 Analyze</div>
+    <div class="flow-step" data-i18n="flow2">🤖 Analyze</div>
     <span class="flow-arrow">→</span>
-    <div class="flow-step">🏷️ Classify</div>
+    <div class="flow-step" data-i18n="flow3">🏷️ Classify</div>
     <span class="flow-arrow">→</span>
-    <div class="flow-step">✅ Verify</div>
+    <div class="flow-step" data-i18n="flow4">✅ Verify</div>
     <span class="flow-arrow">→</span>
-    <div class="flow-step">📄 Report</div>
+    <div class="flow-step" data-i18n="flow5">📄 Report</div>
     <span class="flow-arrow">→</span>
-    <div class="flow-step">☁️ Store</div>
+    <div class="flow-step" data-i18n="flow6">☁️ Store</div>
   </div>
 
   <div class="hero-cta">
@@ -367,19 +405,19 @@ html[lang="vi"] [style*="Share Tech Mono"] {
   <div class="hero-stats">
     <div class="hstat">
       <div class="hstat-num">22+</div>
-      <div class="hstat-label">Defect Codes</div>
+      <div class="hstat-label" data-i18n="stat1_label">Defect Codes</div>
     </div>
     <div class="hstat">
       <div class="hstat-num">&lt;10s</div>
-      <div class="hstat-label">Scan Time</div>
+      <div class="hstat-label" data-i18n="stat2_label">Scan Time</div>
     </div>
     <div class="hstat">
       <div class="hstat-num">IEC</div>
-      <div class="hstat-label">Standard Based</div>
+      <div class="hstat-label" data-i18n="stat3_label">Standard Based</div>
     </div>
     <div class="hstat">
       <div class="hstat-num">3</div>
-      <div class="hstat-label">Export Formats</div>
+      <div class="hstat-label" data-i18n="stat4_label">Export Formats</div>
     </div>
   </div>
 </section>
@@ -390,7 +428,7 @@ html[lang="vi"] [style*="Share Tech Mono"] {
 
     <div class="reveal how-header">
       <div class="how-big-num">6</div>
-      <div class="how-big-label">STEPS</div>
+      <div class="how-big-label" data-i18n="how_big_label">STEPS</div>
     </div>
 
     <div class="steps-list">
@@ -456,29 +494,29 @@ html[lang="vi"] [style*="Share Tech Mono"] {
 <!-- DEMO + VIDEO -->
 <section class="section" id="demo" style="background:linear-gradient(180deg,var(--navy) 0%,#060f1e 100%);padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px);">
   <div style="max-width:860px;margin:0 auto;text-align:center;padding:0 clamp(16px,5vw,60px);padding-bottom:48px;" class="reveal">
-    <div class="section-label">// Field-Driven QA/QC</div>
-    <h2 class="section-title" style="text-align:center;">AI-PUNCH™ — <span class="gold">CATCH DEFECTS AT THE POINT OF WORK</span></h2>
+    <div class="section-label" data-i18n="demo_label">// Field-Driven QA/QC</div>
+    <h2 class="section-title" style="text-align:center;" data-i18n="demo_title">AI-PUNCH™ — <span class="gold">CATCH DEFECTS AT THE POINT OF WORK</span></h2>
     <div class="divider" style="margin:16px auto 20px;"></div>
-    <p class="section-sub" style="margin:0 auto;">After 25+ years across Siemens and GE projects — the same pattern repeats in E&amp;I commissioning.</p>
+    <p class="section-sub" style="margin:0 auto;" data-i18n="demo_sub">After 25+ years across Siemens and GE projects — the same pattern repeats in E&amp;I commissioning.</p>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px;text-align:left;">
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">01 / FRAGMENTED TOOLS</div>
-        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">QA/QC is still managed through fragmented tools with limited auditability</p>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;" data-i18n="prob1_label">01 / FRAGMENTED TOOLS</div>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;" data-i18n="prob1_desc">QA/QC is still managed through fragmented tools with limited auditability</p>
       </div>
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">02 / LATE DETECTION</div>
-        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Defects are often identified at punch-out instead of during installation</p>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;" data-i18n="prob2_label">02 / LATE DETECTION</div>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;" data-i18n="prob2_desc">Defects are often identified at punch-out instead of during installation</p>
       </div>
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">03 / INCONSISTENT TRACKING</div>
-        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Status tracking across systems and teams is inconsistent</p>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;" data-i18n="prob3_label">03 / INCONSISTENT TRACKING</div>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;" data-i18n="prob3_desc">Status tracking across systems and teams is inconsistent</p>
       </div>
     </div>
 
     <div style="margin-top:24px;padding:20px 24px;background:rgba(201,162,39,0.07);border-left:3px solid rgba(201,162,39,0.6);text-align:left;">
-      <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">// SYSTEM DESIGN PRINCIPLE</div>
-      <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:rgba(240,244,255,0.85);line-height:1.7;">Defects are significantly easier to correct during construction than at handover. AI Punch shifts QA/QC to the point of work — where each termination, loop, and device can be checked, recorded, and verified before progressing.</p>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;" data-i18n="principle_label">// SYSTEM DESIGN PRINCIPLE</div>
+      <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:rgba(240,244,255,0.85);line-height:1.7;" data-i18n="principle_desc">Defects are significantly easier to correct during construction than at handover. AI Punch shifts QA/QC to the point of work — where each termination, loop, and device can be checked, recorded, and verified before progressing.</p>
     </div>
   </div>
 
@@ -539,23 +577,23 @@ html[lang="vi"] [style*="Share Tech Mono"] {
 
             <!-- Step 0: Capture -->
             <div id="demoStep0" style="padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span>TAKE PHOTO OR UPLOAD</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span><span id="ds0_label">TAKE PHOTO OR UPLOAD</span></div>
               <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;height:260px;cursor:pointer;background:rgba(0,87,255,0.08);display:flex;align-items:center;justify-content:center;" onclick="demoNext()">
                 <div style="text-align:center;">
                   <div style="font-size:48px;margin-bottom:8px;">📸</div>
-                  <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;background:rgba(10,22,40,0.8);padding:4px 14px;border-radius:20px;border:1px solid rgba(201,162,39,0.3);">📷 TAP TO CAPTURE</div>
+                  <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;background:rgba(10,22,40,0.8);padding:4px 14px;border-radius:20px;border:1px solid rgba(201,162,39,0.3);" id="ds0_tap">📷 TAP TO CAPTURE</div>
                 </div>
               </div>
-              <div style="font-size:9px;color:rgba(136,153,187,0.65);text-align:center;margin:7px 0 8px;letter-spacing:0.5px;">Capture wiring / component · IEC · Siemens · GE</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">⚡ START AI SCAN</button>
+              <div style="font-size:9px;color:rgba(136,153,187,0.65);text-align:center;margin:7px 0 8px;letter-spacing:0.5px;" id="ds0_hint">Capture wiring / component · IEC · Siemens · GE</div>
+              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds0_btn">⚡ START AI SCAN</button>
             </div>
 
             <!-- Step 1: Analyze -->
             <div id="demoStep1" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span>AI ANALYZES IMAGE</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span><span id="ds1_label">AI ANALYZES IMAGE</span></div>
               <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.25);position:relative;height:220px;background:#060f1e;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
                 <div id="scanStatusText" style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#60a5fa;letter-spacing:1.5px;text-align:center;padding:0 16px;">AI scanning image...</div>
-                <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;">Gemini AI · Processing</div>
+                <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;" id="ds1_sub">Gemini AI · Processing</div>
                 <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#60a5fa,transparent);animation:scanAnim 1.2s linear infinite;"></div>
                 <div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(8,16,40,0.85);border-radius:6px;padding:8px 10px;">
                   <div style="height:4px;background:rgba(96,165,250,0.12);border-radius:2px;overflow:hidden;margin-bottom:5px;"><div id="progressFill" style="height:100%;width:0%;background:#60a5fa;transition:width 0.08s;border-radius:2px;"></div></div>
@@ -566,54 +604,54 @@ html[lang="vi"] [style*="Share Tech Mono"] {
 
             <!-- Step 2: Classify / Error code -->
             <div id="demoStep2" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f87171;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span>GET ERROR CODE</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f87171;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span><span id="ds2_label">GET ERROR CODE</span></div>
               <div style="background:#151b2e;border-radius:12px;border:1px solid rgba(248,113,113,0.3);overflow:hidden;margin-bottom:10px;">
                 <div style="background:rgba(248,113,113,0.08);padding:10px 12px;display:flex;align-items:center;gap:8px;">
                   <div style="width:7px;height:7px;border-radius:50%;background:#f87171;flex-shrink:0;"></div>
                   <div>
                     <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#f87171;letter-spacing:1px;">CRIMPING · EI-001</div>
-                    <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff;">Crimp Terminal Defect</div>
+                    <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff;" id="ds2_defect_name">Crimp Terminal Defect</div>
                   </div>
                 </div>
-                <div style="padding:10px 12px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
+                <div style="padding:10px 12px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;" id="ds2_defect_inst">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
               </div>
-              <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">✓ FIXED — MARK AS RESOLVED</button>
+              <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds2_btn">✓ FIXED — MARK AS RESOLVED</button>
             </div>
 
             <!-- Step 3: Verify -->
             <div id="demoStep3" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#00e8aa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span>FIXED ✓ — AI CONFIRMED</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#00e8aa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span><span id="ds3_label">FIXED ✓ — AI CONFIRMED</span></div>
               <div style="border-radius:12px;border:1px solid rgba(0,232,170,0.3);background:#0d1e35;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;">
                 <div style="font-size:42px;">✅</div>
-                <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;">VERIFIED</div>
-                <div style="font-size:9px;color:rgba(0,232,170,0.6);letter-spacing:1px;">Correction confirmed by AI</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;" id="ds3_verified">VERIFIED</div>
+                <div style="font-size:9px;color:rgba(0,232,170,0.6);letter-spacing:1px;" id="ds3_confirmed">Correction confirmed by AI</div>
               </div>
-              <div style="margin-bottom:8px;padding:8px 12px;background:rgba(0,232,170,0.05);border:1px solid rgba(0,232,170,0.2);border-radius:8px;font-size:10px;color:#00e8aa;letter-spacing:0.5px;">✓ Technician resolved · AI re-scan confirmed</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">📄 GENERATE REPORT</button>
+              <div style="margin-bottom:8px;padding:8px 12px;background:rgba(0,232,170,0.05);border:1px solid rgba(0,232,170,0.2);border-radius:8px;font-size:10px;color:#00e8aa;letter-spacing:0.5px;" id="ds3_note">✓ Technician resolved · AI re-scan confirmed</div>
+              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds3_btn">📄 GENERATE REPORT</button>
             </div>
 
             <!-- Step 4: Report -->
             <div id="demoStep4" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span>REPORT SENT</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span><span id="ds4_label">REPORT SENT</span></div>
               <div style="background:#151b2e;border-radius:12px;border:1px solid rgba(201,162,39,0.2);padding:20px;margin-bottom:10px;text-align:center;">
                 <div style="font-size:36px;margin-bottom:10px;">📄</div>
                 <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#c9a227;margin-bottom:6px;">PUNCH_REPORT.PDF</div>
-                <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);">1 defect · 1 resolved · Photo evidence attached</div>
+                <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);" id="ds4_sub">1 defect · 1 resolved · Photo evidence attached</div>
               </div>
-              <div style="padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;margin-bottom:8px;">📧 PDF auto-sent · Photo proof included</div>
-              <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">☁ SAVE TO CLOUD</button>
+              <div style="padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;margin-bottom:8px;" id="ds4_note">📧 PDF auto-sent · Photo proof included</div>
+              <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds4_btn">☁ SAVE TO CLOUD</button>
             </div>
 
             <!-- Step 5: Store -->
             <div id="demoStep5" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span>SAVED TO CLOUD</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span><span id="ds5_label">SAVED TO CLOUD</span></div>
               <div style="background:#0d1e35;border-radius:12px;border:1px solid rgba(96,165,250,0.2);padding:20px;text-align:center;margin-bottom:10px;">
                 <div style="font-size:36px;margin-bottom:10px;">☁️</div>
-                <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#60a5fa;margin-bottom:4px;">AUDIT-READY</div>
-                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(96,165,250,0.6);">CLOUD · SEARCHABLE · TRACEABLE</div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#60a5fa;margin-bottom:4px;" id="ds5_title">AUDIT-READY</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(96,165,250,0.6);" id="ds5_sub">CLOUD · SEARCHABLE · TRACEABLE</div>
               </div>
-              <div style="padding:8px 12px;background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.25);border-radius:8px;font-size:10px;color:#00c896;margin-bottom:8px;text-align:center;letter-spacing:1px;">✅ INSPECTION COMPLETE · AUDIT-READY</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="resetDemo()">↩ RUN DEMO AGAIN</button>
+              <div style="padding:8px 12px;background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.25);border-radius:8px;font-size:10px;color:#00c896;margin-bottom:8px;text-align:center;letter-spacing:1px;" id="ds5_complete">✅ INSPECTION COMPLETE · AUDIT-READY</div>
+              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="resetDemo()" id="ds5_btn">↩ RUN DEMO AGAIN</button>
             </div>
 
           </div><!-- /ap-screen -->
@@ -624,12 +662,12 @@ html[lang="vi"] [style*="Share Tech Mono"] {
     <!-- Video -->
     <div style="display:flex;flex-direction:column;gap:24px;" class="reveal reveal-delay-2">
       <div class="vb-wrap">
-        <div class="vb-topbar"><span class="vb-dot"></span> WATCH: AI-PUNCH™ IN ACTION</div>
+        <div class="vb-topbar"><span class="vb-dot"></span> <span data-i18n="video_label">WATCH: AI-PUNCH™ IN ACTION</span></div>
         <div class="vb-stage" id="vb-aipunch">
           <div class="vb-stage-inner">
             <div class="vb-poster" id="vb-aipunch-poster">
               <div class="vb-poster-title">SONIC <span>AI</span></div>
-              <div class="vb-poster-sub">// Real field demo</div>
+              <div class="vb-poster-sub" id="vb_poster_sub">// Real field demo</div>
               <button class="vb-playbtn" onclick="vbPlayAI()" aria-label="Play video">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="6,2 20,11 6,20" fill="#c9a227"/></svg>
               </button>
@@ -639,30 +677,30 @@ html[lang="vi"] [style*="Share Tech Mono"] {
             </video>
           </div>
         </div>
-        <div class="vb-caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
+        <div class="vb-caption" data-i18n="video_caption">On-Time Handover · Zero Defects · Backed by Our Fee</div>
       </div>
 
       <!-- Proof bar below video -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);text-align:center;">
           <div style="font-size:22px;margin-bottom:6px;">📉</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);">Fewer</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;">Defects at punch-out</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);" data-i18n="proof1_title">Fewer</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;" data-i18n="proof1_sub">Defects at punch-out</div>
         </div>
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);text-align:center;">
           <div style="font-size:22px;margin-bottom:6px;">🔍</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);">Clear</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;">Traceability across records</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);" data-i18n="proof2_title">Clear</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;" data-i18n="proof2_sub">Traceability across records</div>
         </div>
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);text-align:center;">
           <div style="font-size:22px;margin-bottom:6px;">📅</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);">Predictable</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;">Commissioning &amp; handover</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);" data-i18n="proof3_title">Predictable</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;" data-i18n="proof3_sub">Commissioning &amp; handover</div>
         </div>
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);text-align:center;">
           <div style="font-size:22px;margin-bottom:6px;">🔧</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);">Internal</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;">Continuous development</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--white);" data-i18n="proof4_title">Internal</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-top:2px;" data-i18n="proof4_sub">Continuous development</div>
         </div>
       </div>
     </div>
@@ -679,7 +717,7 @@ function demoNext() {
   const el = document.getElementById('demoStep' + demoStep);
   el.style.display = 'block';
   el.style.animation = 'none'; el.offsetHeight; el.style.animation = '';
-  document.getElementById('demoStepBadge').textContent = 'STEP ' + (demoStep + 1) + ' / 6';
+  document.getElementById('demoStepBadge').textContent = (typeof currentLang!=='undefined'&&currentLang==='vi'?'BƯỚC ':'STEP ') + (demoStep + 1) + ' / 6';
   for (let i = 1; i <= 6; i++) {
     document.getElementById('sbar' + i).classList.toggle('active', i <= demoStep + 1);
   }
@@ -689,11 +727,14 @@ function resetDemo() {
   document.getElementById('demoStep' + demoStep).style.display = 'none';
   demoStep = 0;
   document.getElementById('demoStep0').style.display = 'block';
-  document.getElementById('demoStepBadge').textContent = 'STEP 1 / 6';
+  document.getElementById('demoStepBadge').textContent = (typeof currentLang!=='undefined'&&currentLang==='vi'?'BƯỚC ':'STEP ') + '1 / 6';
   for (let i = 1; i <= 6; i++) document.getElementById('sbar' + i).classList.toggle('active', i === 1);
 }
 function runScanAnimation() {
-  const steps = ['Initializing Gemini AI...','Cross-referencing defect library...','Analyzing terminal connections...','Checking IEC compliance...','Classifying defect type...','Done — 1 defect found'];
+  const isVI = typeof currentLang !== 'undefined' && currentLang === 'vi';
+  const steps = isVI
+    ? ['Khởi động Gemini AI...','Tra cứu thư viện lỗi...','Phân tích đầu nối...','Kiểm tra tiêu chuẩn IEC...','Phân loại loại lỗi...','Xong — phát hiện 1 lỗi']
+    : ['Initializing Gemini AI...','Cross-referencing defect library...','Analyzing terminal connections...','Checking IEC compliance...','Classifying defect type...','Done — 1 defect found'];
   let p = 0;
   const fill = document.getElementById('progressFill');
   const txt = document.getElementById('progressText');
@@ -731,12 +772,12 @@ function vbPlayAI() {
         <div class="feat-title" data-i18n="feat1_title">AI Defect Detection</div>
         <p class="feat-desc" data-i18n="feat1_desc">Gemini Vision AI detects crimping faults, loose terminals, cable tie violations, grounding issues, missing labels, and 17+ more E&amp;I defect types automatically.</p>
         <div class="feat-chips">
-          <span class="feat-chip">CRIMPING</span>
-          <span class="feat-chip">TERMINAL_LOOSE</span>
-          <span class="feat-chip">GROUNDING</span>
-          <span class="feat-chip">CABLE_GLAND</span>
-          <span class="feat-chip">MARKING_MISSING</span>
-          <span class="feat-chip">+17 MORE</span>
+          <span class="feat-chip" data-i18n="chip_crimping">CRIMPING</span>
+          <span class="feat-chip" data-i18n="chip_terminal">TERMINAL_LOOSE</span>
+          <span class="feat-chip" data-i18n="chip_grounding">GROUNDING</span>
+          <span class="feat-chip" data-i18n="chip_gland">CABLE_GLAND</span>
+          <span class="feat-chip" data-i18n="chip_marking">MARKING_MISSING</span>
+          <span class="feat-chip" data-i18n="chip_more">+17 MORE</span>
         </div>
       </div>
       <div class="feat-card reveal reveal-delay-2">
@@ -746,8 +787,8 @@ function vbPlayAI() {
         <div class="feat-chips">
           <span class="feat-chip">IEC 60079</span>
           <span class="feat-chip">IEC 60364</span>
-          <span class="feat-chip">SIEMENS REF</span>
-          <span class="feat-chip">GE REF</span>
+          <span class="feat-chip" data-i18n="chip_siemens">SIEMENS REF</span>
+          <span class="feat-chip" data-i18n="chip_ge">GE REF</span>
         </div>
       </div>
       <div class="feat-card reveal reveal-delay-1">
@@ -760,8 +801,8 @@ function vbPlayAI() {
         <div class="feat-title" data-i18n="feat4_title">Auto Report Distribution</div>
         <p class="feat-desc" data-i18n="feat4_desc">Automatically send punch list reports to QA engineers, PMs, and clients via email. Multi-recipient support and direct Zalo sharing for field teams.</p>
         <div class="feat-chips">
-          <span class="feat-chip">PDF REPORT</span>
-          <span class="feat-chip">EXCEL EXPORT</span>
+          <span class="feat-chip" data-i18n="chip_pdf">PDF REPORT</span>
+          <span class="feat-chip" data-i18n="chip_excel">EXCEL EXPORT</span>
           <span class="feat-chip">EMAIL</span>
           <span class="feat-chip">ZALO</span>
         </div>
@@ -776,9 +817,9 @@ function vbPlayAI() {
         <div class="feat-title" data-i18n="feat6_title">Offshore-Ready</div>
         <p class="feat-desc" data-i18n="feat6_desc">Designed for offshore rigs and remote power plants. Works with limited connectivity — queue inspections offline, sync when signal is restored.</p>
         <div class="feat-chips">
-          <span class="feat-chip">OFFSHORE READY</span>
-          <span class="feat-chip">LOW BANDWIDTH</span>
-          <span class="feat-chip">OFFLINE QUEUE</span>
+          <span class="feat-chip" data-i18n="chip_offshore">OFFSHORE READY</span>
+          <span class="feat-chip" data-i18n="chip_bandwidth">LOW BANDWIDTH</span>
+          <span class="feat-chip" data-i18n="chip_offline">OFFLINE QUEUE</span>
         </div>
       </div>
     </div>
@@ -795,23 +836,23 @@ function vbPlayAI() {
       <ul class="output-list">
         <li>
           <div class="ol-icon">📱</div>
-          <div><div class="ol-title">Native iOS &amp; Android App</div><div class="ol-desc">Fast Flutter app — works on any field phone</div></div>
+          <div><div class="ol-title" data-i18n="out1_title">Native iOS &amp; Android App</div><div class="ol-desc" data-i18n="out1_desc">Fast Flutter app — works on any field phone</div></div>
         </li>
         <li>
           <div class="ol-icon">📄</div>
-          <div><div class="ol-title">PDF Punch List Report</div><div class="ol-desc">Professional report with photos, codes, fix status, signatures</div></div>
+          <div><div class="ol-title" data-i18n="out2_title">PDF Punch List Report</div><div class="ol-desc" data-i18n="out2_desc">Professional report with photos, codes, fix status, signatures</div></div>
         </li>
         <li>
           <div class="ol-icon">📊</div>
-          <div><div class="ol-title">Excel / CSV Export</div><div class="ol-desc">Full inspection log for client handover packages</div></div>
+          <div><div class="ol-title" data-i18n="out3_title">Excel / CSV Export</div><div class="ol-desc" data-i18n="out3_desc">Full inspection log for client handover packages</div></div>
         </li>
         <li>
           <div class="ol-icon">🔗</div>
-          <div><div class="ol-title">Email &amp; Zalo Sharing</div><div class="ol-desc">One-tap share to managers, clients, and field teams</div></div>
+          <div><div class="ol-title" data-i18n="out4_title">Email &amp; Zalo Sharing</div><div class="ol-desc" data-i18n="out4_desc">One-tap share to managers, clients, and field teams</div></div>
         </li>
         <li>
           <div class="ol-icon">📈</div>
-          <div><div class="ol-title">Project Dashboard</div><div class="ol-desc">Defect trends, FIXED rate, technician performance tracking</div></div>
+          <div><div class="ol-title" data-i18n="out5_title">Project Dashboard</div><div class="ol-desc" data-i18n="out5_desc">Defect trends, FIXED rate, technician performance tracking</div></div>
         </li>
       </ul>
     </div>
@@ -822,14 +863,14 @@ function vbPlayAI() {
         <div class="phone-frame">
           <div class="phone-topbar">
             <span class="phone-appname">SONIC <span>AI-PUNCH™</span></span>
-            <span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray)">Result</span>
+            <span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray)" id="mock_result_label">Result</span>
           </div>
           <div class="phone-body">
             <div class="mock-status failed">
               <span class="mock-status-icon">⚠️</span>
               <div>
-                <div class="mock-status-label">FAILED</div>
-                <div class="mock-status-sub">2 defects detected</div>
+                <div class="mock-status-label" id="mock_failed_label">FAILED</div>
+                <div class="mock-status-sub" id="mock_defects_count">2 defects detected</div>
               </div>
             </div>
             <div class="mock-defect">
@@ -837,24 +878,24 @@ function vbPlayAI() {
                 <span class="mock-defect-dot"></span>
                 <div>
                   <div class="mock-defect-code">CRIMPING · EI-001</div>
-                  <div class="mock-defect-name">Crimp Terminal Defect</div>
+                  <div class="mock-defect-name" id="mock_defect1_name">Crimp Terminal Defect</div>
                 </div>
               </div>
-              <div class="mock-defect-body">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
+              <div class="mock-defect-body" id="mock_defect1_inst">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
             </div>
             <div class="mock-defect">
               <div class="mock-defect-head">
                 <span class="mock-defect-dot"></span>
                 <div>
                   <div class="mock-defect-code">MARKING_MISSING · EI-006</div>
-                  <div class="mock-defect-name">Missing Labels / Marking</div>
+                  <div class="mock-defect-name" id="mock_defect2_name">Missing Labels / Marking</div>
                 </div>
               </div>
-              <div class="mock-defect-body">Apply cable tag per P&amp;ID. Use heat-shrink label sleeve.</div>
+              <div class="mock-defect-body" id="mock_defect2_inst">Apply cable tag per P&amp;ID. Use heat-shrink label sleeve.</div>
             </div>
             <div class="mock-actions">
-              <div class="mock-btn green">✓ FIXED</div>
-              <div class="mock-btn blue">📧 Report</div>
+              <div class="mock-btn green" id="mock_btn_fixed">✓ FIXED</div>
+              <div class="mock-btn blue" id="mock_btn_report">📧 Report</div>
             </div>
           </div>
         </div>
@@ -896,26 +937,26 @@ function vbPlayAI() {
   <div class="built-inner">
     <div class="reveal">
       <div class="section-label" data-i18n="built_label">// The Engineering Behind It</div>
-      <p class="built-quote">"I built AI-Punch™ because I spent 25 years writing punch lists by hand on offshore rigs and power plants. Every defect I've seen — from Siemens Energy to GE Power — is in this system."</p>
-      <div class="built-attr">— Founder, SONIC E&I Solutions<br>25-yr E&I Veteran · Vũng Tàu, Vietnam</div>
+      <p class="built-quote" data-i18n="built_quote">"I built AI-Punch™ because I spent 25 years writing punch lists by hand on offshore rigs and power plants. Every defect I've seen — from Siemens Energy to GE Power — is in this system."</p>
+      <div class="built-attr" data-i18n="built_attr">— Founder, SONIC E&I Solutions<br>25-yr E&I Veteran · Vũng Tàu, Vietnam</div>
     </div>
     <div class="reveal reveal-delay-2">
       <div class="built-badges">
         <div class="built-badge">
           <span class="bb-icon">⚡</span>
-          <div><div class="bb-text">25 Years E&amp;I Field Experience</div><div class="bb-sub">Siemens Energy · GE Power · Offshore Vietnam</div></div>
+          <div><div class="bb-text" data-i18n="bb1_text">25 Years E&amp;I Field Experience</div><div class="bb-sub" data-i18n="bb1_sub">Siemens Energy · GE Power · Offshore Vietnam</div></div>
         </div>
         <div class="built-badge">
           <span class="bb-icon">🎯</span>
-          <div><div class="bb-text">Zero-Defect Commissioning Standard</div><div class="bb-sub">Contractual guarantee on every project</div></div>
+          <div><div class="bb-text" data-i18n="bb2_text">Zero-Defect Commissioning Standard</div><div class="bb-sub" data-i18n="bb2_sub">Contractual guarantee on every project</div></div>
         </div>
         <div class="built-badge">
           <span class="bb-icon">🤖</span>
-          <div><div class="bb-text">Gemini AI + IEC Standards</div><div class="bb-sub">22+ defect codes · IEC 60079 · IEC 60364</div></div>
+          <div><div class="bb-text" data-i18n="bb3_text">Gemini AI + IEC Standards</div><div class="bb-sub" data-i18n="bb3_sub">22+ defect codes · IEC 60079 · IEC 60364</div></div>
         </div>
         <div class="built-badge">
           <span class="bb-icon">🌏</span>
-          <div><div class="bb-text">Built for Southeast Asia</div><div class="bb-sub">Vietnamese field teams · Zalo · Offline mode</div></div>
+          <div><div class="bb-text" data-i18n="bb4_text">Built for Southeast Asia</div><div class="bb-sub" data-i18n="bb4_sub">Vietnamese field teams · Zalo · Offline mode</div></div>
         </div>
       </div>
     </div>
@@ -1005,7 +1046,7 @@ function vbPlayAI() {
 <div class="demo-wrap">
   <div class="demo-header reveal">
     <div class="demo-badge"><span class="demo-badge-dot"></span><span id="demoBadgeTxt">LIVE AI DEMO — NO APP NEEDED</span></div>
-    <h2 class="section-title" style="text-align:center">TRY <span class="gold">AI&#8209;PUNCH&#8482;</span> NOW</h2>
+    <h2 class="section-title" style="text-align:center" data-i18n="demo_try_title">TRY <span class="gold">AI&#8209;PUNCH&#8482;</span> NOW</h2>
     <div class="divider" style="margin:14px auto 16px"></div>
     <p class="section-sub" style="margin:0 auto;text-align:center" id="demoSubTxt">Upload any E&amp;I equipment photo. Real Gemini AI — same engine as the app. <strong>3 free scans.</strong></p>
   </div>
@@ -1202,7 +1243,7 @@ const demoT = {
     failedSub: n => 'Phát hiện ' + n + ' lỗi',
     passedSub:'Không phát hiện lỗi',
     passedMsg:'Thiết bị đạt chuẩn E&I',
-    ctaTxt:'Tải app đầy đủ để đánh dấu FIXED, xuất PDF và lưu vào dự án.',
+    ctaTxt:'Tải app đầy đủ để đánh dấu Đã Sửa, xuất PDF và lưu vào dự án.',
     ctaBtn:'Đăng Ký Truy Cập &rarr;',
     ctaPassedTxt:'Lưu cloud, xuất báo cáo PDF và xây dựng audit trail.',
     ctaPassedBtn:'Đăng Ký Truy Cập &rarr;',
@@ -1365,7 +1406,9 @@ function startScanProgress(lang){
     const pct=Math.min(90, Math.round(p/steps.length*90));
     if(fill) fill.style.width=pct+'%';
     if(txt && steps[p]) txt.textContent=steps[p];
-    if(phase) phase.innerHTML=p<steps.length/2?'STEP 1 / 2 &middot; SCREENING':'STEP 2 / 2 &middot; CONFIRMING';
+    if(phase) phase.innerHTML=p<steps.length/2
+      ? (currentLang==='vi'?'BƯỚC 1 / 2 &middot; SÀNG LỌC':'STEP 1 / 2 &middot; SCREENING')
+      : (currentLang==='vi'?'BƯỚC 2 / 2 &middot; XÁC NHẬN':'STEP 2 / 2 &middot; CONFIRMING');
   },800);
 }
 function stopScanProgress(){
@@ -1566,7 +1609,7 @@ syncDemoLang(typeof currentLang !== 'undefined' ? currentLang : (localStorage.ge
     <img src="SONICEI_LOGO.png" alt="SONIC E&I Solutions" width="56" height="56" loading="lazy" decoding="async" style="height:56px;width:auto;object-fit:contain;display:block;">
     <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#c9a227;white-space:nowrap;">SONIC <span style="color:#ffffff;">E&amp;I</span> SOLUTIONS</span>
   </div>
-  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-motto" id="footer_motto">"Right the first time — Every time"</div>
   <div class="footer-links">
     <a href="/services.html">Dịch Vụ / Services</a>
     <span class="footer-links-dot"></span>
@@ -1578,7 +1621,7 @@ syncDemoLang(typeof currentLang !== 'undefined' ? currentLang : (localStorage.ge
     <span class="footer-links-dot"></span>
     <a href="/ai-punch" class="active">AI-Punch™</a>
     <span class="footer-links-dot"></span>
-    <a href="/#contact">Contact</a>
+    <a href="/#contact">Liên Hệ / Contact</a>
   </div>
   <div style="padding-top:14px;border-top:1px solid rgba(201,162,39,0.15);font-family:'Be Vietnam Pro',sans-serif;font-size:11px;letter-spacing:0.8px;color:rgba(136,153,187,0.75);text-align:center;line-height:2;width:100%;">
         <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
@@ -1613,7 +1656,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function submitLead() {
   const name = document.getElementById('fname').value.trim();
   const email = document.getElementById('femail').value.trim();
-  if (!name || !email) { alert('Please fill in your name and email.'); return; }
+  if (!name || !email) { alert(currentLang==='vi' ? 'Vui lòng điền họ tên và email.' : 'Please fill in your name and email.'); return; }
   document.getElementById('leadForm').classList.add('hide');
   document.getElementById('leadSuccess').classList.add('show');
   // TODO: POST to Supabase or email handler
@@ -1622,6 +1665,47 @@ function submitLead() {
 // ── i18n ──
 const translations = {
   en: {
+    chip_crimping: 'CRIMPING', chip_terminal: 'TERMINAL_LOOSE',
+    chip_grounding: 'GROUNDING', chip_gland: 'CABLE_GLAND', chip_marking: 'MARKING_MISSING',
+    chip_siemens: 'SIEMENS REF', chip_ge: 'GE REF',
+    demo_try_title: 'TRY <span class="gold">AI&#8209;PUNCH&#8482;</span> NOW',
+    chip_more: '+17 MORE',
+    chip_pdf: 'PDF REPORT', chip_excel: 'EXCEL EXPORT',
+    chip_offshore: 'OFFSHORE READY', chip_bandwidth: 'LOW BANDWIDTH', chip_offline: 'OFFLINE QUEUE',
+    nav_profile: '⬇ Profile',
+    nav_home: 'Home', nav_services: 'Services', nav_about: 'About', nav_contact: 'Contact',
+    nav_try: '⚡ Try Live', nav_try_mobile: '⚡ Try It Live',
+    flow1: '📸 Capture', flow2: '🤖 Analyze', flow3: '🏷️ Classify',
+    flow4: '✅ Verify', flow5: '📄 Report', flow6: '☁️ Store',
+    hero_cta_try: '⚡ Try It Live — Free',
+    // demo stepper
+    ds0_label: 'TAKE PHOTO OR UPLOAD', ds0_tap: '📷 TAP TO CAPTURE',
+    ds0_hint: 'Capture wiring / component · IEC · Siemens · GE', ds0_btn: '⚡ START AI SCAN',
+    ds1_label: 'AI ANALYZES IMAGE', ds1_sub: 'Gemini AI · Processing',
+    ds2_label: 'GET ERROR CODE', ds2_defect_name: 'Crimp Terminal Defect',
+    ds2_defect_inst: 'Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.',
+    ds2_btn: '✓ FIXED — MARK AS RESOLVED',
+    ds3_label: 'FIXED ✓ — AI CONFIRMED', ds3_verified: 'VERIFIED',
+    ds3_confirmed: 'Correction confirmed by AI',
+    ds3_note: '✓ Technician resolved · AI re-scan confirmed', ds3_btn: '📄 GENERATE REPORT',
+    ds4_label: 'REPORT SENT',
+    ds4_sub: '1 defect · 1 resolved · Photo evidence attached',
+    ds4_note: '📧 PDF auto-sent · Photo proof included', ds4_btn: '☁ SAVE TO CLOUD',
+    ds5_label: 'SAVED TO CLOUD', ds5_title: 'AUDIT-READY',
+    ds5_sub: 'CLOUD · SEARCHABLE · TRACEABLE',
+    ds5_complete: '✅ INSPECTION COMPLETE · AUDIT-READY', ds5_btn: '↩ RUN DEMO AGAIN',
+    // static phone mockup
+    mock_result_label: 'Result', mock_failed_label: 'FAILED',
+    mock_defects_count: '2 defects detected',
+    mock_defect1_name: 'Crimp Terminal Defect',
+    mock_defect1_inst: 'Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.',
+    mock_defect2_name: 'Missing Labels / Marking',
+    mock_defect2_inst: 'Apply cable tag per P&ID. Use heat-shrink label sleeve.',
+    mock_btn_fixed: '✓ FIXED', mock_btn_report: '📧 Report',
+    // video poster
+    vb_poster_sub: '// Real field demo',
+    // footer
+    footer_motto: '"Right the first time — Every time"',
     nav_cta: 'Get Access',
     hero_badge: 'Powered by Gemini AI · Built for E&I Commissioning',
     hero_line1: 'SONIC E&I PRESENTS',
@@ -1679,10 +1763,71 @@ const translations = {
     f_submit: 'Request Access →',
     success_title: 'Request Received',
     success_sub: 'We\'ll reach out within 24 hours.<br>Meanwhile, explore <a href="/#services" style="color:var(--gold)">our commissioning services</a>.',
-    footer_motto: '// Zero Defects or Fee Reduction',
     footer_copy: '© 2026 SONIC E&I Solutions. All rights reserved.',
+    stat1_label: 'Defect Codes',
+    stat2_label: 'Scan Time',
+    stat3_label: 'Standard Based',
+    stat4_label: 'Export Formats',
+    how_big_label: 'STEPS',
+    demo_label: '// Field-Driven QA/QC',
+    demo_title: 'AI-PUNCH™ — <span class="gold">CATCH DEFECTS AT THE POINT OF WORK</span>',
+    demo_sub: 'After 25+ years across Siemens and GE projects — the same pattern repeats in E&I commissioning.',
+    prob1_label: '01 / FRAGMENTED TOOLS',
+    prob1_desc: 'QA/QC is still managed through fragmented tools with limited auditability',
+    prob2_label: '02 / LATE DETECTION',
+    prob2_desc: 'Defects are often identified at punch-out instead of during installation',
+    prob3_label: '03 / INCONSISTENT TRACKING',
+    prob3_desc: 'Status tracking across systems and teams is inconsistent',
+    principle_label: '// SYSTEM DESIGN PRINCIPLE',
+    principle_desc: 'Defects are significantly easier to correct during construction than at handover. AI Punch shifts QA/QC to the point of work — where each termination, loop, and device can be checked, recorded, and verified before progressing.',
+    video_label: 'WATCH: AI-PUNCH™ IN ACTION',
+    video_caption: 'On-Time Handover · Zero Defects · Backed by Our Fee',
+    proof1_title: 'Fewer', proof1_sub: 'Defects at punch-out',
+    proof2_title: 'Clear', proof2_sub: 'Traceability across records',
+    proof3_title: 'Predictable', proof3_sub: 'Commissioning & handover',
+    proof4_title: 'Internal', proof4_sub: 'Continuous development',
   },
   vi: {
+    chip_crimping: 'LỖI CRIMP', chip_terminal: 'ĐẦU CỐT LỎNG',
+    chip_grounding: 'NỐI ĐẤT', chip_gland: 'ĐẦU SIẾT CÁP', chip_marking: 'THIẾU NHÃN',
+    chip_siemens: 'THAM CHIẾU SIEMENS', chip_ge: 'THAM CHIẾU GE',
+    demo_try_title: 'THỬ NGAY <span class="gold">AI&#8209;PUNCH&#8482;</span>',
+    chip_more: '+17 LOẠI KHÁC',
+    chip_pdf: 'BÁO CÁO PDF', chip_excel: 'XUẤT EXCEL',
+    chip_offshore: 'SẴN SÀNG NGOÀI KHƠI', chip_bandwidth: 'BĂNG THÔNG THẤP', chip_offline: 'HÀNG ĐỢI OFFLINE',
+    nav_profile: '⬇ Hồ Sơ',
+    nav_home: 'Trang Chủ', nav_services: 'Dịch Vụ', nav_about: 'Giới Thiệu', nav_contact: 'Liên Hệ',
+    nav_try: '⚡ Dùng Thử', nav_try_mobile: '⚡ Dùng Thử Ngay',
+    flow1: '📸 Chụp Ảnh', flow2: '🤖 Phân Tích', flow3: '🏷️ Phân Loại',
+    flow4: '✅ Xác Nhận', flow5: '📄 Báo Cáo', flow6: '☁️ Lưu Trữ',
+    // demo stepper
+    ds0_label: 'CHỤP HOẶC TẢI ẢNH LÊN', ds0_tap: '📷 NHẤN ĐỂ CHỤP',
+    ds0_hint: 'Chụp đầu cốt / thiết bị · IEC · Siemens · GE', ds0_btn: '⚡ BẮT ĐẦU SCAN AI',
+    ds1_label: 'AI ĐANG PHÂN TÍCH ẢNH', ds1_sub: 'Gemini AI · Đang xử lý',
+    ds2_label: 'MÃ LỖI PHÁT HIỆN', ds2_defect_name: 'Lỗi Đầu Cốt Crimp',
+    ds2_defect_inst: 'Crimp lại với ferrule đúng cỡ. Kiểm tra bằng pull test theo IEC 60947-1.',
+    ds2_btn: '✓ ĐÃ SỬA — ĐÁNH DẤU HOÀN THÀNH',
+    ds3_label: 'ĐÃ SỬA ✓ — AI XÁC NHẬN', ds3_verified: 'XÁC NHẬN',
+    ds3_confirmed: 'AI đã xác nhận sửa xong',
+    ds3_note: '✓ Kỹ thuật viên đã sửa · AI re-scan xác nhận', ds3_btn: '📄 TẠO BÁO CÁO',
+    ds4_label: 'ĐÃ GỬI BÁO CÁO',
+    ds4_sub: '1 lỗi · 1 đã sửa · Kèm ảnh bằng chứng',
+    ds4_note: '📧 PDF tự động gửi · Kèm ảnh bằng chứng', ds4_btn: '☁ LƯU LÊN CLOUD',
+    ds5_label: 'ĐÃ LƯU LÊN CLOUD', ds5_title: 'SẴN SÀNG KIỂM TOÁN',
+    ds5_sub: 'CLOUD · TÌM KIẾM ĐƯỢC · CÓ THỂ TRUY XUẤT',
+    ds5_complete: '✅ KIỂM TRA HOÀN TẤT · SẴN SÀNG KIỂM TOÁN', ds5_btn: '↩ CHẠY LẠI DEMO',
+    // static phone mockup
+    mock_result_label: 'Kết Quả', mock_failed_label: 'THẤT BẠI',
+    mock_defects_count: 'Phát hiện 2 lỗi',
+    mock_defect1_name: 'Lỗi Đầu Cốt Crimp',
+    mock_defect1_inst: 'Crimp lại với ferrule đúng cỡ. Kiểm tra pull test theo IEC 60947-1.',
+    mock_defect2_name: 'Thiếu Nhãn / Ký Hiệu',
+    mock_defect2_inst: 'Gắn nhãn cáp theo P&ID. Dùng ống co nhiệt.',
+    mock_btn_fixed: '✓ ĐÃ SỬA', mock_btn_report: '📧 Báo Cáo',
+    // video poster
+    vb_poster_sub: '// Demo thực tế tại hiện trường',
+    // footer
+    footer_motto: '"Đúng ngay từ đầu — Mỗi lần đều vậy"',
     nav_cta: 'Đăng Ký',
     hero_badge: 'Hỗ trợ bởi Gemini AI · Xây dựng cho ngành E&I',
     hero_line1: 'SONIC E&I GIỚI THIỆU',
@@ -1690,6 +1835,7 @@ const translations = {
     hero_sub: 'Hệ thống punch list AI đầu tiên thế giới được xây dựng riêng cho <strong>nghiệm thu E&I</strong>. Chụp ảnh — nhận mã lỗi, hướng dẫn sửa chữa và báo cáo PDF đầy đủ trong vài giây.',
     hero_cta1: 'Đăng Ký Sớm',
     hero_cta2: 'Xem Cách Hoạt Động',
+    hero_cta_try: '⚡ Dùng Thử Miễn Phí',
     how_label: '// Cách Hoạt Động',
     step1_title: 'CHỤP ẢNH', step1_sub: 'ẢNH HOẶC TẢI LÊN TẠI HIỆN TRƯỜNG',
     step2_title: 'PHÂN TÍCH', step2_sub: 'GEMINI AI · <span>&lt;3 GIÂY</span>',
@@ -1704,7 +1850,7 @@ const translations = {
     feat2_title: 'Mã Lỗi Chuẩn IEC',
     feat2_desc: 'Mỗi lỗi được gắn mã chuẩn hóa theo IEC 60079, IEC 60364 và kinh nghiệm thực tế từ các dự án Siemens Energy và GE Power.',
     feat3_title: 'Dashboard & Lịch Sử',
-    feat3_desc: 'Theo dõi tất cả kiểm tra theo dự án, kỹ thuật viên và ngày. Xem xu hướng lỗi, tỷ lệ pass/fail và FIXED vs OPEN trong toàn chiến dịch.',
+    feat3_desc: 'Theo dõi tất cả kiểm tra theo dự án, kỹ thuật viên và ngày. Xem xu hướng lỗi, tỷ lệ pass/fail và Đã Sửa vs Chưa Sửa trong toàn chiến dịch.',
     feat4_title: 'Tự Động Gửi Báo Cáo',
     feat4_desc: 'Tự động gửi báo cáo punch list đến QA, PM và khách hàng qua email. Hỗ trợ nhiều người nhận và chia sẻ trực tiếp qua Zalo cho đội thợ.',
     feat5_title: 'Lưu Trữ Cloud An Toàn',
@@ -1717,12 +1863,12 @@ const translations = {
     out2_title: 'Báo Cáo PDF Punch List', out2_desc: 'Báo cáo chuyên nghiệp với ảnh, mã lỗi, trạng thái sửa, chữ ký',
     out3_title: 'Xuất Excel / CSV', out3_desc: 'Nhật ký kiểm tra đầy đủ cho bàn giao dự án',
     out4_title: 'Chia Sẻ Email & Zalo', out4_desc: 'Một chạm chia sẻ đến quản lý, khách hàng và đội thợ',
-    out5_title: 'Dashboard Dự Án', out5_desc: 'Xu hướng lỗi, tỷ lệ FIXED, theo dõi hiệu suất kỹ thuật viên',
+    out5_title: 'Dashboard Dự Án', out5_desc: 'Xu hướng lỗi, tỷ lệ đã sửa, theo dõi hiệu suất kỹ thuật viên',
     uc_label: '// Dành Cho Ai',
     uc_title: 'Xây Dựng Cho <span class="gold">Mọi Vai Trò</span>',
     uc1_title: 'Kỹ Thuật Viên Hiện Trường', uc1_desc: 'Thay thế danh sách giấy. Chụp, quét, sửa — tạo punch list chuẩn mà không cần chạm vào máy tính.',
     uc2_title: 'Kỹ Sư QA/QC', uc2_desc: 'Tầm nhìn tập trung vào tất cả punch item theo khu vực và bộ môn. Đóng item với bằng chứng ảnh và audit trail đầy đủ.',
-    uc3_title: 'Quản Lý Dự Án', uc3_desc: 'Dashboard thời gian thực — OPEN vs FIXED theo khu vực, bộ môn, kỹ thuật viên. Báo cáo PDF sẵn cho khách hàng theo yêu cầu.',
+    uc3_title: 'Quản Lý Dự Án', uc3_desc: 'Dashboard thời gian thực — Chưa Sửa vs Đã Sửa theo khu vực, bộ môn, kỹ thuật viên. Báo cáo PDF sẵn cho khách hàng theo yêu cầu.',
     built_label: '// Kỹ Thuật Đằng Sau',
     built_quote: '"Tôi xây dựng AI-Punch™ vì đã dành 25 năm viết punch list bằng tay trên giàn khoan và nhà máy điện. Mọi lỗi tôi từng thấy — từ Siemens Energy đến GE Power — đều có trong hệ thống này."',
     built_attr: '— Người Sáng Lập, SONIC E&I Solutions<br>25 năm kinh nghiệm E&I · Vũng Tàu, Việt Nam',
@@ -1740,8 +1886,37 @@ const translations = {
     f_submit: 'Đăng Ký Ngay →',
     success_title: 'Đã Nhận Yêu Cầu',
     success_sub: 'Chúng tôi sẽ liên hệ trong 24 giờ.<br>Trong thời gian chờ, xem thêm <a href="/#services" style="color:var(--gold)">dịch vụ của chúng tôi</a>.',
-    footer_motto: '// Zero Lỗi hoặc Giảm Phí Dịch Vụ',
     footer_copy: '© 2026 SONIC E&I Solutions. Bảo lưu mọi quyền.',
+    // hero stats
+    stat1_label: 'Mã Lỗi',
+    stat2_label: 'Thời Gian Scan',
+    stat3_label: 'Theo Chuẩn IEC',
+    stat4_label: 'Định Dạng Xuất',
+    // how it works header
+    how_big_label: 'BƯỚC',
+    // demo / QA/QC section
+    demo_label: '// QA/QC Thực Địa',
+    demo_title: 'AI-PUNCH™ — <span class="gold">PHÁT HIỆN LỖI NGAY TẠI ĐIỂM THI CÔNG</span>',
+    demo_sub: 'Sau 25+ năm qua các dự án Siemens và GE — cùng một vấn đề lặp đi lặp lại trong nghiệm thu E&I.',
+    prob1_label: '01 / CÔNG CỤ PHÂN TÁN',
+    prob1_desc: 'QA/QC vẫn được quản lý qua các công cụ rời rạc với khả năng kiểm toán hạn chế',
+    prob2_label: '02 / PHÁT HIỆN TRỄ',
+    prob2_desc: 'Lỗi thường chỉ được phát hiện khi nghiệm thu thay vì trong quá trình lắp đặt',
+    prob3_label: '03 / THEO DÕI KHÔNG NHẤT QUÁN',
+    prob3_desc: 'Trạng thái xử lý giữa các hệ thống và đội nhóm không nhất quán',
+    principle_label: '// NGUYÊN TẮC THIẾT KẾ HỆ THỐNG',
+    principle_desc: 'Lỗi dễ sửa hơn nhiều trong quá trình thi công so với khi bàn giao. AI Punch chuyển QA/QC về điểm thi công — nơi mỗi đầu cốt, vòng lặp và thiết bị có thể được kiểm tra, ghi nhận và xác nhận trước khi tiến tiếp.',
+    // video + proof bar
+    video_label: 'XEM: AI-PUNCH™ HOẠT ĐỘNG THỰC TẾ',
+    video_caption: 'Bàn Giao Đúng Hạn · Zero Lỗi · Bảo Đảm Bằng Phí Dịch Vụ',
+    proof1_title: 'Ít Hơn',
+    proof1_sub: 'Lỗi phát hiện lúc nghiệm thu',
+    proof2_title: 'Rõ Ràng',
+    proof2_sub: 'Truy xuất nguồn gốc hồ sơ',
+    proof3_title: 'Có Thể Dự Đoán',
+    proof3_sub: 'Nghiệm thu & bàn giao',
+    proof4_title: 'Nội Bộ',
+    proof4_sub: 'Phát triển liên tục',
   }
 };
 
@@ -1768,6 +1943,52 @@ function setLang(lang) {
   // Form placeholders
   const ph = { fname: t.f_name_ph, femail: t.f_email_ph, fcompany: t.f_company_ph };
   Object.entries(ph).forEach(([id, val]) => { const el = document.getElementById(id); if (el) el.placeholder = val; });
+
+  // ID-based elements (demo stepper, mockup, footer, etc.)
+  const idMap = [
+    'ds0_label','ds0_tap','ds0_hint','ds0_btn',
+    'ds1_label','ds1_sub',
+    'ds2_label','ds2_defect_name','ds2_defect_inst','ds2_btn',
+    'ds3_label','ds3_verified','ds3_confirmed','ds3_note','ds3_btn',
+    'ds4_label','ds4_sub','ds4_note','ds4_btn',
+    'ds5_label','ds5_title','ds5_sub','ds5_complete','ds5_btn',
+    'mock_result_label','mock_failed_label','mock_defects_count',
+    'mock_defect1_name','mock_defect1_inst','mock_defect2_name','mock_defect2_inst',
+    'mock_btn_fixed','mock_btn_report',
+    'vb_poster_sub','footer_motto',
+  ];
+  idMap.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.innerHTML = t[id];
+  });
+
+  // Patch inline Bebas Neue / Share Tech Mono for VI
+  if (lang === 'vi') {
+    document.querySelectorAll('[style]').forEach(el => {
+      const s = el.getAttribute('style') || '';
+      if (s.indexOf('Bebas Neue') !== -1) {
+        el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
+        el.style.fontWeight = '700';
+        el.setAttribute('data-orig-font', 'bebas');
+      }
+      if (s.indexOf('Share Tech Mono') !== -1) {
+        el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
+        el.style.fontWeight = '500';
+        el.setAttribute('data-orig-font', 'mono');
+      }
+    });
+  } else {
+    document.querySelectorAll('[data-orig-font="bebas"]').forEach(el => {
+      el.style.fontFamily = "'Bebas Neue', sans-serif";
+      el.style.fontWeight = '';
+      el.removeAttribute('data-orig-font');
+    });
+    document.querySelectorAll('[data-orig-font="mono"]').forEach(el => {
+      el.style.fontFamily = "'Share Tech Mono', monospace";
+      el.style.fontWeight = '';
+      el.removeAttribute('data-orig-font');
+    });
+  }
 }
 
 // Init on load
@@ -1780,126 +2001,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 </script>
 
-<!-- ══ LANG TOGGLE BUTTONS ══ -->
-<script id="sonic-i18n">
-(function(){
-  var VI = {
-  "nav_cta": "Đăng Ký Truy Cập",
-  "hero_badge": "Powered by Gemini AI &nbsp;·&nbsp; Xây dựng cho Nghiệm Thu E&amp;I",
-  "hero_line1": "SONIC E&amp;I GIỚI THIỆU",
-  "hero_line4": "NỀN TẢNG QA / QC",
-  "hero_sub": "Hệ thống AI punch list đầu tiên trên thế giới được xây dựng chuyên biệt cho <strong>nghiệm thu E&amp;I</strong>. Chụp ảnh, nhận mã lỗi, hướng dẫn khắc phục và báo cáo PDF đầy đủ trong vài giây.",
-  "hero_cta_try": "⚡ Dùng Thử Miễn Phí",
-  "hero_cta1": "Đăng Ký Truy Cập Sớm",
-  "step1_title": "CHỤP ẢNH",
-  "step1_sub": "CHỤP HOẶC TẢI LÊN TẠI HIỆN TRƯỜNG",
-  "step2_title": "PHÂN TÍCH",
-  "step2_sub": "GEMINI AI &nbsp;·&nbsp; <span>&lt;3 GIÂY</span>",
-  "step3_title": "PHÂN LOẠI",
-  "step3_sub": "LOẠI LỖI &nbsp;·&nbsp; VỊ TRÍ &nbsp;·&nbsp; MỨC ĐỘ",
-  "step4_title": "XÁC NHẬN ✓",
-  "step4_sub": "<span>AI XÁC NHẬN VIỆC KHẮC PHỤC</span>",
-  "step5_title": "BÁO CÁO",
-  "step5_sub": "PDF TỰ ĐỘNG GỬI &nbsp;·&nbsp; KÈM ẢNH MINH CHỨNG",
-  "step6_title": "LƯU TRỮ",
-  "step6_sub": "CLOUD &nbsp;·&nbsp; TÌM KIẾM ĐƯỢC &nbsp;·&nbsp; SẴN SÀNG KIỂM TOÁN",
-  "feat_label": "// Tính Năng",
-  "feat_title": "Được Xây Dựng Cho <span class=\"gold\">Thực Địa</span>",
-  "feat1_title": "Phát Hiện Lỗi Bằng AI",
-  "feat1_desc": "Gemini Vision AI tự động phát hiện lỗi crimping, đầu cốt lỏng, vi phạm buộc cáp, vấn đề tiếp địa, thiếu nhãn và hơn 17 loại lỗi E&amp;I khác.",
-  "feat2_title": "Mã Lỗi Theo Chuẩn IEC",
-  "feat2_desc": "Mỗi lỗi được gắn mã chuẩn hóa theo IEC 60079, IEC 60364 và thực tiễn tốt nhất từ các dự án Siemens Energy và GE Power.",
-  "feat3_title": "Dashboard &amp; Lịch Sử",
-  "feat3_desc": "Theo dõi toàn bộ kiểm tra theo dự án, kỹ thuật viên và ngày. Xem xu hướng lỗi, tỷ lệ pass/fail và hạng mục ĐÃ XỬ LÝ/CÒN MỞ trên toàn bộ chiến dịch nghiệm thu.",
-  "feat4_title": "Tự Động Phân Phối Báo Cáo",
-  "feat4_desc": "Tự động gửi báo cáo punch list đến kỹ sư QA, PM và khách hàng qua email. Hỗ trợ nhiều người nhận và chia sẻ trực tiếp qua Zalo cho đội hiện trường.",
-  "feat5_title": "Lưu Trữ Cloud Bảo Mật",
-  "feat5_desc": "Toàn bộ dữ liệu được lưu trữ an toàn trên Supabase cloud. Nhật ký kiểm toán đầy đủ với xác thực kỹ thuật viên, hồ sơ có dấu thời gian và ảnh trước/sau cho từng lỗi.",
-  "feat6_title": "Sẵn Sàng Cho Offshore",
-  "feat6_desc": "Được thiết kế cho giàn offshore và nhà máy điện ở vùng hẻo lánh. Hoạt động với kết nối hạn chế: xếp hàng kiểm tra offline, đồng bộ khi có tín hiệu.",
-  "out_label": "// Xem Trước Ứng Dụng",
-  "out_title": "Những Gì Bạn <span class=\"gold\">Nhận Được</span>",
-  "uc_label": "// Dành Cho Ai",
-  "uc_title": "Xây Dựng Cho <span class=\"gold\">Mọi Vai Trò</span>",
-  "uc1_title": "Kỹ Thuật Viên Hiện Trường",
-  "uc1_desc": "Thay thế danh sách kiểm tra giấy. Chụp, quét, khắc phục. Tạo punch list đạt chuẩn mà không cần chạm vào máy tính.",
-  "uc2_title": "Kỹ Sư QA/QC",
-  "uc2_desc": "Nắm bắt tập trung toàn bộ punch item theo khu vực và hạng mục. Đóng hạng mục với bằng chứng ảnh và nhật ký kiểm toán đầy đủ.",
-  "uc3_title": "Quản Lý Dự Án",
-  "uc3_desc": "Dashboard thời gian thực: CÒN MỞ vs ĐÃ XỬ LÝ theo khu vực, hạng mục, kỹ thuật viên. Báo cáo PDF sẵn sàng gửi khách hàng theo yêu cầu.",
-  "built_label": "// Nền Tảng Kỹ Thuật",
-  "lead_label": "// Đăng Ký Truy Cập Sớm",
-  "lead_title": "Đăng Ký <span class=\"gold\">AI-Punch™</span><br>Cho Dự Án Của Bạn",
-  "lead_sub": "Hiện đang trong giai đoạn triển khai có kiểm soát. Để lại thông tin và chúng tôi sẽ liên hệ trong vòng 24 giờ để trao đổi về nhu cầu dự án của bạn.",
-  "f_name": "Họ và Tên",
-  "f_email": "Email",
-  "f_company": "Công Ty / Dự Án",
-  "f_note": "✦ Không cam kết. Chúng tôi sẽ liên hệ để trao đổi về sự phù hợp.",
-  "f_submit": "Đăng Ký Truy Cập →",
-  "success_title": "Đã Tiếp Nhận",
-  "success_sub": "Chúng tôi sẽ liên hệ trong vòng 24 giờ."
-};
-
-  var lang = 'en';
-
-  function applyLang(l) {
-    lang = l;
-    localStorage.setItem('sonic_lang', l);
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k = el.getAttribute('data-i18n');
-      if (l === 'vi' && VI[k] !== undefined) {
-        el.innerHTML = VI[k];
-      }
-    });
-    var btnEN = document.getElementById('sonic-lang-en');
-    var btnVI = document.getElementById('sonic-lang-vi');
-    if (btnEN) {
-      btnEN.style.color      = l==='en' ? '#c9a227' : 'rgba(136,153,187,0.85)';
-      btnEN.style.fontWeight = l==='en' ? '700' : '400';
-    }
-    if (btnVI) {
-      btnVI.style.color      = l==='vi' ? '#c9a227' : 'rgba(136,153,187,0.85)';
-      btnVI.style.fontWeight = l==='vi' ? '700' : '400';
-    }
-    document.documentElement.lang = l;
-
-    /* Patch inline Bebas Neue / Share Tech Mono khi VI */
-    if(l === 'vi'){
-      document.querySelectorAll('[style]').forEach(function(el){
-        var s = el.getAttribute('style') || '';
-        if(s.indexOf('Bebas Neue') !== -1){
-          el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
-          el.style.fontWeight = '700';
-          el.setAttribute('data-orig-font','bebas');
-        }
-        if(s.indexOf('Share Tech Mono') !== -1){
-          el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
-          el.style.fontWeight = '500';
-          el.setAttribute('data-orig-font','mono');
-        }
-      });
-    } else {
-      document.querySelectorAll('[data-orig-font="bebas"]').forEach(function(el){
-        el.style.fontFamily = "'Bebas Neue', sans-serif";
-        el.style.fontWeight = '';
-        el.removeAttribute('data-orig-font');
-      });
-      document.querySelectorAll('[data-orig-font="mono"]').forEach(function(el){
-        el.style.fontFamily = "'Share Tech Mono', monospace";
-        el.style.fontWeight = '';
-        el.removeAttribute('data-orig-font');
-      });
-    }
-  }
-
-  window.sonicSetLang = applyLang;
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function(){ applyLang(lang); });
-  } else {
-    applyLang(lang);
-  }
-})();
-</script>
 </body>
 </html>
