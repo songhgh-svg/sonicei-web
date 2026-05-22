@@ -12,6 +12,16 @@
   src: url('/assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2');
   font-weight: 500 800; font-style: normal; font-display: swap;
 }
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('/assets/fonts/be-vietnam-pro-v12-latin-600.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('/assets/fonts/be-vietnam-pro-v12-latin-700.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
 
 /*
  * ═══════════════════════════════════════════════════════
@@ -952,4 +962,53 @@ body {
 
 @media (max-width: 480px) {
   .footer-links-dot { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   VI FONT OVERRIDE
+   Khi html[lang="vi"] — giữ Be Vietnam Pro cho tất cả
+   (file này không dùng Bebas/Rajdhani nên chỉ cần
+   đảm bảo weight và letter-spacing phù hợp tiếng Việt)
+   ══════════════════════════════════════════════════════════ */
+
+html[lang="vi"] h1,
+html[lang="vi"] h2,
+html[lang="vi"] h3,
+html[lang="vi"] .acad-hero h1,
+html[lang="vi"] .courses-header h2,
+html[lang="vi"] .why-title,
+html[lang="vi"] .course-title,
+html[lang="vi"] .format-title span,
+html[lang="vi"] .enroll-section h2,
+html[lang="vi"] .payment-header h2,
+html[lang="vi"] .faq-q span,
+html[lang="vi"] .instructor-name,
+html[lang="vi"] .acad-footer-logo-text {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}
+
+html[lang="vi"] .acad-hero-label,
+html[lang="vi"] .instructor-label,
+html[lang="vi"] .audience-label,
+html[lang="vi"] .course-num,
+html[lang="vi"] .course-meta-label,
+html[lang="vi"] .format-detail,
+html[lang="vi"] .pay-label,
+html[lang="vi"] .acad-footer-motto {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Đảm bảo các nút và link đọc đúng tiếng Việt */
+html[lang="vi"] .acad-nav-back,
+html[lang="vi"] .acad-nav-cta,
+html[lang="vi"] .acad-hero-cta,
+html[lang="vi"] .course-btn,
+html[lang="vi"] .aud-tab,
+html[lang="vi"] .lang-btn {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 600 !important;
 }

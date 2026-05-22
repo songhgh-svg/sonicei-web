@@ -9,13 +9,15 @@
 <link rel="icon" type="image/png" href="SONICEI_LOGO.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=optional"></noscript>
 <style>
 @font-face{font-family:'Bebas Neue Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:92%;descent-override:24%;line-gap-override:0%;size-adjust:76%}
 @font-face{font-family:'Rajdhani Fallback';src:local('Arial'),local('Helvetica');size-adjust:104%;ascent-override:100%}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-regular.woff2') format('woff2')}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-700.woff2') format('woff2')}
 :root{--navy:#0a1628;--navy-mid:#112040;--gold:#c9a227;--gold-light:#e8c347;--white:#f0f4ff;--gray:#8899bb;--accent:#1a4a8a;--green:#00c896;--red:#ff4444;--blue:#0057ff}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -28,13 +30,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .logo-line{white-space:nowrap;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:18px;letter-spacing:2px}
 .logo-line-ei{color:var(--white)}
 .nav-links{display:flex;align-items:center;flex:1;justify-content:center;gap:0}
-.nav-links a{text-decoration:none;color:var(--gray);font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;padding:0 10px;white-space:nowrap}
+.nav-links a{text-decoration:none;color:var(--gray);font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;padding:0 10px;white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.btn-gold{display:inline-block;padding:8px 18px;background:var(--gold);color:var(--navy);font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .2s;white-space:nowrap}
+.btn-gold{display:inline-block;padding:8px 18px;background:var(--gold);color:var(--navy);font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .2s;white-space:nowrap}
 .btn-gold:hover{background:var(--gold-light)}
 .lang-toggle{display:flex;align-items:center;gap:0;flex-shrink:0}
-.lang-btn{background:none;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);padding:4px 7px;transition:color .2s;text-transform:uppercase}
+.lang-btn{background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);padding:4px 7px;transition:color .2s;text-transform:uppercase}
 .lang-btn.active{color:var(--gold)}
 .lang-btn:hover{color:var(--gold)}
 .lang-sep{color:rgba(136,153,187,0.3);font-size:11px;line-height:1}
@@ -63,16 +65,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .hero h1 .line2{display:block;font-size:clamp(68px,9.5vw,130px);color:var(--white);letter-spacing:2px;text-shadow:0 0 60px rgba(0,87,255,0.3);line-height:.9}
 .hero h1 .line3{display:block;font-size:clamp(68px,9.5vw,130px);color:var(--gold);letter-spacing:2px;text-shadow:0 0 60px rgba(201,162,39,0.5),0 0 20px rgba(201,162,39,0.3);line-height:.9}
 .hero h1 .line4{display:block;font-size:clamp(18px,2.5vw,36px);color:var(--gray);letter-spacing:8px;margin-top:12px}
-.hero-sub{font-family:'Rajdhani',sans-serif;font-size:clamp(15px,1.8vw,20px);font-weight:500;color:rgba(240,244,255,0.65);letter-spacing:.5px;max-width:620px;margin:28px auto 0;line-height:1.75;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(15px,1.8vw,20px);font-weight:500;color:rgba(240,244,255,0.65);letter-spacing:.5px;max-width:620px;margin:28px auto 0;line-height:1.75;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .7s forwards}
 .hero-sub strong{color:var(--white);font-weight:700}
 .hero-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;margin:36px auto 0;max-width:720px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s .9s forwards;gap:0}
 .flow-step{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 16px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--white);white-space:nowrap}
 .flow-arrow{font-size:18px;color:var(--gold);padding:0 2px;opacity:.6;flex-shrink:0}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:40px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s 1.1s forwards}
-.btn-primary{padding:16px 40px;background:var(--gold);color:var(--navy);font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);box-shadow:0 0 30px rgba(201,162,39,0.35);transition:all .3s;position:relative;overflow:hidden;display:inline-block}
+.btn-primary{padding:16px 40px;background:var(--gold);color:var(--navy);font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);box-shadow:0 0 30px rgba(201,162,39,0.35);transition:all .3s;position:relative;overflow:hidden;display:inline-block}
 .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transform:translateX(-100%);animation:shimmer 2.8s ease-in-out infinite 2s}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-ghost{padding:15px 36px;background:transparent;color:var(--white);font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;border:1px solid rgba(240,244,255,0.25);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .3s;display:inline-block}
+.btn-ghost{padding:15px 36px;background:transparent;color:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;border:1px solid rgba(240,244,255,0.25);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .3s;display:inline-block}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 .hero-stats{display:flex;gap:0;justify-content:center;margin-top:48px;position:relative;z-index:1;border-top:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.15);padding:24px 0;opacity:0;animation:fadeUp .8s 1.3s forwards}
 .hstat{flex:1;max-width:180px;text-align:center;padding:0 clamp(12px,3vw,40px);border-right:1px solid rgba(201,162,39,0.15)}
@@ -86,7 +88,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .section-label{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;opacity:.8;margin-bottom:12px}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.5vw,60px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:16px}
 .section-title .gold{color:var(--gold)}
-.section-sub{font-family:'Rajdhani',sans-serif;font-size:clamp(14px,1.6vw,17px);font-weight:500;color:rgba(240,244,255,0.6);line-height:1.75;max-width:580px}
+.section-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(14px,1.6vw,17px);font-weight:500;color:rgba(240,244,255,0.6);line-height:1.75;max-width:580px}
 .divider{width:60px;height:2px;background:linear-gradient(to right,var(--gold),transparent);margin:16px 0 24px}
 
 /* HOW IT WORKS — 6 STEPS */
@@ -152,7 +154,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .feat-card.highlight{border-color:rgba(0,87,255,0.3);background:rgba(0,87,255,0.04)}
 .feat-icon{font-size:30px;margin-bottom:14px}
 .feat-title{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:2px;color:var(--white);margin-bottom:10px}
-.feat-desc{font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(240,244,255,0.55);line-height:1.7}
+.feat-desc{font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:rgba(240,244,255,0.55);line-height:1.7}
 .feat-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .feat-chip{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--gold);background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.2);padding:3px 9px}
 @media(max-width:768px){.feat-grid{grid-template-columns:1fr}}
@@ -174,15 +176,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .mock-status-label{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px}
 .mock-status.failed .mock-status-label{color:#ff4444}
 .mock-status.passed .mock-status-label{color:#00c896}
-.mock-status-sub{font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.5)}
+.mock-status-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.5)}
 .mock-defect{background:#151b2e;border-radius:10px;border:1px solid rgba(255,68,68,0.2);margin-bottom:7px;overflow:hidden}
 .mock-defect-head{background:rgba(255,68,68,0.08);padding:9px 11px;display:flex;align-items:center;gap:7px}
 .mock-defect-dot{width:6px;height:6px;border-radius:50%;background:#ff4444;flex-shrink:0}
 .mock-defect-code{font-family:'Share Tech Mono',monospace;font-size:8px;color:#ff4444;letter-spacing:1px}
-.mock-defect-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:var(--white)}
-.mock-defect-body{padding:9px 11px;font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5}
+.mock-defect-name{font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:var(--white)}
+.mock-defect-body{padding:9px 11px;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5}
 .mock-actions{display:flex;gap:7px;margin-top:10px}
-.mock-btn{flex:1;padding:9px 4px;border-radius:8px;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;text-align:center}
+.mock-btn{flex:1;padding:9px 4px;border-radius:8px;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;text-align:center}
 .mock-btn.green{background:#00c896;color:#0a1628}
 .mock-btn.blue{background:#0057ff;color:white}
 .output-list{list-style:none;margin-top:28px}
@@ -190,7 +192,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .output-list li:last-child{border-bottom:none}
 .ol-icon{width:38px;height:38px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.2);border-radius:2px}
 .ol-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1.5px;color:var(--white)}
-.ol-desc{font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(240,244,255,0.5);margin-top:2px}
+.ol-desc{font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(240,244,255,0.5);margin-top:2px}
 
 /* USE CASES */
 .usecase{background:var(--navy-mid)}
@@ -200,19 +202,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .uc-card:hover{border-color:rgba(201,162,39,0.35)}
 .uc-icon{font-size:34px;margin-bottom:12px}
 .uc-title{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;color:var(--white);margin-bottom:8px}
-.uc-desc{font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(240,244,255,0.5);line-height:1.7}
+.uc-desc{font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:rgba(240,244,255,0.5);line-height:1.7}
 @media(max-width:768px){.uc-grid{grid-template-columns:1fr}}
 
 /* BUILT BY */
 .built-by{background:linear-gradient(135deg,rgba(0,87,255,0.05) 0%,rgba(201,162,39,0.03) 100%);border-top:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.15);padding:clamp(40px,6vw,80px) clamp(16px,5vw,80px)}
 .built-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 @media(max-width:768px){.built-inner{grid-template-columns:1fr}}
-.built-quote{font-family:'Rajdhani',sans-serif;font-size:clamp(16px,1.8vw,20px);font-weight:600;color:rgba(240,244,255,0.8);line-height:1.75;margin-bottom:20px;border-left:3px solid var(--gold);padding-left:20px;font-style:italic}
+.built-quote{font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(16px,1.8vw,20px);font-weight:600;color:rgba(240,244,255,0.8);line-height:1.75;margin-bottom:20px;border-left:3px solid var(--gold);padding-left:20px;font-style:italic}
 .built-attr{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gold)}
 .built-badges{display:flex;flex-direction:column;gap:10px}
 .built-badge{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:14px 18px}
 .bb-icon{font-size:20px;flex-shrink:0}
-.bb-text{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--white)}
+.bb-text{font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:700;color:var(--white)}
 .bb-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:var(--gray)}
 
 /* LEAD CAPTURE */
@@ -220,25 +222,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;d
 .lead-inner{max-width:640px;margin:0 auto;text-align:center}
 .lead-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5.5vw,72px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:14px}
 .lead-title .gold{color:var(--gold)}
-.lead-sub{font-family:'Rajdhani',sans-serif;font-size:16px;color:rgba(240,244,255,0.6);margin-bottom:36px;line-height:1.7}
+.lead-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:rgba(240,244,255,0.6);margin-bottom:36px;line-height:1.7}
 .lead-form{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,162,39,0.2);padding:28px;text-align:left}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:520px){.form-row{grid-template-columns:1fr}}
 .form-field{display:flex;flex-direction:column;gap:5px}
 .form-field label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
-.form-field input,.form-field select{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:var(--white);font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:500;padding:11px 13px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.form-field input,.form-field select{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:500;padding:11px 13px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
 .form-field input::placeholder{color:rgba(240,244,255,0.25)}
 .form-field input:focus,.form-field select:focus{border-color:var(--gold)}
 .form-field select option{background:#0a1628}
-.form-note{font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(240,244,255,0.3)}
-.btn-submit{padding:16px 40px;background:var(--gold);color:var(--navy);font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .2s;margin-top:6px;box-shadow:0 0 28px rgba(201,162,39,0.3);width:100%}
+.form-note{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(240,244,255,0.3)}
+.btn-submit{padding:16px 40px;background:var(--gold);color:var(--navy);font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .2s;margin-top:6px;box-shadow:0 0 28px rgba(201,162,39,0.3);width:100%}
 .btn-submit:hover{background:var(--gold-light)}
 .lead-success{display:none;text-align:center;padding:40px 20px}
 .lead-success.show{display:block}
 .lead-form.hide{display:none}
 .success-icon{font-size:52px;margin-bottom:14px}
 .success-title{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:3px;color:var(--green);margin-bottom:10px}
-.success-sub{font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(240,244,255,0.6)}
+.success-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(240,244,255,0.6)}
 
 /* FOOTER */
 footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-align:center;padding:60px 32px 36px;border-top:1px solid rgba(201,162,39,0.2)}
@@ -257,6 +259,23 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
+
+/* ══ VI FONT OVERRIDE ══ */
+html[lang="vi"] h1, html[lang="vi"] h2, html[lang="vi"] h3,
+html[lang="vi"] .section-title, html[lang="vi"] .lead-title,
+html[lang="vi"] .hstat-num, html[lang="vi"] .feat-card-title,
+html[lang="vi"] .uc-card-title, html[lang="vi"] .step-title,
+html[lang="vi"] .hero h1, html[lang="vi"] .hero h1 span {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+}
+html[lang="vi"] .section-label, html[lang="vi"] .hero-badge,
+html[lang="vi"] .hstat-label, html[lang="vi"] .flow-step,
+html[lang="vi"] [style*="Share Tech Mono"] {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px !important;
+}
 </style>
 </head>
 <body>
@@ -284,7 +303,12 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
       <span class="lang-sep">|</span>
       <button class="lang-btn" id="btnVI" onclick="setLang('vi')">VI</button>
     </div>
-    <a href="#get-access" class="btn-gold nav-cta-btn" data-i18n="nav_cta">Get Access</a>
+    <div id="sonic-lang-toggle" style="display:flex;align-items:center;gap:0;flex-shrink:0;margin-right:6px;">
+  <button id="sonic-lang-en" onclick="sonicSetLang('en')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#c9a227;padding:4px 6px;text-transform:uppercase;transition:color .2s;">EN</button>
+  <span style="color:rgba(136,153,187,0.3);font-size:11px;line-height:1;">|</span>
+  <button id="sonic-lang-vi" onclick="sonicSetLang('vi')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(136,153,187,0.85);padding:4px 6px;text-transform:uppercase;transition:color .2s;">VI</button>
+</div>
+<a href="#get-access" class="btn-gold nav-cta-btn" data-i18n="nav_cta">Get Access</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -440,21 +464,21 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px;text-align:left;">
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">01 / FRAGMENTED TOOLS</div>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">QA/QC is still managed through fragmented tools with limited auditability</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">QA/QC is still managed through fragmented tools with limited auditability</p>
       </div>
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">02 / LATE DETECTION</div>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Defects are often identified at punch-out instead of during installation</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Defects are often identified at punch-out instead of during installation</p>
       </div>
       <div style="padding:20px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.15);">
         <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">03 / INCONSISTENT TRACKING</div>
-        <p style="font-family:'Rajdhani',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Status tracking across systems and teams is inconsistent</p>
+        <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(200,215,245,0.75);line-height:1.6;">Status tracking across systems and teams is inconsistent</p>
       </div>
     </div>
 
     <div style="margin-top:24px;padding:20px 24px;background:rgba(201,162,39,0.07);border-left:3px solid rgba(201,162,39,0.6);text-align:left;">
       <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">// SYSTEM DESIGN PRINCIPLE</div>
-      <p style="font-family:'Rajdhani',sans-serif;font-size:16px;color:rgba(240,244,255,0.85);line-height:1.7;">Defects are significantly easier to correct during construction than at handover. AI Punch shifts QA/QC to the point of work — where each termination, loop, and device can be checked, recorded, and verified before progressing.</p>
+      <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:rgba(240,244,255,0.85);line-height:1.7;">Defects are significantly easier to correct during construction than at handover. AI Punch shifts QA/QC to the point of work — where each termination, loop, and device can be checked, recorded, and verified before progressing.</p>
     </div>
   </div>
 
@@ -548,10 +572,10 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
                   <div style="width:7px;height:7px;border-radius:50%;background:#f87171;flex-shrink:0;"></div>
                   <div>
                     <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#f87171;letter-spacing:1px;">CRIMPING · EI-001</div>
-                    <div style="font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff;">Crimp Terminal Defect</div>
+                    <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff;">Crimp Terminal Defect</div>
                   </div>
                 </div>
-                <div style="padding:10px 12px;font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
+                <div style="padding:10px 12px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
               </div>
               <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">✓ FIXED — MARK AS RESOLVED</button>
             </div>
@@ -574,7 +598,7 @@ footer{background:linear-gradient(180deg,var(--navy-mid) 0%,#060f1e 100%);text-a
               <div style="background:#151b2e;border-radius:12px;border:1px solid rgba(201,162,39,0.2);padding:20px;margin-bottom:10px;text-align:center;">
                 <div style="font-size:36px;margin-bottom:10px;">📄</div>
                 <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#c9a227;margin-bottom:6px;">PUNCH_REPORT.PDF</div>
-                <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);">1 defect · 1 resolved · Photo evidence attached</div>
+                <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);">1 defect · 1 resolved · Photo evidence attached</div>
               </div>
               <div style="padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;margin-bottom:8px;">📧 PDF auto-sent · Photo proof included</div>
               <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()">☁ SAVE TO CLOUD</button>
@@ -914,7 +938,7 @@ function vbPlayAI() {
 .demo-upload-zone.has-image{border-color:rgba(0,87,255,0.4);background:transparent;padding:0}
 .demo-upload-icon{font-size:44px;margin-bottom:12px}
 .demo-upload-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#f0f4ff;margin-bottom:6px}
-.demo-upload-sub{font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(240,244,255,0.4);line-height:1.6}
+.demo-upload-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(240,244,255,0.4);line-height:1.6}
 .demo-preview-img{width:100%;border-radius:14px;display:block;max-height:300px;object-fit:cover}
 .demo-change-btn{position:absolute;top:10px;right:10px;background:rgba(10,22,40,0.85);border:1px solid rgba(255,255,255,0.15);color:#f0f4ff;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:5px 10px;cursor:pointer;border-radius:6px;transition:all .2s;z-index:2}
 .demo-change-btn:hover{border-color:var(--gold);color:var(--gold)}
@@ -957,25 +981,25 @@ function vbPlayAI() {
 .demo-res-label{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px}
 .demo-res-status.failed .demo-res-label{color:#ff4444}
 .demo-res-status.passed .demo-res-label{color:#00c896}
-.demo-res-sub{font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.4)}
+.demo-res-sub{font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.4)}
 .demo-defect-card{background:#151b2e;border-radius:10px;border:1px solid rgba(255,68,68,0.2);overflow:hidden;margin-bottom:8px}
 .demo-defect-head{background:rgba(255,68,68,0.07);padding:9px 12px;display:flex;align-items:center;gap:8px}
 .demo-defect-dot{width:6px;height:6px;border-radius:50%;background:#ff4444;flex-shrink:0}
 .demo-defect-code{font-family:'Share Tech Mono',monospace;font-size:8px;color:#ff7070;letter-spacing:1px}
-.demo-defect-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff}
+.demo-defect-name{font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff}
 .demo-defect-sev{font-family:'Share Tech Mono',monospace;font-size:8px;padding:2px 6px;border-radius:3px;font-weight:700;margin-left:auto;flex-shrink:0}
 .demo-defect-sev.A{background:rgba(255,68,68,0.15);color:#ff4444}
 .demo-defect-sev.B{background:rgba(255,153,0,0.15);color:#ff9500}
 .demo-defect-sev.C{background:rgba(200,200,200,0.1);color:#aaa}
-.demo-defect-body{padding:9px 12px;font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.55}
+.demo-defect-body{padding:9px 12px;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.55}
 .demo-oos{align-items:center;justify-content:center;gap:10px;text-align:center}
 .demo-oos-icon{font-size:42px}
 .demo-cta-strip{margin-top:14px;padding:12px 14px;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.2);border-radius:10px;text-align:center}
-.demo-cta-strip p{font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(240,244,255,0.55);margin-bottom:10px;line-height:1.5}
-.demo-cta-strip a{display:inline-block;padding:10px 28px;background:var(--gold);color:#0a1628;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .2s}
+.demo-cta-strip p{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(240,244,255,0.55);margin-bottom:10px;line-height:1.5}
+.demo-cta-strip a{display:inline-block;padding:10px 28px;background:var(--gold);color:#0a1628;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .2s}
 .demo-cta-strip a:hover{background:var(--gold-light)}
 .demo-disclaimer{margin-top:20px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(136,153,187,0.3);line-height:1.8}
-.demo-error-msg{background:rgba(255,68,68,0.06);border:1px solid rgba(255,68,68,0.2);border-radius:8px;padding:14px;font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,130,130,0.9);text-align:center;line-height:1.6}
+.demo-error-msg{background:rgba(255,68,68,0.06);border:1px solid rgba(255,68,68,0.2);border-radius:8px;padding:14px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(255,130,130,0.9);text-align:center;line-height:1.6}
 </style>
 
 <div class="demo-wrap">
@@ -1080,25 +1104,25 @@ function vbPlayAI() {
         <div class="demo-state demo-oos" id="stateOOS">
           <div class="demo-oos-icon">&#128301;</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:rgba(255,153,0,0.9);margin-bottom:8px" id="oosTitleTxt">OUT OF SCOPE</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(240,244,255,0.45);line-height:1.6;max-width:240px;text-align:center" id="oosSubTxt">Image doesn't appear to be industrial E&amp;I equipment. Try a terminal block, cable tray, or junction box.</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(240,244,255,0.45);line-height:1.6;max-width:240px;text-align:center" id="oosSubTxt">Image doesn't appear to be industrial E&amp;I equipment. Try a terminal block, cable tray, or junction box.</div>
         </div>
 
         <div class="demo-state" id="stateError">
-          <div id="errorMsgTxt" style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(240,244,255,0.8);text-align:center;line-height:1.7;padding:0 4px 14px"></div>
+          <div id="errorMsgTxt" style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:rgba(240,244,255,0.8);text-align:center;line-height:1.7;padding:0 4px 14px"></div>
           <div id="errorEmailBox" style="display:none;background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.25);border-radius:10px;padding:16px;text-align:center">
             <div id="errorEmailLabel" style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:10px">LEAVE YOUR EMAIL — WE'LL REACH OUT</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
               <input id="errorEmailInput" type="email" placeholder="your@email.com"
-                style="flex:1;min-width:160px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.3);color:#f0f4ff;font-family:'Rajdhani',sans-serif;font-size:13px;padding:9px 12px;outline:none;border-radius:4px">
+                style="flex:1;min-width:160px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.3);color:#f0f4ff;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;padding:9px 12px;outline:none;border-radius:4px">
               <button onclick="submitErrorEmail()" id="errorEmailBtn"
-                style="padding:9px 18px;background:var(--gold);color:#0a1628;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;border:none;cursor:pointer;border-radius:4px;white-space:nowrap">
+                style="padding:9px 18px;background:var(--gold);color:#0a1628;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;border:none;cursor:pointer;border-radius:4px;white-space:nowrap">
                 Send &rarr;
               </button>
             </div>
             <div id="errorEmailDone" style="display:none;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1.5px;margin-top:10px">&#10003; RECEIVED — WE'LL BE IN TOUCH</div>
           </div>
           <div id="errorFallbackCta" style="display:none;margin-top:12px;text-align:center">
-            <a href="#get-access" style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--gold);text-decoration:none;letter-spacing:1px" id="errorCtaLink">Contact SONIC E&amp;I &rarr;</a>
+            <a href="#get-access" style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:var(--gold);text-decoration:none;letter-spacing:1px" id="errorCtaLink">Contact SONIC E&amp;I &rarr;</a>
           </div>
         </div>
 
@@ -1556,11 +1580,12 @@ syncDemoLang(typeof currentLang !== 'undefined' ? currentLang : (localStorage.ge
     <span class="footer-links-dot"></span>
     <a href="/#contact">Contact</a>
   </div>
-  <div style="padding-top:14px;border-top:1px solid rgba(201,162,39,0.15);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:0.8px;color:rgba(136,153,187,0.75);text-align:center;line-height:2;width:100%;">
+  <div style="padding-top:14px;border-top:1px solid rgba(201,162,39,0.15);font-family:'Be Vietnam Pro',sans-serif;font-size:11px;letter-spacing:0.8px;color:rgba(136,153,187,0.75);text-align:center;line-height:2;width:100%;">
         <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
     MST: 3502583632<br>
     65B, đường Hàn Thuyên, tổ 5, khu phố 18, Phường Rạch Dừa, Thành phố Hồ Chí Minh, Việt Nam<br>
-    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a> &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
+    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
+    &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
     <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
   </div>
 </footer>
@@ -1753,6 +1778,128 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
+</script>
+
+<!-- ══ LANG TOGGLE BUTTONS ══ -->
+<script id="sonic-i18n">
+(function(){
+  var VI = {
+  "nav_cta": "Đăng Ký Truy Cập",
+  "hero_badge": "Powered by Gemini AI &nbsp;·&nbsp; Xây dựng cho Nghiệm Thu E&amp;I",
+  "hero_line1": "SONIC E&amp;I GIỚI THIỆU",
+  "hero_line4": "NỀN TẢNG QA / QC",
+  "hero_sub": "Hệ thống AI punch list đầu tiên trên thế giới được xây dựng chuyên biệt cho <strong>nghiệm thu E&amp;I</strong>. Chụp ảnh, nhận mã lỗi, hướng dẫn khắc phục và báo cáo PDF đầy đủ trong vài giây.",
+  "hero_cta_try": "⚡ Dùng Thử Miễn Phí",
+  "hero_cta1": "Đăng Ký Truy Cập Sớm",
+  "step1_title": "CHỤP ẢNH",
+  "step1_sub": "CHỤP HOẶC TẢI LÊN TẠI HIỆN TRƯỜNG",
+  "step2_title": "PHÂN TÍCH",
+  "step2_sub": "GEMINI AI &nbsp;·&nbsp; <span>&lt;3 GIÂY</span>",
+  "step3_title": "PHÂN LOẠI",
+  "step3_sub": "LOẠI LỖI &nbsp;·&nbsp; VỊ TRÍ &nbsp;·&nbsp; MỨC ĐỘ",
+  "step4_title": "XÁC NHẬN ✓",
+  "step4_sub": "<span>AI XÁC NHẬN VIỆC KHẮC PHỤC</span>",
+  "step5_title": "BÁO CÁO",
+  "step5_sub": "PDF TỰ ĐỘNG GỬI &nbsp;·&nbsp; KÈM ẢNH MINH CHỨNG",
+  "step6_title": "LƯU TRỮ",
+  "step6_sub": "CLOUD &nbsp;·&nbsp; TÌM KIẾM ĐƯỢC &nbsp;·&nbsp; SẴN SÀNG KIỂM TOÁN",
+  "feat_label": "// Tính Năng",
+  "feat_title": "Được Xây Dựng Cho <span class=\"gold\">Thực Địa</span>",
+  "feat1_title": "Phát Hiện Lỗi Bằng AI",
+  "feat1_desc": "Gemini Vision AI tự động phát hiện lỗi crimping, đầu cốt lỏng, vi phạm buộc cáp, vấn đề tiếp địa, thiếu nhãn và hơn 17 loại lỗi E&amp;I khác.",
+  "feat2_title": "Mã Lỗi Theo Chuẩn IEC",
+  "feat2_desc": "Mỗi lỗi được gắn mã chuẩn hóa theo IEC 60079, IEC 60364 và thực tiễn tốt nhất từ các dự án Siemens Energy và GE Power.",
+  "feat3_title": "Dashboard &amp; Lịch Sử",
+  "feat3_desc": "Theo dõi toàn bộ kiểm tra theo dự án, kỹ thuật viên và ngày. Xem xu hướng lỗi, tỷ lệ pass/fail và hạng mục ĐÃ XỬ LÝ/CÒN MỞ trên toàn bộ chiến dịch nghiệm thu.",
+  "feat4_title": "Tự Động Phân Phối Báo Cáo",
+  "feat4_desc": "Tự động gửi báo cáo punch list đến kỹ sư QA, PM và khách hàng qua email. Hỗ trợ nhiều người nhận và chia sẻ trực tiếp qua Zalo cho đội hiện trường.",
+  "feat5_title": "Lưu Trữ Cloud Bảo Mật",
+  "feat5_desc": "Toàn bộ dữ liệu được lưu trữ an toàn trên Supabase cloud. Nhật ký kiểm toán đầy đủ với xác thực kỹ thuật viên, hồ sơ có dấu thời gian và ảnh trước/sau cho từng lỗi.",
+  "feat6_title": "Sẵn Sàng Cho Offshore",
+  "feat6_desc": "Được thiết kế cho giàn offshore và nhà máy điện ở vùng hẻo lánh. Hoạt động với kết nối hạn chế: xếp hàng kiểm tra offline, đồng bộ khi có tín hiệu.",
+  "out_label": "// Xem Trước Ứng Dụng",
+  "out_title": "Những Gì Bạn <span class=\"gold\">Nhận Được</span>",
+  "uc_label": "// Dành Cho Ai",
+  "uc_title": "Xây Dựng Cho <span class=\"gold\">Mọi Vai Trò</span>",
+  "uc1_title": "Kỹ Thuật Viên Hiện Trường",
+  "uc1_desc": "Thay thế danh sách kiểm tra giấy. Chụp, quét, khắc phục. Tạo punch list đạt chuẩn mà không cần chạm vào máy tính.",
+  "uc2_title": "Kỹ Sư QA/QC",
+  "uc2_desc": "Nắm bắt tập trung toàn bộ punch item theo khu vực và hạng mục. Đóng hạng mục với bằng chứng ảnh và nhật ký kiểm toán đầy đủ.",
+  "uc3_title": "Quản Lý Dự Án",
+  "uc3_desc": "Dashboard thời gian thực: CÒN MỞ vs ĐÃ XỬ LÝ theo khu vực, hạng mục, kỹ thuật viên. Báo cáo PDF sẵn sàng gửi khách hàng theo yêu cầu.",
+  "built_label": "// Nền Tảng Kỹ Thuật",
+  "lead_label": "// Đăng Ký Truy Cập Sớm",
+  "lead_title": "Đăng Ký <span class=\"gold\">AI-Punch™</span><br>Cho Dự Án Của Bạn",
+  "lead_sub": "Hiện đang trong giai đoạn triển khai có kiểm soát. Để lại thông tin và chúng tôi sẽ liên hệ trong vòng 24 giờ để trao đổi về nhu cầu dự án của bạn.",
+  "f_name": "Họ và Tên",
+  "f_email": "Email",
+  "f_company": "Công Ty / Dự Án",
+  "f_note": "✦ Không cam kết. Chúng tôi sẽ liên hệ để trao đổi về sự phù hợp.",
+  "f_submit": "Đăng Ký Truy Cập →",
+  "success_title": "Đã Tiếp Nhận",
+  "success_sub": "Chúng tôi sẽ liên hệ trong vòng 24 giờ."
+};
+
+  var lang = 'en';
+
+  function applyLang(l) {
+    lang = l;
+    localStorage.setItem('sonic_lang', l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if (l === 'vi' && VI[k] !== undefined) {
+        el.innerHTML = VI[k];
+      }
+    });
+    var btnEN = document.getElementById('sonic-lang-en');
+    var btnVI = document.getElementById('sonic-lang-vi');
+    if (btnEN) {
+      btnEN.style.color      = l==='en' ? '#c9a227' : 'rgba(136,153,187,0.85)';
+      btnEN.style.fontWeight = l==='en' ? '700' : '400';
+    }
+    if (btnVI) {
+      btnVI.style.color      = l==='vi' ? '#c9a227' : 'rgba(136,153,187,0.85)';
+      btnVI.style.fontWeight = l==='vi' ? '700' : '400';
+    }
+    document.documentElement.lang = l;
+
+    /* Patch inline Bebas Neue / Share Tech Mono khi VI */
+    if(l === 'vi'){
+      document.querySelectorAll('[style]').forEach(function(el){
+        var s = el.getAttribute('style') || '';
+        if(s.indexOf('Bebas Neue') !== -1){
+          el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
+          el.style.fontWeight = '700';
+          el.setAttribute('data-orig-font','bebas');
+        }
+        if(s.indexOf('Share Tech Mono') !== -1){
+          el.style.fontFamily = "'Be Vietnam Pro', sans-serif";
+          el.style.fontWeight = '500';
+          el.setAttribute('data-orig-font','mono');
+        }
+      });
+    } else {
+      document.querySelectorAll('[data-orig-font="bebas"]').forEach(function(el){
+        el.style.fontFamily = "'Bebas Neue', sans-serif";
+        el.style.fontWeight = '';
+        el.removeAttribute('data-orig-font');
+      });
+      document.querySelectorAll('[data-orig-font="mono"]').forEach(function(el){
+        el.style.fontFamily = "'Share Tech Mono', monospace";
+        el.style.fontWeight = '';
+        el.removeAttribute('data-orig-font');
+      });
+    }
+  }
+
+  window.sonicSetLang = applyLang;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ applyLang(lang); });
+  } else {
+    applyLang(lang);
+  }
+})();
 </script>
 </body>
 </html>

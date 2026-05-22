@@ -10,6 +10,8 @@
 /* ── SELF-HOSTED FONTS ── */
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-regular.woff2') format('woff2')}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-700.woff2') format('woff2')}
 
 /* ── CSS CUSTOM PROPERTIES ── */
 :root {

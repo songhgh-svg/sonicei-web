@@ -269,7 +269,7 @@
   .btn-gold-pulse {
     padding: 16px 40px;
     background: var(--gold);
-    color: var(--navy); font-family: 'Rajdhani', sans-serif;
+    color: var(--navy); font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 15px; font-weight: 700; letter-spacing: 2px;
     text-transform: uppercase; border: none; cursor: pointer;
     text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
@@ -346,7 +346,7 @@
   .btn-gold {
     padding: 14px 36px;
     background: var(--gold);
-    color: var(--navy); font-family: 'Rajdhani', sans-serif;
+    color: var(--navy); font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px; font-weight: 700; letter-spacing: 2px;
     text-transform: uppercase; border: none; cursor: pointer;
     text-decoration: none; display: inline-block;
@@ -357,7 +357,7 @@
   .btn-outline {
     padding: 14px 36px;
     background: transparent;
-    color: var(--gold); font-family: 'Rajdhani', sans-serif;
+    color: var(--gold); font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px; font-weight: 700; letter-spacing: 2px;
     text-transform: uppercase; border: 1px solid var(--gold);
     cursor: pointer; text-decoration: none; display: inline-block;
@@ -448,7 +448,7 @@
   .case-stat-label,
   .stat-label,
   .market-stat-label {
-    font-family: 'Rajdhani', sans-serif !important;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
     font-size: 11px !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
@@ -467,7 +467,7 @@
   /* ── Button text (non-nav) ── */
   .btn-gold, .btn-outline, .btn-gold-pulse,
   .scan-btn {
-    font-family: 'Rajdhani', sans-serif !important;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     letter-spacing: 1px !important;
@@ -479,7 +479,7 @@
      Rajdhani removed here — it loaded async and caused layout shift on refresh.
      mobile-menu can still use Rajdhani since it's off-screen. */
   .mobile-menu a {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -769,7 +769,7 @@
   }
   .download-desc { font-size: 13px; color: rgba(240,244,255,0.9); line-height: 1.7; margin-bottom: 18px; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
   .download-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn-download { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-decoration: none; text-transform: uppercase; transition: all 0.3s; clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+  .btn-download { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-decoration: none; text-transform: uppercase; transition: all 0.3s; clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
   .btn-download.primary { background: var(--gold); color: var(--navy); }
   .btn-download.primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,162,39,0.3); }
   .btn-download.secondary { background: rgba(255,255,255,0.05); color: var(--gold); border: 1px solid rgba(201,162,39,0.3); clip-path: none; }
@@ -1399,7 +1399,7 @@
   .form-group select {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,162,39,0.2);
-    color: var(--white); font-family: 'Rajdhani', sans-serif;
+    color: var(--white); font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 18px; padding: 16px 20px;
     outline: none; transition: border-color 0.3s;
     resize: none;
@@ -1421,7 +1421,7 @@
     border: 1px solid rgba(201,162,39,0.2);
     padding: 16px 20px;
     cursor: pointer;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 18px; font-weight: 500;
     color: var(--gray);
     user-select: none;
@@ -1474,7 +1474,7 @@
     display: flex; align-items: center; gap: 10px;
     padding: 11px 14px;
     cursor: pointer;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px; font-weight: 500;
     color: var(--gray); letter-spacing: 0.5px;
     transition: background 0.15s, color 0.15s;
@@ -1500,7 +1500,7 @@
   .cta-btn-call, .cta-btn-email, .cta-btn-zalo, .cta-btn-whatsapp {
     flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center;
     gap: 8px; padding: 16px 12px;
-    font-family: 'Rajdhani', sans-serif; font-size: 15px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px;
     font-weight: 700; letter-spacing: 2px;
     text-decoration: none; text-transform: uppercase;
     transition: all 0.3s; white-space: nowrap;
@@ -2411,14 +2411,14 @@
   /* ── MOBILE FONT: Rajdhani để tránh TBT (đã cache sẵn) ── */
   @media (max-width: 768px) {
     body {
-      font-family: 'Rajdhani', sans-serif !important;
+      font-family: 'Be Vietnam Pro', sans-serif !important;
     }
     .card p, .service-card p, .supply-card p, .vision-card p,
     .about-text p, .section-sub, .hero-sub, .download-desc,
     .hiw-step-desc, .module-desc, .testimonial-text,
     .case-study-desc, .investor-point-desc,
     .supply-intro, .supply-card-desc, .amod-desc {
-      font-family: 'Rajdhani', sans-serif !important;
+      font-family: 'Be Vietnam Pro', sans-serif !important;
     }
   }
 
@@ -2659,7 +2659,7 @@
   }
 
   .why-description {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 18px;
     line-height: 1.85;
     color: rgba(240,244,255,0.85);
@@ -2680,7 +2680,7 @@
     position: relative;
     padding: 12px 0 12px 28px;
     border-bottom: 1px solid rgba(201,162,39,0.1);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 18px;
     color: rgba(240,244,255,0.75);
     line-height: 1.6;
@@ -2723,7 +2723,7 @@
   }
   .why-highlight p {
     margin: 0;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 16px;
     color: rgba(240,244,255,0.75);
     line-height: 1.75;
@@ -2999,7 +2999,7 @@
   }
   .sonic-video-brand .sv-gold { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
   .sonic-video-sub {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: clamp(11px, 1.8vw, 14px);
     letter-spacing: 2px;
     color: rgba(200,216,240,0.75);
@@ -3097,7 +3097,7 @@
     margin-bottom: 10px; opacity: 0.8;
   }
   .vfr-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 17px; font-weight: 700;
     letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--white); margin-bottom: 20px;
@@ -3173,7 +3173,7 @@
     margin: 0 auto;
     padding: 140px 40px 100px;
     color: rgba(240,244,255,0.85);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 17px;
     line-height: 1.8;
     font-weight: 400;
@@ -3208,7 +3208,7 @@
     opacity: 0.5;
   }
   .legal-page h2 {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 3.5px;
@@ -3318,7 +3318,7 @@
     margin-bottom: 5px;
   }
   .cookie-text p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: rgba(200,216,240,0.72);
@@ -3343,7 +3343,7 @@
     padding: 10px 28px;
     background: var(--gold);
     color: var(--navy);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
     border: none; cursor: pointer;
@@ -3360,7 +3360,7 @@
     padding: 10px 20px;
     background: transparent;
     color: var(--gray);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px; font-weight: 600;
     letter-spacing: 1.5px; text-transform: uppercase;
     border: 1px solid rgba(136,153,187,0.25);
@@ -3419,7 +3419,7 @@
   }
   .cookie-modal-title .gold { color: var(--gold); }
   .cookie-modal-sub {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px; color: var(--gray);
     margin-bottom: 28px; line-height: 1.6;
   }
@@ -3434,13 +3434,13 @@
   .cookie-toggle-row:last-of-type { border-bottom: none; }
   .cookie-toggle-info { flex: 1; }
   .cookie-toggle-name {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     color: var(--white); margin-bottom: 3px;
   }
   .cookie-toggle-desc {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 12px; color: var(--gray);
     line-height: 1.5;
   }
@@ -3498,7 +3498,7 @@
     padding: 11px 32px;
     background: var(--gold);
     color: var(--navy);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
     border: none; cursor: pointer;
@@ -3510,7 +3510,7 @@
     padding: 11px 20px;
     background: transparent;
     color: var(--gray);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px; font-weight: 600;
     letter-spacing: 1.5px; text-transform: uppercase;
     border: 1px solid rgba(136,153,187,0.2);
@@ -3669,7 +3669,7 @@
         border: 1px solid rgba(201,162,39,0.45);
         border-radius: 6px;
         color: #c9a227;
-        font-family: 'Rajdhani', sans-serif;
+        font-family: 'Be Vietnam Pro', sans-serif;
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 1.5px;
@@ -3706,7 +3706,7 @@
     .qq-sub {
       color: rgba(240,244,255,0.65);
       font-size: 18px;
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-weight: 500;
       line-height: 1.85;
       margin: 0;
@@ -3762,7 +3762,7 @@
       border: 1px solid rgba(201,162,39,0.3);
       border-radius: 999px;
       color: rgba(255,255,255,0.7);
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 15px;
       font-weight: 600;
       padding: 8px 18px;
@@ -3786,7 +3786,7 @@
       padding: 16px 32px;
       font-size: 15px;
       letter-spacing: 2px;
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-weight: 700;
       text-transform: uppercase;
       cursor: pointer;
@@ -3796,7 +3796,7 @@
     .qq-trust {
       text-align: center;
       font-size: 14px;
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       color: rgba(255,255,255,0.4);
       line-height: 1.6;
     }
@@ -3831,7 +3831,7 @@
       margin: 0 auto;
     }
     .why-us-list li {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 18px;
       font-weight: 500;
       color: rgba(240,244,255,0.85);
@@ -3880,7 +3880,7 @@
     width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
     background: none; border: none; cursor: pointer;
     padding: 22px 0; text-align: left;
-    font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 600;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px; font-weight: 600;
     color: var(--white); letter-spacing: 0.3px; line-height: 1.45;
     transition: color 0.2s;
   }
@@ -3892,7 +3892,7 @@
   }
   .faq-q.open .faq-icon { transform: rotate(45deg); }
   .faq-a {
-    font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 400;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 18px; font-weight: 400;
     color: rgba(240,244,255,0.75); line-height: 1.75;
     max-height: 0; overflow: hidden;
     transition: max-height 0.35s ease, padding 0.25s ease;
@@ -4016,7 +4016,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -4032,7 +4032,7 @@
   font-size: 13px;
   color: rgba(255,255,255,0.5);
   font-weight: 600;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -4047,7 +4047,7 @@
 }
 .project-desc {
   font-size: 18px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   color: rgba(255,255,255,0.55);
   line-height: 1.6;
   flex: 1;
@@ -4058,7 +4058,7 @@
 .proj-bullet {
   display: block;
   font-size: 18px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   color: rgba(255,255,255,0.5);
   line-height: 1.5;
 }
@@ -4093,7 +4093,7 @@
   background: rgba(0,200,150,0.06);
   border: 1px solid rgba(0,200,150,0.18);
   border-radius: 6px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.7);
@@ -4113,7 +4113,7 @@
 .project-badge {
   font-size: 12px;
   font-weight: 700;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--gold);
@@ -4149,7 +4149,7 @@
   background: transparent;
   border: 1.5px solid rgba(201,162,39,0.5);
   color: var(--gold);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -4199,7 +4199,7 @@
   min-width: 220px;
 }
 .lead-magnet-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: var(--white);
@@ -4222,7 +4222,7 @@
   padding: 12px 28px;
   background: var(--gold);
   color: var(--navy);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -4274,7 +4274,7 @@
   text-transform: uppercase;
 }
 .section-cta-msg {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: rgba(240,244,255,0.75);
@@ -4289,7 +4289,7 @@
   background: transparent;
   border: 1.5px solid rgba(201,162,39,0.6);
   color: var(--gold);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -4443,7 +4443,7 @@
   margin-bottom: 14px;
 }
 .wwd-card-item {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
@@ -4467,7 +4467,7 @@
   margin-bottom: 10px;
 }
 .risk-text {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.75);
@@ -4482,7 +4482,7 @@
   max-width: 620px;
 }
 .final-push p {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: rgba(240,244,255,0.5);
@@ -4493,7 +4493,7 @@
 /* ── CTA micro-copy lines ── */
 .qq-action-hint {
   text-align: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(255,255,255,0.5);
@@ -4502,7 +4502,7 @@
 }
 .qq-microtrust {
   text-align: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   color: rgba(255,255,255,0.35);
   letter-spacing: 0.5px;
@@ -4527,7 +4527,7 @@
   margin: 8px 0 18px;
 }
 .scope-sub {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
@@ -4588,7 +4588,7 @@
 }
 
 .scope-desc {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
@@ -4636,7 +4636,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 6px 4px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: rgba(240,244,255,0.55);
@@ -4661,7 +4661,7 @@
 ══════════════════════════════════════════ */
 .why-us-sub {
   text-align: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
@@ -4724,7 +4724,7 @@
 }
 
 .why-epc-desc {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(240,244,255,0.65);
@@ -4736,7 +4736,7 @@
 
 .why-epc-strong-line {
   text-align: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: rgba(240,244,255,0.85);
@@ -4760,7 +4760,7 @@
   background: rgba(201,162,39,0.1);
   border: 1.5px solid rgba(201,162,39,0.5);
   color: var(--gold);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px;
@@ -4820,7 +4820,7 @@
   letter-spacing: 2px;
 }
 .raj-sub-sm {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 600;
   font-size: 13px;
   color: rgba(240,244,255,0.6);
@@ -5099,7 +5099,7 @@
 }
 .snv-brand span { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
 .snv-sub {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: clamp(11px,1.8vw,14px); letter-spacing: 2px;
   color: rgba(200,216,240,0.75); text-transform: uppercase;
   text-align: center; max-width: 280px; line-height: 1.4;
@@ -5257,7 +5257,7 @@
 }
 .vb-title span { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.6); }
 .vb-subtitle {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: clamp(11px, 2vw, 14px); letter-spacing: 2px;
   color: rgba(200,216,240,0.75); text-transform: uppercase;
   text-align: center; max-width: 260px; line-height: 1.4;
@@ -5372,7 +5372,7 @@
   letter-spacing: 1px;
 }
 .acad-trust-label {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -5423,7 +5423,7 @@
   transform: translateX(-50%);
   background: var(--gold);
   color: var(--navy);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: 10px;
   letter-spacing: 1.5px;
@@ -5474,7 +5474,7 @@
   margin-bottom: 4px;
 }
 .acad-card-sub {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 12px;
   color: rgba(200,215,245,0.45);
   letter-spacing: 0.5px;
@@ -5490,7 +5490,7 @@
   margin-bottom: 16px;
 }
 .acad-card-topics li {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   color: rgba(200,215,245,0.75);
   line-height: 1.5;
@@ -5574,7 +5574,7 @@
   line-height: 1;
 }
 .acad-card-price-badge .cpb-lbl {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -5589,7 +5589,7 @@
   background: rgba(201,162,39,0.12);
   border: 1px solid rgba(201,162,39,0.4);
   color: var(--gold);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 1.5px;
@@ -5643,14 +5643,14 @@
   margin-bottom: 10px;
 }
 .acad-pkg-desc {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 15px;
   color: rgba(200,215,245,0.7);
   line-height: 1.6;
   margin-bottom: 10px;
 }
 .acad-pkg-savings {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 14px;
   color: rgba(201,162,39,0.85);
   letter-spacing: 0.5px;
@@ -5664,7 +5664,7 @@
   flex-shrink: 0;
 }
 .acad-pkg-orig {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   color: rgba(200,215,245,0.4);
   letter-spacing: 0.5px;
@@ -5688,7 +5688,7 @@
   padding: 14px 32px;
   background: var(--gold);
   color: var(--navy);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px;
@@ -5744,7 +5744,7 @@
   margin-bottom: 8px;
 }
 .acad-why-desc {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 14px;
   color: rgba(200,215,245,0.55);
   line-height: 1.65;
@@ -5861,7 +5861,7 @@
 
 /* "USD" unit nhỏ */
 .price-usd-unit {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 12px;
   font-weight: 400;
   color: rgba(201,162,39,0.6);
@@ -5872,4 +5872,57 @@
 @media (max-width: 480px) {
   .price-usd-only        { font-size: 18px; }
   .acad-pkg-price .price-usd-only { font-size: 30px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   VI FONT OVERRIDE — Be Vietnam Pro thay thế Bebas Neue
+   và Share Tech Mono khi html[lang="vi"]
+   ══════════════════════════════════════════════════════════ */
+
+/* Heading / display text — thay Bebas Neue */
+html[lang="vi"] h1,
+html[lang="vi"] h1 span,
+html[lang="vi"] h2,
+html[lang="vi"] h3,
+html[lang="vi"] .line-big,
+html[lang="vi"] .line-med,
+html[lang="vi"] .line-accent,
+html[lang="vi"] .hero-guarantee,
+html[lang="vi"] .proof-num,
+html[lang="vi"] .counter,
+html[lang="vi"] .stat-num,
+html[lang="vi"] .section-title,
+html[lang="vi"] .why-card-title,
+html[lang="vi"] .epc-card-title,
+html[lang="vi"] .scope-step-title,
+html[lang="vi"] .svc-card-title,
+html[lang="vi"] .ai-step-title,
+html[lang="vi"] .proj-card-title,
+html[lang="vi"] .faq-q,
+html[lang="vi"] .faq-q *,
+html[lang="vi"] .about-title,
+html[lang="vi"] .vision-card-title,
+html[lang="vi"] .acad-card-title,
+html[lang="vi"] .acad-pkg-title,
+html[lang="vi"] .footer-logo,
+html[lang="vi"] .download-title,
+html[lang="vi"] .inv-card-title,
+html[lang="vi"] .inv2-title,
+html[lang="vi"] .eng-row-val,
+html[lang="vi"] .mobile-menu a {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Mono / label text — thay Share Tech Mono */
+html[lang="vi"] .section-label,
+html[lang="vi"] .footer-motto,
+html[lang="vi"] .ticker-item,
+html[lang="vi"] .cred-header-label,
+html[lang="vi"] .cred-info-label,
+html[lang="vi"] .hero-pain-bar span,
+html[lang="vi"] .pain-dot + span {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px !important;
 }
