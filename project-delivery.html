@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Delivery & Management | SONIC E&I Solutions — Vietnam</title>
+<title data-en="Project Delivery & Management | SONIC E&I Solutions — Vietnam" data-vi="Triển Khai & Quản Lý Dự Án | SONIC E&I Solutions — Việt Nam">Project Delivery & Management | SONIC E&I Solutions — Vietnam</title>
 <meta name="description" content="SONIC E&I delivers complex E&I commissioning projects on time, on spec, with a contractual zero-defect guarantee. Serving power plants, offshore platforms, and EPC contractors across Vietnam and Southeast Asia.">
 <link rel="canonical" href="https://sonicei.com/project-delivery">
 <link rel="icon" type="image/png" href="SONICEI_LOGO.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=optional"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=optional"></noscript>
 
 <style>
 @font-face{font-family:'Bebas Neue Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:92%;descent-override:24%;line-gap-override:0%;size-adjust:76%}
 @font-face{font-family:'Rajdhani Fallback';src:local('Arial'),local('Helvetica');size-adjust:104%;ascent-override:100%}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-regular.woff2') format('woff2')}
 @font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin_vietnamese-500.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:optional;src:url('assets/fonts/be-vietnam-pro-v12-latin-700.woff2') format('woff2')}
 /* ═══════════════════════════════════════════
    TOKENS & RESET
 ═══════════════════════════════════════════ */
@@ -718,7 +720,7 @@ nav{
 .form-input,.form-select,.form-textarea{
   width:100%;background:rgba(255,255,255,0.04);
   border:1px solid var(--border);color:var(--white);
-  padding:12px 16px;font-family:'Rajdhani',sans-serif;font-size:14px;
+  padding:12px 16px;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;
   font-weight:600;transition:border-color .25s;outline:none;
   -webkit-appearance:none;appearance:none;
 }
@@ -730,7 +732,7 @@ nav{
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .btn-submit{
   width:100%;padding:16px;background:var(--gold);color:var(--navy);
-  font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
+  font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;
   clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
   box-shadow:0 0 30px rgba(201,162,39,0.3);transition:all .3s;
@@ -861,6 +863,108 @@ footer{
   background:var(--gold);z-index:199;width:0%;
   transition:width .1s;
 }
+
+/* ══ VI FONT OVERRIDE — Hệ thống đầy đủ ══ */
+
+/* ── Bebas Neue → Be Vietnam Pro Bold ── */
+html[lang="vi"] h1, html[lang="vi"] h2, html[lang="vi"] h3, html[lang="vi"] h4,
+html[lang="vi"] [style*="Bebas Neue"], html[lang="vi"] [style*="Share Tech Mono"],
+html[lang="vi"] .nav-logo-text,
+html[lang="vi"] .section-title,
+html[lang="vi"] .hstat-n,
+html[lang="vi"] .pc-title,
+html[lang="vi"] .founder-quote,
+html[lang="vi"] .exp-co,
+html[lang="vi"] .phase-num,
+html[lang="vi"] .phase-title,
+html[lang="vi"] .diff-title,
+html[lang="vi"] .kpi-n,
+html[lang="vi"] .gb-title,
+html[lang="vi"] .fc-num,
+html[lang="vi"] .fc-title,
+html[lang="vi"] .obj-q,
+html[lang="vi"] .form-title,
+html[lang="vi"] .success-title,
+html[lang="vi"] .footer-brand {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ── Share Tech Mono → Be Vietnam Pro Medium ── */
+html[lang="vi"] .section-label,
+html[lang="vi"] .hero-eyebrow,
+html[lang="vi"] .hero-micro,
+html[lang="vi"] .hstat-l,
+html[lang="vi"] .phase-label,
+html[lang="vi"] .badge-inline,
+html[lang="vi"] .diff-proof,
+html[lang="vi"] .form-label,
+html[lang="vi"] .form-note,
+html[lang="vi"] .tc-header,
+html[lang="vi"] .tc-ph-label,
+html[lang="vi"] .project-table th,
+html[lang="vi"] .table-note,
+html[lang="vi"] .td-badge,
+html[lang="vi"] .td-outcome,
+html[lang="vi"] .tag,
+html[lang="vi"] .pc-cost,
+html[lang="vi"] .founder-attr,
+html[lang="vi"] .gb-clause,
+html[lang="vi"] .fc-signal-label,
+html[lang="vi"] .footer-motto {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* ── Font sizes khi VI ── */
+/* Hero h1 */
+html[lang="vi"] .hero h1 .h1-pre    { font-size: clamp(14px, 1.6vw, 20px) !important; font-weight: 600 !important; }
+html[lang="vi"] .hero h1 .h1-main   { font-size: clamp(26px, 3.2vw, 48px) !important; font-weight: 800 !important; line-height: 1.15 !important; }
+html[lang="vi"] .hero h1 .h1-accent { font-size: clamp(22px, 2.8vw, 42px) !important; font-weight: 800 !important; line-height: 1.15 !important; }
+html[lang="vi"] .hero h1 .h1-sub    { font-size: clamp(18px, 2.2vw, 34px) !important; font-weight: 700 !important; line-height: 1.2 !important; }
+
+/* Section titles */
+html[lang="vi"] .section-title      { font-size: clamp(22px, 2.8vw, 40px) !important; line-height: 1.25 !important; }
+html[lang="vi"] h2                  { font-size: clamp(22px, 2.8vw, 40px) !important; line-height: 1.25 !important; }
+
+/* Card/item headings */
+html[lang="vi"] .phase-title        { font-size: clamp(14px, 1.8vw, 20px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .diff-title         { font-size: clamp(14px, 1.8vw, 20px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .pc-title           { font-size: clamp(14px, 1.8vw, 20px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .fc-title           { font-size: clamp(14px, 1.8vw, 20px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .gb-title           { font-size: clamp(16px, 2vw, 24px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .obj-q              { font-size: clamp(14px, 1.6vw, 18px) !important; line-height: 1.35 !important; }
+html[lang="vi"] .form-title         { font-size: clamp(16px, 2vw, 22px) !important; line-height: 1.3 !important; }
+html[lang="vi"] .founder-quote      { font-size: clamp(16px, 2vw, 28px) !important; line-height: 1.4 !important; }
+
+/* Stats */
+html[lang="vi"] .hstat-n            { font-size: clamp(24px, 3.5vw, 40px) !important; }
+html[lang="vi"] .kpi-n              { font-size: clamp(28px, 3.5vw, 36px) !important; }
+html[lang="vi"] .hstat-l            { font-size: clamp(9px, 1vw, 12px) !important; }
+
+/* Labels */
+html[lang="vi"] .section-label      { font-size: clamp(10px, 1.1vw, 13px) !important; }
+html[lang="vi"] .phase-label        { font-size: clamp(9px, 1vw, 11px) !important; }
+html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !important; }
+
+/* Mobile ≤820px */
+@media (max-width: 820px) {
+  html[lang="vi"] .hero h1 .h1-main   { font-size: clamp(22px, 6.5vw, 36px) !important; }
+  html[lang="vi"] .hero h1 .h1-accent { font-size: clamp(18px, 5.5vw, 30px) !important; }
+  html[lang="vi"] .hero h1 .h1-sub    { font-size: clamp(16px, 5vw, 26px) !important; }
+  html[lang="vi"] .section-title,
+  html[lang="vi"] h2                  { font-size: clamp(20px, 6vw, 32px) !important; }
+  html[lang="vi"] .phase-title,
+  html[lang="vi"] .diff-title,
+  html[lang="vi"] .pc-title,
+  html[lang="vi"] .fc-title           { font-size: clamp(13px, 4vw, 18px) !important; }
+}
+@media (max-width: 480px) {
+  html[lang="vi"] .section-title,
+  html[lang="vi"] h2                  { font-size: clamp(18px, 5.5vw, 26px) !important; }
+}
 </style>
 </head>
 <body>
@@ -870,7 +974,7 @@ footer{
 
 <!-- FLOATING CTA -->
 <a href="#contact" id="fcta" aria-label="Request Proposal">
-  <span class="fcta-label">Request Proposal</span>
+  <span class="fcta-label" data-i18n="fcta" data-en="Request Proposal">Request Proposal</span>
 </a>
 
 <!-- ZALO WIDGET -->
@@ -879,26 +983,26 @@ footer{
     <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
       <path d="M20.66 11.33c0-4.84-3.92-8.76-8.76-8.76S3.14 6.49 3.14 11.33c0 2.73 1.26 5.16 3.23 6.74l-.58 2.13 2.22-.55c.97.26 1.98.4 3.03.4 4.84 0 8.76-3.92 8.76-8.76h.86z"/>
     </svg>
-    <span class="zalo-text">Chat Now</span>
+    <span class="zalo-text" data-i18n="zalo_chat" data-en="Chat Now">Chat Now</span>
     <span class="zalo-badge">●</span>
   </button>
   <div id="zalo-box" class="zalo-hidden">
     <div class="zalo-header">
-      <span>Online Support</span>
+      <span data-i18n="zalo_support" data-en="Online Support">Online Support</span>
       <button id="zalo-close" aria-label="Close chat">&times;</button>
     </div>
     <div class="zalo-body">
-      <p>👋 Hi there! Need assistance with E&I services?</p>
+      <p data-en="👋 Hi there! Need assistance with E&I services?" data-vi="👋 Xin chào! Quý vị cần hỗ trợ về dịch vụ E&I?">👋 Hi there! Need assistance with E&I services?</p>
       <ul class="zalo-quick-actions">
-        <li><a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener">💬 Chat on Zalo</a></li>
+        <li><a href="https://zalo.me/84915460790" onclick="return openZalo(event)" target="_blank" rel="noopener" data-i18n="zalo_btn1" data-en="💬 Chat on Zalo">💬 Chat on Zalo</a></li>
         <li><a href="https://wa.me/84915460790" target="_blank" rel="noopener" style="color:#25D366;background:#f0fff5;">
           <svg viewBox="0 0 24 24" fill="#25D366" width="16" height="16" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a></li>
-        <li><a href="tel:+84915460790">📞 Quick Call</a></li>
-        <li><a href="mailto:contact@sonicei.com">✉️ Send Email</a></li>
+        <li><a href="tel:+84915460790" data-i18n="zalo_btn2" data-en="📞 Quick Call">📞 Quick Call</a></li>
+        <li><a href="mailto:contact@sonicei.com" data-i18n="zalo_btn3" data-en="✉️ Send Email">✉️ Send Email</a></li>
       </ul>
-      <small>⏰ Replies within 15 mins (business hours)</small>
+      <small data-en="⏰ Replies within 15 mins (business hours)" data-vi="⏰ Phản hồi trong 15 phút (giờ làm việc)">⏰ Replies within 15 mins (business hours)</small>
     </div>
   </div>
 </div>
@@ -910,40 +1014,40 @@ footer{
     <span class="nav-logo-text">SONIC <span>E&I</span> SOLUTIONS</span>
   </a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a href="project-delivery.html" class="active">Project Delivery</a>
-    <a href="ai-punch.html">AI-Punch™</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="index.html" data-i18n="nav_home" data-en="Home">Home</a>
+    <a href="index.html#services" data-i18n="nav_svc" data-en="Services">Services</a>
+    <a href="project-delivery.html" class="active" data-i18n="nav_pd" data-en="Project Delivery">Project Delivery</a>
+    <a href="ai-punch.html" data-i18n="nav_ai" data-en="AI-Punch™">AI-Punch™</a>
+    <a href="index.html#contact" data-i18n="nav_contact" data-en="Contact">Contact</a>
   </div>
   <div class="nav-right">
-    <a href="#contact" class="btn-nav">Get Proposal</a>
+    <div id="sonic-lang-toggle" style="display:flex;align-items:center;gap:0;flex-shrink:0;margin-left:8px;"><button id="sonic-lang-en" onclick="sonicSetLang('en')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#c9a227;padding:4px 6px;text-transform:uppercase;transition:color .2s;">EN</button><span style="color:rgba(136,153,187,0.3);font-size:11px;line-height:1;">|</span><button id="sonic-lang-vi" onclick="sonicSetLang('vi')" style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(136,153,187,0.85);padding:4px 6px;text-transform:uppercase;transition:color .2s;">VI</button></div><a href="#contact" class="btn-nav" data-i18n="nav_cta" data-en="Get Proposal">Get Proposal</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="index.html#services">Services</a>
-  <a href="project-delivery.html">Project Delivery</a>
-  <a href="ai-punch.html">AI-Punch™</a>
-  <a href="#contact">Get Proposal</a>
+  <a href="index.html" data-i18n="nav_home" data-en="Home">Home</a>
+  <a href="index.html#services" data-i18n="nav_svc" data-en="Services">Services</a>
+  <a href="project-delivery.html" data-i18n="nav_pd" data-en="Project Delivery">Project Delivery</a>
+  <a href="ai-punch.html" data-i18n="nav_ai" data-en="AI-Punch™">AI-Punch™</a>
+  <a href="#contact" data-i18n="nav_cta" data-en="Get Proposal">Get Proposal</a>
 </div>
 
 <!-- TICKER -->
 <div class="ticker-bar" style="margin-top:48px;">
   <div class="ticker-track">
-    <span class="ticker-item">25+ YEARS E&I FIELD EXPERIENCE</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SIEMENS ENERGY · GE POWER · VARD · SEAONICS</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">25+ YEARS E&I FIELD EXPERIENCE</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">SIEMENS ENERGY · GE POWER · VARD · SEAONICS</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="25+ YEARS E&I FIELD EXPERIENCE" data-vi="25+ NĂM KINH NGHIỆM THỰC ĐỊA E&I">25+ YEARS E&I FIELD EXPERIENCE</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="SIEMENS ENERGY · GE POWER · VARD · SEAONICS" data-vi="SIEMENS ENERGY · GE POWER · VARD · SEAONICS">SIEMENS ENERGY · GE POWER · VARD · SEAONICS</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER" data-vi="60.000+ ĐẦU CỐT — KHÔNG CÓ LỖI NGHIÊM TRỌNG KHI BÀN GIAO">60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT" data-vi="CAM KẾT KHÔNG PHÁT SINH LỖI ĐƯỢC GHI NHẬN TRONG MỌI HỢP ĐỒNG">ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION" data-vi="ĐỀ XUẤT TRONG 3–5 NGÀY · KHÔNG RÀNG BUỘC">PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="25+ YEARS E&I FIELD EXPERIENCE" data-vi="25+ NĂM KINH NGHIỆM THỰC ĐỊA E&I">25+ YEARS E&I FIELD EXPERIENCE</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="SIEMENS ENERGY · GE POWER · VARD · SEAONICS" data-vi="SIEMENS ENERGY · GE POWER · VARD · SEAONICS">SIEMENS ENERGY · GE POWER · VARD · SEAONICS</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER" data-vi="60.000+ ĐẦU CỐT — KHÔNG CÓ LỖI NGHIÊM TRỌNG KHI BÀN GIAO">60,000+ TERMINATIONS — ZERO CRITICAL FAILURES AT HANDOVER</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT" data-vi="CAM KẾT KHÔNG PHÁT SINH LỖI ĐƯỢC GHI NHẬN TRONG MỌI HỢP ĐỒNG">ZERO-DEFECT GUARANTEE WRITTEN INTO EVERY CONTRACT</span><span class="ticker-sep">·</span>
+    <span class="ticker-item" data-en="PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION" data-vi="ĐỀ XUẤT TRONG 3–5 NGÀY · KHÔNG RÀNG BUỘC">PROPOSAL WITHIN 3–5 DAYS · NO OBLIGATION</span><span class="ticker-sep">·</span>
   </div>
 </div>
 
@@ -958,48 +1062,48 @@ footer{
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="eyebrow-dot"></span>
-      PROJECT DELIVERY &amp; MANAGEMENT
+      <span data-i18n="hero_eyebrow" data-en="PROJECT DELIVERY &amp; MANAGEMENT">PROJECT DELIVERY &amp; MANAGEMENT</span>
     </div>
     <h1>
-      <span class="h1-pre">SONIC E&I SOLUTIONS</span>
-      <span class="h1-main">COMPLEX PROJECTS.</span>
-      <span class="h1-accent">DELIVERED RIGHT.</span>
-      <span class="h1-sub">THE FIRST TIME.</span>
+      <span class="h1-pre" data-i18n="hero_h1_pre" data-en="SONIC E&I SOLUTIONS">SONIC E&I SOLUTIONS</span>
+      <span class="h1-main" data-i18n="hero_h1_main" data-en="COMPLEX PROJECTS.">COMPLEX PROJECTS.</span>
+      <span class="h1-accent" data-i18n="hero_h1_accent" data-en="DELIVERED RIGHT.">DELIVERED RIGHT.</span>
+      <span class="h1-sub" data-i18n="hero_h1_sub" data-en="THE FIRST TIME.">THE FIRST TIME.</span>
     </h1>
-    <p class="hero-desc">
+    <p class="hero-desc" data-i18n="hero_desc" data-en="From mobilisation to handover — we manage E&I commissioning projects the way a &lt;strong&gt;25-year field veteran&lt;/strong&gt; would: with rigorous scope control, zero-tolerance QA/QC, and a &lt;strong&gt;contractual performance guarantee&lt;/strong&gt; that turns our commitment into your risk mitigation.">
       From mobilisation to handover — we manage E&I commissioning projects the way a 
       <strong>25-year field veteran</strong> would: with rigorous scope control, 
-      zero-tolerance QA/QC, and a <strong>contractual performance guarantee</strong> 
+      zero-tolerance QA/QC, and a <strong data-en="contractual performance guarantee" data-vi="bảo đảm hiệu suất hợp đồng">contractual performance guarantee</strong> 
       that turns our commitment into your risk mitigation.
     </p>
     <div class="hero-cta-row">
-      <a href="#contact" class="btn-primary">
+      <a href="#contact" class="btn-primary" data-i18n="hero_btn1" data-en="Request a Proposal &amp;nbsp;→">
         Request a Proposal &nbsp;→
       </a>
-      <a href="#framework" class="btn-ghost">
+      <a href="#framework" class="btn-ghost" data-i18n="hero_btn2" data-en="See Our Process">
         See Our Process
       </a>
     </div>
-    <div class="hero-micro">
+    <div class="hero-micro" data-i18n="hero_micro" data-en="PROPOSAL WITHIN 3–5 DAYS &amp;nbsp;·&amp;nbsp; ZERO-DEFECT GUARANTEE IN CONTRACT &amp;nbsp;·&amp;nbsp; NO OBLIGATION">
       <span class="micro-dot"></span>
       PROPOSAL WITHIN 3–5 DAYS &nbsp;·&nbsp; ZERO-DEFECT GUARANTEE IN CONTRACT &nbsp;·&nbsp; NO OBLIGATION
     </div>
     <div class="hero-stats-bar">
       <div class="hstat">
         <div class="hstat-n">25+</div>
-        <div class="hstat-l">Years E&I Experience</div>
+        <div class="hstat-l" data-en="Years E&I Experience" data-vi="Năm Kinh Nghiệm E&I">Years E&I Experience</div>
       </div>
       <div class="hstat">
         <div class="hstat-n">20+</div>
-        <div class="hstat-l">Major Projects</div>
+        <div class="hstat-l" data-en="Major Projects" data-vi="Dự Án Lớn">Major Projects</div>
       </div>
       <div class="hstat">
         <div class="hstat-n">60K+</div>
-        <div class="hstat-l">Terminations · 0 Failures</div>
+        <div class="hstat-l" data-en="Terminations · 0 Failures" data-vi="Đầu Cốt · 0 Lỗi">Terminations · 0 Failures</div>
       </div>
       <div class="hstat">
         <div class="hstat-n">0</div>
-        <div class="hstat-l">Critical Defects at Handover</div>
+        <div class="hstat-l" data-en="Critical Defects at Handover" data-vi="Lỗi Nghiêm Trọng Khi Bàn Giao">Critical Defects at Handover</div>
       </div>
     </div>
   </div>
@@ -1007,45 +1111,45 @@ footer{
   <!-- Right: delivery timeline card -->
   <div class="hero-right">
     <div class="timeline-card">
-      <div class="tc-header">// Typical Delivery Sequence</div>
+      <div class="tc-header" data-en="// Typical Delivery Sequence" data-vi="// Trình Tự Triển Khai Điển Hình">// Typical Delivery Sequence</div>
       <div class="tc-phase">
         <div class="tc-dot active"></div>
         <div class="tc-info">
-          <div class="tc-ph-label">Phase 01</div>
-          <div class="tc-ph-title">Scope Review &amp; Mobilisation</div>
-          <div class="tc-ph-note">3–5 days onshore VT/HCMC</div>
+          <div class="tc-ph-label" data-en="Phase 01" data-vi="Giai Đoạn 01">Phase 01</div>
+          <div class="tc-ph-title" data-en="Scope Review &amp; Mobilisation" data-vi="Xem Xét Phạm Vi &amp; Huy Động">Scope Review &amp; Mobilisation</div>
+          <div class="tc-ph-note" data-en="3–5 days onshore VT/HCMC" data-vi="3–5 ngày tại VT/HCMC">3–5 days onshore VT/HCMC</div>
         </div>
       </div>
       <div class="tc-phase">
         <div class="tc-dot"></div>
         <div class="tc-info">
-          <div class="tc-ph-label">Phase 02</div>
-          <div class="tc-ph-title">Pre-commissioning &amp; Continuity</div>
-          <div class="tc-ph-note">Cable, loop, instrument checks</div>
+          <div class="tc-ph-label" data-en="Phase 02" data-vi="Giai Đoạn 02">Phase 02</div>
+          <div class="tc-ph-title" data-en="Pre-commissioning &amp; Continuity" data-vi="Chuẩn Bị &amp; Kiểm Tra Liên Tục">Pre-commissioning &amp; Continuity</div>
+          <div class="tc-ph-note" data-en="Cable, loop, instrument checks" data-vi="Kiểm tra cáp, loop, thiết bị">Cable, loop, instrument checks</div>
         </div>
       </div>
       <div class="tc-phase">
         <div class="tc-dot"></div>
         <div class="tc-info">
-          <div class="tc-ph-label">Phase 03</div>
-          <div class="tc-ph-title">Live Commissioning &amp; FAT</div>
-          <div class="tc-ph-note">AI-Punch™ QA/QC in parallel</div>
+          <div class="tc-ph-label" data-en="Phase 03" data-vi="Giai Đoạn 03">Phase 03</div>
+          <div class="tc-ph-title" data-en="Live Commissioning &amp; FAT" data-vi="Nghiệm Thu Thực Tế &amp; FAT">Live Commissioning &amp; FAT</div>
+          <div class="tc-ph-note" data-en="AI-Punch™ QA/QC in parallel" data-vi="AI-Punch™ QA/QC song song">AI-Punch™ QA/QC in parallel</div>
         </div>
       </div>
       <div class="tc-phase">
         <div class="tc-dot"></div>
         <div class="tc-info">
-          <div class="tc-ph-label">Phase 04</div>
-          <div class="tc-ph-title">Punch Closure &amp; Handover</div>
-          <div class="tc-ph-note">Zero open punch items at sign-off</div>
+          <div class="tc-ph-label" data-en="Phase 04" data-vi="Giai Đoạn 04">Phase 04</div>
+          <div class="tc-ph-title" data-en="Punch Closure &amp; Handover" data-vi="Đóng Punch List &amp; Bàn Giao">Punch Closure &amp; Handover</div>
+          <div class="tc-ph-note" data-en="Zero open punch items at sign-off" data-vi="Không punch item tồn đọng khi ký kết">Zero open punch items at sign-off</div>
         </div>
       </div>
       <div class="tc-phase">
         <div class="tc-dot"></div>
         <div class="tc-info">
-          <div class="tc-ph-label">Phase 05</div>
-          <div class="tc-ph-title">Documentation &amp; As-Built</div>
-          <div class="tc-ph-note">Full audit trail · PDF close-out</div>
+          <div class="tc-ph-label" data-en="Phase 05" data-vi="Giai Đoạn 05">Phase 05</div>
+          <div class="tc-ph-title" data-en="Documentation &amp; As-Built" data-vi="Hoàn Thiện Hồ Sơ &amp; As-Built">Documentation &amp; As-Built</div>
+          <div class="tc-ph-note" data-en="Full audit trail · PDF close-out" data-vi="Hồ sơ đầy đủ · Báo cáo PDF close-out">Full audit trail · PDF close-out</div>
         </div>
       </div>
     </div>
@@ -1055,7 +1159,7 @@ footer{
 <!-- ═══ LOGO STRIP ═══ -->
 <div style="background:#ffffff;padding:0;overflow:hidden;border-bottom:1px solid #e0e4ee;">
   <div style="text-align:center;padding:14px 16px 10px;background:#fff;">
-    <span style="font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#8892aa;text-transform:uppercase;">FOUNDER'S DIRECT FIELD EXPERIENCE WITH</span>
+    <span style="font-family:'Be Vietnam Pro',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#8892aa;text-transform:uppercase;"><span data-en="FOUNDER'S DIRECT FIELD EXPERIENCE WITH" data-vi="KINH NGHIỆM THỰC ĐỊA TRỰC TIẾP CỦA NGƯỜI SÁNG LẬP VỚI">FOUNDER'S DIRECT FIELD EXPERIENCE WITH</span></span>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;width:100%;" id="logo-grid">
     <div style="display:flex;align-items:center;justify-content:center;padding:14px 20px;border-right:1.5px solid #e8eaf0;border-bottom:1.5px solid #e8eaf0;">
@@ -1084,7 +1188,7 @@ footer{
     </div>
   </div>
   <div style="text-align:center;padding:8px 16px 12px;background:#fff;">
-    <span style="font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;color:#aab0c0;text-transform:uppercase;">Systems and platforms our founder has worked with directly in the field</span>
+    <span style="font-family:'Be Vietnam Pro',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;color:#aab0c0;text-transform:uppercase;" data-en="Systems and platforms our founder has worked with directly in the field" data-vi="Hệ thống và thiết bị người sáng lập đã làm việc trực tiếp ngoài thực địa">Systems and platforms our founder has worked with directly in the field</span>
   </div>
 </div>
 <style>
@@ -1097,34 +1201,34 @@ footer{
 
 <!-- ═══ PROBLEM / COST SECTION ═══ -->
 <section class="section problem-section">
-  <div class="section-label">// The Real Cost of Getting It Wrong</div>
-  <h2 class="section-title">What Bad E&I Management <span class="gold">Actually Costs</span></h2>
-  <p class="section-sub">Most project overruns aren't caused by engineering complexity. They're caused by coordination failures, missed punch items, and subcontractors who don't own the outcome.</p>
+  <div class="section-label" data-i18n="prob_label" data-en="// The Real Cost of Getting It Wrong">// The Real Cost of Getting It Wrong</div>
+  <h2 class="section-title"><span data-en="What Bad E&I Management" data-vi="Quản Lý E&I Kém">What Bad E&I Management</span> <span class="gold" data-en="Actually Costs" data-vi="Thực Sự Tốn Kém Thế Nào">Actually Costs</span></h2>
+  <p class="section-sub" data-en="Most project overruns aren't caused by engineering complexity. They're caused by coordination failure, missed punch items, and sub-contractors who don't own the outcome." data-vi="Hầu hết các dự án bị chậm tiến độ không xuất phát từ độ phức tạp kỹ thuật. Nguyên nhân thực sự là phối hợp kém, punch item bỏ sót và nhà thầu phụ không cam kết chịu trách nhiệm về kết quả.">Most project overruns aren't caused by engineering complexity. They're caused by coordination failures, missed punch items, and subcontractors who don't own the outcome.</p>
 
   <div class="problem-grid fade-in">
     <div class="problem-cell">
       <span class="pc-icon">⏱</span>
-      <div class="pc-title">Schedule Overrun</div>
-      <div class="pc-desc">E&I punch lists discovered late in commissioning are the #1 cause of final handover delays on power and offshore projects. A single missed instrument loop can hold up mechanical completion.</div>
-      <span class="pc-cost">Avg delay: 3–6 weeks per unresolved punch cluster</span>
+      <div class="pc-title" data-en="Schedule Overrun" data-vi="Vượt Tiến Độ">Schedule Overrun</div>
+      <div class="pc-desc" data-en="E&I punch lists discovered late in commissioning are the #1 cause of final handover delays on power and offshore projects." data-vi="Punch list E&I phát hiện muộn trong giai đoạn nghiệm thu là nguyên nhân hàng đầu gây chậm bàn giao trên dự án điện và offshore.">E&I punch lists discovered late in commissioning are the #1 cause of final handover delays on power and offshore projects. A single missed instrument loop can hold up mechanical completion.</div>
+      <span class="pc-cost" data-en="Avg delay: 3–6 weeks per unresolved punch cluster" data-vi="Trung bình: chậm 3–6 tuần mỗi nhóm punch tồn đọng">Avg delay: 3–6 weeks per unresolved punch cluster</span>
     </div>
     <div class="problem-cell">
       <span class="pc-icon">💸</span>
-      <div class="pc-title">Rework Cost Cascade</div>
-      <div class="pc-desc">A 1% rework rate on a $10M E&I contract is $100,000 in direct labour alone — before demurrage, specialist mobilisation costs, or client penalty clauses.</div>
-      <span class="pc-cost">1% rework = $100K+ on a $10M contract</span>
+      <div class="pc-title" data-en="Rework Cost Cascade" data-vi="Chi Phí Làm Lại Lan Rộng">Rework Cost Cascade</div>
+      <div class="pc-desc" data-en="A 1% rework rate on a $10M E&amp;I contract is $100,000 in direct labour alone — before demurrage, specialist mobilisation costs, or client penalty clauses." data-vi="Tỷ lệ làm lại 1% trên hợp đồng E&amp;I $10M đã là $100.000 nhân công trực tiếp — chưa tính chi phí nằm chờ tàu, huy động chuyên gia, hoặc điều khoản phạt hợp đồng.">A 1% rework rate on a $10M E&I contract is $100,000 in direct labour alone — before demurrage, specialist mobilisation costs, or client penalty clauses.</div>
+      <span class="pc-cost" data-en="1% rework = $100K+ on a $10M contract" data-vi="1% làm lại = $100K+ trên hợp đồng $10M">1% rework = $100K+ on a $10M contract</span>
     </div>
     <div class="problem-cell">
       <span class="pc-icon">📋</span>
-      <div class="pc-title">Inadequate Documentation</div>
-      <div class="pc-desc">Missing loop check records, unsigned test sheets, and untracked red-lines create audit exposure at handover and create liability for the client's O&M team for years after.</div>
-      <span class="pc-cost">Documentation gaps = open liability post-handover</span>
+      <div class="pc-title" data-en="Inadequate Documentation" data-vi="Hồ Sơ Không Đầy Đủ">Inadequate Documentation</div>
+      <div class="pc-desc" data-en="Missing loop check records, unsigned test sheets, and untracked red-lines create audit exposure at handover and create liability for the client's O&M team for years after." data-vi="Thiếu hồ sơ kiểm tra loop, tờ kiểm tra chưa ký, và bản vẽ ghi chú thay đổi hiện trường chưa được cập nhật tạo ra rủi ro kiểm toán khi bàn giao và rủi ro pháp lý cho đội O&amp;M của khách hàng trong nhiều năm sau.">Missing loop check records, unsigned test sheets, and untracked red-lines create audit exposure at handover and create liability for the client's O&M team for years after.</div>
+      <span class="pc-cost" data-en="Documentation gaps = open liability post-handover" data-vi="Thiếu hồ sơ = rủi ro pháp lý sau bàn giao">Documentation gaps = open liability post-handover</span>
     </div>
     <div class="problem-cell">
       <span class="pc-icon">🔧</span>
-      <div class="pc-title">Unqualified Supervision</div>
-      <div class="pc-desc">General sub-contractors without OEM spec knowledge (Siemens TI, GE EGS) introduce non-conformances that aren't visible until commissioning — or worse, until first fire.</div>
-      <span class="pc-cost">Non-conformances found at FAT: x3–x5 cost to resolve</span>
+      <div class="pc-title" data-en="Unqualified Supervision" data-vi="Giám Sát Không Đủ Năng Lực">Unqualified Supervision</div>
+      <div class="pc-desc" data-en="General sub-contractors without OEM spec knowledge (Siemens TI, GE EGS) introduce non-conformances that aren't visible until commissioning — or worse, until first fire." data-vi="Nhà thầu phụ không có kiến thức đặc kỹ thuật OEM (Siemens TI, GE EGS) đưa vào các lỗi không phù hợp chỉ lộ ra khi nghiệm thu — hoặc tệ hơn, đến khi cấp điện lần đầu.">General sub-contractors without OEM spec knowledge (Siemens TI, GE EGS) introduce non-conformances that aren't visible until commissioning — or worse, until first fire.</div>
+      <span class="pc-cost" data-en="Non-conformances found at FAT: x3–x5 cost to resolve" data-vi="Lỗi phát hiện tại FAT: chi phí xử lý tăng 3–5 lần">Non-conformances found at FAT: x3–x5 cost to resolve</span>
     </div>
   </div>
 </section>
@@ -1133,28 +1237,28 @@ footer{
 <div class="authority-band">
   <div class="authority-inner">
     <div class="authority-left fade-in">
-      <div class="section-label">// Why It's Different Here</div>
-      <div class="founder-quote">
+      <div class="section-label" data-en="// Why It's Different Here" data-vi="// Tại Sao Khác Biệt Ở Đây">// Why It's Different Here</div>
+      <div class="founder-quote" data-en="&lt;span class='qmark'&gt;&quot;&lt;/span&gt;I've spent 25 years on the other side of these problems — as project manager and senior service engineer for Siemens Energy, as owner's engineer on GE Power turbine projects, and as the E&amp;I lead running pre-comm on VARD offshore vessels. Every failure mode I've seen is already accounted for in how we manage projects." data-vi="&lt;span class='qmark'&gt;&quot;&lt;/span&gt;Tôi đã dành 25 năm ở phía bên kia của những vấn đề này — với tư cách là quản lý dự án và kỹ sư dịch vụ cao cấp của Siemens Energy, kỹ sư đại diện chủ đầu tư trên các dự án tuabin GE Power, và trưởng E&amp;I điều hành pre-comm trên tàu offshore VARD. Mọi dạng lỗi tôi từng thấy đều đã được tính đến trong cách chúng tôi quản lý dự án.">
         <span class="qmark">"</span>I've spent 25 years on the other side of these problems — as project manager and senior service engineer for Siemens Energy, as owner's engineer on GE Power turbine projects, and as the E&I lead running pre-comm on VARD offshore vessels. Every failure mode I've seen is already accounted for in how we manage projects.
       </div>
       <div class="founder-body">
-        SONIC E&I is not a staffing company that places technicians and bills hours. We are a <strong>project delivery firm</strong> — we own the scope, we own the QA/QC, and we own the result. The zero-defect guarantee isn't a marketing line; it's the clause our founder would have demanded from contractors when he was on the client side.
+        <span data-en="SONIC E&amp;I is not a staffing company that places technicians and bills hours. We are a" data-vi="SONIC E&amp;I không phải công ty cung ứng nhân lực tính theo giờ. Chúng tôi là một">SONIC E&I is not a staffing company that places technicians and bills hours. We are a</span> <strong data-en="project delivery firm" data-vi="công ty triển khai dự án">project delivery firm</strong> <span data-en="— we own the scope, we own the QA/QC, and we own the result. The zero-defect guarantee isn't a marketing line; it's the clause our founder would have demanded from contractors when he was on the client side." data-vi="— chúng tôi sở hữu phạm vi, sở hữu QA/QC và sở hữu kết quả. Bảo đảm không phát sinh lỗi không phải khẩu hiệu marketing; đó là điều khoản mà người sáng lập của chúng tôi sẽ đòi hỏi từ nhà thầu khi còn ở phía khách hàng.">— we own the scope, we own the QA/QC, and we own the result. The zero-defect guarantee isn't a marketing line; it's the clause our founder would have demanded from contractors when he was on the client side.</span>
       </div>
-      <div class="founder-attr">— Hoàng Ngọc Sơn &nbsp;·&nbsp; Founder &amp; Lead E&I Engineer, SONIC E&I Solutions</div>
+      <div class="founder-attr" data-en="— Hoàng Ngọc Sơn &nbsp;·&nbsp; Founder &amp; Lead E&I Engineer, SONIC E&I Solutions" data-vi="— Hoàng Ngọc Sơn &nbsp;·&nbsp; Người Sáng Lập &amp; Kỹ Sư E&I Trưởng, SONIC E&I Solutions">— Hoàng Ngọc Sơn &nbsp;·&nbsp; Founder &amp; Lead E&I Engineer, SONIC E&I Solutions</div>
     </div>
     <div class="authority-right fade-in">
       <div class="exp-grid">
         <div class="exp-item">
           <div class="exp-co">Siemens Energy</div>
-          <div class="exp-role">Project Manager &amp; Senior Service Engineer · Gas Turbine, Steam Turbine, Gen sets</div>
+          <div class="exp-role" data-en="Project Manager &amp; Senior Service Engineer · Gas Turbine, Steam Turbine, Gen sets" data-vi="Quản Lý Dự Án &amp; Kỹ Sư Dịch Vụ Cao Cấp · Tuabin Khí, Tuabin Hơi, Máy Phát">Project Manager &amp; Senior Service Engineer · Gas Turbine, Steam Turbine, Gen sets</div>
         </div>
         <div class="exp-item">
           <div class="exp-co">GE Power</div>
-          <div class="exp-role">Owner's Engineer · Phu My 2.2 Power Plant</div>
+          <div class="exp-role" data-en="Owner's Engineer · Phu My 2.2 Power Plant" data-vi="Kỹ Sư Đại Diện Chủ Đầu Tư · Nhà Máy Điện Phú Mỹ 2.2">Owner's Engineer · Phu My 2.2 Power Plant</div>
         </div>
         <div class="exp-item">
           <div class="exp-co">VARD &amp; Seaonics</div>
-          <div class="exp-role">E&I Commissioning Lead · Offshore Gangways</div>
+          <div class="exp-role" data-en="E&I Commissioning Lead · Offshore Gangways" data-vi="Trưởng Nghiệm Thu E&I · Gangway Offshore">E&I Commissioning Lead · Offshore Gangways</div>
         </div>
       </div>
     </div>
@@ -1163,163 +1267,163 @@ footer{
 
 <!-- ═══ DELIVERY FRAMEWORK ═══ -->
 <section class="section framework-section" id="framework">
-  <div class="section-label">// How We Deliver</div>
-  <h2 class="section-title">The SONIC <span class="gold">Delivery Framework</span></h2>
-  <p class="section-sub">A structured, phase-gated approach developed from 25 years of E&I project execution — from gas turbine commissioning to offshore pre-comm. No improvisation. No surprises.</p>
+  <div class="section-label" data-i18n="fw_label" data-en="// How We Deliver">// How We Deliver</div>
+  <h2 class="section-title"><span data-en="The SONIC" data-vi="Khung">The SONIC</span> <span class="gold" data-en="Delivery Framework" data-vi="Triển Khai SONIC">Delivery Framework</span></h2>
+  <p class="section-sub" data-en="A structured, phase-gated approach developed from 25 years of E&I project execution — from gas turbines to offshore gangways." data-vi="Phương pháp có cấu trúc, phân giai đoạn được phát triển từ 25 năm thực thi dự án E&I — từ tuabin khí đến gangway offshore.">A structured, phase-gated approach developed from 25 years of E&I project execution — from gas turbines to offshore gangways.</p>
 
   <div class="phases fade-in" style="margin-top:52px;">
     <div class="phase">
       <div class="phase-num">01</div>
       <div class="phase-body">
-        <div class="phase-label">// Mobilisation & Scope Lock</div>
-        <div class="phase-title">Scope Review, Risk Assessment & Mobilisation</div>
-        <div class="phase-desc">We begin with a detailed scope walkdown and risk assessment before a single technician mobilises. We identify interface risks, documentation gaps, and critical path E&I items that could affect schedule. Resources are allocated against the risk profile — not against the cheapest day rate.</div>
+        <div class="phase-label" data-en="// Mobilisation & Scope Lock" data-vi="// Huy Động &amp; Khóa Phạm Vi">// Mobilisation & Scope Lock</div>
+        <div class="phase-title" data-en="Scope Review, Risk Assessment &amp; Mobilisation" data-vi="Xem Xét Phạm Vi, Đánh Giá Rủi Ro &amp; Huy Động">Scope Review, Risk Assessment &amp; Mobilisation</div>
+        <div class="phase-desc" data-en="We begin with a detailed scope walkdown and risk assessment before a single technician mobilises. We identify interface risks, documentation gaps, and critical path E&amp;I items that could affect schedule. Resources are allocated against the risk profile — not against the cheapest day rate." data-vi="Chúng tôi bắt đầu bằng khảo sát phạm vi chi tiết và đánh giá rủi ro trước khi huy động bất kỳ kỹ thuật viên nào. Chúng tôi xác định rủi ro giao diện, khoảng trống tài liệu và các hạng mục E&amp;I trọng yếu có thể ảnh hưởng đến tiến độ. Nguồn lực được phân bổ theo mức độ rủi ro — không phải theo giá ngày công rẻ nhất.">We begin with a detailed scope walkdown and risk assessment before a single technician mobilises. We identify interface risks, documentation gaps, and critical path E&I items that could affect schedule. Resources are allocated against the risk profile — not against the cheapest day rate.</div>
         <div class="phase-tags">
-          <span class="tag">Scope ITP</span>
-          <span class="tag">Risk Register</span>
-          <span class="tag">Resource Plan</span>
-          <span class="tag">3–5 Day Mobilisation</span>
+          <span class="tag" data-en="Scope ITP" data-vi="ITP Phạm Vi">Scope ITP</span>
+          <span class="tag" data-en="Risk Register" data-vi="Sổ Đăng Ký Rủi Ro">Risk Register</span>
+          <span class="tag" data-en="Resource Plan" data-vi="Kế Hoạch Nguồn Lực">Resource Plan</span>
+          <span class="tag" data-en="3–5 Day Mobilisation" data-vi="Huy Động 3–5 Ngày">3–5 Day Mobilisation</span>
         </div>
       </div>
-      <div class="phase-badge"><span class="badge-inline badge-gold">Foundation</span></div>
+      <div class="phase-badge"><span class="badge-inline badge-gold" data-en="Foundation" data-vi="Nền Tảng">Foundation</span></div>
     </div>
 
     <div class="phase">
       <div class="phase-num">02</div>
       <div class="phase-body">
-        <div class="phase-label">// Cable & Instrument Pre-Comm</div>
-        <div class="phase-title">Pre-Commissioning: Continuity, Insulation & Loop Checks</div>
-        <div class="phase-desc">Every cable is tested. Every instrument is verified against the hook-up drawing. We execute pre-comm in a structured sequence — panel wiring checks, MCC inspection, field instrument calibration verification — and record everything against a traceable dossier. Problems found here cost 10% of what they cost to fix during live commissioning.</div>
+        <div class="phase-label" data-en="// Cable & Instrument Pre-Comm" data-vi="// Pre-Commissioning Cáp &amp; Thiết Bị">// Cable & Instrument Pre-Comm</div>
+        <div class="phase-title" data-en="Pre-Commissioning: Continuity, Insulation &amp; Loop Checks" data-vi="Pre-Commissioning: Kiểm Tra Liên Tục, Cách Điện &amp; Loop">Pre-Commissioning: Continuity, Insulation &amp; Loop Checks</div>
+        <div class="phase-desc" data-en="Every cable is tested. Every instrument is verified against the hook-up drawing. We execute pre-comm in a structured sequence — panel wiring checks, MCC inspection, field instrument calibration verification — and record everything against a traceable dossier. Problems found here cost 10% of what they cost to fix during live commissioning." data-vi="Mọi cáp đều được kiểm tra. Mọi thiết bị đều được kiểm tra, đối chiếu theo bản vẽ hook-up. Chúng tôi thực hiện pre-comm theo trình tự có cấu trúc — kiểm tra đấu nối tủ, kiểm tra MCC, xác minh hiệu chỉnh thiết bị thực địa — và ghi lại mọi thứ vào hồ sơ có thể truy xuất. Vấn đề phát hiện ở đây chỉ tốn 10% chi phí so với xử lý khi nghiệm thu thực tế.">Every cable is tested. Every instrument is verified against the hook-up drawing. We execute pre-comm in a structured sequence — panel wiring checks, MCC inspection, field instrument calibration verification — and record everything against a traceable dossier. Problems found here cost 10% of what they cost to fix during live commissioning.</div>
         <div class="phase-tags">
-          <span class="tag">Continuity Testing</span>
-          <span class="tag">Megger Testing</span>
-          <span class="tag">Loop Check Records</span>
-          <span class="tag">Instrument Verification</span>
-          <span class="tag">MCC Panel Inspection</span>
+          <span class="tag" data-en="Continuity Testing" data-vi="Kiểm Tra Liên Tục">Continuity Testing</span>
+          <span class="tag" data-en="Megger Testing" data-vi="Thử Nghiệm Megger">Megger Testing</span>
+          <span class="tag" data-en="Loop Check Records" data-vi="Hồ Sơ Kiểm Tra Loop">Loop Check Records</span>
+          <span class="tag" data-en="Instrument Verification" data-vi="Xác Minh Thiết Bị">Instrument Verification</span>
+          <span class="tag" data-en="MCC Panel Inspection" data-vi="Kiểm Tra Tủ MCC">MCC Panel Inspection</span>
         </div>
       </div>
-      <div class="phase-badge"><span class="badge-inline badge-green">Quality Gate 1</span></div>
+      <div class="phase-badge"><span class="badge-inline badge-green" data-en="Quality Gate 1" data-vi="Cổng Chất Lượng 1">Quality Gate 1</span></div>
     </div>
 
     <div class="phase">
       <div class="phase-num">03</div>
       <div class="phase-body">
-        <div class="phase-label">// Live Commissioning</div>
-        <div class="phase-title">Energisation, DCS Integration & Functional Testing</div>
-        <div class="phase-desc">Live commissioning is executed with AI-Punch™ running in parallel — every defect photographed, categorised, assigned, and tracked in real time. We follow OEM commissioning sequences (Siemens TI, GE EGS, or client-specified). Control system integration, interlock verification, and safety function testing are executed against the approved test packs.</div>
+        <div class="phase-label" data-en="// Live Commissioning" data-vi="// Nghiệm Thu Thực Tế">// Live Commissioning</div>
+        <div class="phase-title" data-en="Energisation, DCS Integration &amp; Functional Testing" data-vi="Cấp Điện, Tích Hợp DCS &amp; Kiểm Tra Chức Năng">Energisation, DCS Integration &amp; Functional Testing</div>
+        <div class="phase-desc" data-en="Live commissioning is executed with AI-Punch™ running in parallel — every defect photographed, categorised, assigned, and tracked in real time. We follow OEM commissioning sequences (Siemens TI, GE EGS, or client-specified). Control system integration, interlock verification, and safety function testing are executed against the approved test packs." data-vi="Nghiệm thu thực tế được thực hiện với AI-Punch™ chạy song song — mọi lỗi được chụp ảnh, phân loại, giao việc và theo dõi theo thời gian thực. Chúng tôi tuân theo trình tự nghiệm thu OEM (Siemens TI, GE EGS hoặc theo yêu cầu khách hàng). Tích hợp hệ thống điều khiển, xác minh interlock và kiểm tra chức năng an toàn được thực hiện theo gói kiểm tra đã duyệt.">Live commissioning is executed with AI-Punch™ running in parallel — every defect photographed, categorised, assigned, and tracked in real time. We follow OEM commissioning sequences (Siemens TI, GE EGS, or client-specified). Control system integration, interlock verification, and safety function testing are executed against the approved test packs.</div>
         <div class="phase-tags">
-          <span class="tag">OEM Spec Compliance</span>
-          <span class="tag">AI-Punch™ QA/QC</span>
-          <span class="tag">DCS Integration</span>
-          <span class="tag">SIL Verification</span>
-          <span class="tag">Interlock Testing</span>
+          <span class="tag" data-en="OEM Spec Compliance" data-vi="Tuân Thủ Đặc Kỹ Thuật OEM">OEM Spec Compliance</span>
+          <span class="tag" data-en="AI-Punch™ QA/QC" data-vi="AI-Punch™ QA/QC">AI-Punch™ QA/QC</span>
+          <span class="tag" data-en="DCS Integration" data-vi="Tích Hợp DCS">DCS Integration</span>
+          <span class="tag" data-en="SIL Verification" data-vi="Xác Minh SIL">SIL Verification</span>
+          <span class="tag" data-en="Interlock Testing" data-vi="Kiểm Tra Interlock">Interlock Testing</span>
         </div>
       </div>
-      <div class="phase-badge"><span class="badge-inline badge-blue">AI-Assisted</span></div>
+      <div class="phase-badge"><span class="badge-inline badge-blue" data-en="AI-Assisted" data-vi="Hỗ Trợ AI">AI-Assisted</span></div>
     </div>
 
     <div class="phase">
       <div class="phase-num">04</div>
       <div class="phase-body">
-        <div class="phase-label">// Punch Management</div>
-        <div class="phase-title">Punch List Control, Closure & QA Sign-Off</div>
-        <div class="phase-desc">Punch items are managed to zero. Category A (safety-critical) items are closed before energisation. Category B items are tracked daily with photographic evidence of closure. Our AI-Punch™ platform gives the client's QA team live visibility into punch status — no more spreadsheets, no more he-said-she-said at handover.</div>
+        <div class="phase-label" data-en="// Punch Management" data-vi="// Quản Lý Punch List">// Punch Management</div>
+        <div class="phase-title" data-en="Punch List Control, Closure &amp; QA Sign-Off" data-vi="Kiểm Soát Punch List, Đóng Lỗi &amp; Ký Duyệt QA">Punch List Control, Closure &amp; QA Sign-Off</div>
+        <div class="phase-desc" data-en="Punch items are managed to zero. Category A (safety-critical) items are closed before energisation. Category B items are tracked daily with photographic evidence of closure. Our AI-Punch™ platform gives the client's QA team live visibility into punch status — no more spreadsheets, no more he-said-she-said at handover." data-vi="Punch item được quản lý đến zero. Hạng mục Loại A (an toàn quan trọng) được đóng trước khi cấp điện. Hạng mục Loại B được theo dõi hàng ngày kèm ảnh minh chứng. Nền tảng AI-Punch™ cung cấp cho đội QA khách hàng khả năng giám sát trực tiếp trạng thái punch — không còn bảng tính, không còn tranh cãi khi bàn giao.">Punch items are managed to zero. Category A (safety-critical) items are closed before energisation. Category B items are tracked daily with photographic evidence of closure. Our AI-Punch™ platform gives the client's QA team live visibility into punch status — no more spreadsheets, no more he-said-she-said at handover.</div>
         <div class="phase-tags">
-          <span class="tag">Cat A/B/C Classification</span>
-          <span class="tag">Photo Evidence</span>
-          <span class="tag">Client QA Access</span>
-          <span class="tag">Daily Closure Reports</span>
+          <span class="tag" data-en="Cat A/B/C Classification" data-vi="Phân Loại Cat A/B/C">Cat A/B/C Classification</span>
+          <span class="tag" data-en="Photo Evidence" data-vi="Ảnh Minh Chứng">Photo Evidence</span>
+          <span class="tag" data-en="Client QA Access" data-vi="QA Truy Cập Cho Khách Hàng">Client QA Access</span>
+          <span class="tag" data-en="Daily Closure Reports" data-vi="Báo Cáo Đóng Hàng Ngày">Daily Closure Reports</span>
         </div>
       </div>
-      <div class="phase-badge"><span class="badge-inline badge-gold">Zero-Defect</span></div>
+      <div class="phase-badge"><span class="badge-inline badge-gold" data-en="Zero-Defect" data-vi="Không Phát Sinh Lỗi">Zero-Defect</span></div>
     </div>
 
     <div class="phase">
       <div class="phase-num">05</div>
       <div class="phase-body">
-        <div class="phase-label">// Handover Package</div>
-        <div class="phase-title">Documentation, As-Built Records & Handover Certification</div>
-        <div class="phase-desc">We deliver a complete close-out dossier: all test records, loop check certificates, punch list closure report with photo evidence, calibration certificates, and as-built redlines. This is not an afterthought — documentation is built throughout the project, not assembled in a panic the week before handover.</div>
+        <div class="phase-label" data-en="// Handover Package" data-vi="// Bộ Hồ Sơ Bàn Giao">// Handover Package</div>
+        <div class="phase-title" data-en="Documentation, As-Built Records &amp; Handover Certification" data-vi="Hồ Sơ Tài Liệu, Bản Vẽ As-Built &amp; Chứng Nhận Bàn Giao">Documentation, As-Built Records &amp; Handover Certification</div>
+        <div class="phase-desc" data-en="We deliver a complete close-out dossier: all test records, loop check certificates, punch list closure report with photo evidence, calibration certificates, and as-built redlines. This is not an afterthought — documentation is built throughout the project, not assembled in a panic the week before handover." data-vi="Chúng tôi bàn giao hồ sơ close-out đầy đủ: tất cả hồ sơ kiểm tra, chứng chỉ kiểm tra loop, báo cáo đóng punch list kèm ảnh, chứng chỉ hiệu chỉnh và bản vẽ đỏ as-built. Đây không phải việc làm vội — tài liệu được xây dựng xuyên suốt dự án, không phải thu thập vội vàng vào tuần cuối trước bàn giao.">We deliver a complete close-out dossier: all test records, loop check certificates, punch list closure report with photo evidence, calibration certificates, and as-built redlines. This is not an afterthought — documentation is built throughout the project, not assembled in a panic the week before handover.</div>
         <div class="phase-tags">
-          <span class="tag">Loop Certificates</span>
-          <span class="tag">Test Dossier</span>
-          <span class="tag">As-Built Redlines</span>
-          <span class="tag">PDF Close-Out Report</span>
-          <span class="tag">Audit Trail</span>
+          <span class="tag" data-en="Loop Certificates" data-vi="Chứng Chỉ Loop">Loop Certificates</span>
+          <span class="tag" data-en="Test Dossier" data-vi="Hồ Sơ Kiểm Tra">Test Dossier</span>
+          <span class="tag" data-en="As-Built Redlines" data-vi="Bản Vẽ As-Built">As-Built Redlines</span>
+          <span class="tag" data-en="PDF Close-Out Report" data-vi="Báo Cáo PDF Close-Out">PDF Close-Out Report</span>
+          <span class="tag" data-en="Audit Trail" data-vi="Nhật Ký Kiểm Toán">Audit Trail</span>
         </div>
       </div>
-      <div class="phase-badge"><span class="badge-inline badge-green">Handover Ready</span></div>
+      <div class="phase-badge"><span class="badge-inline badge-green" data-en="Handover Ready" data-vi="Sẵn Sàng Bàn Giao">Handover Ready</span></div>
     </div>
   </div>
 </section>
 
 <!-- ═══ DIFFERENTIATORS ═══ -->
 <section class="section diff-section">
-  <div class="section-label">// What Sets Us Apart</div>
-  <h2 class="section-title">Not a Sub-Contractor. <span class="gold">A Project Partner.</span></h2>
-  <p class="section-sub">The difference between a standard E&I sub and SONIC E&I is accountability. We own the outcome — which changes how every decision gets made.</p>
+  <div class="section-label" data-i18n="diff_label" data-en="// What Sets Us Apart">// What Sets Us Apart</div>
+  <h2 class="section-title"><span data-en="Not a Sub-Contractor." data-vi="Không Phải Nhà Thầu Phụ.">Not a Sub-Contractor.</span> <span class="gold" data-en="A Project Partner." data-vi="Đối Tác Dự Án.">A Project Partner.</span></h2>
+  <p class="section-sub" data-en="The difference between a standard E&I sub and SONIC E&I is accountability. We own the outcome — which is why we write the guarantee into the contract." data-vi="Sự khác biệt giữa nhà thầu phụ E&I thông thường và SONIC E&I là trách nhiệm giải trình. Chúng tôi sở hữu kết quả — đó là lý do chúng tôi ghi bảo đảm vào hợp đồng.">The difference between a standard E&I sub and SONIC E&I is accountability. We own the outcome — which is why we write the guarantee into the contract.</p>
 
   <div class="diff-grid">
     <div class="diff-card fade-in">
       <div class="diff-icon">🎯</div>
-      <div class="diff-title">OEM-Grade Technical Specification</div>
-      <div class="diff-body">We execute to Siemens TI and GE EGS specifications — the same standards tier-1 contractors use. Not approximations of them. This matters most during interlock verification and FAT, where non-compliant work is exposed.</div>
-      <div class="diff-proof">→ WORKED DIRECTLY WITH SIEMENS &amp; GE PROJECT TEAMS</div>
+      <div class="diff-title" data-en="OEM-Grade Technical Specification" data-vi="Đặc Kỹ Thuật Chuẩn OEM">OEM-Grade Technical Specification</div>
+      <div class="diff-body" data-en="We execute to Siemens TI and GE EGS specifications — the same standards tier-1 contractors use. Not approximations of them. This matters most during interlock verification and FAT, where non-compliant work is exposed." data-vi="Chúng tôi thi công theo đặc kỹ thuật Siemens TI và GE EGS — cùng tiêu chuẩn mà nhà thầu hạng nhất sử dụng. Không phải phiên bản xấp xỉ. Điều này quan trọng nhất trong kiểm tra interlock và FAT, nơi các lỗi không tuân thủ bộc lộ rõ ràng.">We execute to Siemens TI and GE EGS specifications — the same standards tier-1 contractors use. Not approximations of them. This matters most during interlock verification and FAT, where non-compliant work is exposed.</div>
+      <div class="diff-proof" data-en="→ WORKED DIRECTLY WITH SIEMENS &amp; GE PROJECT TEAMS" data-vi="→ LÀM VIỆC TRỰC TIẾP VỚI ĐỘI SIEMENS &amp; GE">→ WORKED DIRECTLY WITH SIEMENS &amp; GE PROJECT TEAMS</div>
     </div>
     <div class="diff-card fade-in">
       <div class="diff-icon">📱</div>
-      <div class="diff-title">AI-Punch™ QA/QC Technology</div>
-      <div class="diff-body">Our proprietary AI inspection platform runs on every project. Defects are captured with photo evidence, categorised against IEC standards, and tracked to closure. Client QA teams get live dashboard access — no more waiting for weekly reports.</div>
-      <div class="diff-proof">→ 22+ DEFECT CODES · IEC 60079 / IEC 60364 COMPLIANT</div>
+      <div class="diff-title" data-en="AI-Punch™ QA/QC Technology" data-vi="Công Nghệ QA/QC AI-Punch™">AI-Punch™ QA/QC Technology</div>
+      <div class="diff-body" data-en="Our proprietary AI inspection platform runs on every project. Defects are captured with photo evidence, categorised against IEC standards, and tracked to closure. Client QA teams get live dashboard access — no more waiting for weekly reports." data-vi="Nền tảng kiểm tra AI độc quyền của chúng tôi chạy trên mọi dự án. Lỗi được ghi lại kèm ảnh, phân loại theo tiêu chuẩn IEC và theo dõi đến khi đóng. Đội QA khách hàng có quyền truy cập dashboard trực tiếp — không còn chờ đợi báo cáo tuần.">Our proprietary AI inspection platform runs on every project. Defects are captured with photo evidence, categorised against IEC standards, and tracked to closure. Client QA teams get live dashboard access — no more waiting for weekly reports.</div>
+      <div class="diff-proof" data-en="→ 22+ DEFECT CODES · IEC 60079 / IEC 60364 COMPLIANT" data-vi="→ 22+ MÃ LỖI · TUÂN THỦ IEC 60079 / IEC 60364">→ 22+ DEFECT CODES · IEC 60079 / IEC 60364 COMPLIANT</div>
     </div>
     <div class="diff-card fade-in">
       <div class="diff-icon">🛡</div>
-      <div class="diff-title">Contractual Performance Guarantee</div>
-      <div class="diff-body">Every E&I defect attributable to our work is rectified at our cost — no change order, no negotiation. This clause is in every contract we sign. It's not a sales promise; it's a financial commitment that aligns our incentives with yours.</div>
-      <div class="diff-proof">→ WRITTEN INTO CONTRACT · NOT A MARKETING LINE</div>
+      <div class="diff-title" data-en="Contractual Performance Guarantee" data-vi="Bảo Đảm Hiệu Suất Hợp Đồng">Contractual Performance Guarantee</div>
+      <div class="diff-body" data-en="Every E&amp;I defect attributable to our work is rectified at our cost — no change order, no negotiation. This clause is in every contract we sign. It's not a sales promise; it's a financial commitment that aligns our incentives with yours." data-vi="Mọi lỗi E&amp;I phát sinh từ công việc của chúng tôi đều được khắc phục theo chi phí của chúng tôi — không phát sinh lệnh thay đổi, không thương lượng. Điều khoản này có trong mọi hợp đồng chúng tôi ký. Đây không phải lời hứa bán hàng; đó là cam kết tài chính gắn kết lợi ích của chúng tôi với lợi ích của Quý vị.">Every E&I defect attributable to our work is rectified at our cost — no change order, no negotiation. This clause is in every contract we sign. It's not a sales promise; it's a financial commitment that aligns our incentives with yours.</div>
+      <div class="diff-proof" data-en="→ WRITTEN INTO CONTRACT · NOT A MARKETING LINE" data-vi="→ GHI VÀO HỢP ĐỒNG · KHÔNG PHẢI KHẨU HIỆU MARKETING">→ WRITTEN INTO CONTRACT · NOT A MARKETING LINE</div>
     </div>
     <div class="diff-card fade-in">
       <div class="diff-icon">📊</div>
-      <div class="diff-title">End-to-End Project Management</div>
-      <div class="diff-body">We manage the full E&I scope: scheduling, resource allocation, subcontractor supervision, interface management with civil and mechanical, and client reporting. You get one point of accountability, not a coordination problem.</div>
-      <div class="diff-proof">→ SINGLE-POINT E&I ACCOUNTABILITY ON EVERY PROJECT</div>
+      <div class="diff-title" data-en="End-to-End Project Management" data-vi="Quản Lý Dự Án Đầu Đến Cuối">End-to-End Project Management</div>
+      <div class="diff-body" data-en="We manage the full E&amp;I scope: scheduling, resource allocation, subcontractor supervision, interface management with civil and mechanical, and client reporting. You get one point of accountability, not a coordination problem." data-vi="Chúng tôi quản lý toàn bộ phạm vi E&amp;I: lập lịch, phân bổ nguồn lực, giám sát nhà thầu phụ, quản lý giao diện với hạng mục dân dụng và cơ khí, và báo cáo khách hàng. Bạn có một đầu mối trách nhiệm duy nhất, không phải bài toán phối hợp.">We manage the full E&I scope: scheduling, resource allocation, subcontractor supervision, interface management with civil and mechanical, and client reporting. You get one point of accountability, not a coordination problem.</div>
+      <div class="diff-proof" data-en="→ SINGLE-POINT E&I ACCOUNTABILITY ON EVERY PROJECT" data-vi="→ TRÁCH NHIỆM E&I MỘT ĐẦU MỐI TRÊN MỌI DỰ ÁN">→ SINGLE-POINT E&I ACCOUNTABILITY ON EVERY PROJECT</div>
     </div>
     <div class="diff-card fade-in">
       <div class="diff-icon">📡</div>
-      <div class="diff-title">Offshore &amp; Remote-Ready</div>
-      <div class="diff-body">Our founder has direct offshore commissioning experience on VARD and Seaonics gangway projects — and understands the zero-margin-for-error environment of platform and vessel work. For offshore scopes, we deploy on a per-project basis with personnel selected to meet the specific certification and operational requirements of each engagement.</div>
-      <div class="diff-proof">→ VARD · SEAONICS OFFSHORE GANGWAY EXPERIENCE · PER-PROJECT DEPLOYMENT</div>
+      <div class="diff-title" data-en="Offshore &amp; Remote-Ready" data-vi="Sẵn Sàng Offshore &amp; Từ Xa">Offshore &amp; Remote-Ready</div>
+      <div class="diff-body" data-en="Our founder has direct offshore commissioning experience on VARD and Seaonics gangway projects — and understands the zero-margin-for-error environment of platform and vessel work. For offshore scopes, we deploy on a per-project basis with personnel selected to meet the specific certification and operational requirements of each engagement." data-vi="Người sáng lập có kinh nghiệm nghiệm thu offshore trực tiếp trên các dự án gangway VARD và Seaonics — và hiểu môi trường không có chỗ cho sai sót của công việc trên giàn và tàu. Đối với phạm vi offshore, chúng tôi triển khai theo từng dự án với nhân sự được chọn đáp ứng yêu cầu chứng chỉ và vận hành cụ thể của từng hợp đồng.">Our founder has direct offshore commissioning experience on VARD and Seaonics gangway projects — and understands the zero-margin-for-error environment of platform and vessel work. For offshore scopes, we deploy on a per-project basis with personnel selected to meet the specific certification and operational requirements of each engagement.</div>
+      <div class="diff-proof" data-en="→ VARD · SEAONICS OFFSHORE GANGWAY EXPERIENCE · PER-PROJECT DEPLOYMENT" data-vi="→ KINH NGHIỆM OFFSHORE VARD · SEAONICS · TRIỂN KHAI THEO DỰ ÁN">→ VARD · SEAONICS OFFSHORE GANGWAY EXPERIENCE · PER-PROJECT DEPLOYMENT</div>
     </div>
     <div class="diff-card fade-in">
       <div class="diff-icon">⚡</div>
-      <div class="diff-title">Fast Mobilisation — Vietnam-Based</div>
-      <div class="diff-body">Vietnam-based for onshore Vũng Tàu / HCMC projects: 3–5 business days from PO to site. No reliance on international consultant rosters. Core team held in reserve — we don't over-book.</div>
-      <div class="diff-proof">→ 3–5 DAY MOBILISATION · VT / HCMC ONSHORE PROJECTS</div>
+      <div class="diff-title" data-en="Fast Mobilisation — Vietnam-Based" data-vi="Huy Động Nhanh — Đặt Tại Việt Nam">Fast Mobilisation — Vietnam-Based</div>
+      <div class="diff-body" data-en="Vietnam-based for onshore Vũng Tàu / HCMC projects: 3–5 business days from PO to site. No reliance on international consultant rosters. Core team held in reserve — we don't over-book." data-vi="Đặt tại Việt Nam cho các dự án onshore Vũng Tàu / HCMC: 3–5 ngày làm việc từ PO đến công trường. Không phụ thuộc vào danh sách tư vấn quốc tế. Đội lõi được giữ trong dự phòng — chúng tôi không nhận quá khả năng.">Vietnam-based for onshore Vũng Tàu / HCMC projects: 3–5 business days from PO to site. No reliance on international consultant rosters. Core team held in reserve — we don't over-book.</div>
+      <div class="diff-proof" data-en="→ 3–5 DAY MOBILISATION · VT / HCMC ONSHORE PROJECTS" data-vi="→ HUY ĐỘNG 3–5 NGÀY · DỰ ÁN ONSHORE VT / HCMC">→ 3–5 DAY MOBILISATION · VT / HCMC ONSHORE PROJECTS</div>
     </div>
   </div>
 </section>
 
 <!-- ═══ TRACK RECORD ═══ -->
 <section class="section record-section">
-  <div class="section-label">// Project Track Record</div>
-  <h2 class="section-title">25 Years of <span class="gold">Field Evidence</span></h2>
+  <div class="section-label" data-i18n="tr_label" data-en="// Project Track Record">// Project Track Record</div>
+  <h2 class="section-title"><span data-en="25 Years of" data-vi="25 Năm">25 Years of</span> <span class="gold" data-en="Field Evidence" data-vi="Bằng Chứng Thực Địa">Field Evidence</span></h2>
 
   <div class="record-intro fade-in">
     <div>
-      <p class="section-sub" style="max-width:100%">Our founder's direct project experience — as commissioning manager, owner's engineer, and E&I contractor lead — forms the technical foundation of every SONIC E&I project. These aren't credentials on a CV; they're the source of our defect library, our commissioning sequences, and our understanding of what actually goes wrong on large E&I scopes.</p>
+      <p class="section-sub" style="max-width:100%" data-en="Our founder's direct project experience — as commissioning manager, owner's engineer, and E&I contractor — across Vietnam's largest power and offshore projects." data-vi="Kinh nghiệm dự án trực tiếp của người sáng lập — với vai trò quản lý nghiệm thu, kỹ sư đại diện chủ đầu tư và nhà thầu E&I — trên các dự án điện và offshore lớn nhất Việt Nam.">Our founder's direct project experience — as commissioning manager, owner's engineer, and E&I contractor — across Vietnam's largest power and offshore projects.</p>
     </div>
     <div class="record-kpis">
       <div class="kpi-item">
         <div class="kpi-n">0</div>
-        <div class="kpi-l"><strong>Critical Failures at Handover</strong>Across 25+ years and 20+ major projects</div>
+        <div class="kpi-l"><strong data-en="Critical Failures at Handover" data-vi="Lỗi Nghiêm Trọng Khi Bàn Giao">Critical Failures at Handover</strong><span data-en="Across 25+ years and 20+ major projects" data-vi="Qua 25+ năm và 20+ dự án lớn">Across 25+ years and 20+ major projects</span></div>
       </div>
       <div class="kpi-item">
         <div class="kpi-n">60K+</div>
-        <div class="kpi-l"><strong>Terminations Completed</strong>Zero defect callbacks on workmanship</div>
+        <div class="kpi-l"><strong data-en="Terminations Completed" data-vi="Đầu Cốt Hoàn Thành">Terminations Completed</strong><span data-en="Zero defect callbacks on workmanship" data-vi="Không có phản hồi lỗi thi công">Zero defect callbacks on workmanship</span></div>
       </div>
       <div class="kpi-item">
         <div class="kpi-n">3–5</div>
-        <div class="kpi-l"><strong>Days Proposal Turnaround</strong>Scope review to written proposal</div>
+        <div class="kpi-l"><strong data-en="Days Proposal Turnaround" data-vi="Ngày Phản Hồi Đề Xuất">Days Proposal Turnaround</strong><span data-en="Scope review to written proposal" data-vi="Từ xem xét phạm vi đến đề xuất bằng văn bản">Scope review to written proposal</span></div>
       </div>
     </div>
   </div>
@@ -1328,73 +1432,73 @@ footer{
     <table class="project-table">
       <thead>
         <tr>
-          <th>Project / Client</th>
-          <th>Type</th>
-          <th class="hide-mobile">E&I Scope</th>
-          <th>Role</th>
-          <th>Outcome</th>
+          <th data-en="Project / Client" data-vi="Dự Án / Khách Hàng">Project / Client</th>
+          <th data-en="Type" data-vi="Loại">Type</th>
+          <th class="hide-mobile" data-en="E&I Scope" data-vi="Phạm Vi E&I">E&I Scope</th>
+          <th data-en="Role" data-vi="Vai Trò">Role</th>
+          <th data-en="Outcome" data-vi="Kết Quả">Outcome</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="td-project">Phu My 2.1 Extension<br><span style="font-size:11px;color:var(--gray);font-weight:400">Siemens Energy / EVN Genco3</span></td>
           <td><span class="td-badge tb-power">Power</span></td>
-          <td class="hide-mobile">Full E&I commissioning, gas turbine commissioning, DCS Upgradation</td>
-          <td>Project Manager</td>
-          <td class="td-outcome">✓ ON-SCHEDULE HANDOVER</td>
+          <td class="hide-mobile" data-en="Full E&I commissioning, gas turbine commissioning, DCS Upgradation" data-vi="Nghiệm thu E&I đầy đủ, nghiệm thu tuabin khí, nâng cấp DCS">Full E&I commissioning, gas turbine commissioning, DCS Upgradation</td>
+          <td data-en="Project Manager" data-vi="Quản Lý Dự Án">Project Manager</td>
+          <td class="td-outcome" data-en="✓ ON-SCHEDULE HANDOVER" data-vi="✓ BÀN GIAO ĐÚNG TIẾN ĐỘ">✓ ON-SCHEDULE HANDOVER</td>
         </tr>
         <tr>
           <td class="td-project">Phu My 3<br><span style="font-size:11px;color:var(--gray);font-weight:400">Siemens Energy / BOT</span></td>
           <td><span class="td-badge tb-power">Power</span></td>
-          <td class="hide-mobile">Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning, DCS Upgradation</td>
-          <td>Project Manager</td>
-          <td class="td-outcome">✓ 3 DAYS EARLY SYNCHRONIZATION</td>
+          <td class="hide-mobile" data-en="Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning, DCS Upgradation" data-vi="Đại tu, tái nghiệm thu tuabin khí, tuabin hơi, máy phát, nâng cấp DCS">Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning, DCS Upgradation</td>
+          <td data-en="Project Manager" data-vi="Quản Lý Dự Án">Project Manager</td>
+          <td class="td-outcome" data-en="✓ 3 DAYS EARLY SYNCHRONIZATION" data-vi="✓ HÒA ĐỒNG BỘ SỚM 3 NGÀY">✓ 3 DAYS EARLY SYNCHRONIZATION</td>
         </tr>
         <tr>
           <td class="td-project">Ca Mau 1 &amp; 2, Nhon Trach 2<br><span style="font-size:11px;color:var(--gray);font-weight:400">Siemens Energy / PV Power</span></td>
           <td><span class="td-badge tb-power">Power</span></td>
-          <td class="hide-mobile">Combined cycle E&I, turbine instrumentation, control panel re-commissioning</td>
-          <td>Project Manager</td>
-          <td class="td-outcome">✓ ON-SCHEDULE HANDOVER</td>
+          <td class="hide-mobile" data-en="Combined cycle E&I, turbine instrumentation, control panel re-commissioning" data-vi="E&I chu trình hỗn hợp, đo lường tuabin, tái nghiệm thu bảng điều khiển">Combined cycle E&I, turbine instrumentation, control panel re-commissioning</td>
+          <td data-en="Project Manager" data-vi="Quản Lý Dự Án">Project Manager</td>
+          <td class="td-outcome" data-en="✓ ON-SCHEDULE HANDOVER" data-vi="✓ BÀN GIAO ĐÚNG TIẾN ĐỘ">✓ ON-SCHEDULE HANDOVER</td>
         </tr>
         <tr>
           <td class="td-project">Phu My 2.2<br><span style="font-size:11px;color:var(--gray);font-weight:400">GE Power / EDF</span></td>
           <td><span class="td-badge tb-power">Power</span></td>
-          <td class="hide-mobile">Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning</td>
-          <td>Owner's Engineer</td>
-          <td class="td-outcome">✓ COMMERCIAL OPERATION 4 DAYS EARLY</td>
+          <td class="hide-mobile" data-en="Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning" data-vi="Đại tu, tái nghiệm thu tuabin khí, tuabin hơi, máy phát">Overhaul, Gas Turbine, Steam Turbine, Gen sets re-commissioning</td>
+          <td data-en="Owner's Engineer" data-vi="Kỹ Sư Đại Diện Chủ Đầu Tư">Owner's Engineer</td>
+          <td class="td-outcome" data-en="✓ COMMERCIAL OPERATION 4 DAYS EARLY" data-vi="✓ VẬN HÀNH THƯƠNG MẠI SỚM 4 NGÀY">✓ COMMERCIAL OPERATION 4 DAYS EARLY</td>
         </tr>
         <tr>
           <td class="td-project">VARD Offshore Vessel<br><span style="font-size:11px;color:var(--gray);font-weight:400">VARD / Seaonics · International Operator</span></td>
           <td><span class="td-badge tb-offshore">Offshore</span></td>
-          <td class="hide-mobile">Pre-comm &amp; loop check, vessel E&I from wiring through to commissioning</td>
-          <td>E&I Commissioning Lead</td>
-          <td class="td-outcome">✓ ZERO OPEN ITEMS AT DELIVERY</td>
+          <td class="hide-mobile" data-en="Pre-comm &amp; loop check, vessel E&I from wiring through to commissioning" data-vi="Pre-comm &amp; kiểm tra loop, E&I tàu từ đấu nối đến nghiệm thu">Pre-comm &amp; loop check, vessel E&I from wiring through to commissioning</td>
+          <td data-en="E&I Commissioning Lead" data-vi="Trưởng Nghiệm Thu E&I">E&I Commissioning Lead</td>
+          <td class="td-outcome" data-en="✓ ZERO OPEN ITEMS AT DELIVERY" data-vi="✓ KHÔNG CÓ HẠNG MỤC TỒN ĐỌNG KHI BÀN GIAO">✓ ZERO OPEN ITEMS AT DELIVERY</td>
         </tr>
       </tbody>
     </table>
-    <div class="table-note">* Project history reflects founder's direct field experience. SONIC E&I Solutions established 2024, executing new projects to the same technical standard.</div>
+    <div class="table-note" data-en="* Project history reflects founder's direct field experience. SONIC E&amp;I Solutions established 2024, executing new projects to the same technical standard." data-vi="* Lịch sử dự án phản ánh kinh nghiệm thực địa trực tiếp của người sáng lập. SONIC E&amp;I Solutions thành lập năm 2024, thực hiện các dự án mới theo cùng tiêu chuẩn kỹ thuật.">* Project history reflects founder's direct field experience. SONIC E&I Solutions established 2024, executing new projects to the same technical standard.</div>
   </div>
 </section>
 
 <!-- ═══ GUARANTEE & RISK MANAGEMENT ═══ -->
 <section class="section risk-section">
-  <div class="section-label">// Risk Transfer &amp; Performance Guarantee</div>
-  <h2 class="section-title">We Carry <span class="gold">The Risk.</span></h2>
-  <p class="section-sub">Engaging SONIC E&I is not just buying technical services — it's transferring E&I delivery risk to a party with a financial stake in the outcome.</p>
+  <div class="section-label" data-i18n="guar_label" data-en="// Risk Transfer &amp; Performance Guarantee">// Risk Transfer &amp; Performance Guarantee</div>
+  <h2 class="section-title"><span data-en="We Carry" data-vi="Chúng Tôi Gánh">We Carry</span> <span class="gold" data-en="The Risk." data-vi="Rủi Ro.">The Risk.</span></h2>
+  <p class="section-sub" data-en="Engaging SONIC E&I is not just buying technical services — it's transferring E&I delivery risk to a contractor who backs their work with a contractual guarantee." data-vi="Hợp tác với SONIC E&I không chỉ là mua dịch vụ kỹ thuật — mà là chuyển giao rủi ro triển khai E&I sang một nhà thầu bảo đảm công việc bằng cam kết hợp đồng.">Engaging SONIC E&I is not just buying technical services — it's transferring E&I delivery risk to a contractor who backs their work with a contractual guarantee.</p>
 
   <div class="risk-grid fade-in">
     <div class="guarantee-box">
       <div class="gb-icon">🛡</div>
-      <div class="gb-title">The Zero-Defect Guarantee</div>
+      <div class="gb-title" data-en="The Zero-Defect Guarantee" data-vi="Bảo Đảm Không Phát Sinh Lỗi">The Zero-Defect Guarantee</div>
       <div class="gb-body">
-        Any E&I defect <strong>attributable to our workmanship</strong> — termination quality, installation non-conformances, missed loop checks — is rectified at our cost. No change order. No negotiation.
+        <span data-en="Any E&amp;I defect" data-vi="Mọi lỗi E&amp;I">Any E&I defect</span> <strong data-en="attributable to our workmanship" data-vi="phát sinh từ thi công của chúng tôi">attributable to our workmanship</strong> <span data-en="— termination quality, installation non-conformances, missed loop checks — is rectified at our cost. No change order. No negotiation." data-vi="— chất lượng đầu cốt, lỗi lắp đặt không phù hợp, kiểm tra loop bỏ sót — đều được khắc phục theo chi phí của chúng tôi. Không có lệnh thay đổi. Không thương lượng.">— termination quality, installation non-conformances, missed loop checks — is rectified at our cost. No change order. No negotiation.</span>
         <br><br>
-        This is not a best-effort commitment. It's a <strong>contractual clause written into every SONIC E&I project agreement</strong>, designed to protect you from the most common source of E&I cost overrun: post-handover defect discovery.
+        <span data-en="This is not a best-effort commitment. It's a" data-vi="Đây không phải cam kết kiểu 'cố gắng hết sức'. Đây là một">This is not a best-effort commitment. It's a</span> <strong data-en="contractual clause written into every SONIC E&amp;I project agreement" data-vi="điều khoản hợp đồng ghi nhận trong mọi hợp đồng dự án SONIC E&amp;I">contractual clause written into every SONIC E&I project agreement</strong><span data-en=", designed to protect you from the most common source of E&amp;I cost overrun: post-handover defect discovery." data-vi=", được thiết kế để bảo vệ Quý vị khỏi nguyên nhân phổ biến nhất gây vượt chi phí E&amp;I: phát hiện lỗi sau bàn giao.">, designed to protect you from the most common source of E&amp;I cost overrun: post-handover defect discovery.</span>
       </div>
       <div class="gb-clause">
-        "Any defect in E&I workmanship attributable to SONIC E&I Solutions shall be remedied by SONIC E&I at no additional cost to the Client, within a mutually agreed timeframe."
-        <br><br>— Standard clause, SONIC E&I Project Agreement
+        <span data-en="&quot;Any defect in E&I workmanship attributable to SONIC E&I Solutions shall be remedied by SONIC E&I at no additional cost to the Client, within a mutually agreed timeframe.&quot;" data-vi="&quot;Mọi lỗi thi công E&I phát sinh từ phía SONIC E&I Solutions sẽ được SONIC E&I khắc phục mà không tính thêm chi phí cho Khách Hàng, trong khung thời gian đã thỏa thuận.&quot;">"Any defect in E&I workmanship attributable to SONIC E&I Solutions shall be remedied by SONIC E&I at no additional cost to the Client, within a mutually agreed timeframe."</span>
+        <br><br><span data-en="— Standard clause, SONIC E&I Project Agreement" data-vi="— Điều khoản chuẩn, Hợp Đồng Dự Án SONIC E&I">— Standard clause, SONIC E&I Project Agreement</span>
       </div>
     </div>
 
@@ -1402,36 +1506,36 @@ footer{
       <div class="risk-item">
         <div class="ri-icon ri-green">✓</div>
         <div class="ri-body">
-          <div class="ri-title">Workmanship Defects → Our Cost</div>
-          <div class="ri-desc">Crimp failures, loose terminations, incorrect wiring, missed grounds — if we installed it wrong, we fix it without billing a change order.</div>
+          <div class="ri-title" data-en="Workmanship Defects → Our Cost" data-vi="Lỗi Thi Công → Chi Phí Của Chúng Tôi">Workmanship Defects → Our Cost</div>
+          <div class="ri-desc" data-en="Crimp failures, loose terminations, incorrect wiring, missed grounds — if we installed it wrong, we fix it without billing a change order." data-vi="Lỗi crimping, đầu cốt lỏng, đấu nối sai, bỏ sót nối đất — nếu chúng tôi lắp sai, chúng tôi sửa mà không tính lệnh thay đổi.">Crimp failures, loose terminations, incorrect wiring, missed grounds — if we installed it wrong, we fix it without billing a change order.</div>
         </div>
       </div>
       <div class="risk-item">
         <div class="ri-icon ri-green">✓</div>
         <div class="ri-body">
-          <div class="ri-title">Missed Punch Items → Our Accountability</div>
-          <div class="ri-desc">Items that should have been caught in pre-comm but surface at handover inspection are resolved at our time and cost — not charged back as "additional scope."</div>
+          <div class="ri-title" data-en="Missed Punch Items → Our Accountability" data-vi="Punch Item Bỏ Sót → Trách Nhiệm Của Chúng Tôi">Missed Punch Items → Our Accountability</div>
+          <div class="ri-desc" data-en="Items that should have been caught in pre-comm but surface at handover inspection are resolved at our time and cost — not charged back as &quot;additional scope.&quot;" data-vi="Các hạng mục đáng lẽ phải được phát hiện trong pre-comm nhưng lộ ra khi nghiệm thu bàn giao sẽ được giải quyết theo thời gian và chi phí của chúng tôi — không tính vào 'phạm vi phát sinh'.">Items that should have been caught in pre-comm but surface at handover inspection are resolved at our time and cost — not charged back as "additional scope."</div>
         </div>
       </div>
       <div class="risk-item">
         <div class="ri-icon ri-gold">📋</div>
         <div class="ri-body">
-          <div class="ri-title">Documentation Gaps → We Close Them</div>
-          <div class="ri-desc">Incomplete loop records, missing test sheets, or unsigned certificates — if they're within our scope, we rebuild the documentation before handover.</div>
+          <div class="ri-title" data-en="Documentation Gaps → We Close Them" data-vi="Khoảng Trống Tài Liệu → Chúng Tôi Lấp Đầy">Documentation Gaps → We Close Them</div>
+          <div class="ri-desc" data-en="Incomplete loop records, missing test sheets, or unsigned certificates — if they're within our scope, we rebuild the documentation before handover." data-vi="Hồ sơ loop chưa đầy đủ, tờ kiểm tra còn thiếu, hoặc chứng chỉ chưa ký — nếu thuộc phạm vi của chúng tôi, chúng tôi xây dựng lại tài liệu trước khi bàn giao.">Incomplete loop records, missing test sheets, or unsigned certificates — if they're within our scope, we rebuild the documentation before handover.</div>
         </div>
       </div>
       <div class="risk-item">
         <div class="ri-icon ri-blue">⚡</div>
         <div class="ri-body">
-          <div class="ri-title">Schedule Risk → We Absorb Overtime</div>
-          <div class="ri-desc">If our work causes a schedule delay and overtime is required to recover it, we resource the recovery. Your schedule is our schedule.</div>
+          <div class="ri-title" data-en="Schedule Risk → We Absorb Overtime" data-vi="Rủi Ro Tiến Độ → Chúng Tôi Gánh Tăng Ca">Schedule Risk → We Absorb Overtime</div>
+          <div class="ri-desc" data-en="If our work causes a schedule delay and overtime is required to recover it, we resource the recovery. Your schedule is our schedule." data-vi="Nếu công việc của chúng tôi gây chậm tiến độ và cần tăng ca để bù, chúng tôi tự bố trí nguồn lực phục hồi. Tiến độ của Quý vị là tiến độ của chúng tôi.">If our work causes a schedule delay and overtime is required to recover it, we resource the recovery. Your schedule is our schedule.</div>
         </div>
       </div>
       <div class="risk-item">
         <div class="ri-icon ri-gold">🔍</div>
         <div class="ri-body">
-          <div class="ri-title">What the Guarantee Doesn't Cover</div>
-          <div class="ri-desc">Client-supplied materials (cable, cable trays, instruments), design changes post-award, or defects in equipment supplied by third parties. We're transparent about the boundary.</div>
+          <div class="ri-title" data-en="What the Guarantee Doesn't Cover" data-vi="Những Gì Bảo Đảm Không Áp Dụng">What the Guarantee Doesn't Cover</div>
+          <div class="ri-desc" data-en="Client-supplied materials (cable, cable trays, instruments), design changes post-award, or defects in equipment supplied by third parties. We're transparent about the boundary." data-vi="Vật tư do khách hàng cung cấp (cáp, máng cáp, thiết bị), thay đổi thiết kế sau ký hợp đồng, hoặc lỗi trong thiết bị do bên thứ ba cung cấp. Chúng tôi minh bạch về giới hạn này.">Client-supplied materials (cable, cable trays, instruments), design changes post-award, or defects in equipment supplied by third parties. We're transparent about the boundary.</div>
         </div>
       </div>
     </div>
@@ -1440,42 +1544,42 @@ footer{
 
 <!-- ═══ CLIENT FIT ═══ -->
 <section class="section fit-section">
-  <div class="section-label">// Who We Work With</div>
-  <h2 class="section-title">Built For <span class="gold">Projects That Matter</span></h2>
-  <p class="section-sub">We're selective about what we take on. Not to be difficult — but because our guarantee means we only commit when we know we can deliver.</p>
+  <div class="section-label" data-i18n="fit_label" data-en="// Who We Work With">// Who We Work With</div>
+  <h2 class="section-title"><span data-en="Built For" data-vi="Được Xây Dựng Cho">Built For</span> <span class="gold" data-en="Projects That Matter" data-vi="Dự Án Quan Trọng">Projects That Matter</span></h2>
+  <p class="section-sub" data-en="We're selective about what we take on. Not to be difficult — but because our guarantee means we only commit when we can deliver." data-vi="Chúng tôi chọn lọc kỹ những dự án tiếp nhận. Không phải để khó tính — mà vì cam kết bảo đảm có nghĩa là chúng tôi chỉ nhận khi có thể thực hiện được.">We're selective about what we take on. Not to be difficult — but because our guarantee means we only commit when we can deliver.</p>
 
   <div class="fit-cards">
     <div class="fit-card fade-in">
       <div class="fc-num">01</div>
-      <div class="fc-title">EPC Contractors &amp; Tier-1 Subcontractors</div>
-      <div class="fc-body">You have a large E&I scope on a power or offshore project. You need a qualified E&I contractor who understands OEM specs, manages their own QA/QC, and delivers documentation that passes your client's handover inspection — without supervision from your side.</div>
+      <div class="fc-title" data-en="EPC Contractors &amp; Tier-1 Subcontractors" data-vi="Nhà Thầu EPC &amp; Nhà Thầu Phụ Hạng Nhất">EPC Contractors &amp; Tier-1 Subcontractors</div>
+      <div class="fc-body" data-en="You have a large E&amp;I scope on a power or offshore project. You need a qualified E&amp;I contractor who understands OEM specs, manages their own QA/QC, and delivers documentation that passes your client's handover inspection — without supervision from your side." data-vi="Quý vị có phạm vi E&amp;I lớn trên dự án điện hoặc offshore và cần một nhà thầu E&amp;I đủ năng lực, am hiểu đặc kỹ thuật OEM, tự quản lý QA/QC và bàn giao tài liệu đạt yêu cầu nghiệm thu — không cần giám sát từ phía chủ đầu tư.">You have a large E&I scope on a power or offshore project. You need a qualified E&I contractor who understands OEM specs, manages their own QA/QC, and delivers documentation that passes your client's handover inspection — without supervision from your side.</div>
       <div class="fc-signals">
-        <div class="fc-signal-label">You're a fit if:</div>
-        <div class="fc-signal-item">Working to Siemens or GE specifications</div>
-        <div class="fc-signal-item">Need single-point E&I accountability</div>
-        <div class="fc-signal-item">Handover within defined schedule window</div>
+        <div class="fc-signal-label" data-en="You're a fit if:" data-vi="Phù hợp nếu:">You're a fit if:</div>
+        <div class="fc-signal-item" data-en="Working to Siemens or GE specifications" data-vi="Thi công theo tiêu chuẩn Siemens hoặc GE">Working to Siemens or GE specifications</div>
+        <div class="fc-signal-item" data-en="Need single-point E&I accountability" data-vi="Cần trách nhiệm E&I một đầu mối">Need single-point E&I accountability</div>
+        <div class="fc-signal-item" data-en="Handover within defined schedule window" data-vi="Bàn giao trong khung tiến độ xác định">Handover within defined schedule window</div>
       </div>
     </div>
     <div class="fit-card fade-in">
       <div class="fc-num">02</div>
-      <div class="fc-title">Power Plant Owners &amp; Operators</div>
-      <div class="fc-body">You're managing a commissioning campaign, DCS upgrade, or scheduled major overhaul. You need an E&I team who can work to your existing commissioning dossier, integrate with your O&M team, and leave you with documentation that supports 20-year operations — not just enough to get handover signed.</div>
+      <div class="fc-title" data-en="Power Plant Owners &amp; Operators" data-vi="Chủ Đầu Tư &amp; Vận Hành Nhà Máy Điện">Power Plant Owners &amp; Operators</div>
+      <div class="fc-body" data-en="You're managing a commissioning campaign, DCS upgrade, or scheduled major overhaul. You need an E&amp;I team who can work to your existing commissioning dossier, integrate with your O&amp;M team, and leave you with documentation that supports 20-year operations — not just enough to get handover signed." data-vi="Quý vị đang quản lý đợt nghiệm thu, nâng cấp DCS hoặc đại tu lớn theo kế hoạch và cần đội E&amp;I làm việc theo hồ sơ nghiệm thu hiện có, tích hợp với đội O&amp;M, để lại tài liệu đủ sức hỗ trợ vận hành trong 20 năm — không chỉ đủ để qua bàn giao.">You're managing a commissioning campaign, DCS upgrade, or scheduled major overhaul. You need an E&I team who can work to your existing commissioning dossier, integrate with your O&M team, and leave you with documentation that supports 20-year operations — not just enough to get handover signed.</div>
       <div class="fc-signals">
-        <div class="fc-signal-label">You're a fit if:</div>
-        <div class="fc-signal-item">Operating gas turbine or combined cycle plant</div>
-        <div class="fc-signal-item">DCS upgrade or protection relay replacement</div>
-        <div class="fc-signal-item">Major overhaul with E&I inspection scope</div>
+        <div class="fc-signal-label" data-en="You're a fit if:" data-vi="Phù hợp nếu:">You're a fit if:</div>
+        <div class="fc-signal-item" data-en="Operating gas turbine or combined cycle plant" data-vi="Vận hành tuabin khí hoặc nhà máy chu trình hỗn hợp">Operating gas turbine or combined cycle plant</div>
+        <div class="fc-signal-item" data-en="DCS upgrade or protection relay replacement" data-vi="Nâng cấp DCS hoặc thay thế relay bảo vệ">DCS upgrade or protection relay replacement</div>
+        <div class="fc-signal-item" data-en="Major overhaul with E&I inspection scope" data-vi="Đại tu lớn có phạm vi kiểm tra E&I">Major overhaul with E&I inspection scope</div>
       </div>
     </div>
     <div class="fit-card fade-in">
       <div class="fc-num">03</div>
-      <div class="fc-title">Offshore Platform &amp; Vessel Operators</div>
-      <div class="fc-body">You have pre-commissioning or commissioning scope on an offshore platform, FPSO, or specialist vessel. You need an E&I team with offshore credentials, hazardous area experience (IEC 60079), and zero tolerance for defects in safety-critical systems.</div>
+      <div class="fc-title" data-en="Offshore Platform &amp; Vessel Operators" data-vi="Vận Hành Giàn Offshore &amp; Tàu">Offshore Platform &amp; Vessel Operators</div>
+      <div class="fc-body" data-en="You have pre-commissioning or commissioning scope on an offshore platform, FPSO, or specialist vessel. You need an E&amp;I team with offshore credentials, hazardous area experience (IEC 60079), and zero tolerance for defects in safety-critical systems." data-vi="Quý vị có phạm vi pre-commissioning hoặc nghiệm thu trên giàn offshore, FPSO hoặc tàu chuyên dụng và cần đội E&amp;I có chứng chỉ offshore, kinh nghiệm khu vực nguy hiểm (IEC 60079) — tuyệt đối không chấp nhận lỗi trong các hệ thống an toàn quan trọng.">You have pre-commissioning or commissioning scope on an offshore platform, FPSO, or specialist vessel. You need an E&I team with offshore credentials, hazardous area experience (IEC 60079), and zero tolerance for defects in safety-critical systems.</div>
       <div class="fc-signals">
-        <div class="fc-signal-label">You're a fit if:</div>
-        <div class="fc-signal-item">Ex/hazardous area E&I scope</div>
-        <div class="fc-signal-item">Platform or vessel pre-commissioning</div>
-        <div class="fc-signal-item">Safety system verification required</div>
+        <div class="fc-signal-label" data-en="You're a fit if:" data-vi="Phù hợp nếu:">You're a fit if:</div>
+        <div class="fc-signal-item" data-en="Ex/hazardous area E&I scope" data-vi="Phạm vi E&I khu vực nguy hiểm/Ex">Ex/hazardous area E&I scope</div>
+        <div class="fc-signal-item" data-en="Platform or vessel pre-commissioning" data-vi="Pre-commissioning giàn hoặc tàu">Platform or vessel pre-commissioning</div>
+        <div class="fc-signal-item" data-en="Safety system verification required" data-vi="Yêu cầu xác minh hệ thống an toàn">Safety system verification required</div>
       </div>
     </div>
   </div>
@@ -1483,33 +1587,45 @@ footer{
 
 <!-- ═══ OBJECTION HANDLING ═══ -->
 <section class="section obj-section">
-  <div class="section-label">// Common Questions From Technical Buyers</div>
-  <h2 class="section-title">Answers You <span class="gold">Actually Need</span></h2>
+  <div class="section-label" data-i18n="obj_label" data-en="// Common Questions From Technical Buyers">// Common Questions From Technical Buyers</div>
+  <h2 class="section-title"><span data-en="Answers You" data-vi="Câu Trả Lời Quý Vị">Answers You</span> <span class="gold" data-en="Actually Need" data-vi="Thực Sự Cần">Actually Need</span></h2>
 
   <div class="obj-grid fade-in">
     <div class="obj-card">
-      <div class="obj-q">Your rates are higher than local subs. How do you justify that?</div>
-      <div class="obj-a">A 1% rework rate on a $10M E&I contract is $100K in direct labour — before demurrage or penalty clauses. Our premium over a standard sub is typically 15–25%. The break-even is <strong>one avoided rework event</strong>. We don't compete on day rate. We compete on total cost of delivery.</div>
+      <div class="obj-q" data-en="Your rates are higher than local subs. How do you justify that?" data-vi="Mức phí của SONIC cao hơn nhà thầu phụ địa phương. Cơ sở nào để chứng minh điều đó?">Your rates are higher than local subs. How do you justify that?</div>
+      <div class="obj-a"
+        data-en="A 1% rework rate on a $10M E&amp;I contract is $100K in direct labour — before demurrage or penalty clauses. Our premium over a standard sub is typically 15–25%. The break-even is <strong>one avoided rework event</strong>. We don't compete on day rate. We compete on total cost of delivery."
+        data-vi="Tỷ lệ làm lại 1% trên hợp đồng E&amp;I $10M đã là $100K nhân công trực tiếp — chưa tính chi phí nằm chờ tàu hay điều khoản phạt. Mức phí cao hơn của chúng tôi so với nhà thầu phụ thông thường thường là 15–25%. Điểm hòa vốn chỉ là <strong>một sự cố làm lại được ngăn chặn</strong>. Chúng tôi không cạnh tranh theo giá ngày công. Chúng tôi cạnh tranh theo tổng chi phí bàn giao.">A 1% rework rate on a $10M E&I contract is $100K in direct labour — before demurrage or penalty clauses. Our premium over a standard sub is typically 15–25%. The break-even is <strong>one avoided rework event</strong>. We don't compete on day rate. We compete on total cost of delivery.</div>
     </div>
     <div class="obj-card">
-      <div class="obj-q">We already have an in-house team. Why do we need SONIC?</div>
-      <div class="obj-a">Most clients engage us for three reasons: their in-house team lacks Siemens/GE spec experience; they need a neutral QA/QC team for punch list closure; or they want AI-Punch™ deployed alongside their existing process. <strong>We're a precision add-on — not a replacement.</strong></div>
+      <div class="obj-q" data-en="We already have an in-house team. Why do we need SONIC?" data-vi="Chúng tôi đã có đội kỹ thuật nội bộ. Tại sao cần SONIC?">We already have an in-house team. Why do we need SONIC?</div>
+      <div class="obj-a"
+        data-en="Most clients engage us for three reasons: their in-house team lacks Siemens/GE spec experience; they need a neutral QA/QC team for punch list closure; or they want AI-Punch™ deployed alongside their existing process. <strong>We're a precision add-on — not a replacement.</strong>"
+        data-vi="Hầu hết khách hàng hợp tác với chúng tôi vì ba lý do: đội nội bộ thiếu kinh nghiệm đặc kỹ thuật Siemens/GE; họ cần đội QA/QC trung lập để đóng punch list; hoặc họ muốn triển khai AI-Punch™ song song quy trình hiện có. <strong>Chúng tôi là giải pháp bổ sung chính xác — không phải thay thế.</strong>">Most clients engage us for three reasons: their in-house team lacks Siemens/GE spec experience; they need a neutral QA/QC team for punch list closure; or they want AI-Punch™ deployed alongside their existing process. <strong>We're a precision add-on — not a replacement.</strong></div>
     </div>
     <div class="obj-card">
-      <div class="obj-q">Can you really mobilise quickly if our schedule shifts?</div>
-      <div class="obj-a">Onshore Vũng Tàu / HCMC: 3–5 business days from PO. We hold a core team in reserve and don't over-book. <strong>If we can't commit to your window, we'll say so upfront</strong> — not take the work and miss.</div>
+      <div class="obj-q" data-en="Can you really mobilise quickly if our schedule shifts?" data-vi="SONIC có thể huy động nhanh chóng nếu tiến độ thay đổi không?">Can you really mobilise quickly if our schedule shifts?</div>
+      <div class="obj-a"
+        data-en="Onshore Vũng Tàu / HCMC: 3–5 business days from PO. We hold a core team in reserve and don't over-book. <strong>If we can't commit to your window, we'll say so upfront</strong> — not take the work and miss."
+        data-vi="Onshore Vũng Tàu / HCMC: 3–5 ngày làm việc từ khi nhận PO. Chúng tôi giữ đội lõi trong dự phòng và không nhận quá khả năng. <strong>Nếu không thể cam kết đúng tiến độ, chúng tôi nói thẳng ngay từ đầu</strong> — không nhận việc rồi để lỡ.">Onshore Vũng Tàu / HCMC: 3–5 business days from PO. We hold a core team in reserve and don't over-book. <strong>If we can't commit to your window, we'll say so upfront</strong> — not take the work and miss.</div>
     </div>
     <div class="obj-card">
-      <div class="obj-q">How does the zero-defect guarantee work in practice?</div>
-      <div class="obj-a">It's a written clause in the contract, not a marketing promise. Any E&I defect attributable to our work is remedied at our cost. We define the boundary clearly at proposal stage — <strong>client-supplied materials and design changes are excluded</strong>. No ambiguity, no disputes at handover.</div>
+      <div class="obj-q" data-en="How does the zero-defect guarantee work in practice?" data-vi="Cam kết không phát sinh lỗi hoạt động như thế nào trong thực tế?">How does the zero-defect guarantee work in practice?</div>
+      <div class="obj-a"
+        data-en="It's a written clause in the contract, not a marketing promise. Any E&amp;I defect attributable to our work is remedied at our cost. We define the boundary clearly at proposal stage — <strong>client-supplied materials and design changes are excluded</strong>. No ambiguity, no disputes at handover."
+        data-vi="Đây là điều khoản bằng văn bản trong hợp đồng, không phải lời hứa marketing. Mọi lỗi E&amp;I phát sinh từ công việc của chúng tôi đều được khắc phục theo chi phí của chúng tôi. Chúng tôi xác định ranh giới rõ ràng ngay tại giai đoạn đề xuất — <strong>vật tư do khách hàng cung cấp và thay đổi thiết kế được loại trừ</strong>. Không mơ hồ, không tranh cãi khi bàn giao.">It's a written clause in the contract, not a marketing promise. Any E&I defect attributable to our work is remedied at our cost. We define the boundary clearly at proposal stage — <strong>client-supplied materials and design changes are excluded</strong>. No ambiguity, no disputes at handover.</div>
     </div>
     <div class="obj-card">
-      <div class="obj-q">Do you work to international standards or only local?</div>
-      <div class="obj-a">We work to Siemens TI, GE EGS, IEC 60079, IEC 60364, and client-specified standards. Our founder has executed projects under Siemens Energy and GE Power quality management systems. <strong>The same technical standard. Without the overhead of a multinational contractor.</strong></div>
+      <div class="obj-q" data-en="Do you work to international standards or only local?" data-vi="Bạn có làm việc theo tiêu chuẩn quốc tế hay chỉ tiêu chuẩn địa phương?">Do you work to international standards or only local?</div>
+      <div class="obj-a"
+        data-en="We work to Siemens TI, GE EGS, IEC 60079, IEC 60364, and client-specified standards. Our founder has executed projects under Siemens Energy and GE Power quality management systems. <strong>The same technical standard. Without the overhead of a multinational contractor.</strong>"
+        data-vi="Chúng tôi làm việc theo Siemens TI, GE EGS, IEC 60079, IEC 60364 và tiêu chuẩn do khách hàng chỉ định. Người sáng lập đã thực hiện các dự án theo hệ thống quản lý chất lượng của Siemens Energy và GE Power. <strong>Cùng tiêu chuẩn kỹ thuật. Không có bộ máy cồng kềnh của nhà thầu đa quốc gia.</strong>">We work to Siemens TI, GE EGS, IEC 60079, IEC 60364, and client-specified standards. Our founder has executed projects under Siemens Energy and GE Power quality management systems. <strong>The same technical standard. Without the overhead of a multinational contractor.</strong></div>
     </div>
     <div class="obj-card">
-      <div class="obj-q">What if your team makes a mistake on a live system?</div>
-      <div class="obj-a">Mistakes on live systems don't happen because of carelessness — they happen because of inadequate pre-commission. Our structured approach — scope review and risk assessment before mobilisation, followed by full pre-commissioning checks (continuity, insulation, loop checks, instrument verification) before any energisation — is specifically designed to catch every risk before systems go live. <strong>Every live work activity is reviewed against the PTW and signed by the lead engineer.</strong></div>
+      <div class="obj-q" data-en="What if your team makes a mistake on a live system?" data-vi="Nếu đội SONIC mắc lỗi trên hệ thống đang vận hành thì sao?">What if your team makes a mistake on a live system?</div>
+      <div class="obj-a"
+        data-en="Mistakes on live systems don't happen because of carelessness — they happen because of inadequate pre-commission. Our structured approach — scope review and risk assessment before mobilisation, followed by full pre-commissioning checks (continuity, insulation, loop checks, instrument verification) before any energisation — is specifically designed to catch every risk before systems go live. <strong>Every live work activity is reviewed against the PTW and signed by the lead engineer.</strong>"
+        data-vi="Sự cố trên hệ thống đang vận hành không xuất phát từ sự bất cẩn — mà từ quy trình pre-commissioning không đầy đủ. Phương pháp có cấu trúc của chúng tôi — xem xét phạm vi và đánh giá rủi ro trước khi huy động, tiếp theo là kiểm tra pre-commissioning đầy đủ (liên tục, cách điện, kiểm tra loop, xác minh thiết bị) trước khi cấp điện — được thiết kế đặc biệt để phát hiện mọi rủi ro trước khi hệ thống đi vào vận hành. <strong>Mọi hoạt động trên hệ thống đang vận hành đều được đối chiếu với PTW và ký xác nhận bởi kỹ sư trưởng.</strong>">Mistakes on live systems don't happen because of carelessness — they happen because of inadequate pre-commission. Our structured approach — scope review and risk assessment before mobilisation, followed by full pre-commissioning checks (continuity, insulation, loop checks, instrument verification) before any energisation — is specifically designed to catch every risk before systems go live. <strong>Every live work activity is reviewed against the PTW and signed by the lead engineer.</strong></div>
     </div>
   </div>
 </section>
@@ -1518,79 +1634,79 @@ footer{
 <section class="section lead-section" id="contact">
   <div class="lead-inner">
     <div class="lead-left fade-in">
-      <div class="section-label">// Request a Proposal</div>
-      <h2 class="section-title">Let's Talk About <span class="gold">Your Project</span></h2>
-      <p class="section-sub">We review every enquiry personally. You'll receive a written response — with scope questions, mobilisation timeline, and indicative rate structure — within 3–5 business days.</p>
+      <div class="section-label" data-i18n="lead_label" data-en="// Request a Proposal">// Request a Proposal</div>
+      <h2 class="section-title"><span data-en="Let's Talk About" data-vi="Hãy Nói Về">Let's Talk About</span> <span class="gold" data-en="Your Project" data-vi="Dự Án Của Bạn">Your Project</span></h2>
+      <p class="section-sub" data-en="We review every enquiry personally. You'll receive a written response — with scope questions, mobilisation timeline, and indicative pricing — within 3–5 business days." data-vi="Chúng tôi xem xét trực tiếp mọi yêu cầu. Quý vị sẽ nhận được phản hồi bằng văn bản — kèm câu hỏi về phạm vi, tiến độ huy động và báo giá sơ bộ — trong vòng 3–5 ngày làm việc.">We review every enquiry personally. You'll receive a written response — with scope questions, mobilisation timeline, and indicative pricing — within 3–5 business days.</p>
       <div class="lead-trust-list">
-        <div class="trust-row">Written proposal within 3–5 business days</div>
-        <div class="trust-row">Zero-defect guarantee in every contract</div>
-        <div class="trust-row">No obligation — no hard sell</div>
-        <div class="trust-row">Direct response from the founding engineer</div>
-        <div class="trust-row">Onshore mobilisation 3–5 days from PO</div>
-        <div class="trust-row">Works to Siemens TI · GE EGS · IEC standards</div>
+        <div class="trust-row" data-en="Written proposal within 3–5 business days" data-vi="Đề xuất bằng văn bản trong 3–5 ngày làm việc">Written proposal within 3–5 business days</div>
+        <div class="trust-row" data-en="Zero-defect guarantee in every contract" data-vi="Cam kết không phát sinh lỗi trong mọi hợp đồng">Zero-defect guarantee in every contract</div>
+        <div class="trust-row" data-en="No obligation — no hard sell" data-vi="Không ràng buộc — Không áp lực thương mại">No obligation — no hard sell</div>
+        <div class="trust-row" data-en="Direct response from the founding engineer" data-vi="Phản hồi trực tiếp từ kỹ sư sáng lập">Direct response from the founding engineer</div>
+        <div class="trust-row" data-en="Onshore mobilisation 3–5 days from PO" data-vi="Huy động onshore 3–5 ngày từ khi ký PO">Onshore mobilisation 3–5 days from PO</div>
+        <div class="trust-row" data-en="Works to Siemens TI · GE EGS · IEC standards" data-vi="Theo tiêu chuẩn Siemens TI · GE EGS · IEC">Works to Siemens TI · GE EGS · IEC standards</div>
       </div>
       <div style="margin-top:28px;padding:20px 20px 20px 24px;border:1px solid var(--border);border-left:3px solid var(--gold);background:rgba(201,162,39,0.04);">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2.5px;color:var(--gold);margin-bottom:8px;opacity:.8;">// DIRECT CONTACT</div>
-        <div style="font-size:14px;color:var(--white);margin-bottom:4px;font-weight:600;">Hoàng Ngọc Sơn — Founder &amp; Lead Engineer</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2.5px;color:var(--gold);margin-bottom:8px;opacity:.8;" data-en="// DIRECT CONTACT" data-vi="// LIÊN HỆ TRỰC TIẾP">// DIRECT CONTACT</div>
+        <div style="font-size:14px;color:var(--white);margin-bottom:4px;font-weight:600;" data-i18n="contact_founder" data-en="Hoàng Ngọc Sơn — Founder &amp; Lead Engineer" data-vi="Hoàng Ngọc Sơn — Người Sáng Lập &amp; Kỹ Sư Trưởng">Hoàng Ngọc Sơn — Founder &amp; Lead Engineer</div>
         <div style="font-size:13px;color:var(--gray);margin-bottom:3px;">📧 <a href="mailto:contact@sonicei.com" style="color:var(--gold);text-decoration:none;">contact@sonicei.com</a></div>
         <div style="font-size:13px;color:var(--gray);">📞 <a href="tel:+84915460790" style="color:var(--gold);text-decoration:none;">+84 915 460 790</a></div>
       </div>
     </div>
 
     <div class="lead-form-wrap fade-in">
-      <div class="form-title">Project Enquiry</div>
-      <div class="form-sub">Fill in your details and we'll respond within 3–5 business days.</div>
+      <div class="form-title" data-i18n="form_title" data-en="Project Enquiry">Project Enquiry</div>
+      <div class="form-sub" data-i18n="form_sub" data-en="Fill in your details and we'll respond within 3–5 business days.">Fill in your details and we'll respond within 3–5 business days.</div>
 
       <div id="contactForm">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="fname">Full Name *</label>
-            <input class="form-input" type="text" id="fname" placeholder="Your Name" required>
+            <label class="form-label" for="fname" data-en="Full Name *" data-vi="Họ và Tên *">Full Name *</label>
+            <input class="form-input" type="text" id="fname" placeholder="Full Name" data-ph-en="Full Name" data-ph-vi="Họ và Tên" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="femail">Email *</label>
-            <input class="form-input" type="email" id="femail" placeholder="you@company.com" required>
+            <label class="form-label" for="femail" data-en="Email *" data-vi="Email *">Email *</label>
+            <input class="form-input" type="email" id="femail" placeholder="you@company.com" data-ph-en="you@company.com" data-ph-vi="you@company.com" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="fcompany">Company / Project</label>
-            <input class="form-input" type="text" id="fcompany" placeholder="Company or project name">
+            <label class="form-label" for="fcompany" data-en="Company / Project" data-vi="Công Ty / Dự Án">Company / Project</label>
+            <input class="form-input" type="text" id="fcompany" placeholder="Company or project name" data-ph-en="Company or project name" data-ph-vi="Tên công ty hoặc dự án">
           </div>
           <div class="form-group">
-            <label class="form-label" for="fphone">Phone / Zalo</label>
+            <label class="form-label" for="fphone" data-en="Phone / Zalo" data-vi="Điện Thoại / Zalo">Phone / Zalo</label>
             <input class="form-input" type="tel" id="fphone" placeholder="+84 ...">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label" for="ftype">Project Type *</label>
+          <label class="form-label" for="ftype" data-en="Project Type *" data-vi="Loại Dự Án *">Project Type *</label>
           <select class="form-select" id="ftype" required>
-            <option value="" style="color:#666">Select project type...</option>
-            <option>Power Plant — Commissioning</option>
-            <option>Power Plant — DCS Upgrade / Overhaul</option>
-            <option>Offshore Platform / FPSO</option>
-            <option>Offshore Vessel (VARD / Seaonics type)</option>
-            <option>Industrial / EPC</option>
-            <option>QA/QC Inspection &amp; Punch List Management</option>
-            <option>Other — I'll describe below</option>
+            <option value="" style="color:#666" data-en="Select project type..." data-vi="Chọn loại dự án...">Select project type...</option>
+            <option data-en="Power Plant — Commissioning" data-vi="Nhà Máy Điện — Nghiệm Thu">Power Plant — Commissioning</option>
+            <option data-en="Power Plant — DCS Upgrade / Overhaul" data-vi="Nhà Máy Điện — Nâng Cấp DCS / Đại Tu">Power Plant — DCS Upgrade / Overhaul</option>
+            <option data-en="Offshore Platform / FPSO" data-vi="Giàn Offshore / FPSO">Offshore Platform / FPSO</option>
+            <option data-en="Offshore Vessel (VARD / Seaonics type)" data-vi="Tàu Offshore (loại VARD / Seaonics)">Offshore Vessel (VARD / Seaonics type)</option>
+            <option data-en="Industrial / EPC" data-vi="Công Nghiệp / EPC">Industrial / EPC</option>
+            <option data-en="QA/QC Inspection &amp; Punch List Management" data-vi="Kiểm Tra QA/QC &amp; Quản Lý Punch List">QA/QC Inspection &amp; Punch List Management</option>
+            <option data-en="Other — I'll describe below" data-vi="Khác — Tôi sẽ mô tả bên dưới">Other — I'll describe below</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label" for="fscope">Project Scope &amp; Timeline</label>
-          <textarea class="form-textarea" id="fscope" rows="4" placeholder="Brief description: scope, location, estimated timeline, key requirements..."></textarea>
+          <label class="form-label" for="fscope" data-en="Project Scope &amp; Timeline" data-vi="Phạm Vi &amp; Tiến Độ Dự Án">Project Scope &amp; Timeline</label>
+          <textarea class="form-textarea" id="fscope" rows="4" placeholder="Describe your E&amp;I scope, timeline, and any specific requirements..." data-ph-en="Describe your E&amp;I scope, timeline, and any specific requirements..." data-ph-vi="Mô tả phạm vi E&amp;I, tiến độ và yêu cầu cụ thể của dự án..."></textarea>
         </div>
-        <button type="button" class="btn-submit" onclick="submitForm()">
+        <button type="button" class="btn-submit" onclick="submitForm()" data-i18n="form_btn" data-en="Send Project Enquiry &amp;nbsp;→">
           Send Project Enquiry &nbsp;→
         </button>
-        <div class="form-note">✦ No obligation. Direct response from the founding engineer within 3–5 business days.</div>
+        <div class="form-note" data-en="✦ No obligation. Direct response from the founding engineer within 3–5 business days." data-vi="✦ Không ràng buộc. Phản hồi trực tiếp từ kỹ sư sáng lập trong 3–5 ngày làm việc.">✦ No obligation. Direct response from the founding engineer within 3–5 business days.</div>
       </div>
 
       <div class="form-success" id="formSuccess">
         <div class="success-icon">✅</div>
-        <div class="success-title">Enquiry Received</div>
-        <div class="success-sub">We'll review your project scope and respond within 3–5 business days.<br>If urgent, call or Zalo: <a href="tel:+84915460790" style="color:var(--gold);">+84 915 460 790</a></div>
+        <div class="success-title" data-en="Enquiry Received" data-vi="Đã Nhận Yêu Cầu">Enquiry Received</div>
+        <div class="success-sub" data-en="We'll review your project scope and respond within 3–5 business days." data-vi="Chúng tôi sẽ xem xét phạm vi dự án và phản hồi trong 3–5 ngày làm việc.">We'll review your project scope and respond within 3–5 business days.<br data-en="If urgent, call or Zalo:" data-vi="Nếu khẩn cấp, gọi điện hoặc Zalo:">If urgent, call or Zalo: <a href="tel:+84915460790" style="color:var(--gold);">+84 915 460 790</a></div>
         <div style="margin-top:20px">
-          <a href="index.html" style="color:var(--gold);font-size:13px;text-decoration:none;letter-spacing:1px;">← Back to Main Site</a>
+          <a href="index.html" style="color:var(--gold);font-size:13px;text-decoration:none;letter-spacing:1px;" data-en="← Back to Main Site" data-vi="← Quay Lại Trang Chính">← Back to Main Site</a>
         </div>
       </div>
     </div>
@@ -1603,22 +1719,23 @@ footer{
     <img src="SONICEI_LOGO.png" alt="SONIC E&I Solutions" width="44" height="44" style="height:44px;width:auto;" loading="lazy">
     <span class="footer-brand">SONIC <span>E&I</span> SOLUTIONS</span>
   </div>
-  <div class="footer-motto">"Right the first time — Every time"</div>
+  <div class="footer-motto" data-i18n="footer_motto" data-en="&quot;Right the first time — Every time&quot;">"Right the first time — Every time"</div>
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
+    <a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a>
+    <a href="index.html#services" data-en="Services" data-vi="Dịch Vụ">Services</a>
     <a href="ai-punch.html">AI-Punch™</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="/services.html">Dịch Vụ / Services</a>
-    <a href="/payment.html">Thanh Toán / Payment</a>
-    <a href="/privacy-policy.html">Bảo Mật / Privacy Policy</a>
-    <a href="/terms-of-use.html">Điều Khoản / Terms of Use</a>
+    <a href="index.html#contact" data-en="Contact" data-vi="Liên Hệ">Contact</a>
+    <a href="/services.html" data-en="Services" data-vi="Dịch Vụ">Dịch Vụ / Services</a>
+    <a href="/payment.html" data-en="Payment" data-vi="Thanh Toán">Thanh Toán / Payment</a>
+    <a href="/privacy-policy.html" data-en="Privacy Policy" data-vi="Bảo Mật">Bảo Mật / Privacy Policy</a>
+    <a href="/terms-of-use.html" data-en="Terms of Use" data-vi="Điều Khoản">Điều Khoản / Terms of Use</a>
   </div>
   <div class="footer-copy">
     <strong style="display:block;color:rgba(201,162,39,0.85);text-transform:uppercase;letter-spacing:1.5px;">CÔNG TY TNHH SONIC <span style="color:#f0f4ff;">E&amp;I</span> SOLUTIONS</strong>
     MST: 3502583632<br>
     65B, đường Hàn Thuyên, tổ 5, khu phố 18, Phường Rạch Dừa, Thành phố Hồ Chí Minh, Việt Nam<br>
-    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a> &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
+    Email: <a href="mailto:contact@sonicei.com" style="color:rgba(201,162,39,0.8);text-decoration:none;">contact@sonicei.com</a>
+    &nbsp;·&nbsp; Phone: <a href="tel:+84915460790" style="color:rgba(201,162,39,0.8);text-decoration:none;">+84 915 460 790</a><br>
     <span style="color:rgba(136,153,187,0.6);">© 2026 SONIC E&amp;I Solutions. All rights reserved.</span>
   </div>
 </footer>
@@ -1746,14 +1863,16 @@ function submitForm() {
   const scope   = fscope   ? fscope.value.trim()   : '';
 
   /* Validation */
-  if (!name)  { _shakeField('fname',  'Please enter your full name.'); return; }
+  const isVI = (document.documentElement.lang === 'vi');
+  if (!name)  { _shakeField('fname',  isVI ? 'Vui lòng nhập họ và tên.' : 'Please enter your full name.'); return; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    _shakeField('femail', 'Please enter a valid email address.'); return;
+    _shakeField('femail', isVI ? 'Vui lòng nhập địa chỉ email hợp lệ.' : 'Please enter a valid email address.'); return;
   }
-  if (!type) { _shakeField('ftype', 'Please select a project type.'); return; }
+  if (!type) { _shakeField('ftype', isVI ? 'Vui lòng chọn loại dự án.' : 'Please select a project type.'); return; }
 
   const btn = document.querySelector('.btn-submit');
-  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+  const isVIbtn = (document.documentElement.lang === 'vi');
+  if (btn) { btn.disabled = true; btn.textContent = isVIbtn ? 'Đang gửi…' : 'Sending…'; }
 
   /* Clear any previous message */
   const existMsg = document.getElementById('_formMsg');
@@ -1788,9 +1907,12 @@ function submitForm() {
       })
       .catch(err => {
         console.error('EmailJS error:', err);
-        if (btn) { btn.disabled = false; btn.textContent = 'Send Project Enquiry →'; }
+        const isVIerr = (document.documentElement.lang === 'vi');
+        if (btn) { btn.disabled = false; btn.textContent = isVIerr ? 'Gửi Yêu Cầu Dự Án →' : 'Send Project Enquiry →'; }
         _showFormMsg(
-          'Send failed — please email us directly at contact@sonicei.com or call +84 915 460 790.',
+          isVIerr
+            ? 'Gửi thất bại — vui lòng email trực tiếp đến contact@sonicei.com hoặc gọi +84 915 460 790.'
+            : 'Send failed — please email us directly at contact@sonicei.com or call +84 915 460 790.',
           'error'
         );
       });
@@ -1854,4 +1976,73 @@ function openZalo(e) {
   setTimeout(function() { window.open('https://zalo.me/' + phone, '_blank'); }, 1200);
   return false;
 }
+</script>
+
+<script id="sonic-i18n">
+(function(){
+  var VI={"nav_home": "Trang Chủ", "nav_svc": "Dịch Vụ", "nav_pd": "Triển Khai Dự Án", "nav_contact": "Liên Hệ", "nav_cta": "Yêu Cầu Đề Xuất", "nav_ai": "AI-Punch™", "fcta": "Yêu Cầu Đề Xuất", "zalo_chat": "Chat Ngay", "zalo_support": "Hỗ Trợ Trực Tuyến", "zalo_btn1": "💬 Chat qua Zalo", "zalo_btn2": "📞 Gọi Nhanh", "zalo_btn3": "✉️ Gửi Email", "contact_founder": "Hoàng Ngọc Sơn — Người Sáng Lập &amp; Kỹ Sư Trưởng", "hero_eyebrow": "TRIỂN KHAI &amp; QUẢN LÝ DỰ ÁN", "hero_h1_pre": "SONIC E&I SOLUTIONS", "hero_h1_main": "DỰ ÁN PHỨC TẠP.", "hero_h1_accent": "BÀN GIAO ĐÚNG CHUẨN.", "hero_h1_sub": "NGAY TỪ LẦN ĐẦU.", "hero_desc": "Từ huy động đến bàn giao, chúng tôi quản lý dự án Điện &amp; Điều khiển (E&amp;I) theo chuẩn mực của <strong>25 năm kinh nghiệm thực địa</strong>: kiểm soát phạm vi chặt chẽ, quản lý chất lượng/kiểm soát chất lượng (QA/QC) theo nguyên tắc không dung sai, và <strong>kỷ luật thực thi hợp đồng</strong> nhằm chuyển hóa cam kết thành các biện pháp giảm thiểu rủi ro cho Quý vị.", "hero_btn1": "Yêu Cầu Đề Xuất &nbsp;→", "hero_btn2": "Xem Quy Trình", "hero_micro": "ĐỀ XUẤT TRONG 3–5 NGÀY &nbsp;·&nbsp; BẢO ĐẢM ZERO-DEFECT TRONG HỢP ĐỒNG &nbsp;·&nbsp; KHÔNG RÀNG BUỘC", "stat_exp": "Năm Kinh Nghiệm E&I", "stat_proj": "Dự Án Lớn", "stat_term": "Đầu Cốt · 0 Lỗi", "stat_defect": "Lỗi Nghiêm Trọng Khi Bàn Giao", "prob_label": "// Chi Phí Thực Sự Khi Thất Bại", "prob_title": "Quản Lý E&I Kém <span class=\"gold\">Tốn Kém Thế Nào</span>", "prob_sub": "Hầu hết các dự án bị chậm tiến độ không xuất phát từ độ phức tạp kỹ thuật. Nguyên nhân thực sự là phối hợp kém, punch item bỏ sót và nhà thầu phụ không cam kết chịu trách nhiệm về kết quả.", "fw_label": "// Cách Chúng Tôi Triển Khai", "fw_title": "Khung <span class=\"gold\">Triển Khai SONIC</span>", "fw_sub": "Phương pháp có cấu trúc, phân giai đoạn được phát triển từ 25 năm thực thi dự án E&I. Không ứng biến. Không bất ngờ.", "diff_label": "// Điều Làm Chúng Tôi Khác Biệt", "diff_title": "Không Phải Nhà Thầu Phụ. <span class=\"gold\">Đối Tác Dự Án.</span>", "diff_sub": "Sự khác biệt giữa nhà thầu phụ E&I thông thường và SONIC E&I là trách nhiệm giải trình. Chúng tôi sở hữu kết quả.", "tr_label": "// Thành Tích Dự Án", "tr_title": "25 Năm <span class=\"gold\">Bằng Chứng Thực Địa</span>", "guar_label": "// Chuyển Giao Rủi Ro &amp; Bảo Đảm Hiệu Suất", "guar_title": "Chúng Tôi Gánh <span class=\"gold\">Rủi Ro.</span>", "fit_label": "// Chúng Tôi Làm Việc Với Ai", "fit_title": "Được Xây Dựng Cho <span class=\"gold\">Dự Án Quan Trọng</span>", "obj_label": "// Câu Hỏi Thường Gặp Từ Người Mua Kỹ Thuật", "obj_title": "Câu Trả Lời Bạn <span class=\"gold\">Thực Sự Cần</span>", "lead_label": "// Yêu Cầu Đề Xuất", "lead_title": "Hãy Nói Về <span class=\"gold\">Dự Án Của Bạn</span>", "lead_sub": "Chúng tôi xem xét trực tiếp mọi yêu cầu. Quý vị sẽ nhận được phản hồi bằng văn bản trong vòng 3–5 ngày làm việc.", "form_title": "Yêu Cầu Dự Án", "form_sub": "Điền thông tin và chúng tôi sẽ phản hồi trong 3–5 ngày làm việc.", "form_btn": "Gửi Yêu Cầu Dự Án &nbsp;→", "footer_motto": "&quot;Đúng ngay từ lần đầu — Mọi lúc&quot;"};
+  var lang="en";
+  function applyLang(l){
+    lang=l; localStorage.setItem("sonic_lang",l);
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k=el.getAttribute("data-i18n");
+      if(l==="vi"&&VI[k]!==undefined){el.innerHTML=VI[k];}
+      else{var en=el.getAttribute("data-en");if(en!==null)el.innerHTML=en;}
+    });
+    var eBtn=document.getElementById("sonic-lang-en");
+    var vBtn=document.getElementById("sonic-lang-vi");
+    if(eBtn){eBtn.style.color=l==="en"?"#c9a227":"rgba(136,153,187,0.85)";eBtn.style.fontWeight=l==="en"?"700":"400";}
+    if(vBtn){vBtn.style.color=l==="vi"?"#c9a227":"rgba(136,153,187,0.85)";vBtn.style.fontWeight=l==="vi"?"700":"400";}
+    /* Handle data-vi / data-en attributes */
+    document.querySelectorAll("[data-vi][data-en]").forEach(function(el){
+      var t=l==="vi"?el.getAttribute("data-vi"):el.getAttribute("data-en");
+      if(!t) return;
+      if(t.indexOf("<")!==-1){el.innerHTML=t;}else{el.textContent=t;}
+    });
+    /* Translate select options */
+    if(l==='vi'){
+      document.querySelectorAll('select option').forEach(function(opt){
+        var enText=opt.textContent.trim();
+        var viMap={"Select project type...": "Chọn loại dự án...", "Power Plant — Commissioning": "Nhà Máy Điện — Nghiệm Thu", "Power Plant — DCS Upgrade / Overhaul": "Nhà Máy Điện — Nâng Cấp DCS / Đại Tu", "Offshore Platform / FPSO": "Giàn Offshore / FPSO", "Offshore Vessel (VARD / Seaonics type)": "Tàu Offshore (loại VARD / Seaonics)", "Industrial / EPC": "Công Nghiệp / EPC", "QA/QC Inspection &amp; Punch List Management": "Kiểm Tra QA/QC &amp; Quản Lý Punch List", "Other — Khac": "Khác"};
+        if(viMap[enText]) opt.textContent=viMap[enText];
+      });
+      /* Translate placeholders */
+      var phMap={"Full Name": "Họ và Tên", "Email": "Email", "Company / Project": "Công Ty / Dự Án", "Phone / Zalo": "Điện Thoại / Zalo", "Describe your E&I scope, timeline, and any specific requirements...": "Mô tả phạm vi E&I, tiến độ và yêu cầu cụ thể của dự án..."};
+      document.querySelectorAll('[placeholder]').forEach(function(el){
+        var ph=el.getAttribute('placeholder');
+        if(phMap[ph]) el.setAttribute('placeholder',phMap[ph]);
+      });
+    } else {
+      var enMap={"Chọn loại dự án...": "Select project type...", "Nhà Máy Điện — Nghiệm Thu": "Power Plant — Commissioning", "Nhà Máy Điện — Nâng Cấp DCS / Đại Tu": "Power Plant — DCS Upgrade / Overhaul", "Giàn Offshore / FPSO": "Offshore Platform / FPSO", "Tàu Offshore (loại VARD / Seaonics)": "Offshore Vessel (VARD / Seaonics type)", "Công Nghiệp / EPC": "Industrial / EPC", "Kiểm Tra QA/QC &amp; Quản Lý Punch List": "QA/QC Inspection &amp; Punch List Management", "Khác": "Other — Khac"};
+      document.querySelectorAll('select option').forEach(function(opt){
+        var viText=opt.textContent.trim();
+        if(enMap[viText]) opt.textContent=enMap[viText];
+      });
+      var enPh={"Họ và Tên": "Full Name", "Email": "Email", "Công Ty / Dự Án": "Company / Project", "Điện Thoại / Zalo": "Phone / Zalo", "Mô tả phạm vi E&I, tiến độ và yêu cầu cụ thể của dự án...": "Describe your E&I scope, timeline, and any specific requirements..."};
+      document.querySelectorAll('[placeholder]').forEach(function(el){
+        var ph=el.getAttribute('placeholder');
+        if(enPh[ph]) el.setAttribute('placeholder',enPh[ph]);
+      });
+    }
+    /* Translate data-ph-vi / data-ph-en placeholders */
+    document.querySelectorAll('[data-ph-vi][data-ph-en]').forEach(function(el){
+      el.setAttribute('placeholder', l==='vi' ? el.getAttribute('data-ph-vi') : el.getAttribute('data-ph-en'));
+    });
+    document.documentElement.lang=l;
+    /* Patch inline Bebas Neue / Share Tech Mono → Be Vietnam Pro khi VI */
+    if(l==='vi'){
+      document.querySelectorAll('[style]').forEach(function(el){
+        var s=el.getAttribute('style')||'';
+        if(s.indexOf('Bebas Neue')!==-1){el.style.fontFamily="'Be Vietnam Pro',sans-serif";el.style.fontWeight='700';el.setAttribute('data-orig-font','bebas');}
+        if(s.indexOf('Share Tech Mono')!==-1){el.style.fontFamily="'Be Vietnam Pro',sans-serif";el.style.fontWeight='500';el.setAttribute('data-orig-font','mono');}
+      });
+    } else {
+      document.querySelectorAll('[data-orig-font="bebas"]').forEach(function(el){el.style.fontFamily="'Bebas Neue',sans-serif";el.style.fontWeight='';el.removeAttribute('data-orig-font');});
+      document.querySelectorAll('[data-orig-font="mono"]').forEach(function(el){el.style.fontFamily="'Share Tech Mono',monospace";el.style.fontWeight='';el.removeAttribute('data-orig-font');});
+    }
+  }
+  window.sonicSetLang=applyLang;
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){applyLang(lang);});
+  else applyLang(lang);
+})();
 </script>
