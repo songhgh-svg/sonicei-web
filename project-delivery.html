@@ -966,6 +966,76 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
   html[lang="vi"] h2                  { font-size: clamp(18px, 5.5vw, 26px) !important; }
 }
 </style>
+
+<!-- SONIC Chatbox CSS -->
+<style id="sonic-chatbox-css">
+:root{--sc-sky:#0ea5e9;--sc-sky-dark:#0369a1;--sc-sky-light:#e0f2fe;--sc-navy:#1a2236;--sc-white:#fff;--sc-bg:#f8fafc;--sc-gray:#9ca3af;--sc-border:rgba(14,165,233,0.25);--sc-green:#22c55e}
+#sonic-chat-toggle{position:fixed;bottom:24px;left:24px;z-index:9999;background:none;border:none;cursor:pointer;padding:0;display:flex;flex-direction:column;align-items:center;gap:4px;filter:drop-shadow(0 4px 16px rgba(14,165,233,0.45));transition:filter .2s,transform .2s}
+#sonic-chat-toggle:hover{filter:drop-shadow(0 6px 24px rgba(14,165,233,0.65));transform:scale(1.05)}
+#sonic-chat-toggle .sc-robot-label{font-size:10px;font-weight:700;color:var(--sc-sky);letter-spacing:.8px;font-family:'Be Vietnam Pro',sans-serif;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.sc-unread-dot{display:none;position:absolute;top:2px;right:2px;width:12px;height:12px;border-radius:50%;background:#ef4444;border:2px solid #fff}
+#sonic-chat-toggle.sc-has-unread .sc-unread-dot{display:block}
+#sonic-chat-window{position:fixed;bottom:130px;left:24px;z-index:9998;width:320px;max-height:calc(100vh - 160px);background:var(--sc-white);border:1px solid var(--sc-border);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(14,165,233,.18);transform:scale(.95) translateY(10px);opacity:0;pointer-events:none;transition:transform .25s cubic-bezier(.34,1.56,.64,1),opacity .2s}
+#sonic-chat-window.sc-open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.sc-tabs{display:flex;background:var(--sc-navy);border-bottom:1px solid rgba(14,165,233,.2);flex-shrink:0}
+.sc-tab{flex:1;padding:11px 6px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:none;color:rgba(255,255,255,.5);letter-spacing:.3px;font-family:'Be Vietnam Pro',sans-serif;transition:color .2s,background .2s;border-bottom:2px solid transparent}
+.sc-tab.sc-active{color:var(--sc-sky);border-bottom:2px solid var(--sc-sky);background:rgba(14,165,233,.08)}
+.sc-pane{display:none;flex-direction:column;flex:1;overflow:hidden}
+.sc-pane.sc-active{display:flex}
+.sc-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--sc-navy);flex-shrink:0}
+.sc-header-left{display:flex;align-items:center;gap:10px}
+.sc-avatar{width:36px;height:36px;border-radius:50%;background:var(--sc-sky);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.2);flex-shrink:0}
+.sc-name{font-size:13px;font-weight:700;color:#fff;font-family:'Be Vietnam Pro',sans-serif}
+.sc-status-row{display:flex;align-items:center;gap:5px}
+.sc-dot{width:6px;height:6px;background:var(--sc-green);border-radius:50%;animation:sc-pulse 2s infinite;flex-shrink:0}
+@keyframes sc-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.sc-status-text{font-size:10px;color:rgba(255,255,255,.55);font-family:'Be Vietnam Pro',sans-serif}
+.sc-status-sep{font-size:10px;color:var(--sc-sky);opacity:.8;font-family:'Be Vietnam Pro',sans-serif}
+.sc-header-right{display:flex;align-items:center;gap:6px}
+.sc-close-btn{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .15s;flex-shrink:0}
+.sc-close-btn:hover{background:rgba(255,255,255,.2)}
+.sc-lang-row{display:flex;gap:4px;align-items:center}
+.sc-lang-btn{font-size:10px;font-weight:700;padding:3px 7px;border-radius:4px;border:1px solid rgba(255,255,255,.25);background:none;color:rgba(255,255,255,.5);cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;transition:all .15s}
+.sc-lang-btn.sc-active{background:var(--sc-sky);border-color:var(--sc-sky);color:#fff}
+.sc-messages{flex:1;overflow-y:auto;padding:14px;background:var(--sc-bg);display:flex;flex-direction:column;gap:10px}
+.sc-messages::-webkit-scrollbar{width:4px}
+.sc-messages::-webkit-scrollbar-thumb{background:rgba(14,165,233,.25);border-radius:2px}
+.sc-msg{display:flex;gap:8px;align-items:flex-end}
+.sc-msg.sc-user{flex-direction:row-reverse}
+.sc-msg-av{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;font-family:'Be Vietnam Pro',sans-serif}
+.sc-msg.sc-bot .sc-msg-av{background:var(--sc-sky);color:#fff}
+.sc-msg.sc-user .sc-msg-av{background:var(--sc-navy);color:var(--sc-sky)}
+.sc-bubble{max-width:78%;padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.55;font-family:'Be Vietnam Pro',sans-serif}
+.sc-msg.sc-bot .sc-bubble{background:#fff;border:1px solid var(--sc-border);border-radius:4px 12px 12px 12px;color:#1e293b}
+.sc-msg.sc-user .sc-bubble{background:var(--sc-sky);color:#fff;border-radius:12px 4px 12px 12px}
+.sc-typing{display:flex;gap:4px;padding:2px 0}
+.sc-typing span{width:7px;height:7px;border-radius:50%;background:var(--sc-sky);animation:sc-bounce .9s infinite}
+.sc-typing span:nth-child(2){animation-delay:.15s}
+.sc-typing span:nth-child(3){animation-delay:.3s}
+@keyframes sc-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+#sc-quick-replies{padding:8px 14px;display:flex;flex-wrap:wrap;gap:6px;background:var(--sc-bg);flex-shrink:0}
+.sc-qbtn{font-size:11px;padding:5px 10px;border-radius:20px;border:1px solid var(--sc-sky);background:#fff;color:var(--sc-sky-dark);cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;transition:all .15s;font-weight:600}
+.sc-qbtn:hover{background:var(--sc-sky);color:#fff}
+.sc-input-area{display:flex;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid var(--sc-border);flex-shrink:0}
+#sc-input{flex:1;padding:8px 12px;border:1px solid var(--sc-border);border-radius:20px;font-size:12px;font-family:'Be Vietnam Pro',sans-serif;background:var(--sc-bg);color:#1e293b;outline:none;transition:border .15s}
+#sc-input:focus{border-color:var(--sc-sky)}
+#sc-send{width:34px;height:34px;border-radius:50%;background:var(--sc-sky);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+#sc-send:hover{background:var(--sc-sky-dark)}
+#sc-send:disabled{background:#94a3b8;cursor:not-allowed}
+.sc-card-links{display:flex;flex-direction:column;gap:5px}
+.sc-card-links a{color:var(--sc-sky);text-decoration:none;font-size:12px}
+.sc-card-links a:hover{text-decoration:underline}
+.sc-footer{padding:6px 14px;text-align:center;font-size:10px;color:var(--sc-gray);background:#fff;border-top:1px solid var(--sc-border);flex-shrink:0;font-family:'Be Vietnam Pro',sans-serif}
+.sc-contact-pane{padding:16px;background:var(--sc-bg);overflow-y:auto}
+.sc-contact-title{font-size:12px;color:#64748b;margin-bottom:14px;line-height:1.5;font-family:'Be Vietnam Pro',sans-serif}
+.sc-cbtns{display:flex;flex-direction:column;gap:9px}
+.sc-cbtn{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.08);background:#fff;cursor:pointer;text-decoration:none;transition:box-shadow .15s,transform .15s}
+.sc-cbtn:hover{box-shadow:0 2px 12px rgba(14,165,233,.15);transform:translateY(-1px)}
+.sc-cbtn-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sc-cbtn-label{font-size:10px;color:#94a3b8;font-family:'Be Vietnam Pro',sans-serif}
+.sc-cbtn-val{font-size:13px;font-weight:700;color:#1e293b;font-family:'Be Vietnam Pro',sans-serif}
+.sc-contact-footer{margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.07);font-size:10px;color:#94a3b8;text-align:center;font-family:'Be Vietnam Pro',sans-serif;line-height:1.5}
+</style>
 </head>
 <body>
 
@@ -2044,5 +2114,280 @@ function openZalo(e) {
   window.sonicSetLang=applyLang;
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){applyLang(lang);});
   else applyLang(lang);
+})();
+</script>
+<!-- SONIC Chatbox Widget -->
+<button id="sonic-chat-toggle" aria-label="Chat với SONIC E&I Expert">
+  <div class="sc-unread-dot"></div>
+  <svg width="66" height="74" viewBox="0 0 64 72" fill="none">
+    <rect x="20" y="8" width="24" height="6" rx="3" fill="#e0f2fe"/>
+    <rect x="30" y="2" width="4" height="8" rx="2" fill="#0ea5e9"/>
+    <circle cx="32" cy="1" r="3" fill="#38bdf8"/>
+    <rect x="10" y="14" width="44" height="32" rx="10" fill="#0ea5e9"/>
+    <rect x="10" y="14" width="44" height="32" rx="10" fill="none" stroke="#e0f2fe" stroke-width="1.5"/>
+    <rect x="16" y="21" width="12" height="9" rx="4" fill="#0369a1"/>
+    <rect x="36" y="21" width="12" height="9" rx="4" fill="#0369a1"/>
+    <circle cx="22" cy="25.5" r="3.5" fill="#e0f2fe"/>
+    <circle cx="42" cy="25.5" r="3.5" fill="#e0f2fe"/>
+    <circle cx="22" cy="25.5" r="1.5" fill="#0ea5e9"/>
+    <circle cx="42" cy="25.5" r="1.5" fill="#0ea5e9"/>
+    <rect x="22" y="34" width="20" height="4" rx="2" fill="#e0f2fe" opacity="0.8"/>
+    <rect x="6" y="20" width="6" height="16" rx="3" fill="#0ea5e9" stroke="#e0f2fe" stroke-width="1"/>
+    <rect x="52" y="20" width="6" height="16" rx="3" fill="#0ea5e9" stroke="#e0f2fe" stroke-width="1"/>
+    <rect x="8" y="46" width="48" height="20" rx="8" fill="#0ea5e9"/>
+    <rect x="8" y="46" width="48" height="20" rx="8" fill="none" stroke="#e0f2fe" stroke-width="1.5"/>
+    <rect x="14" y="52" width="10" height="8" rx="3" fill="#e0f2fe" opacity="0.45"/>
+    <rect x="27" y="52" width="10" height="8" rx="3" fill="#e0f2fe" opacity="0.45"/>
+    <rect x="40" y="52" width="4" height="8" rx="2" fill="#e0f2fe" opacity="0.45"/>
+    <rect x="19" y="66" width="10" height="6" rx="3" fill="#0ea5e9" stroke="#e0f2fe" stroke-width="1"/>
+    <rect x="35" y="66" width="10" height="6" rx="3" fill="#0ea5e9" stroke="#e0f2fe" stroke-width="1"/>
+  </svg>
+  <span class="sc-robot-label">Ask the Expert</span>
+</button>
+
+<div id="sonic-chat-window" role="dialog" aria-label="SONIC E&I Expert Chat">
+  <div class="sc-tabs">
+    <button class="sc-tab sc-active" id="sc-tab-ai" onclick="SC.switchTab('ai')">🤖 Ask the Expert</button>
+    <button class="sc-tab" id="sc-tab-contact" onclick="SC.switchTab('contact')">📞 Contact Us</button>
+  </div>
+  <div class="sc-pane sc-active" id="sc-pane-ai">
+    <div class="sc-header">
+      <div class="sc-header-left">
+        <div class="sc-avatar">
+          <svg width="20" height="20" viewBox="0 0 64 60" fill="none">
+            <rect x="10" y="6" width="44" height="32" rx="9" fill="#e0f2fe"/>
+            <rect x="16" y="13" width="10" height="8" rx="4" fill="#0369a1"/>
+            <rect x="38" y="13" width="10" height="8" rx="4" fill="#0369a1"/>
+            <circle cx="21" cy="17" r="3" fill="#fff"/>
+            <circle cx="43" cy="17" r="3" fill="#fff"/>
+            <rect x="22" y="27" width="20" height="4" rx="2" fill="#0369a1" opacity="0.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sc-name" id="sc-name">SONIC Expert</div>
+          <div class="sc-status-row">
+            <div class="sc-dot"></div>
+            <span class="sc-status-text" id="sc-status-1">Online</span>
+            <span class="sc-status-sep">•</span>
+            <span class="sc-status-text" id="sc-status-2">Instant response</span>
+          </div>
+        </div>
+      </div>
+      <div class="sc-header-right">
+        <div class="sc-lang-row" id="sc-lang-row">
+          <button class="sc-lang-btn sc-active" id="sc-btn-vi" onclick="SC.setLang('vi')">VI</button>
+          <button class="sc-lang-btn" id="sc-btn-en" onclick="SC.setLang('en')">EN</button>
+        </div>
+        <button class="sc-close-btn" onclick="SC.close()" aria-label="Đóng">✕</button>
+      </div>
+    </div>
+    <div class="sc-messages" id="sc-messages"></div>
+    <div id="sc-quick-replies"></div>
+    <div class="sc-input-area">
+      <input type="text" id="sc-input" placeholder="Type a message..." autocomplete="off" onkeydown="if(event.key==='Enter')SC.send()"/>
+      <button id="sc-send" onclick="SC.send()" aria-label="Send">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="sc-footer">Powered by Claude AI · SONIC E&I Solutions</div>
+  </div>
+  <div class="sc-pane" id="sc-pane-contact">
+    <div class="sc-contact-pane">
+      <p class="sc-contact-title" id="sc-contact-title">Contact SONIC E&I engineering team directly</p>
+      <div class="sc-cbtns">
+        <a class="sc-cbtn" href="tel:+84915460790">
+          <div class="sc-cbtn-icon" style="background:#dbeafe">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" stroke="#185FA5" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div><div class="sc-cbtn-label" id="sc-lbl-call">Phone call</div><div class="sc-cbtn-val">+84 915 460 790</div></div>
+        </a>
+        <a class="sc-cbtn" href="https://zalo.me/84915460790" target="_blank" rel="noopener">
+          <div class="sc-cbtn-icon" style="background:#dbeafe">
+            <svg width="20" height="20" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#0068FF"/><text x="6" y="33" font-family="Arial" font-weight="bold" font-size="17" fill="white">Zalo</text></svg>
+          </div>
+          <div><div class="sc-cbtn-label">Zalo</div><div class="sc-cbtn-val">0915 460 790</div></div>
+        </a>
+        <a class="sc-cbtn" href="https://wa.me/84915460790" target="_blank" rel="noopener">
+          <div class="sc-cbtn-icon" style="background:#dcfce7">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.424A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="#16a34a" stroke-width="1.5"/><path d="M9 9c0-.5.4-1 1-1h.5c.3 0 .5.2.6.4l.7 1.8c.1.2 0 .5-.2.7l-.5.5c.5 1 1.3 1.8 2.3 2.3l.5-.5c.2-.2.5-.3.7-.2l1.8.7c.3.1.4.4.4.7V15c0 .6-.5 1-1 1-4 0-7-3-7-7z" stroke="#16a34a" stroke-width="1.2"/></svg>
+          </div>
+          <div><div class="sc-cbtn-label">WhatsApp</div><div class="sc-cbtn-val">+84 915 460 790</div></div>
+        </a>
+        <a class="sc-cbtn" href="mailto:contact@sonicei.com">
+          <div class="sc-cbtn-icon" style="background:#fef9c3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="#854d0e" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#854d0e" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div><div class="sc-cbtn-label">Email</div><div class="sc-cbtn-val">contact@sonicei.com</div></div>
+        </a>
+      </div>
+      <div class="sc-contact-footer">CÔNG TY TNHH SONIC E&amp;I Solutions<br>65B Hàn Thuyên, Rạch Dừa, TP. Hồ Chí Minh</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+var SC_SYS_VI=`Bạn là trợ lý AI của SONIC E&I Solutions — công ty nghiệm thu E&I chuyên biệt tại Việt Nam, sáng lập bởi kỹ sư Hoàng Ngọc Sơn với 25 năm kinh nghiệm (Siemens Energy, GE Power, VARD, Seaonics).
+THÔNG TIN: MST 3502583632 | 65B Hàn Thuyên, Rạch Dừa, TP. Hồ Chí Minh | contact@sonicei.com | +84 915 460 790
+DỊCH VỤ: E&I Installation ($8K+), Commissioning ($1.2K/ngày), AI-Punch™ QA/QC, PSSR
+CAM KẾT: Không phát sinh lỗi trong hợp đồng. Huy động 3-5 ngày. Tiêu chuẩn Siemens/GE/IEC.
+Trả lời ngắn gọn, chuyên nghiệp. Hỏi thêm phạm vi/vị trí khi báo giá. Mời liên hệ contact@sonicei.com hoặc +84 915 460 790. Không bịa thông tin.`;
+var SC_SYS_EN=`You are the AI assistant of SONIC E&I Solutions — specialized E&I commissioning in Vietnam, founded by Hoàng Ngọc Sơn with 25 years experience (Siemens Energy, GE Power, VARD, Seaonics).
+INFO: contact@sonicei.com | +84 915 460 790 | 65B Han Thuyen, Rach Dua, Ho Chi Minh City
+SERVICES: E&I Installation ($8K+), Commissioning ($1.2K/day), AI-Punch™ QA/QC, PSSR
+KEY: Zero-defect guarantee. 3-5 day mobilisation. Siemens/GE/IEC standards.
+Keep answers concise. Always invite: contact@sonicei.com or +84 915 460 790.`;
+var SC_QR_VI=["Báo giá dịch vụ E&I","AI-Punch™ là gì?","Huy động nhanh bao lâu?","Cam kết không lỗi?","Liên hệ kỹ sư ngay"];
+var SC_QR_EN=["Get a service quote","What is AI-Punch™?","How fast can you mobilise?","Zero-defect guarantee?","Contact an engineer now"];
+var SC_WEL_VI="Xin chào! 👋 Tôi là trợ lý AI của <strong>SONIC E&amp;I Solutions</strong>.<br><br>Tôi có thể giúp:<br>• Báo giá dịch vụ nghiệm thu E&amp;I<br>• Tư vấn kỹ thuật Siemens/GE/IEC<br>• Thông tin AI-Punch™ QA/QC<br><br>Bạn cần hỗ trợ gì hôm nay?";
+var SC_WEL_EN="Hello! 👋 I'm the AI assistant of <strong>SONIC E&amp;I Solutions</strong>.<br><br>I can help with:<br>• E&amp;I commissioning quotes<br>• Technical advice (Siemens/GE/IEC)<br>• AI-Punch™ QA/QC info<br><br>How can I help you today?";
+
+
+var sc_lang='vi',sc_open=false,sc_typing=false,sc_inited=false,sc_history=[];
+
+function sc_readLang(){
+  try{ var k=localStorage.getItem('sonic_lang')||localStorage.getItem('lang'); if(k==='vi'||k==='en') return k; }catch(e){}
+  return document.documentElement.lang==='en'?'en':'vi';
+}
+
+function sc_applyLabels(l){
+  var rl=document.getElementById('sc-robot-lbl');
+  if(rl) rl.textContent=l==='vi'?'Hỏi Chuyên Gia':'Ask the Expert';
+  var tai=document.getElementById('sc-tab-ai');
+  if(tai) tai.textContent=l==='vi'?'🤖 Hỏi Chuyên Gia':'🤖 Ask the Expert';
+  var tct=document.getElementById('sc-tab-contact');
+  if(tct) tct.textContent=l==='vi'?'📞 Liên Hệ':'📞 Contact Us';
+}
+
+window.SC={
+  setLang:function(l){
+    sc_lang=l;
+    SC._ui();
+    var msgs=document.getElementById('sc-messages');
+    if(msgs){msgs.innerHTML='';sc_history=[];SC._append('bot',l==='vi'?SC_WEL_VI:SC_WEL_EN);SC._qr();}
+    if(window.sonicSetLang&&!window._scBusy){window._scBusy=true;window.sonicSetLang(l);window._scBusy=false;}
+    else if(window.setLang&&!window._scBusy&&typeof window.setLang==='function'){window._scBusy=true;window.setLang(l);window._scBusy=false;}
+  },
+  setLangSilent:function(l){
+    sc_lang=l; SC._ui();
+    var msgs=document.getElementById('sc-messages');
+    if(msgs&&sc_inited){msgs.innerHTML='';sc_history=[];SC._append('bot',l==='vi'?SC_WEL_VI:SC_WEL_EN);SC._qr();}
+  },
+  _ui:function(){
+    sc_applyLabels(sc_lang);
+    var bvi=document.getElementById('sc-btn-vi'),ben=document.getElementById('sc-btn-en');
+    if(bvi)bvi.classList.toggle('sc-active',sc_lang==='vi');
+    if(ben)ben.classList.toggle('sc-active',sc_lang==='en');
+    var nm=document.getElementById('sc-name');
+    if(nm)nm.textContent=sc_lang==='vi'?'Chuyên Gia SONIC':'SONIC Expert';
+    var s1=document.getElementById('sc-status-1'),s2=document.getElementById('sc-status-2');
+    if(s1)s1.textContent=sc_lang==='vi'?'Trực tuyến':'Online';
+    if(s2)s2.textContent=sc_lang==='vi'?'Phản hồi tức thì':'Instant response';
+    var inp=document.getElementById('sc-input');
+    if(inp)inp.placeholder=sc_lang==='vi'?'Nhắn tin...':'Type a message...';
+    var ct=document.getElementById('sc-contact-title');
+    if(ct)ct.textContent=sc_lang==='vi'?'Liên hệ trực tiếp với đội ngũ kỹ sư SONIC E&I':'Contact SONIC E&I engineering team directly';
+    var lc=document.getElementById('sc-lbl-call');
+    if(lc)lc.textContent=sc_lang==='vi'?'Gọi điện':'Phone call';
+  },
+  switchTab:function(t){
+    document.getElementById('sc-tab-ai').classList.toggle('sc-active',t==='ai');
+    document.getElementById('sc-tab-contact').classList.toggle('sc-active',t==='contact');
+    document.getElementById('sc-pane-ai').classList.toggle('sc-active',t==='ai');
+    document.getElementById('sc-pane-contact').classList.toggle('sc-active',t==='contact');
+  },
+  close:function(){sc_open=false;document.getElementById('sonic-chat-window').classList.remove('sc-open');},
+  send:function(){
+    var inp=document.getElementById('sc-input');
+    var txt=inp.value.trim();
+    if(!txt||sc_typing)return;
+    inp.value='';
+    SC._msg(txt);
+  },
+  _append:function(role,html){
+    var msgs=document.getElementById('sc-messages');
+    var d=document.createElement('div');d.className='sc-msg sc-'+role;
+    var av=document.createElement('div');av.className='sc-msg-av';av.textContent=role==='bot'?'AI':(sc_lang==='vi'?'BẠN':'YOU');
+    var b=document.createElement('div');b.className='sc-bubble';b.innerHTML=html;
+    d.appendChild(av);d.appendChild(b);msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+  },
+  _typing:function(show){
+    var t=document.getElementById('sc-typing-msg');
+    if(show&&!t){
+      var d=document.createElement('div');d.className='sc-msg sc-bot';d.id='sc-typing-msg';
+      var av=document.createElement('div');av.className='sc-msg-av';av.textContent='AI';
+      var b=document.createElement('div');b.className='sc-bubble';
+      b.innerHTML='<div class="sc-typing"><span></span><span></span><span></span></div>';
+      d.appendChild(av);d.appendChild(b);
+      document.getElementById('sc-messages').appendChild(d);
+      document.getElementById('sc-messages').scrollTop=99999;
+    } else if(!show&&t){t.remove();}
+  },
+  _qr:function(){
+    var qr=document.getElementById('sc-quick-replies');if(!qr)return;
+    var r=sc_lang==='vi'?SC_QR_VI:SC_QR_EN;
+    qr.innerHTML=r.map(function(x){return'<button class="sc-qbtn" onclick="SC._qs(this)">'+x+'</button>';}).join('');
+  },
+  _qs:function(btn){document.getElementById('sc-quick-replies').innerHTML='';SC._msg(btn.textContent);},
+  _card:function(){
+    SC._append('bot','<div class="sc-card-links"><a href="mailto:contact@sonicei.com">📧 contact@sonicei.com</a><a href="tel:+84915460790">📞 +84 915 460 790</a><a href="https://zalo.me/84915460790" target="_blank">💬 Zalo: 0915 460 790</a></div>');
+  },
+  _msg:async function(text){
+    if(!text||sc_typing)return;
+    sc_typing=true;document.getElementById('sc-send').disabled=true;
+    SC._append('user',text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    sc_history.push({role:'user',content:text});
+    SC._typing(true);
+    try{
+      var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:sc_lang==='vi'?SC_SYS_VI:SC_SYS_EN,messages:sc_history})});
+      var d=await r.json();SC._typing(false);
+      var rep=(d.content&&d.content[0]&&d.content[0].text)||(sc_lang==='vi'?'Xin lỗi, có lỗi xảy ra.':'Sorry, an error occurred.');
+      sc_history.push({role:'assistant',content:rep});
+      var html=rep.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+      SC._append('bot',html);
+      if(rep.toLowerCase().indexOf('contact@')>=0||rep.indexOf('+84')>=0)SC._card();
+      SC._qr();
+    }catch(e){SC._typing(false);SC._append('bot',sc_lang==='vi'?'Kết nối lỗi. Gọi: +84 915 460 790':'Connection error. Call: +84 915 460 790');}
+    sc_typing=false;document.getElementById('sc-send').disabled=false;
+  },
+  init:function(){
+    if(sc_inited)return;sc_inited=true;
+    sc_lang=sc_readLang();
+    SC._ui();
+    SC._append('bot',sc_lang==='vi'?SC_WEL_VI:SC_WEL_EN);
+    SC._qr();
+  }
+};
+
+document.getElementById('sonic-chat-toggle').addEventListener('click',function(){
+  sc_open=!sc_open;
+  document.getElementById('sonic-chat-window').classList.toggle('sc-open',sc_open);
+  document.getElementById('sonic-chat-toggle').classList.remove('sc-has-unread');
+  if(sc_open){SC.init();SC.switchTab('ai');}
+});
+
+setTimeout(function(){if(!sc_open)document.getElementById('sonic-chat-toggle').classList.add('sc-has-unread');},4000);
+
+(function(){
+  function onLangChange(l){
+    sc_lang=l; sc_applyLabels(l);
+    if(sc_inited){
+      var msgs=document.getElementById('sc-messages');
+      if(msgs){msgs.innerHTML='';sc_history=[];SC._append('bot',l==='vi'?SC_WEL_VI:SC_WEL_EN);SC._qr();}
+      SC._ui();
+    }
+  }
+  function initLabels(){var l=sc_readLang();sc_lang=l;sc_applyLabels(l);}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initLabels);}
+  else{initLabels();}
+  var obs=new MutationObserver(function(muts){
+    muts.forEach(function(m){if(m.attributeName==='lang')onLangChange(document.documentElement.lang);});
+  });
+  obs.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+
 })();
 </script>
