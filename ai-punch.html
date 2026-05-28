@@ -1405,11 +1405,66 @@ function syncDemoLang(lang){
   });
   const btn=document.getElementById('scanBtn');
   if(btn && !demoRunning) btn.innerHTML=t.scanBtn;
+
+  // Re-sync whichever result state is currently visible
+  const states=['stateIdle','stateScanning','stateFailed','statePassed','stateOOS','stateError'];
+  const activeState=states.find(s=>{const el=document.getElementById(s);return el&&el.classList.contains('active');});
+
+  if(activeState==='stateFailed'){
+    // Re-render cta text; defect cards come from AI so keep names/instructions as-is
+    const ctaTxt=document.getElementById('ctaTxt');
+    const ctaBtn=document.getElementById('ctaBtn');
+    const failedSub=document.getElementById('failedSubTxt');
+    if(ctaTxt) ctaTxt.textContent=t.ctaTxt;
+    if(ctaBtn) ctaBtn.innerHTML=t.ctaBtn;
+    // Re-compute defect count string from current sub text number if possible
+    if(failedSub){
+      const match=failedSub.textContent.match(/\d+/);
+      if(match) failedSub.textContent=t.failedSub(parseInt(match[0],10));
+    }
+  } else if(activeState==='statePassed'){
+    const passedSub=document.getElementById('passedSubTxt');
+    const passedMsg=document.getElementById('passedMsg');
+    const ctaPassedTxt=document.getElementById('ctaPassedTxt');
+    const ctaPassedBtn=document.getElementById('ctaPassedBtn');
+    if(passedSub) passedSub.textContent=t.passedSub;
+    if(passedMsg) passedMsg.textContent=t.passedMsg;
+    if(ctaPassedTxt) ctaPassedTxt.textContent=t.ctaPassedTxt;
+    if(ctaPassedBtn) ctaPassedBtn.innerHTML=t.ctaPassedBtn;
+  } else if(activeState==='stateOOS'){
+    const oosTitle=document.getElementById('oosTitleTxt');
+    const oosSub=document.getElementById('oosSubTxt');
+    if(oosTitle) oosTitle.textContent=t.oosTitleTxt;
+    if(oosSub) oosSub.textContent=t.oosSubTxt;
+  } else if(activeState==='stateError'){
+    // Re-sync visible error state (busy vs generic)
+    const box=document.getElementById('errorEmailBox');
+    const isBusy=box&&box.style.display==='block';
+    showErrorState(isBusy?'busy':'generic',t);
+  } else if(activeState==='stateScanning'){
+    // Update scanning phase label language
+    const phase=document.getElementById('scanPhaseLabel');
+    if(phase){
+      const isPhase2=phase.innerHTML.indexOf('2')!==-1&&phase.innerHTML.indexOf('/')!==-1;
+      phase.innerHTML=isPhase2
+        ?(lang==='vi'?'BƯỚC 2 / 2 &middot; XÁC NHẬN':'STEP 2 / 2 &middot; CONFIRMING')
+        :(lang==='vi'?'BƯỚC 1 / 2 &middot; SÀNG LỌC':'STEP 1 / 2 &middot; SCREENING');
+    }
+  }
+
   updateQuota();
 }
 
-// Intercept setLang
-const _sl=window.setLang; window.setLang=function(l){_sl(l);syncDemoLang(l);};
+// Intercept setLang — defer until all scripts are parsed so window.setLang is defined
+function _hookSetLang(){
+  if(typeof window.setLang==='function'&&!window._setLangHooked){
+    window._setLangHooked=true;
+    const _sl=window.setLang;
+    window.setLang=function(l){_sl(l);syncDemoLang(l);};
+  }
+}
+_hookSetLang();
+document.addEventListener('DOMContentLoaded',_hookSetLang);
 
 // Upload / drop
 const dz=document.getElementById('dropZone');
@@ -1838,7 +1893,7 @@ const translations = {
     uc2_title: 'QA/QC Engineers', uc2_desc: 'Centralized visibility into all punch items by area and discipline. Close items with photographic evidence and full audit trail.',
     uc3_title: 'Project Managers', uc3_desc: 'Real-time dashboard — OPEN vs FIXED by area, discipline, technician. Client-ready PDF reports on demand.',
     built_label: '// The Engineering Behind It',
-    built_quote: '"I built AI-Punch™ because I spent 25 years writing punch lists by hand on offshore rigs and power plants. Every defect I\'ve seen — from Siemens Energy to GE Power — is in this system."',
+    built_quote: '"I built AI-Punch™ because I spent 25 years writing punch lists by hand on offshore rigs, power plants, and industrial sites across Vietnam. Every defect pattern I\'ve encountered over those years is built into this system."',
     built_attr: '— Founder, SONIC E&I Solutions<br>25-yr E&I Veteran · Vũng Tàu, Vietnam',
     bb1_text: '25 Years E&I Field Experience', bb1_sub: 'Siemens Energy · GE Power · Offshore Vietnam',
     bb2_text: 'Zero-Defect Commissioning Standard', bb2_sub: 'Contractual guarantee on every project',
@@ -1879,7 +1934,7 @@ const translations = {
     proof4_title: 'Internal', proof4_sub: 'Continuous development',
   },
   vi: {
-    chip_crimping: 'LỖI CRIMP', chip_terminal: 'ĐẦU CỐT LỎNG',
+    chip_crimping: 'LỖI BÓP CỐT', chip_terminal: 'ĐẦU CỐT LỎNG',
     chip_grounding: 'NỐI ĐẤT', chip_gland: 'ĐẦU SIẾT CÁP', chip_marking: 'THIẾU NHÃN',
     chip_siemens: 'THAM CHIẾU SIEMENS', chip_ge: 'THAM CHIẾU GE',
     demo_try_title: 'THỬ NGAY <span class="gold">AI&#8209;PUNCH&#8482;</span>',
@@ -1895,8 +1950,8 @@ const translations = {
     ds0_label: 'CHỤP HOẶC TẢI ẢNH LÊN', ds0_tap: '📷 NHẤN ĐỂ CHỤP',
     ds0_hint: 'Chụp đầu cốt / thiết bị · IEC · Siemens · GE', ds0_btn: '⚡ BẮT ĐẦU SCAN AI',
     ds1_label: 'AI ĐANG PHÂN TÍCH ẢNH', ds1_sub: 'Gemini AI · Đang xử lý',
-    ds2_label: 'MÃ LỖI PHÁT HIỆN', ds2_defect_name: 'Lỗi Đầu Cốt Crimp',
-    ds2_defect_inst: 'Crimp lại với ferrule đúng cỡ. Kiểm tra bằng pull test theo IEC 60947-1.',
+    ds2_label: 'MÃ LỖI PHÁT HIỆN', ds2_defect_name: 'Lỗi Bóp Đầu Cốt',
+    ds2_defect_inst: 'Bóp lại với đầu cosse đúng cỡ. Kiểm tra bằng thử lực kéo theo IEC 60947-1.',
     ds2_btn: '✓ ĐÃ SỬA — ĐÁNH DẤU HOÀN THÀNH',
     ds3_label: 'ĐÃ SỬA ✓ — AI XÁC NHẬN', ds3_verified: 'XÁC NHẬN',
     ds3_confirmed: 'AI đã xác nhận sửa xong',
@@ -1910,8 +1965,8 @@ const translations = {
     // static phone mockup
     mock_result_label: 'Kết Quả', mock_failed_label: 'THẤT BẠI',
     mock_defects_count: 'Phát hiện 2 lỗi',
-    mock_defect1_name: 'Lỗi Đầu Cốt Crimp',
-    mock_defect1_inst: 'Crimp lại với ferrule đúng cỡ. Kiểm tra pull test theo IEC 60947-1.',
+    mock_defect1_name: 'Lỗi Bóp Đầu Cốt',
+    mock_defect1_inst: 'Bóp lại với đầu cosse đúng cỡ. Kiểm tra thử lực kéo theo IEC 60947-1.',
     mock_defect2_name: 'Thiếu Nhãn / Ký Hiệu',
     mock_defect2_inst: 'Gắn nhãn cáp theo P&ID. Dùng ống co nhiệt.',
     mock_btn_fixed: '✓ ĐÃ SỬA', mock_btn_report: '📧 Báo Cáo',
@@ -1937,7 +1992,7 @@ const translations = {
     feat_label: '// Tính Năng',
     feat_title: 'Xây dựng cho <span class="gold">Hiện Trường</span>',
     feat1_title: 'AI Phát Hiện Lỗi',
-    feat1_desc: 'Gemini Vision AI tự động phát hiện lỗi crimp, đầu cốt lỏng, vi phạm buộc cáp, tiếp địa sai, thiếu nhãn và hơn 17 loại lỗi E&I khác.',
+    feat1_desc: 'Gemini Vision AI tự động phát hiện lỗi bóp cốt, đầu cốt lỏng, vi phạm buộc cáp, tiếp địa sai, thiếu nhãn và hơn 17 loại lỗi E&I khác.',
     feat2_title: 'Mã Lỗi Chuẩn IEC',
     feat2_desc: 'Mỗi lỗi được gắn mã chuẩn hóa theo IEC 60079, IEC 60364 và kinh nghiệm thực tế từ các dự án Siemens Energy và GE Power.',
     feat3_title: 'Dashboard & Lịch Sử',
@@ -1945,7 +2000,7 @@ const translations = {
     feat4_title: 'Tự Động Gửi Báo Cáo',
     feat4_desc: 'Tự động gửi báo cáo punch list đến QA, PM và khách hàng qua email. Hỗ trợ nhiều người nhận và chia sẻ trực tiếp qua Zalo cho đội thợ.',
     feat5_title: 'Lưu Trữ Cloud An Toàn',
-    feat5_desc: 'Toàn bộ dữ liệu lưu trên Supabase cloud. Audit trail đầy đủ với xác thực kỹ thuật viên, timestamp và ảnh trước/sau cho mỗi lỗi.',
+    feat5_desc: 'Toàn bộ dữ liệu lưu trên đám mây Supabase. Nhật ký kiểm toán đầy đủ với xác thực kỹ thuật viên, dấu thời gian và ảnh trước/sau cho mỗi lỗi.',
     feat6_title: 'Sẵn Sàng Ngoài Khơi',
     feat6_desc: 'Thiết kế cho giàn khoan ngoài khơi và nhà máy điện xa xôi. Hoạt động với kết nối hạn chế — xếp hàng kiểm tra offline, đồng bộ khi có tín hiệu.',
     out_label: '// Xem Trước Ứng Dụng',
@@ -1958,10 +2013,10 @@ const translations = {
     uc_label: '// Dành Cho Ai',
     uc_title: 'Xây Dựng Cho <span class="gold">Mọi Vai Trò</span>',
     uc1_title: 'Kỹ Thuật Viên Hiện Trường', uc1_desc: 'Thay thế danh sách giấy. Chụp, quét, sửa — tạo punch list chuẩn mà không cần chạm vào máy tính.',
-    uc2_title: 'Kỹ Sư QA/QC', uc2_desc: 'Tầm nhìn tập trung vào tất cả punch item theo khu vực và bộ môn. Đóng item với bằng chứng ảnh và audit trail đầy đủ.',
-    uc3_title: 'Quản Lý Dự Án', uc3_desc: 'Dashboard thời gian thực — Chưa Sửa vs Đã Sửa theo khu vực, bộ môn, kỹ thuật viên. Báo cáo PDF sẵn cho khách hàng theo yêu cầu.',
+    uc2_title: 'Kỹ Sư QA/QC', uc2_desc: 'Tổng quan tập trung vào tất cả hạng mục punch theo khu vực và chuyên ngành. Đóng hạng mục với bằng chứng ảnh và nhật ký kiểm toán đầy đủ.',
+    uc3_title: 'Quản Lý Dự Án', uc3_desc: 'Dashboard thời gian thực — Chưa Sửa vs Đã Sửa theo khu vực, chuyên ngành, kỹ thuật viên. Báo cáo PDF sẵn cho khách hàng theo yêu cầu.',
     built_label: '// Kỹ Thuật Đằng Sau',
-    built_quote: '"Tôi xây dựng AI-Punch™ vì đã dành 25 năm viết punch list bằng tay trên giàn khoan và nhà máy điện. Mọi lỗi tôi từng thấy — từ Siemens Energy đến GE Power — đều có trong hệ thống này."',
+    built_quote: '"Tôi xây dựng AI-Punch™ vì đã dành 25 năm viết punch list bằng tay trên giàn khoan, nhà máy điện và các công trình công nghiệp khắp Việt Nam. Mọi dạng lỗi tôi từng gặp suốt những năm đó đều được đưa vào hệ thống này."',
     built_attr: '— Người Sáng Lập, SONIC E&I Solutions<br>25 năm kinh nghiệm E&I · Vũng Tàu, Việt Nam',
     bb1_text: '25 Năm Kinh Nghiệm E&I', bb1_sub: 'Siemens Energy · GE Power · Ngoài Khơi Việt Nam',
     bb2_text: 'Tiêu Chuẩn Zero-Defect', bb2_sub: 'Bảo đảm hợp đồng trên mỗi dự án',
@@ -2398,13 +2453,22 @@ window.SC={
     sc_history.push({role:'user',content:text});
     SC._typing(true);
     try{
-      var r=await fetch('https://sonic-gemini.songhgh.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({systemPrompt:sc_lang==='vi'?SC_SYS_VI:SC_SYS_EN,messages:sc_history})});
+      var r=await fetch('https://sonic-openai.songhgh.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({systemPrompt:sc_lang==='vi'?SC_SYS_VI:SC_SYS_EN,messages:sc_history})});
       var d=await r.json();SC._typing(false);
       var rep;
       if(d.error==='rate_limit'){
         rep=sc_lang==='vi'?'AI đang bận. Vui lòng thử lại sau 30 giây. 📞 +84 915 460 790':'AI is busy. Please try again in 30 seconds. 📞 +84 915 460 790';
       }else{
-        rep=(d.text)||(sc_lang==='vi'?'Xin lỗi, có lỗi xảy ra.':'Sorry, an error occurred.');
+        /* support multiple worker response shapes:
+           { text }, { reply }, { message }, { result },
+           OpenAI-passthrough: { choices:[{message:{content}}] } */
+        rep = d.text
+           || d.reply
+           || d.message
+           || d.result
+           || d.content
+           || (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content)
+           || (sc_lang==='vi'?'Xin lỗi, có lỗi xảy ra.':'Sorry, an error occurred.');
       }
       sc_history.push({role:'assistant',content:rep});
       var html=rep.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
