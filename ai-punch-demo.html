@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Punch™ Interactive Demo — SONIC E&I Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#112040;--gold:#c9a227;--gold-light:#e8c347;
+  --white:#f0f4ff;--gray:#8899bb;--green:#00c896;--blue:#0057ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow-x:hidden}
+body{
+  background:var(--navy);color:var(--white);
+  font-family:'Be Vietnam Pro',sans-serif;
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:32px 16px 48px;
+}
+
+/* HEADER */
+.header{text-align:center;margin-bottom:36px}
+.header-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,87,255,0.12);border:1px solid rgba(0,87,255,0.4);
+  padding:6px 16px;margin-bottom:16px;
+  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:#6aadff;text-transform:uppercase;
+}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:#6aadff;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,68px);letter-spacing:2px;line-height:.95}
+.header h1 .w{color:var(--white)}
+.header h1 .g{color:var(--gold);text-shadow:0 0 40px rgba(201,162,39,0.4)}
+.header-sub{font-size:13px;color:var(--gray);margin-top:10px;letter-spacing:.5px}
+
+/* STEP NAV */
+.step-nav{
+  display:flex;gap:0;margin-bottom:36px;
+  border:1px solid rgba(201,162,39,0.2);overflow:hidden;max-width:100%;
+}
+.step-btn{
+  background:none;border:none;cursor:pointer;
+  padding:9px 14px;font-family:'Share Tech Mono',monospace;font-size:9px;
+  letter-spacing:2px;color:var(--gray);text-transform:uppercase;
+  border-right:1px solid rgba(201,162,39,0.2);transition:all .25s;white-space:nowrap;
+}
+.step-btn:last-child{border-right:none}
+.step-btn.active{background:var(--gold);color:var(--navy);font-weight:700}
+.step-btn:hover:not(.active){color:var(--gold);background:rgba(201,162,39,0.08)}
+
+/* DEMO STAGE */
+.demo-stage{
+  display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;
+  justify-content:center;max-width:1000px;width:100%;
+}
+
+/* PHONE */
+.phone{
+  width:260px;flex-shrink:0;
+  background:#0d1f38;border-radius:38px;
+  border:2px solid rgba(201,162,39,0.3);
+  box-shadow:0 0 60px rgba(0,87,255,0.2),0 40px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow:hidden;position:relative;
+}
+.phone-notch{
+  width:90px;height:24px;background:#0d1f38;
+  border-radius:0 0 18px 18px;margin:0 auto;
+  border:2px solid rgba(201,162,39,0.2);border-top:none;
+}
+.phone-screen{
+  width:100%;aspect-ratio:9/19.5;position:relative;overflow:hidden;background:#0a1628;
+}
+.screen-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:opacity .45s ease;opacity:0;
+}
+.screen-img.visible{opacity:1}
+.phone-home{width:36px;height:4px;background:rgba(255,255,255,0.18);border-radius:2px;margin:10px auto;}
+
+/* SCAN LINE */
+.scan-line{
+  position:absolute;left:0;right:0;height:2px;z-index:5;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--gold),var(--blue),var(--gold),transparent);
+  box-shadow:0 0 10px var(--gold);display:none;
+  animation:scanMove 1.5s ease-in-out infinite;
+}
+.scan-line.active{display:block}
+@keyframes scanMove{0%{top:5%}100%{top:92%}}
+
+/* INFO PANEL */
+.info-panel{flex:1;min-width:260px;max-width:420px}
+.step-indicator{
+  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:10px;opacity:.8;
+}
+.step-title{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,46px);
+  letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:14px;
+}
+.step-title .gold{color:var(--gold)}
+.step-desc{font-size:14px;color:rgba(240,244,255,0.62);line-height:1.75;margin-bottom:22px}
+.step-desc strong{color:var(--white)}
+
+/* PROGRESS */
+.prog-wrap{margin-bottom:20px}
+.prog-label{display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:1px;margin-bottom:5px}
+.prog-track{height:3px;background:rgba(255,255,255,0.07)}
+.prog-fill{height:100%;background:linear-gradient(to right,var(--blue),var(--gold));transition:width .9s ease}
+
+/* TAGS */
+.defect-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.dtag{padding:5px 12px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid}
+.dtag.major{color:#ff9944;border-color:#ff9944;background:rgba(255,153,68,0.08)}
+.dtag.pass{color:var(--green);border-color:var(--green);background:rgba(0,200,150,0.08)}
+.dtag.fixed{color:#60aaff;border-color:#60aaff;background:rgba(96,170,255,0.08)}
+
+/* STATS */
+.stats-row{display:flex;gap:0;margin-bottom:20px;border:1px solid rgba(201,162,39,0.15)}
+.stat{flex:1;text-align:center;padding:14px 6px;border-right:1px solid rgba(201,162,39,0.15)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);line-height:1}
+.stat-l{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gray);margin-top:2px;text-transform:uppercase}
+
+/* BUTTONS */
+.btn-primary{
+  padding:13px 28px;background:var(--gold);color:var(--navy);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-ghost{
+  padding:12px 24px;background:transparent;color:var(--white);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  border:1px solid rgba(240,244,255,0.2);
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* DOTS */
+.dot-row{display:flex;gap:7px;margin-top:28px;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.12);cursor:pointer;transition:all .3s}
+.dot.active{background:var(--gold);box-shadow:0 0 8px rgba(201,162,39,0.5);width:22px;border-radius:3px}
+
+/* FOOTER */
+.brand-footer{
+  margin-top:48px;font-family:'Share Tech Mono',monospace;font-size:9px;
+  letter-spacing:3px;color:rgba(136,153,187,0.35);text-transform:uppercase;text-align:center;
+}
+
+@media(max-width:600px){
+  .step-nav{flex-wrap:wrap}
+  .step-btn{font-size:8px;padding:7px 9px}
+  .phone{width:220px}
+}
+
+/* STEP 6 TABS */
+.s6-tabs{display:flex;gap:0;margin-bottom:16px;border:1px solid rgba(201,162,39,0.25);overflow:hidden}
+.s6-tab{flex:1;background:none;border:none;cursor:pointer;padding:9px 12px;
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;
+  color:var(--gray);text-transform:uppercase;transition:all .25s;border-right:1px solid rgba(201,162,39,0.2)}
+.s6-tab:last-child{border-right:none}
+.s6-tab.active{background:var(--gold);color:var(--navy);font-weight:700}
+.s6-tab:hover:not(.active){color:var(--gold);background:rgba(201,162,39,0.08)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge"><div class="badge-dot"></div>Interactive Demo</div>
+  <h1><span class="w">AI-PUNCH</span><span class="g">™</span></h1>
+  <p class="header-sub">E&I Commissioning QA/QC · IEC · Siemens · GE · Powered by Gemini AI</p>
+</div>
+
+<div class="step-nav" id="stepNav">
+  <button class="step-btn active" onclick="goStep(0)">01 Capture</button>
+  <button class="step-btn" onclick="goStep(1)">02 AI Scan</button>
+  <button class="step-btn" onclick="goStep(2)">03 Defects</button>
+  <button class="step-btn" onclick="goStep(3)">04 Fix</button>
+  <button class="step-btn" onclick="goStep(4)">05 Confirm</button>
+  <button class="step-btn" onclick="goStep(5)">06 Report</button>
+</div>
+
+<div class="demo-stage">
+  <!-- PHONE MOCKUP -->
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-screen">
+      <!-- All 16 screenshots — toggled by JS -->
+      <img class="screen-img visible" id="img1"  src="assets/images/ai-demo/1.jpg"  alt="">
+      <img class="screen-img"         id="img2"  src="assets/images/ai-demo/2.jpg"  alt="">
+      <img class="screen-img"         id="img3"  src="assets/images/ai-demo/3.jpg"  alt="">
+      <img class="screen-img"         id="img4"  src="assets/images/ai-demo/4.jpg"  alt="">
+      <img class="screen-img"         id="img5"  src="assets/images/ai-demo/5.jpg"  alt="">
+      <img class="screen-img"         id="img6"  src="assets/images/ai-demo/6.jpg"  alt="">
+      <img class="screen-img"         id="img7"  src="assets/images/ai-demo/7.jpg"  alt="">
+      <img class="screen-img"         id="img8"  src="assets/images/ai-demo/8.jpg"  alt="">
+      <img class="screen-img"         id="img9"  src="assets/images/ai-demo/9.jpg"  alt="">
+      <img class="screen-img"         id="img10" src="assets/images/ai-demo/10.jpg" alt="">
+      <img class="screen-img"         id="img11" src="assets/images/ai-demo/11.jpg" alt="">
+      <img class="screen-img"         id="img12" src="assets/images/ai-demo/12.jpg" alt="">
+      <img class="screen-img"         id="img13" src="assets/images/ai-demo/13.jpg" alt="">
+      <img class="screen-img"         id="img14" src="assets/images/ai-demo/14.jpg" alt="">
+      <img class="screen-img"         id="img15" src="assets/images/ai-demo/15.jpg" alt="">
+      <img class="screen-img"         id="img16" src="assets/images/ai-demo/16.jpg" alt="">
+      <div class="scan-line" id="scanLine"></div>
+    </div>
+    <div class="phone-home"></div>
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info-panel" id="infoPanel"></div>
+</div>
+
+<div class="brand-footer">SONIC E&I Solutions · AI-Punch™ · sonicei.com</div>
+
+<script>
+// ── Step definitions ──
+// images: array of img IDs to show (cycles if multiple)
+const STEPS = [
+  {
+    label: 'STEP 01 / 06',
+    title: 'TAKE PHOTO<br><span class="gold">OR UPLOAD</span>',
+    desc: 'Open AI-Punch™ and <strong>tap to capture</strong> any E&I wiring, panel, or component. Supports camera or gallery. Works on any mobile device.',
+    tags: [],
+    stats: [],
+    prog: { label: 'Ready to capture', val: 16 },
+    images: ['img1'],
+    scan: false,
+    ctaLabel: 'Start AI Scan →',
+    ctaNext: true
+  },
+  {
+    label: 'STEP 02 / 06',
+    title: 'AI VISION<br><span class="gold">SCANNING</span>',
+    desc: 'Gemini AI Vision analyses in <strong>2 passes</strong> — detecting suspect zones then confirming each defect against <strong>28 IEC/Siemens defect types</strong>. Under 10 seconds.',
+    tags: [],
+    stats: [
+      { n: '28', l: 'Defect Types' },
+      { n: '<10s', l: 'Scan Time' },
+      { n: '2', l: 'AI Passes' }
+    ],
+    prog: { label: 'Analysing image…', val: 50 },
+    images: ['img2', 'img3'],
+    scan: true,
+    ctaLabel: 'View Results →',
+    ctaNext: true
+  },
+  {
+    label: 'STEP 03 / 06',
+    title: 'DEFECTS<br><span class="gold">DETECTED</span>',
+    desc: 'AI returns a <strong>punch list</strong> with defect codes, severity, bounding boxes, and step-by-step repair instructions per IEC 61084 / GD-171.',
+    tags: [
+      { text: 'CABLE_ROUTING — B Major', cls: 'major' },
+      { text: 'CABLE_TIE — B Major',     cls: 'major' },
+      { text: 'MARKING_MISSING — B Major', cls: 'major' }
+    ],
+    stats: [
+      { n: '3',   l: 'Defects'  },
+      { n: 'B',   l: 'Severity' },
+      { n: 'IEC', l: 'Standard' }
+    ],
+    prog: { label: 'Defects confirmed', val: 68 },
+    images: ['img4', 'img5', 'img6'],
+    scan: false,
+    ctaLabel: 'Mark as Fixed →',
+    ctaNext: true
+  },
+  {
+    label: 'STEP 04 / 06',
+    title: 'CONFIRM<br><span class="gold">FIX</span>',
+    desc: 'Take an <strong>AFTER photo</strong> to confirm the fix. Add recipient emails — the report is sent automatically to your QC team and client.',
+    tags: [],
+    stats: [
+      { n: '✓',   l: 'Before/After' },
+      { n: '📧',  l: 'Auto Email'   },
+      { n: 'PDF', l: 'Report'       }
+    ],
+    prog: { label: 'Fix in progress', val: 80 },
+    images: ['img7'],
+    scan: false,
+    ctaLabel: 'Confirm Fixed →',
+    ctaNext: true
+  },
+  {
+    label: 'STEP 05 / 06',
+    title: 'FIXED &<br><span class="gold">VERIFIED</span>',
+    desc: 'Defect marked <strong>FIXED ✓</strong> with before/after photos archived. Report sent by email. Export PDF with embedded photos for client sign-off.',
+    tags: [
+      { text: 'FIXED ✓',     cls: 'fixed' },
+      { text: 'Report Sent', cls: 'pass'  }
+    ],
+    stats: [
+      { n: '15',   l: 'Fixed'    },
+      { n: '100%', l: 'Verified' },
+      { n: '0',    l: 'Reopened' }
+    ],
+    prog: { label: 'Defect closed', val: 92 },
+    images: ['img8', 'img9'],
+    scan: false,
+    ctaLabel: 'View Dashboard →',
+    ctaNext: true
+  },
+  {
+    label: 'STEP 06 / 06',
+    title: 'DASHBOARD<br><span class="gold">& REPORT</span>',
+    desc: 'Full <strong>QA/QC dashboard</strong> — total scans, pass rate, defect frequency, unresolved items. Send monthly PDF + Excel reports with one tap.',
+    tags: [
+      { text: '143 Total Scans', cls: 'fixed' },
+      { text: '31% Pass/Fixed', cls: 'pass'  },
+      { text: 'PDF + Excel',    cls: 'fixed' }
+    ],
+    stats: [
+      { n: '143', l: 'Scans'  },
+      { n: '30',  l: 'Passed' },
+      { n: '15',  l: 'Fixed'  }
+    ],
+    prog: { label: 'Monthly report ready', val: 100 },
+    images: ['img10', 'img11'],
+    images2: ['img12', 'img13', 'img14', 'img15', 'img16'],
+    scan: false,
+    ctaLabel: 'Get AI-Punch™',
+    ctaNext: false,
+    hasTabs: true
+  }
+];
+
+let current = 0;
+let cycleTimer = null;
+let cycleIdx = 0;
+
+let s6ActiveTab = 'dashboard';
+
+function renderInfo(n) {
+  const s = STEPS[n];
+  const tags = s.tags.map(t => `<div class="dtag ${t.cls}">${t.text}</div>`).join('');
+  const stats = s.stats.map(st => `<div class="stat"><div class="stat-n">${st.n}</div><div class="stat-l">${st.l}</div></div>`).join('');
+  const dots  = STEPS.map((_,i) => `<div class="dot${i===n?' active':''}" onclick="goStep(${i})"></div>`).join('');
+  const backBtn = n > 0 ? `<button class="btn-ghost" onclick="goStep(${n-1})">← Back</button>` : '';
+  const ctaAction = s.ctaNext ? `goStep(${n+1})` : `window.open('https://sonicei.com/ai-punch','_blank')`;
+
+  const tabsHtml = s.hasTabs ? `
+    <div class="s6-tabs">
+      <button class="s6-tab${s6ActiveTab==='dashboard'?' active':''}" onclick="switchS6Tab('dashboard')">📊 Dashboard</button>
+      <button class="s6-tab${s6ActiveTab==='report'?' active':''}" onclick="switchS6Tab('report')">📄 Report</button>
+    </div>` : '';
+
+  document.getElementById('infoPanel').innerHTML = `
+    <div class="step-indicator">${s.label}</div>
+    <div class="step-title">${s.title}</div>
+    ${tabsHtml}
+    <div class="prog-wrap">
+      <div class="prog-label"><span>Progress</span><span>${s.prog.label}</span></div>
+      <div class="prog-track"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+    </div>
+    ${tags  ? `<div class="defect-tags">${tags}</div>`    : ''}
+    ${stats ? `<div class="stats-row">${stats}</div>`      : ''}
+    <p class="step-desc">${s.desc}</p>
+    <div class="cta-row">
+      <button class="btn-primary" onclick="${ctaAction}">${s.ctaLabel}</button>
+      ${backBtn}
+    </div>
+    <div class="dot-row">${dots}</div>
+  `;
+  setTimeout(() => { const pf = document.getElementById('pf'); if (pf) pf.style.width = s.prog.val + '%'; }, 80);
+}
+
+function switchS6Tab(tab) {
+  s6ActiveTab = tab;
+  const s = STEPS[5];
+  const imgs = tab === 'dashboard' ? s.images : s.images2;
+  showImages(imgs, false);
+  // re-render just the tabs highlight
+  document.querySelectorAll('.s6-tab').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase().includes(tab)));
+}
+
+function showImages(images, scan) {
+  document.querySelectorAll('.screen-img').forEach(el => el.classList.remove('visible'));
+  document.getElementById('scanLine').classList.toggle('active', scan);
+  if (cycleTimer) { clearInterval(cycleTimer); cycleTimer = null; }
+
+  if (images.length === 1) {
+    const el = document.getElementById(images[0]);
+    if (el) el.classList.add('visible');
+  } else {
+    cycleIdx = 0;
+    const tick = () => {
+      document.querySelectorAll('.screen-img').forEach(el => el.classList.remove('visible'));
+      const el = document.getElementById(images[cycleIdx % images.length]);
+      if (el) el.classList.add('visible');
+      cycleIdx++;
+    };
+    tick();
+    cycleTimer = setInterval(tick, 1800);
+  }
+}
+
+function goStep(n) {
+  if (n >= STEPS.length) return;
+  current = n;
+  if (n !== 5) s6ActiveTab = 'dashboard'; // reset tab when leaving step 6
+  document.querySelectorAll('.step-btn').forEach((b, i) => b.classList.toggle('active', i === n));
+  renderInfo(n);
+  showImages(STEPS[n].images, STEPS[n].scan);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+goStep(0);
+</script>
+</body>
+</html>
