@@ -3290,22 +3290,13 @@ function vbPlay(id) {
     }
   }
 
-  /* Re-render giá khi đổi ngôn ngữ */
-  var _origSetLang = window.sonicSetLang;
-  window.sonicSetLang = function(l){
-    if(_origSetLang) _origSetLang(l);
-    setTimeout(function(){ applyPrices(window._sonicExRate||FALLBACK); }, 0);
-  };
-  /* Fallback nếu sonicSetLang chưa load khi script này chạy */
+  /* Re-render giá khi đổi ngôn ngữ — patch sau DOMContentLoaded để đảm bảo sonicSetLang đã tồn tại */
   document.addEventListener('DOMContentLoaded', function(){
-    if(window.sonicSetLang && !window.sonicSetLang._pricePatched){
-      var orig = window.sonicSetLang;
-      window.sonicSetLang = function(l){
-        orig(l);
-        setTimeout(function(){ applyPrices(window._sonicExRate||FALLBACK); }, 0);
-      };
-      window.sonicSetLang._pricePatched = true;
-    }
+    var orig = window.sonicSetLang;
+    window.sonicSetLang = function(l){
+      if(orig) orig(l);
+      setTimeout(function(){ applyPrices(window._sonicExRate||FALLBACK); }, 0);
+    };
   });
 
   fetch('https://api.exchangerate-api.com/v4/latest/USD')
@@ -3419,35 +3410,41 @@ window.addEventListener('pageshow', function(e) {
 
   window.sonicSetLang = applyLang;
 
-  // ── Sync language to ai-punch-demo iframe ──────────────────────────────────
-  var _origApply2 = applyLang;
-  applyLang = function(l) {
-    _origApply2(l);
-    var iframe = document.getElementById('aiPunchDemoFrame');
-    if (iframe && iframe.contentWindow) {
-      iframe.contentWindow.postMessage({ type: 'setLang', lang: l }, '*');
-    }
-  };
-  window.sonicSetLang = applyLang;
-
-  // Also sync once iframe finishes loading
-  function _syncIframeLang() {
-    var iframe = document.getElementById('aiPunchDemoFrame');
-    if (!iframe) return;
-    iframe.addEventListener('load', function() {
-      var l = localStorage.getItem('sonic_lang') || 'en';
-      iframe.contentWindow.postMessage({ type: 'setLang', lang: l }, '*');
-    });
-  }
+  // Init
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', _syncIframeLang);
-  } else {
-    _syncIframeLang();
-  }
     document.addEventListener('DOMContentLoaded', function(){ applyLang(lang); });
   } else {
     applyLang(lang);
   }
+
+  // ── Sync language to ai-punch-demo iframe via MutationObserver on html[lang] ──
+  // More reliable than patching sonicSetLang (avoids chain conflicts)
+  (function() {
+    function sendLangToIframe(l) {
+      var iframe = document.getElementById('aiPunchDemoFrame');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({ type: 'setLang', lang: l }, '*');
+      }
+    }
+    // Watch html[lang] attribute changes
+    var obs = new MutationObserver(function(muts) {
+      muts.forEach(function(m) {
+        if (m.attributeName === 'lang') {
+          sendLangToIframe(document.documentElement.lang || 'en');
+        }
+      });
+    });
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    // Also push once iframe loads
+    document.addEventListener('DOMContentLoaded', function() {
+      var iframe = document.getElementById('aiPunchDemoFrame');
+      if (iframe) {
+        iframe.addEventListener('load', function() {
+          sendLangToIframe(document.documentElement.lang || 'en');
+        });
+      }
+    });
+  })();
 })();
 </script>
 
