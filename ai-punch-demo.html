@@ -83,13 +83,35 @@ body{
 .pbar{flex:1;height:2px;border-radius:1px;background:rgba(201,162,39,0.1);transition:background .4s}
 .pbar.done{background:rgba(0,200,150,0.5)}
 .pbar.active{background:var(--gold)}
-.s6-tabs{display:flex;border-bottom:1px solid rgba(201,162,39,0.15);flex-shrink:0}
-.s6-tab{flex:1;background:none;border:none;cursor:pointer;padding:5px 8px;
+.s6-tabs{display:flex;border-bottom:1px solid rgba(201,162,39,0.15);flex-shrink:0;position:relative}
+.s6-tab{flex:1;background:none;border:none;cursor:pointer;padding:5px 8px 5px;
   font-family:'Share Tech Mono',monospace;font-size:7.5px;letter-spacing:1.5px;
   color:var(--gray);text-transform:uppercase;transition:all .2s;
-  border-right:1px solid rgba(201,162,39,0.12)}
+  border-right:1px solid rgba(201,162,39,0.12);
+  position:relative;
+  animation:tabPulse 2s ease-in-out infinite;}
 .s6-tab:last-child{border-right:none}
-.s6-tab.active{background:rgba(201,162,39,0.1);color:var(--gold)}
+.s6-tab.active{background:rgba(201,162,39,0.1);color:var(--gold);animation:tabPulseActive 2s ease-in-out infinite;}
+/* arrow under inactive tab pointing up */
+.s6-tab:not(.active)::after{
+  content:'▲';
+  position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);
+  font-size:7px;color:var(--gold);
+  animation:arrowBounce 1s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes tabPulse{
+  0%,100%{background:none;box-shadow:none;}
+  50%{background:rgba(201,162,39,0.07);box-shadow:0 0 8px rgba(201,162,39,0.2);}
+}
+@keyframes tabPulseActive{
+  0%,100%{background:rgba(201,162,39,0.1);box-shadow:none;}
+  50%{background:rgba(201,162,39,0.2);box-shadow:0 0 10px rgba(201,162,39,0.3);}
+}
+@keyframes arrowBounce{
+  0%,100%{transform:translateX(-50%) translateY(0);opacity:0.6;}
+  50%{transform:translateX(-50%) translateY(3px);opacity:1;}
+}
 .phone-screen{
   flex:1;position:relative;overflow:hidden;background:#0a1628;
 }
@@ -139,9 +161,14 @@ body{
   flex:1;padding:11px 10px;background:var(--gold);color:var(--navy);
   font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;
   letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;
-  clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:all .25s;
+  clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .25s;
+  animation:ctaPulse 1.8s ease-in-out infinite;
 }
-.btn-cta:hover{background:var(--gold-light)}
+.btn-cta:hover{background:var(--gold-light);animation:none;}
+@keyframes ctaPulse{
+  0%,100%{background:var(--gold);box-shadow:0 0 0 0 rgba(201,162,39,0.7);}
+  50%{background:var(--gold-light);box-shadow:0 0 18px 6px rgba(232,195,71,0.45);}
+}
 .btn-back{
   padding:10px 12px;background:transparent;color:var(--gray);
   font-family:'Be Vietnam Pro',sans-serif;font-size:10px;font-weight:600;
