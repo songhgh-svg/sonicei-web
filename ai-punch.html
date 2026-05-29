@@ -645,108 +645,17 @@ html[lang="vi"] .how-big-num {
       @keyframes scanAnim{0%{top:0}100%{top:100%}}
     </style>
 
-    <!-- Phone mockup -->
+    <!-- Phone mockup → replaced by iframe demo -->
     <div class="phone-outer-wrap reveal">
-      <div class="ap-phone-frame">
-        <div class="ap-phone-bezel">
-          <div class="ap-phone-island"></div>
-          <div class="ap-phone-bar">
-            <div class="ap-phone-bar-inner">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#c9a227;letter-spacing:2px;">SONIC AI-PUNCH™</div>
-              <div id="demoStepBadge" style="font-size:9px;color:rgba(136,153,187,0.7);font-family:'Share Tech Mono',monospace;letter-spacing:1px;">STEP 1 / 6</div>
-            </div>
-            <div class="ap-progress-bars">
-              <div class="ap-pbar active" id="sbar1"></div>
-              <div class="ap-pbar" id="sbar2"></div>
-              <div class="ap-pbar" id="sbar3"></div>
-              <div class="ap-pbar" id="sbar4"></div>
-              <div class="ap-pbar" id="sbar5"></div>
-              <div class="ap-pbar" id="sbar6"></div>
-            </div>
-          </div>
-          <div class="ap-screen" id="demoScreen">
-
-            <!-- Step 0: Capture -->
-            <div id="demoStep0" style="padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">01</span><span id="ds0_label">TAKE PHOTO OR UPLOAD</span></div>
-              <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;height:260px;cursor:pointer;background:rgba(0,87,255,0.08);display:flex;align-items:center;justify-content:center;" onclick="demoNext()">
-                <div style="text-align:center;">
-                  <div style="font-size:48px;margin-bottom:8px;">📸</div>
-                  <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;background:rgba(10,22,40,0.8);padding:4px 14px;border-radius:20px;border:1px solid rgba(201,162,39,0.3);" id="ds0_tap">📷 TAP TO CAPTURE</div>
-                </div>
-              </div>
-              <div style="font-size:9px;color:rgba(136,153,187,0.65);text-align:center;margin:7px 0 8px;letter-spacing:0.5px;" id="ds0_hint">Capture wiring / component · IEC · Siemens · GE</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds0_btn">⚡ START AI SCAN</button>
-            </div>
-
-            <!-- Step 1: Analyze -->
-            <div id="demoStep1" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">02</span><span id="ds1_label">AI ANALYZES IMAGE</span></div>
-              <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(96,165,250,0.25);position:relative;height:220px;background:#060f1e;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
-                <div id="scanStatusText" style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#60a5fa;letter-spacing:1.5px;text-align:center;padding:0 16px;">AI scanning image...</div>
-                <div style="font-size:9px;color:rgba(96,165,250,0.5);letter-spacing:1px;" id="ds1_sub">Gemini AI · Processing</div>
-                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#60a5fa,transparent);animation:scanAnim 1.2s linear infinite;"></div>
-                <div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(8,16,40,0.85);border-radius:6px;padding:8px 10px;">
-                  <div style="height:4px;background:rgba(96,165,250,0.12);border-radius:2px;overflow:hidden;margin-bottom:5px;"><div id="progressFill" style="height:100%;width:0%;background:#60a5fa;transition:width 0.08s;border-radius:2px;"></div></div>
-                  <div id="progressText" style="font-size:9px;color:#60a5fa;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">Initializing Gemini AI...</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Step 2: Classify / Error code -->
-            <div id="demoStep2" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f87171;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">03</span><span id="ds2_label">GET ERROR CODE</span></div>
-              <div style="background:#151b2e;border-radius:12px;border:1px solid rgba(248,113,113,0.3);overflow:hidden;margin-bottom:10px;">
-                <div style="background:rgba(248,113,113,0.08);padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                  <div style="width:7px;height:7px;border-radius:50%;background:#f87171;flex-shrink:0;"></div>
-                  <div>
-                    <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#f87171;letter-spacing:1px;">CRIMPING · EI-001</div>
-                    <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;font-weight:700;color:#f0f4ff;" id="ds2_defect_name">Crimp Terminal Defect</div>
-                  </div>
-                </div>
-                <div style="padding:10px 12px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;" id="ds2_defect_inst">Re-crimp with correct ferrule. Verify with pull test per IEC 60947-1.</div>
-              </div>
-              <button style="width:100%;padding:11px;background:rgba(0,200,150,0.9);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds2_btn">✓ FIXED — MARK AS RESOLVED</button>
-            </div>
-
-            <!-- Step 3: Verify -->
-            <div id="demoStep3" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#00e8aa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">04</span><span id="ds3_label">FIXED ✓ — AI CONFIRMED</span></div>
-              <div style="border-radius:12px;border:1px solid rgba(0,232,170,0.3);background:#0d1e35;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;">
-                <div style="font-size:42px;">✅</div>
-                <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#00e8aa;letter-spacing:2px;font-weight:700;" id="ds3_verified">VERIFIED</div>
-                <div style="font-size:9px;color:rgba(0,232,170,0.6);letter-spacing:1px;" id="ds3_confirmed">Correction confirmed by AI</div>
-              </div>
-              <div style="margin-bottom:8px;padding:8px 12px;background:rgba(0,232,170,0.05);border:1px solid rgba(0,232,170,0.2);border-radius:8px;font-size:10px;color:#00e8aa;letter-spacing:0.5px;" id="ds3_note">✓ Technician resolved · AI re-scan confirmed</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds3_btn">📄 GENERATE REPORT</button>
-            </div>
-
-            <!-- Step 4: Report -->
-            <div id="demoStep4" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#c9a227;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">05</span><span id="ds4_label">REPORT SENT</span></div>
-              <div style="background:#151b2e;border-radius:12px;border:1px solid rgba(201,162,39,0.2);padding:20px;margin-bottom:10px;text-align:center;">
-                <div style="font-size:36px;margin-bottom:10px;">📄</div>
-                <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#c9a227;margin-bottom:6px;">PUNCH_REPORT.PDF</div>
-                <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);" id="ds4_sub">1 defect · 1 resolved · Photo evidence attached</div>
-              </div>
-              <div style="padding:8px 12px;background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:8px;font-size:10px;color:#c9a227;margin-bottom:8px;" id="ds4_note">📧 PDF auto-sent · Photo proof included</div>
-              <button style="width:100%;padding:11px;background:rgba(96,165,250,0.85);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="demoNext()" id="ds4_btn">☁ SAVE TO CLOUD</button>
-            </div>
-
-            <!-- Step 5: Store -->
-            <div id="demoStep5" style="display:none;padding:12px 12px 8px;animation:fadeUp 0.35s both;">
-              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#60a5fa;letter-spacing:2px;margin-bottom:9px;display:flex;align-items:center;gap:7px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;opacity:0.35;line-height:1;">06</span><span id="ds5_label">SAVED TO CLOUD</span></div>
-              <div style="background:#0d1e35;border-radius:12px;border:1px solid rgba(96,165,250,0.2);padding:20px;text-align:center;margin-bottom:10px;">
-                <div style="font-size:36px;margin-bottom:10px;">☁️</div>
-                <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#60a5fa;margin-bottom:4px;" id="ds5_title">AUDIT-READY</div>
-                <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(96,165,250,0.6);" id="ds5_sub">CLOUD · SEARCHABLE · TRACEABLE</div>
-              </div>
-              <div style="padding:8px 12px;background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.25);border-radius:8px;font-size:10px;color:#00c896;margin-bottom:8px;text-align:center;letter-spacing:1px;" id="ds5_complete">✅ INSPECTION COMPLETE · AUDIT-READY</div>
-              <button style="width:100%;padding:11px;background:#c9a227;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2.5px;border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;" onclick="resetDemo()" id="ds5_btn">↩ RUN DEMO AGAIN</button>
-            </div>
-
-          </div><!-- /ap-screen -->
-        </div>
+      <div style="width:100%;max-width:420px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid rgba(201,162,39,0.2);box-shadow:0 0 60px rgba(0,87,255,0.12),0 20px 60px rgba(0,0,0,0.5);">
+        <iframe
+          src="ai-punch-demo.html"
+          width="100%"
+          height="600"
+          style="display:block;border:none;background:#0a1628;"
+          loading="lazy"
+          title="AI-Punch™ Interactive Demo"
+        ></iframe>
       </div>
     </div>
 
