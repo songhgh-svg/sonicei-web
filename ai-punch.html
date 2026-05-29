@@ -2453,22 +2453,22 @@ window.SC={
     sc_history.push({role:'user',content:text});
     SC._typing(true);
     try{
-      var r=await fetch('https://sonic-openai.songhgh.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({systemPrompt:sc_lang==='vi'?SC_SYS_VI:SC_SYS_EN,messages:sc_history})});
+      var r=await fetch('https://sonic-gemini.songhgh.workers.dev/',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({
+          systemPrompt:sc_lang==='vi'?SC_SYS_VI:SC_SYS_EN,
+          messages:sc_history
+        })
+      });
       var d=await r.json();SC._typing(false);
       var rep;
       if(d.error==='rate_limit'){
         rep=sc_lang==='vi'?'AI đang bận. Vui lòng thử lại sau 30 giây. 📞 +84 915 460 790':'AI is busy. Please try again in 30 seconds. 📞 +84 915 460 790';
       }else{
-        /* support multiple worker response shapes:
-           { text }, { reply }, { message }, { result },
-           OpenAI-passthrough: { choices:[{message:{content}}] } */
-        rep = d.text
-           || d.reply
-           || d.message
-           || d.result
-           || d.content
-           || (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content)
-           || (sc_lang==='vi'?'Xin lỗi, có lỗi xảy ra.':'Sorry, an error occurred.');
+        rep=d.text||(sc_lang==='vi'?'Xin lỗi, có lỗi xảy ra.':'Sorry, an error occurred.');
       }
       sc_history.push({role:'assistant',content:rep});
       var html=rep.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
