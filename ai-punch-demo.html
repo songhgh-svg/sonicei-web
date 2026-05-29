@@ -227,36 +227,86 @@ body{
 </div>
 
 <script>
-const STEPS = [
-  { label:'STEP 01 / 06',badge:'STEP 1 / 6',
-    title:'TAKE PHOTO <span class="g">OR UPLOAD</span>',tags:[],
-    prog:{label:'Ready to capture',val:16},images:['img1'],scan:false,
-    ctaLabel:'Start AI Scan →',ctaNext:true },
-  { label:'STEP 02 / 06',badge:'STEP 2 / 6',
-    title:'AI VISION <span class="g">SCANNING</span>',tags:[],
-    prog:{label:'Analysing image…',val:50},images:['img2','img3'],scan:true,
-    ctaLabel:'View Results →',ctaNext:true },
-  { label:'STEP 03 / 06',badge:'STEP 3 / 6',
-    title:'DEFECTS <span class="g">DETECTED</span>',
-    tags:[{text:'CABLE_ROUTING — B Major',cls:'major'},{text:'CABLE_TIE — B Major',cls:'major'},{text:'MARKING_MISSING — B Major',cls:'major'}],
-    prog:{label:'Defects confirmed',val:68},images:['img4','img5','img6'],scan:false,
-    ctaLabel:'Mark as Fixed →',ctaNext:true },
-  { label:'STEP 04 / 06',badge:'STEP 4 / 6',
-    title:'CONFIRM <span class="g">FIX</span>',tags:[],
-    prog:{label:'Fix in progress',val:80},images:['img7'],scan:false,
-    ctaLabel:'Confirm Fixed →',ctaNext:true },
-  { label:'STEP 05 / 06',badge:'STEP 5 / 6',
-    title:'FIXED & <span class="g">VERIFIED</span>',
-    tags:[{text:'FIXED ✓',cls:'fixed'},{text:'Report Sent',cls:'pass'}],
-    prog:{label:'Defect closed',val:92},images:['img8','img9'],scan:false,
-    ctaLabel:'View Dashboard →',ctaNext:true },
-  { label:'STEP 06 / 06',badge:'STEP 6 / 6',
-    title:'DASHBOARD <span class="g">& REPORT</span>',
-    tags:[{text:'143 Scans',cls:'fixed'},{text:'31% Pass/Fixed',cls:'pass'},{text:'PDF + Excel',cls:'fixed'}],
-    prog:{label:'Monthly report ready',val:100},
-    images:['img10','img11'],images2:['img12','img13','img14','img15','img16'],scan:false,
-    ctaLabel:'Get AI-Punch™',ctaNext:false,hasTabs:true }
-];
+// ── Bilingual step data ──────────────────────────────────────────────────────
+const STEPS_DATA = {
+  en: [
+    { label:'STEP 01 / 06', badge:'STEP 1 / 6',
+      title:'TAKE PHOTO <span class="g">OR UPLOAD</span>', tags:[],
+      prog:{label:'Ready to capture', val:16}, images:['img1'], scan:false,
+      ctaLabel:'Start AI Scan →', ctaNext:true },
+    { label:'STEP 02 / 06', badge:'STEP 2 / 6',
+      title:'AI VISION <span class="g">SCANNING</span>', tags:[],
+      prog:{label:'Analysing image…', val:50}, images:['img2','img3'], scan:true,
+      ctaLabel:'View Results →', ctaNext:true },
+    { label:'STEP 03 / 06', badge:'STEP 3 / 6',
+      title:'DEFECTS <span class="g">DETECTED</span>',
+      tags:[{text:'CABLE_ROUTING — B Major',cls:'major'},{text:'CABLE_TIE — B Major',cls:'major'},{text:'MARKING_MISSING — B Major',cls:'major'}],
+      prog:{label:'Defects confirmed', val:68}, images:['img4','img5','img6'], scan:false,
+      ctaLabel:'Mark as Fixed →', ctaNext:true },
+    { label:'STEP 04 / 06', badge:'STEP 4 / 6',
+      title:'CONFIRM <span class="g">FIX</span>', tags:[],
+      prog:{label:'Fix in progress', val:80}, images:['img7'], scan:false,
+      ctaLabel:'Confirm Fixed →', ctaNext:true },
+    { label:'STEP 05 / 06', badge:'STEP 5 / 6',
+      title:'FIXED & <span class="g">VERIFIED</span>',
+      tags:[{text:'FIXED ✓',cls:'fixed'},{text:'Report Sent',cls:'pass'}],
+      prog:{label:'Defect closed', val:92}, images:['img8','img9'], scan:false,
+      ctaLabel:'View Dashboard →', ctaNext:true },
+    { label:'STEP 06 / 06', badge:'STEP 6 / 6',
+      title:'DASHBOARD <span class="g">& REPORT</span>',
+      tags:[{text:'143 Scans',cls:'fixed'},{text:'31% Pass/Fixed',cls:'pass'},{text:'PDF + Excel',cls:'fixed'}],
+      prog:{label:'Monthly report ready', val:100},
+      images:['img10','img11'], images2:['img12','img13','img14','img15','img16'], scan:false,
+      ctaLabel:'Get AI-Punch™', ctaNext:false, hasTabs:true }
+  ],
+  vi: [
+    { label:'BƯỚC 01 / 06', badge:'BƯỚC 1 / 6',
+      title:'CHỤP ẢNH <span class="g">HOẶC TẢI LÊN</span>', tags:[],
+      prog:{label:'Sẵn sàng chụp', val:16}, images:['img1'], scan:false,
+      ctaLabel:'Bắt Đầu Quét AI →', ctaNext:true },
+    { label:'BƯỚC 02 / 06', badge:'BƯỚC 2 / 6',
+      title:'AI VISION <span class="g">ĐANG QUÉT</span>', tags:[],
+      prog:{label:'Đang phân tích ảnh…', val:50}, images:['img2','img3'], scan:true,
+      ctaLabel:'Xem Kết Quả →', ctaNext:true },
+    { label:'BƯỚC 03 / 06', badge:'BƯỚC 3 / 6',
+      title:'LỖI <span class="g">ĐÃ PHÁT HIỆN</span>',
+      tags:[{text:'CABLE_ROUTING — B Major',cls:'major'},{text:'CABLE_TIE — B Major',cls:'major'},{text:'MARKING_MISSING — B Major',cls:'major'}],
+      prog:{label:'Lỗi đã xác nhận', val:68}, images:['img4','img5','img6'], scan:false,
+      ctaLabel:'Đánh Dấu Đã Sửa →', ctaNext:true },
+    { label:'BƯỚC 04 / 06', badge:'BƯỚC 4 / 6',
+      title:'XÁC NHẬN <span class="g">ĐÃ SỬA</span>', tags:[],
+      prog:{label:'Đang sửa chữa', val:80}, images:['img7'], scan:false,
+      ctaLabel:'Xác Nhận Đã Sửa →', ctaNext:true },
+    { label:'BƯỚC 05 / 06', badge:'BƯỚC 5 / 6',
+      title:'ĐÃ SỬA & <span class="g">XÁC NHẬN</span>',
+      tags:[{text:'ĐÃ SỬA ✓',cls:'fixed'},{text:'Đã Gửi Báo Cáo',cls:'pass'}],
+      prog:{label:'Lỗi đã đóng', val:92}, images:['img8','img9'], scan:false,
+      ctaLabel:'Xem Dashboard →', ctaNext:true },
+    { label:'BƯỚC 06 / 06', badge:'BƯỚC 6 / 6',
+      title:'DASHBOARD <span class="g">& BÁO CÁO</span>',
+      tags:[{text:'143 Lượt Quét',cls:'fixed'},{text:'31% Pass/Đã Sửa',cls:'pass'},{text:'PDF + Excel',cls:'fixed'}],
+      prog:{label:'Báo cáo tháng sẵn sàng', val:100},
+      images:['img10','img11'], images2:['img12','img13','img14','img15','img16'], scan:false,
+      ctaLabel:'Dùng AI-Punch™', ctaNext:false, hasTabs:true }
+  ]
+};
+
+// Nav button labels per lang
+const NAV_LABELS = {
+  en: ['Capture','AI Scan','Defects','Fix','Verify','Report'],
+  vi: ['Chụp Ảnh','Quét AI','Lỗi','Sửa','Xác Nhận','Báo Cáo']
+};
+// Tab labels per lang
+const TAB_LABELS = {
+  en: {dashboard:'📊 Dashboard', report:'📄 Report', back:'← Back'},
+  vi: {dashboard:'📊 Dashboard', report:'📄 Báo Cáo', back:'← Quay Lại'}
+};
+
+let _lang = (function(){
+  try{ return (window.parent !== window && localStorage) ? localStorage.getItem('lang') : null; }catch(e){ return null; }
+})() || 'en';
+
+function STEPS(){ return STEPS_DATA[_lang] || STEPS_DATA.en; }
 
 window._cur = 0;
 let cycleTimer=null,cycleIdx=0,s6tab='dashboard';
@@ -281,10 +331,25 @@ function syncSize() {
 requestAnimationFrame(function(){ syncSize(); });
 window.addEventListener('resize', syncSize);
 
+function updateNavLabels() {
+  const labels = NAV_LABELS[_lang] || NAV_LABELS.en;
+  document.querySelectorAll('.step-btn').forEach((b, i) => {
+    const snum = b.querySelector('.snum');
+    b.textContent = '';
+    b.appendChild(snum);
+    b.appendChild(document.createTextNode(labels[i] || ''));
+  });
+  const tl = TAB_LABELS[_lang] || TAB_LABELS.en;
+  const tabs = document.querySelectorAll('.s6-tab');
+  if (tabs[0]) tabs[0].textContent = tl.dashboard;
+  if (tabs[1]) tabs[1].textContent = tl.report;
+}
+
 function goStep(n) {
-  if (n < 0 || n >= STEPS.length) return;
+  const steps = STEPS();
+  if (n < 0 || n >= steps.length) return;
   window._cur = n;
-  const s = STEPS[n];
+  const s = steps[n];
   if (n !== 5) s6tab = 'dashboard';
 
   document.querySelectorAll('.step-btn').forEach((b,i) => {
@@ -311,21 +376,32 @@ function goStep(n) {
   tagsEl.style.display = s.tags.length ? 'flex' : 'none';
 
   document.getElementById('btnCta').textContent = s.ctaLabel;
-  document.getElementById('btnBack').style.display = n > 0 ? 'block' : 'none';
-  document.getElementById('dotRow').innerHTML = STEPS.map((_,i) =>
+  const backBtn = document.getElementById('btnBack');
+  backBtn.style.display = n > 0 ? 'block' : 'none';
+  backBtn.textContent = (TAB_LABELS[_lang]||TAB_LABELS.en).back;
+  document.getElementById('dotRow').innerHTML = steps.map((_,i) =>
     `<div class="dot${i===n?' active':i<n?' done':''}" onclick="goStep(${i})"></div>`).join('');
 
   showImages(s.images, s.scan);
 }
 
 function ctaClick() {
-  const s = STEPS[window._cur];
+  const s = STEPS()[window._cur];
   if (s.ctaNext) goStep(window._cur+1);
-  else window.open('https://sonicei.com/ai-punch','_blank');
+  else {
+    try {
+      const top = window.top || window.parent;
+      top.location.hash = '#get-access';
+      top.document.getElementById('get-access').scrollIntoView({behavior:'smooth'});
+    } catch(e) {
+      window.open('https://sonicei.com/ai-punch#get-access', '_blank');
+    }
+  }
 }
 function switchS6Tab(tab) {
   s6tab = tab;
-  showImages(tab==='dashboard' ? STEPS[5].images : STEPS[5].images2, false);
+  const steps = STEPS();
+  showImages(tab==='dashboard' ? steps[5].images : steps[5].images2, false);
   document.querySelectorAll('.s6-tab').forEach(b =>
     b.classList.toggle('active', b.textContent.toLowerCase().includes(tab)));
 }
@@ -345,6 +421,17 @@ function showImages(images, scan) {
     tick(); cycleTimer=setInterval(tick,1800);
   }
 }
+// ── postMessage listener: parent page sends {type:"setLang", lang:"vi"|"en"} ──
+window.addEventListener("message", function(e) {
+  if (!e.data || e.data.type !== "setLang") return;
+  var lang = e.data.lang;
+  if (!STEPS_DATA[lang]) return;
+  _lang = lang;
+  updateNavLabels();
+  goStep(window._cur);
+});
+
+updateNavLabels();
 goStep(0);
 </script>
 </body>

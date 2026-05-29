@@ -2046,6 +2046,36 @@ function setLang(lang) {
   }
 }
 
+// ── Sync language to ai-punch-demo iframe ────────────────────────────────────
+function syncDemoIframeLang(lang) {
+  var iframe = document.querySelector('iframe[src*="ai-punch-demo"]');
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage({ type: 'setLang', lang: lang }, '*');
+  }
+}
+
+// Patch setLang to also push lang into iframe
+var _origSetLang = setLang;
+setLang = function(lang) {
+  _origSetLang(lang);
+  syncDemoIframeLang(lang);
+};
+
+// Also push lang once the iframe loads (handles case where iframe loads after setLang)
+function _attachIframeLoadSync() {
+  var iframe = document.querySelector('iframe[src*="ai-punch-demo"]');
+  if (iframe) {
+    iframe.addEventListener('load', function() {
+      syncDemoIframeLang(currentLang);
+    });
+  }
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _attachIframeLoadSync);
+} else {
+  _attachIframeLoadSync();
+}
+
 // Init on load
 setLang(currentLang);
 document.querySelectorAll('a[href^="#"]').forEach(a => {
