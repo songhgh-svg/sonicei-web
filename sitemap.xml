@@ -49,13 +49,13 @@
 
   <!-- ═════════ LEGAL ═════════ -->
   <url>
-    <loc>https://sonicei.com/privacy-policy.html</loc>
+    <loc>https://sonicei.com/privacy-policy</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://sonicei.com/terms-of-use.html</loc>
+    <loc>https://sonicei.com/terms-of-use</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -63,7 +63,7 @@
 
   <!-- ═════════ BLOG INDEX ═════════ -->
   <url>
-    <loc>https://sonicei.com/blog/blog-index.html</loc>
+    <loc>https://sonicei.com/blog</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
