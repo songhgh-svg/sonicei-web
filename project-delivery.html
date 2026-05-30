@@ -62,7 +62,7 @@ body{background:var(--navy);color:var(--white);font-family:'Be Vietnam Pro',syst
 /* ═══════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════ */
-nav{
+nav:not(.ss-bar){
   position:fixed;top:0;left:0;right:0;z-index:200;
   height:48px;display:flex;align-items:center;
   background:rgba(10,22,40,0.94);backdrop-filter:blur(16px);
@@ -1039,6 +1039,11 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </head>
 <body>
 
+<!-- ═══ SCROLLSPY SIDEBAR ═══ -->
+<nav class="ss-bar" id="ss-bar" aria-label="Page navigation" style="position:fixed!important;left:18px!important;top:0!important;bottom:0!important;right:auto!important;width:auto!important;height:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important;pointer-events:none!important;background:none!important;border:none!important;padding:0!important;margin:0!important;transform:none!important;z-index:98!important;">
+  <div class="ss-progress" id="ss-progress"></div>
+</nav>
+
 <!-- SCROLL PROGRESS -->
 <div id="scroll-bar"></div>
 
@@ -1133,7 +1138,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </div>
 
 <!-- ═══ HERO ═══ -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-bg-gradient"></div>
     <div class="hero-grid"></div>
@@ -1281,7 +1286,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </style>
 
 <!-- ═══ PROBLEM / COST SECTION ═══ -->
-<section class="section problem-section">
+<section class="section problem-section" id="problem">
   <div class="section-label" data-i18n="prob_label" data-en="// The Real Cost of Getting It Wrong">// The Real Cost of Getting It Wrong</div>
   <h2 class="section-title"><span data-en="What Bad E&I Management" data-vi="Quản Lý E&I Kém">What Bad E&I Management</span> <span class="gold" data-en="Actually Costs" data-vi="Thực Sự Tốn Kém Thế Nào">Actually Costs</span></h2>
   <p class="section-sub" data-en="Most project overruns aren't caused by engineering complexity. They're caused by coordination failure, missed punch items, and sub-contractors who don't own the outcome." data-vi="Hầu hết các dự án bị chậm tiến độ không xuất phát từ độ phức tạp kỹ thuật. Nguyên nhân thực sự là phối hợp kém, punch item bỏ sót và nhà thầu phụ không cam kết chịu trách nhiệm về kết quả.">Most project overruns aren't caused by engineering complexity. They're caused by coordination failures, missed punch items, and subcontractors who don't own the outcome.</p>
@@ -1439,7 +1444,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </section>
 
 <!-- ═══ DIFFERENTIATORS ═══ -->
-<section class="section diff-section">
+<section class="section diff-section" id="differentiators">
   <div class="section-label" data-i18n="diff_label" data-en="// What Sets Us Apart">// What Sets Us Apart</div>
   <h2 class="section-title"><span data-en="Not a Sub-Contractor." data-vi="Không Phải Nhà Thầu Phụ.">Not a Sub-Contractor.</span> <span class="gold" data-en="A Project Partner." data-vi="Đối Tác Dự Án.">A Project Partner.</span></h2>
   <p class="section-sub" data-en="The difference between a standard E&I sub and SONIC E&I is accountability. We own the outcome which is why we write the guarantee into the contract." data-vi="Sự khác biệt giữa nhà thầu phụ E&I thông thường và SONIC E&I là trách nhiệm giải trình. Chúng tôi sở hữu kết quả đó là lý do chúng tôi ghi bảo đảm vào hợp đồng.">The difference between a standard E&I sub and SONIC E&I is accountability. We own the outcome which is why we write the guarantee into the contract.</p>
@@ -1485,7 +1490,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </section>
 
 <!-- ═══ TRACK RECORD ═══ -->
-<section class="section record-section">
+<section class="section record-section" id="record">
   <div class="section-label" data-i18n="tr_label" data-en="// Project Track Record">// Project Track Record</div>
   <h2 class="section-title"><span data-en="25 Years of" data-vi="25 Năm">25 Years of</span> <span class="gold" data-en="Field Evidence" data-vi="Bằng Chứng Thực Địa">Field Evidence</span></h2>
 
@@ -1563,7 +1568,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </section>
 
 <!-- ═══ GUARANTEE & RISK MANAGEMENT ═══ -->
-<section class="section risk-section">
+<section class="section risk-section" id="risk">
   <div class="section-label" data-i18n="guar_label" data-en="// Risk Transfer &amp; Performance Guarantee">// Risk Transfer &amp; Performance Guarantee</div>
   <h2 class="section-title"><span data-en="We Carry" data-vi="Chúng Tôi Gánh">We Carry</span> <span class="gold" data-en="The Risk." data-vi="Rủi Ro.">The Risk.</span></h2>
   <p class="section-sub" data-en="Engaging SONIC E&I is not just buying technical services it's transferring E&I delivery risk to a contractor who backs their work with a contractual guarantee." data-vi="Hợp tác với SONIC E&I không chỉ là mua dịch vụ kỹ thuật mà là chuyển giao rủi ro triển khai E&I sang một nhà thầu bảo đảm công việc bằng cam kết hợp đồng.">Engaging SONIC E&I is not just buying technical services it's transferring E&I delivery risk to a contractor who backs their work with a contractual guarantee.</p>
@@ -1624,7 +1629,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </section>
 
 <!-- ═══ CLIENT FIT ═══ -->
-<section class="section fit-section">
+<section class="section fit-section" id="fit">
   <div class="section-label" data-i18n="fit_label" data-en="// Who We Work With">// Who We Work With</div>
   <h2 class="section-title"><span data-en="Built For" data-vi="Được Xây Dựng Cho">Built For</span> <span class="gold" data-en="Projects That Matter" data-vi="Dự Án Quan Trọng">Projects That Matter</span></h2>
   <p class="section-sub" data-en="We're selective about what we take on. Not to be difficult but because our guarantee means we only commit when we can deliver." data-vi="Chúng tôi chọn lọc kỹ những dự án tiếp nhận. Không phải để khó tính mà vì cam kết bảo đảm có nghĩa là chúng tôi chỉ nhận khi có thể thực hiện được.">We're selective about what we take on. Not to be difficult but because our guarantee means we only commit when we can deliver.</p>
@@ -1667,7 +1672,7 @@ html[lang="vi"] .diff-proof         { font-size: clamp(9px, 1vw, 11px) !importan
 </section>
 
 <!-- ═══ OBJECTION HANDLING ═══ -->
-<section class="section obj-section">
+<section class="section obj-section" id="objectives">
   <div class="section-label" data-i18n="obj_label" data-en="// Common Questions From Technical Buyers">// Common Questions From Technical Buyers</div>
   <h2 class="section-title"><span data-en="Answers You" data-vi="Câu Trả Lời Quý Vị">Answers You</span> <span class="gold" data-en="Actually Need" data-vi="Thực Sự Cần">Actually Need</span></h2>
 
@@ -2400,5 +2405,154 @@ setTimeout(function(){if(!sc_open)document.getElementById('sonic-chat-toggle').c
   obs.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
 
+})();
+</script>
+<!-- ═══ SCROLLSPY SIDEBAR ═══ -->
+<style>
+/* scrollspy-sidebar — inlined, !important to override shared.css */
+nav.ss-bar{
+  position:fixed !important;left:18px !important;top:0 !important;bottom:0 !important;
+  right:auto !important;width:auto !important;height:auto !important;
+  z-index:98 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;
+  gap:0 !important;pointer-events:none !important;
+  background:none !important;border:none !important;padding:0 !important;
+  margin:0 !important;transform:none !important;backdrop-filter:none !important;
+}
+nav.ss-bar::before{
+  content:'' !important;position:absolute !important;left:50% !important;
+  top:12px !important;bottom:12px !important;
+  width:1px !important;background:rgba(201,162,39,0.15) !important;
+  transform:translateX(-50%) !important;z-index:0 !important;
+}
+nav.ss-bar .ss-progress{
+  position:absolute !important;left:50% !important;top:12px !important;
+  width:1px !important;height:0;background:var(--gold) !important;
+  transform:translateX(-50%) !important;transform-origin:top center !important;
+  opacity:0.55 !important;transition:height 0.12s linear !important;z-index:0 !important;
+}
+nav.ss-bar .ss-item{
+  position:relative !important;display:flex !important;align-items:center !important;
+  padding:8px 0 !important;cursor:pointer !important;pointer-events:all !important;
+  z-index:1 !important;width:auto !important;background:none !important;
+}
+nav.ss-bar .ss-dot{
+  width:6px !important;height:6px !important;border-radius:50% !important;
+  background:rgba(201,162,39,0.25) !important;
+  border:1px solid rgba(201,162,39,0.2) !important;
+  transition:all 0.22s cubic-bezier(.4,0,.2,1) !important;flex-shrink:0 !important;
+  display:block !important;
+}
+nav.ss-bar .ss-item.active .ss-dot{
+  background:var(--gold) !important;border-color:var(--gold) !important;
+  width:9px !important;height:9px !important;
+  box-shadow:0 0 0 3px rgba(201,162,39,0.18),0 0 10px rgba(201,162,39,0.3) !important;
+}
+nav.ss-bar .ss-item:hover .ss-dot{
+  background:var(--gold-light) !important;border-color:var(--gold-light) !important;
+  transform:scale(1.35) !important;
+}
+nav.ss-bar .ss-label{
+  position:absolute !important;left:18px !important;
+  background:rgba(10,22,40,0.96) !important;
+  border:0.5px solid rgba(201,162,39,0.25) !important;
+  color:var(--white) !important;font-size:11px !important;font-weight:600 !important;
+  letter-spacing:0.05em !important;text-transform:uppercase !important;
+  white-space:nowrap !important;padding:5px 12px !important;border-radius:3px !important;
+  pointer-events:none !important;opacity:0 !important;transform:translateX(-4px) !important;
+  transition:opacity 0.16s,transform 0.16s !important;
+}
+nav.ss-bar .ss-item:hover .ss-label{opacity:1 !important;transform:translateX(0) !important;}
+@media(max-width:820px){nav.ss-bar{display:none !important}}
+</style>
+<script>
+(function () {
+  'use strict';
+  var SECTIONS = [
+    { id: 'hero',            en: 'Hero',          vi: 'Trang Chủ'    },
+    { id: 'problem',         en: 'The Problem',   vi: 'Vấn Đề'       },
+    { id: 'framework',       en: 'Framework',     vi: 'Quy Trình'    },
+    { id: 'differentiators', en: 'Why SONIC',     vi: 'Vì Sao SONIC' },
+    { id: 'record',          en: 'Track Record',  vi: 'Thành Tích'   },
+    { id: 'risk',            en: 'Risk Policy',   vi: 'Bảo Đảm'      },
+    { id: 'fit',             en: 'Right Fit',     vi: 'Phù Hợp'      },
+    { id: 'objectives',      en: 'Objectives',    vi: 'Mục Tiêu'     },
+    { id: 'contact',         en: 'Contact',       vi: 'Liên Hệ'      },
+  ];
+  function getCurrentLabel(sec) {
+    return (document.documentElement.lang || 'en') === 'vi' ? sec.vi : sec.en;
+  }
+  function init() {
+    var bar = document.getElementById('ss-bar');
+    if (!bar) { console.warn('[SS] ss-bar not found'); return; }
+    var progress = document.getElementById('ss-progress');
+    var items = [];
+    SECTIONS.forEach(function (sec) {
+      var el = document.getElementById(sec.id);
+      if (!el) { console.warn('[SS] section not found:', sec.id); return; }
+      var item = document.createElement('div');
+      item.className = 'ss-item';
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', 'Go to ' + sec.en);
+      var dot = document.createElement('div'); dot.className = 'ss-dot';
+      var label = document.createElement('span'); label.className = 'ss-label';
+      label.textContent = getCurrentLabel(sec);
+      item.appendChild(dot); item.appendChild(label);
+      var _el = el; /* capture for closure */
+      item.addEventListener('click', function() {
+        var top = _el.getBoundingClientRect().top + window.pageYOffset - 48;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var top = _el.getBoundingClientRect().top + window.pageYOffset - 48;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+      if (progress) {
+        bar.insertBefore(item, progress);
+      } else {
+        bar.appendChild(item);
+      }
+      items.push({ el: _el, item: item, labelEl: label, sec: sec });
+    });
+    console.log('[SS] inserted', items.length, 'dots');
+    var ticking = false;
+    function update() {
+      var threshold = window.innerHeight * 0.38;
+      var activeIdx = 0;
+      items.forEach(function (s, i) { if (s.el.getBoundingClientRect().top <= threshold) activeIdx = i; });
+      items.forEach(function (s, i) { s.item.classList.toggle('active', i === activeIdx); });
+      if (progress && items.length > 1) {
+        var barItems = bar.querySelectorAll('.ss-item');
+        if (barItems.length > 1) {
+          var first = barItems[0].getBoundingClientRect();
+          var last  = barItems[barItems.length - 1].getBoundingClientRect();
+          var total = last.top - first.top;
+          var filled = total > 0 ? (activeIdx / (items.length - 1)) * total : 0;
+          progress.style.height = Math.max(0, filled) + 'px';
+        }
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }, { passive: true });
+    update();
+    new MutationObserver(function (muts) {
+      muts.forEach(function (m) {
+        if (m.attributeName === 'lang') {
+          items.forEach(function (s) {
+            s.labelEl.textContent = getCurrentLabel(s.sec);
+            s.item.setAttribute('aria-label', 'Go to ' + getCurrentLabel(s.sec));
+          });
+        }
+      });
+    }).observe(document.documentElement, { attributes: true });
+  }
+  /* Wait for full window load — guarantees ss-bar and all sections are in DOM */
+  window.addEventListener('load', init);
 })();
 </script>

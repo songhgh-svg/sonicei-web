@@ -1,0 +1,140 @@
+/* ════════════════════════════════════════════════════════════
+   SONIC E&I — Scrollspy Sidebar
+   File: scrollspy-sidebar.css
+   Dán vào cuối shared.css hoặc main.css
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Bar container ── */
+.ss-bar {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 98; /* dưới nav (z-index: 100) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  pointer-events: none; /* container trong suốt, chỉ items nhận click */
+}
+
+/* Đường kẻ dọc nối dots */
+.ss-bar::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: rgba(201,162,39,0.15);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Progress line theo scroll */
+.ss-progress {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  width: 1px;
+  height: 0;
+  background: var(--gold);
+  transform: translateX(-50%);
+  transform-origin: top center;
+  opacity: 0.55;
+  transition: height 0.12s linear;
+  z-index: 0;
+}
+
+/* ── Mỗi dot item ── */
+.ss-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 1;
+}
+
+/* ── Dot ── */
+.ss-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.25);
+  border: 1px solid rgba(201,162,39,0.2);
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  flex-shrink: 0;
+}
+
+/* Active */
+.ss-item.active .ss-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+  width: 9px;
+  height: 9px;
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.18),
+              0 0 10px rgba(201,162,39,0.3);
+}
+
+/* Hover */
+.ss-item:hover .ss-dot {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: scale(1.35);
+}
+
+/* ── Tooltip ── */
+.ss-label {
+  position: absolute;
+  left: 18px;
+  background: rgba(10,22,40,0.96);
+  border: 0.5px solid rgba(201,162,39,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--white);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.16s, transform 0.16s;
+}
+
+/* Mũi tên tooltip */
+.ss-label::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: rgba(201,162,39,0.25);
+}
+.ss-label::after {
+  content: '';
+  position: absolute;
+  right: calc(100% - 1px);
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: rgba(10,22,40,0.96);
+}
+
+/* Hiện tooltip khi hover */
+.ss-item:hover .ss-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Ẩn trên mobile ── */
+@media (max-width: 820px) {
+  .ss-bar { display: none; }
+}

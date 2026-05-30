@@ -37,7 +37,7 @@ body {
 }
 
 /* ── NAVIGATION ── */
-nav {
+nav:not(.ss-bar) {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 0 16px;
   height: 48px;

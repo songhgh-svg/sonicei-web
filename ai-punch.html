@@ -24,7 +24,7 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--navy);color:var(--white);font-family:'Be Vietnam Pro',sans-serif;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;display:flex;align-items:center;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,39,0.2)}
+nav:not(.ss-bar){position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;height:46px;display:flex;align-items:center;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,39,0.2)}
 .logo-wrap{display:flex;flex-direction:row;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
 .logo-text{display:flex;align-items:center;line-height:1}
 .logo-line{white-space:nowrap;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:18px;letter-spacing:2px}
@@ -408,6 +408,11 @@ html[lang="vi"] .how-big-num {
 </head>
 <body>
 
+<!-- ═══ SCROLLSPY SIDEBAR ═══ -->
+<nav class="ss-bar" id="ss-bar" aria-label="Page navigation">
+  <div class="ss-progress" id="ss-progress"></div>
+</nav>
+
 <!-- NAV -->
 <nav>
   <a href="/" class="logo-wrap">
@@ -454,7 +459,7 @@ html[lang="vi"] .how-big-num {
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero-bg"></div>
 
   <div class="hero-badge">
@@ -2468,6 +2473,99 @@ setTimeout(function(){if(!sc_open)document.getElementById('sonic-chat-toggle').c
   obs.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
 
+})();
+</script>
+<!-- ═══ SCROLLSPY SIDEBAR ═══ -->
+<link rel="stylesheet" href="scrollspy-sidebar.css">
+<script>
+(function () {
+  'use strict';
+  var SECTIONS = [
+    { id: 'hero',         en: 'Hero',        vi: 'Trang Chủ'   },
+    { id: 'how-it-works', en: 'How It Works', vi: 'Cách Hoạt Động' },
+    { id: 'demo',         en: 'Demo',        vi: 'Demo'         },
+    { id: 'features',     en: 'Features',    vi: 'Tính Năng'    },
+    { id: 'try-it',       en: 'Try It',      vi: 'Dùng Thử'     },
+    { id: 'get-access',   en: 'Get Access',  vi: 'Đăng Ký'      },
+  ];
+  function getCurrentLabel(sec) {
+    var lang = document.documentElement.lang || 'en';
+    return lang === 'vi' ? sec.vi : sec.en;
+  }
+  function init() {
+    var bar      = document.getElementById('ss-bar');
+    var progress = document.getElementById('ss-progress');
+    if (!bar) return;
+    var items = [];
+    SECTIONS.forEach(function (sec) {
+      var el = document.getElementById(sec.id);
+      if (!el) return;
+      var item = document.createElement('div');
+      item.className = 'ss-item';
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', 'Go to ' + sec.en);
+      var dot = document.createElement('div');
+      dot.className = 'ss-dot';
+      var label = document.createElement('span');
+      label.className = 'ss-label';
+      label.textContent = getCurrentLabel(sec);
+      item.appendChild(dot);
+      item.appendChild(label);
+      function goTo() {
+        var navHeight = 46;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+      item.addEventListener('click', goTo);
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(); }
+      });
+      bar.insertBefore(item, progress);
+      items.push({ el: el, item: item, labelEl: label, sec: sec });
+    });
+    var ticking = false;
+    function update() {
+      var threshold = window.innerHeight * 0.38;
+      var activeIdx = 0;
+      items.forEach(function (s, i) {
+        if (s.el.getBoundingClientRect().top <= threshold) activeIdx = i;
+      });
+      items.forEach(function (s, i) {
+        s.item.classList.toggle('active', i === activeIdx);
+      });
+      if (progress && items.length > 1) {
+        var barItems = bar.querySelectorAll('.ss-item');
+        if (barItems.length > 1) {
+          var first  = barItems[0].getBoundingClientRect();
+          var last   = barItems[barItems.length - 1].getBoundingClientRect();
+          var total  = last.top - first.top;
+          var filled = total > 0 ? (activeIdx / (items.length - 1)) * total : 0;
+          progress.style.height = Math.max(0, filled) + 'px';
+        }
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }, { passive: true });
+    update();
+    function syncLabels() {
+      items.forEach(function (s) {
+        s.labelEl.textContent = getCurrentLabel(s.sec);
+        s.item.setAttribute('aria-label', 'Go to ' + getCurrentLabel(s.sec));
+      });
+    }
+    new MutationObserver(function (muts) {
+      muts.forEach(function (m) { if (m.attributeName === 'lang') syncLabels(); });
+    }).observe(document.documentElement, { attributes: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 </body>

@@ -182,6 +182,7 @@
 <!-- ═══ CSS blocking để tránh FOUC và CLS ═══ -->
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="scrollspy-sidebar.css">
 
 <!-- ═══ FIX 5: CRITICAL CSS INLINE chỉ giữ những gì cần cho hero paint, xoá duplicate với shared.css/main.css ═══ -->
 <style>
@@ -258,7 +259,7 @@ body{background:var(--navy);color:var(--white);font-family:'Be Vietnam Pro',syst
    Không có Rajdhani/Bebas trong nav → không có FOUT.
    Layout dùng grid 3 cột cứng → logo không thể đẩy nav-links.
 ══════════════════════════════════════════════════════════════════════════ */
-nav{
+nav:not(.ss-bar){
   position:fixed;top:0;left:0;right:0;z-index:100;
   height:48px;
   display:grid;
@@ -526,6 +527,11 @@ html[lang="vi"] .footer-brand-text {
 </style>
 </head>
 <body>
+
+<!-- ═══ SCROLLSPY SIDEBAR ═══ -->
+<nav class="ss-bar" id="ss-bar" aria-label="Page navigation">
+  <div class="ss-progress" id="ss-progress"></div>
+</nav>
 
 <!-- FLOATING CTA -->
 <a href="#contact" id="fcta" style="
@@ -3447,6 +3453,7 @@ window.addEventListener('pageshow', function(e) {
   })();
 })();
 </script>
+<script src="scrollspy-sidebar.js"></script>
 
 </body>
 </html>
