@@ -154,7 +154,7 @@ body{
 .prog-fill{height:100%;background:linear-gradient(to right,var(--blue),var(--gold));border-radius:1px;transition:width .9s ease}
 .prog-pct{font-family:'Share Tech Mono',monospace;font-size:6.5px;color:var(--gray);letter-spacing:1px;white-space:nowrap}
 
-/* ── CTA BAR — same width as phone, set by JS ── */
+/* ── CTA BAR — min width as phone, can grow ── */
 .cta-bar{
   flex-shrink:0;
   background:#070f1e;
@@ -162,13 +162,17 @@ body{
   border-radius:0 0 10px 10px;
   padding:8px 10px;
   display:flex;align-items:center;gap:8px;
+  width:auto !important;
+  min-width:0;
 }
 .btn-cta{
-  flex:1;padding:11px 10px;background:var(--gold);color:var(--navy);
-  font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;
+  flex-shrink:0;padding:10px 14px;background:var(--gold);color:var(--navy);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;
   clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .25s;
   animation:ctaPulse 1.8s ease-in-out infinite;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  white-space:nowrap;
 }
 .btn-cta:hover{background:var(--gold-light);animation:none;}
 @keyframes ctaPulse{
@@ -176,30 +180,25 @@ body{
   50%{background:var(--gold-light);box-shadow:0 0 18px 6px rgba(232,195,71,0.45);}
 }
 .btn-back{
-  padding:10px 12px;background:transparent;color:var(--gray);
-  font-family:'Be Vietnam Pro',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+  padding:10px 10px;background:transparent;color:var(--gray);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;
   border:1px solid rgba(255,255,255,0.1);
   clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:all .25s;
   white-space:nowrap;flex-shrink:0;
+  display:flex;align-items:center;gap:3px;
 }
 .btn-back:hover{border-color:var(--gold);color:var(--gold)}
 /* Arrow indicators on CTA bar buttons */
-.btn-back::before{
-  content:'◄ ';font-size:8px;
-  animation:arrowBounceLeft 1s ease-in-out infinite;
-  display:inline-block;
-}
+.back-arrow{font-size:8px;animation:arrowBounceLeft 1s ease-in-out infinite;display:inline-block;flex-shrink:0;}
 @keyframes arrowBounceLeft{
   0%,100%{transform:translateX(0);opacity:0.7;}
   50%{transform:translateX(-2px);opacity:1;}
 }
-.btn-cta::after{
-  content:' ▶';font-size:9px;
-  animation:arrowBounceRight 1s ease-in-out infinite;
-  display:inline-block;
-}
-.btn-cta.no-arrow::after{content:none;animation:none;}
+.btn-cta::after{content:none;}
+.cta-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
+.cta-arrow{flex-shrink:0;font-size:9px;animation:arrowBounceRight 1s ease-in-out infinite;display:inline-block;}
+.btn-cta.no-arrow .cta-arrow{display:none;}
 @keyframes arrowBounceRight{
   0%,100%{transform:translateX(0);opacity:0.7;}
   50%{transform:translateX(3px);opacity:1;}
@@ -275,8 +274,8 @@ body{
 <!-- 3. CTA BAR -->
 <div class="cta-bar" id="ctaBar">
   <div class="dot-row" id="dotRow"></div>
-  <button class="btn-back" id="btnBack" onclick="goStep(window._cur-1)" style="display:none">← Back</button>
-  <button class="btn-cta"  id="btnCta"  onclick="ctaClick()">Start AI Scan →</button>
+  <button class="btn-back" id="btnBack" onclick="goStep(window._cur-1)" style="display:none"><span class="back-arrow">◄</span><span class="back-label">Back</span></button>
+  <button class="btn-cta"  id="btnCta"  onclick="ctaClick()"><span class="cta-label">Start AI Scan</span><span class="cta-arrow">▶</span></button>
 </div>
 
 <script>
@@ -350,7 +349,7 @@ const NAV_LABELS = {
 };
 // Tab labels per lang
 const TAB_LABELS = {
-  en: {dashboard:'📊 Dashboard', report:'📄 Report', back:'QUAY LẠI'},
+  en: {dashboard:'📊 Dashboard', report:'📄 Report', back:'BACK'},
   vi: {dashboard:'📊 Dashboard', report:'📄 Báo Cáo', back:'QUAY LẠI'}
 };
 
@@ -378,7 +377,8 @@ function syncSize() {
   phone.style.height = phoneH + 'px';
   phone.style.width  = phoneW + 'px';
   nav.style.width    = phoneW + 'px';
-  cta.style.width    = phoneW + 'px';
+  cta.style.minWidth = phoneW + 'px';
+  cta.style.width    = '';
 }
 requestAnimationFrame(function(){ syncSize(); });
 window.addEventListener('resize', syncSize);
@@ -427,11 +427,12 @@ function goStep(n) {
   tagsEl.innerHTML = s.tags.map(t=>`<div class="dtag ${t.cls}">${t.text}</div>`).join('');
   tagsEl.style.display = s.tags.length ? 'flex' : 'none';
 
-  document.getElementById('btnCta').textContent = s.ctaLabel;
-  document.getElementById('btnCta').classList.toggle('no-arrow', !s.ctaNext);
+  const ctaBtn = document.getElementById('btnCta');
+  ctaBtn.querySelector('.cta-label').textContent = s.ctaLabel;
+  ctaBtn.classList.toggle('no-arrow', !s.ctaNext);
   const backBtn = document.getElementById('btnBack');
-  backBtn.style.display = n > 0 ? 'block' : 'none';
-  backBtn.textContent = (TAB_LABELS[_lang]||TAB_LABELS.en).back;
+  backBtn.style.display = n > 0 ? 'flex' : 'none';
+  backBtn.querySelector('.back-label').textContent = (TAB_LABELS[_lang]||TAB_LABELS.en).back;
   document.getElementById('dotRow').innerHTML = steps.map((_,i) =>
     `<div class="dot${i===n?' active':i<n?' done':''}" onclick="goStep(${i})"></div>`).join('');
 
